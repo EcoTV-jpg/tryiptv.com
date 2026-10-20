@@ -68,10 +68,12 @@ async function smallTapTargets(page: Page) {
       if (el.closest('[aria-hidden="true"], .sr-only, [inert]')) continue;
       const cs = getComputedStyle(el);
       if (cs.visibility === 'hidden' || cs.opacity === '0') continue;
-      // Inline link within a sentence: exempt.
+      // Inline link within a sentence: exempt (WCAG 2.5.8). Compare against the nearest block-level
+      // container, not the direct parent: <li><strong><a>Name</a>:</strong> sentence…</li> is in-text.
       if (cs.display === 'inline') {
-        const block = el.parentElement;
-        const text = (block?.textContent ?? '').trim();
+        let block = el.parentElement;
+        while (block && getComputedStyle(block).display === 'inline') block = block.parentElement;
+        const text = (block?.textContent ?? '').replace(/\s+/g, ' ').trim();
         if (text.length > (el.textContent ?? '').trim().length + 1) continue;
       }
       if (r.width + 0.5 < MIN || r.height + 0.5 < MIN) {
