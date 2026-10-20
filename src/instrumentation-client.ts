@@ -43,15 +43,20 @@ function initSentry() {
 
 // Start on the first user interaction, or 10 s after the load event, whichever comes first, so
 // the SDK download/evaluation stays out of the page's initial interactivity window.
-const INTERACTIONS = ["pointerdown", "keydown", "scroll", "touchstart"] as const;
+// "scroll" is only listened to after load: scroll restoration / #hash landings fire it during load.
+const INTERACTIONS = ["pointerdown", "keydown", "touchstart"] as const;
 let started = false;
 function start() {
   if (started) return;
   started = true;
   for (const type of INTERACTIONS) window.removeEventListener(type, start);
+  window.removeEventListener("scroll", start);
   initSentry();
 }
 for (const type of INTERACTIONS) window.addEventListener(type, start, { once: true, passive: true });
-const afterLoad = () => setTimeout(start, 10000);
+const afterLoad = () => {
+  window.addEventListener("scroll", start, { once: true, passive: true });
+  setTimeout(start, 10000);
+};
 if (document.readyState === "complete") afterLoad();
 else window.addEventListener("load", afterLoad, { once: true });
