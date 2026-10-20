@@ -101,7 +101,7 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/privacy-policy',  section: 'legal', indexable: true, lastModified: '2026-10-20' },
   { path: '/terms-conditions',section: 'legal', indexable: true, lastModified: '2026-10-20' },
   { path: '/refund-policy',   section: 'legal', indexable: true, lastModified: '2026-10-20' },
-  { path: '/disclaimer',      section: 'legal', indexable: true, lastModified: '2026-03-01' },
+  { path: '/disclaimer',      section: 'legal', indexable: true, lastModified: '2026-10-20' },
   { path: '/dmca-report',     section: 'legal', indexable: true, lastModified: '2026-10-20' },
   { path: '/press', section: 'utility', indexable: true, lastModified: '2026-10-20' },
   // Owner-confirmed trust pages: indexable (and in the sitemap) only once a statement is confirmed.

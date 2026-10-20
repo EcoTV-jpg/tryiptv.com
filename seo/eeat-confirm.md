@@ -103,3 +103,8 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 53. **Connections:** the supplied §11 said "Only one active stream is permitted at a time". That contradicts "2 simultaneous connections on every plan" (pricing, home, FAQ, schema). §3 and §11 now state 2 connections from `PRODUCT_TRUTHS`. Confirm 2 is correct.
 54. **Trademarks:** the supplied §15 said "registered trademarks". Is "TryIPTV" (or the logo) actually a registered trademark, and if so where and under which number? Until then the page says "trademarks and property of TryIPTV". Claiming a registration you don't hold is unlawful in some countries.
 55. **"Click-to-purchase" third-party vendors (§4):** does TryIPTV link to any third-party vendors? If not, this clause is harmless but can be removed.
+
+## Disclaimer (owner-supplied text, added 2026-10-20)
+56. **Business model, the most important open question:** the disclaimer now says "We do not host, stream, or rebroadcast television channels… We provide access credentials to third-party IPTV service providers". The homepage, About and Terms describe TryIPTV as "an IPTV service provider" that supplies streaming access.
+    - **Which is accurate?** If TryIPTV resells access to third-party providers, the About page and homepage ("Who we are") should say so too, and the content-licensing page (questions 15–18) should describe that model.
+    - The disclaimer also says "we are committed to providing access to legal IPTV services". This is a legality claim that only holds if the providers behind the service are licensed (see questions 15–18).
