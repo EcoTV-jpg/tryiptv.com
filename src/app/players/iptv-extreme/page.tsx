@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
 import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
@@ -126,5 +127,6 @@ export default function IptvExtremePage() {
         <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm text-muted-foreground">Need IPTV credentials for IPTV Extreme? <Link href="/iptv-free-trial" className={a}>Start with a 24-hour IPTV trial</Link>. TryIPTV is independent of IPTV Extreme and Paolo Turatti.</div>
       </section>
     </article></Container></Section>
+    <TopicClusterLinks path="/players/iptv-extreme" />
   </>;
 }

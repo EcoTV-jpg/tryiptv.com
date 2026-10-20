@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
 import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -408,6 +409,7 @@ export default function M3uVsXtreamCodesPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/m3u-vs-xtream-codes" />
     </>
   );
 }

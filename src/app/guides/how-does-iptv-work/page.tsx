@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
 import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
@@ -547,6 +548,7 @@ export default function HowDoesIptvWorkPage() {
           </article>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/how-does-iptv-work" />
     </>
   );
 }

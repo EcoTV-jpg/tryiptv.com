@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
 import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
@@ -451,6 +452,7 @@ export default function IptvLoginNotWorkingPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/help/iptv-login-not-working" />
     </>
   );
 }

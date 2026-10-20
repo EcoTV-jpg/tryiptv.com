@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
 import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
@@ -99,5 +100,6 @@ export default function PerfectPlayerPage() {
       </section>
       <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm text-muted-foreground">Need IPTV credentials for an existing player or a replacement? <Link href="/iptv-free-trial" className={a}>Start with a 24-hour IPTV trial</Link>. TryIPTV is independent of Niklabs.</div>
     </article></Container></Section>
+    <TopicClusterLinks path="/players/perfect-player" />
   </>;
 }

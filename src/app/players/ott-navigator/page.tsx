@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
 import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
@@ -256,6 +257,7 @@ export default function OttNavigatorPage() {
           </article>
         </Container>
       </Section>
+      <TopicClusterLinks path="/players/ott-navigator" />
     </>
   );
 }

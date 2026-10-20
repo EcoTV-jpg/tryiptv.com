@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
 import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
@@ -458,6 +459,7 @@ export default function WhatAreXtreamCodesPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/what-are-xtream-codes" />
     </>
   );
 }

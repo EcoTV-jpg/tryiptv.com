@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
 import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
@@ -500,6 +501,7 @@ export default function WhatIsEpgPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/what-is-epg" />
     </>
   );
 }

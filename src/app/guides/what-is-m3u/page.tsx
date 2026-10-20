@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
 import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { ArrowRight, Code, Globe, List, Tv } from "lucide-react";
@@ -529,6 +530,7 @@ export default function WhatIsM3uPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/what-is-m3u" />
     </>
   );
 }
