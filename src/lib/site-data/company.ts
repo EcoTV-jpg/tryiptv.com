@@ -92,38 +92,3 @@ export const LICENSING: { id: string; draft: string; confirmed: boolean; questio
 
 export const LICENSING_CONFIRMED = LICENSING.some((l) => l.confirmed);
 
-/** "How we test" methodology. Same rule: only confirmed lines render in production. */
-export const TESTING: { id: string; draft: string; confirmed: boolean; question: string }[] = [
-  {
-    id: "devices",
-    draft: "Setup guides are checked on: [device models and OS versions].",
-    confirmed: false,
-    question: "Which exact devices (model + OS version) do you test the setup guides on?",
-  },
-  {
-    id: "apps",
-    draft: "Player apps tested: [app names and versions], re-checked every [interval].",
-    confirmed: false,
-    question: "Which player app versions are tested, and how often are guides re-checked?",
-  },
-  {
-    id: "speed",
-    draft: "Stream bitrates are measured with [tool] on a [speed] connection; results are published in the internet speed guide.",
-    confirmed: false,
-    question: "Do you measure stream bitrates or speeds? With which tool, connection and on what dates?",
-  },
-  {
-    id: "uptime",
-    draft: "Server availability is monitored every [interval] with [tool]; [period] availability was [figure].",
-    confirmed: false,
-    question: "Do you run uptime monitoring? Which tool, interval, and can a figure or status page be published?",
-  },
-  {
-    id: "support-checks",
-    draft: "Support response times are measured from [source].",
-    confirmed: false,
-    question: "Can you measure and publish support response times (from WhatsApp/email logs)?",
-  },
-];
-
-export const TESTING_CONFIRMED = TESTING.some((t) => t.confirmed);

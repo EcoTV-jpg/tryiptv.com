@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { getAuthorForPath } from "@/lib/site-data/authors";
-import { TESTING_CONFIRMED, SHOW_CONFIRM_MARKERS } from "@/lib/site-data/company";
 import { Confirm } from "@/components/shared/Confirm";
 
 const link = "font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:decoration-primary";
@@ -17,9 +16,6 @@ export function GuideByline({ path }: { path: string }) {
         <>By <Link href={`/authors/${author.slug}`} className={link}>{author.name}</Link>, {author.role}</>
       ) : (
         <>By the <Link href="/about" className={link}>TryIPTV team</Link></>
-      )}
-      {(TESTING_CONFIRMED || SHOW_CONFIRM_MARKERS) && (
-        <> · <Link href="/how-we-test" className={link}>How we test</Link></>
       )}
       {!author && (
         <>

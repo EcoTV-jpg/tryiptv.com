@@ -9,7 +9,6 @@ import { Schema } from "@/components/shared/Schema";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { AUTHORS, GUIDE_AUTHORS } from "@/lib/site-data/authors";
-import { TESTING_CONFIRMED } from "@/lib/site-data/company";
 
 // Only confirmed, real authors get a profile page (see src/lib/site-data/authors.ts).
 export const dynamicParams = false;
@@ -87,9 +86,6 @@ export default async function AuthorPage({ params }: Props) {
             {author.sameAs?.length ? (
               <p>Elsewhere: {author.sameAs.map((s, i) => <span key={s}>{i ? ", " : ""}<a href={s} className={link} rel="noopener noreferrer" target="_blank">{new URL(s).hostname}</a></span>)}</p>
             ) : null}
-            {TESTING_CONFIRMED && (
-              <p>How we check our guides is explained on <Link href="/how-we-test" className={link}>How we test</Link>.</p>
-            )}
           </div>
         </Container>
       </Section>

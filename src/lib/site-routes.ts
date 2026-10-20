@@ -1,4 +1,4 @@
-import { LICENSING_CONFIRMED, TESTING_CONFIRMED } from './site-data/company.ts';
+import { LICENSING_CONFIRMED } from './site-data/company.ts';
 import { AUTHORS } from './site-data/authors.ts';
 /**
  * @file site-routes.ts
@@ -106,7 +106,6 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/press', section: 'utility', indexable: true, lastModified: '2026-10-20' },
   // Owner-confirmed trust pages: indexable (and in the sitemap) only once a statement is confirmed.
   { path: '/content-licensing', section: 'legal', indexable: LICENSING_CONFIRMED, lastModified: '2026-10-20' },
-  { path: '/how-we-test',       section: 'legal', indexable: TESTING_CONFIRMED,   lastModified: '2026-10-20' },
   // Author profiles exist only for confirmed authors (src/lib/site-data/authors.ts).
   ...AUTHORS.map((a) => ({ path: `/authors/${a.slug}`, section: 'utility' as const, indexable: true, lastModified: a.updated })),
 ];

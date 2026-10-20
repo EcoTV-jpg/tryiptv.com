@@ -70,7 +70,6 @@ Linking rules (implemented in `src/lib/site-data/topic-map.ts` and `<TopicCluste
 └── Trust & legal ─ (no pillar hub; linked from the footer, /about, /press)
     ├── /about ✅ · /press ✅ · /contact-us ✅ · policies ✅ · /dmca-report ✅
     ├── /content-licensing (gated until the owner confirms; see seo/eeat-confirm.md)
-    ├── /how-we-test (gated)
     └── ➕ /guides/spot-unsafe-iptv  how to spot fake or malware IPTV apps and sites (after licensing is confirmed)
 ```
 

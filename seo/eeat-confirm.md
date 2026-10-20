@@ -5,7 +5,7 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 **How the answers go live**
 - **Production:** a fact appears only after you confirm it. Until then nothing is shown in its place: no placeholder, no guess.
 - **Vercel Preview:** each question shows as an amber [CONFIRM] marker, so you can review everything on your phone.
-- **Gated pages:** `/content-licensing`, `/how-we-test` and `/authors/*` return 404 and stay out of the sitemap until at least one line on them is confirmed.
+- **Gated pages:** `/content-licensing` and `/authors/*` return 404 and stay out of the sitemap until at least one line on them is confirmed.
 
 **Ground rules**
 - Only give facts you can back up.
@@ -66,7 +66,7 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
     - Until this is filled in, guides show "By the TryIPTV team", which is honest.
     - On Preview, each guide shows a [CONFIRM] marker naming the path.
 
-## How we test (`TESTING`; the page stays hidden until a line is confirmed)
+## How we test (the /how-we-test page was deleted on 2026-10-20 at the owner's request; these answers can still be used in guides, e.g. a measured uptime figure)
 32. Which **exact devices** (model and OS version) are the setup guides tested on?
 33. Which **player app versions** are tested, and how often are guides re-checked?
 34. Do you **measure stream bitrates or speeds**? With which tool, on what connection, and on what dates?
