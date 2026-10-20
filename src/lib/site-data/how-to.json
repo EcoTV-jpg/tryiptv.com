@@ -1,8 +1,8 @@
 [
   {
     "id": "firestick-iptv",
-    "title": "How to Install IPTV on Firestick: Step-by-Step Fire TV Setup",
-    "description": "Set up IPTV on Amazon Fire TV Stick. Learn how to install a compatible player from the Amazon Appstore or via Downloader, configure Xtream Codes or M3U credentials, and troubleshoot Fire OS playback.",
+    "title": "How to Install IPTV on Fire TV Stick",
+    "description": "Install IPTV apps on your Amazon Fire TV Stick: get the Downloader app, allow it to install apps from unknown sources, and sideload a player such as TiviMate or IPTV Smarters. Many IPTV players are not listed in the Amazon Appstore, so sideloading the player's official APK with Downloader is the usual route. Then sign in with your Xtream Codes or M3U details.",
     "primaryKeyword": "Fire TV Stick",
     "keywords": [
       "iptv on firestick",
@@ -11,28 +11,28 @@
       "iptv player for firestick",
       "install iptv on fire tv"
     ],
-    "dateModified": "2026-10-12",
+    "dateModified": "2026-10-20",
     "totalTime": "PT15M",
     "steps": [
       {
-        "title": "Search the Amazon Appstore for your preferred player",
-        "description": "<p>From the Fire TV home screen, open <strong>Find</strong> (search icon) and enter the name of your chosen player (such as <a href=\"/players/iptv-smarters\">IPTV Smarters Pro</a>). If the app is available in your regional Appstore, select <strong>Download</strong> or <strong>Get</strong> to install it directly without modifying device settings.</p>"
+        "title": "Install the Downloader app from the Amazon Appstore",
+        "description": "<p>From the Fire TV home screen, open <strong>Find</strong> (search), type <strong>Downloader</strong>, and install it; Downloader is listed in the Amazon Appstore. Check the Appstore for your player first: if it is listed in your region (search its name, such as <a href=\"/players/iptv-smarters\">IPTV Smarters</a>), install it directly and skip to step 5.</p>"
       },
       {
-        "title": "Enable installation permissions if sideloading is required",
-        "description": "<p>If your chosen player is not distributed in the Amazon Appstore in your country, install the <strong>Downloader</strong> app from the Appstore, then enable developer permissions on your Fire TV:</p><ol><li>Navigate to <strong>Settings &gt; My Fire TV &gt; Developer Options</strong>. Menu names and placement can vary by Fire TV model and Fire OS version.</li><li>Turn on <strong>Install unknown apps</strong> for Downloader (or <strong>Apps from Unknown Sources</strong> on earlier Fire OS releases).</li><li><em>If Developer Options is hidden:</em> Open <strong>About</strong>, highlight your Fire TV name, and press the remote Select button <strong>7 times</strong> (per <a href='https://developer.amazon.com/docs/fire-tv/developer-options.html' target='_blank' rel='noopener noreferrer'>Amazon Developer documentation</a>).</li></ol>"
+        "title": "Allow Downloader to install apps from unknown sources",
+        "description": "<p>Fire TV only installs Appstore apps until you allow another source:</p><ol><li>Go to <strong>Settings &gt; My Fire TV &gt; Developer Options</strong>. Menu names can vary by Fire TV model and Fire OS version.</li><li>Select <strong>Install unknown apps</strong> and switch <strong>Downloader</strong> to <strong>ON</strong> (on older Fire OS releases this is a single <strong>Apps from Unknown Sources</strong> toggle).</li><li><em>If you do not see Developer Options:</em> open <strong>My Fire TV &gt; About</strong>, highlight your device name and press Select <strong>7 times</strong> until developer mode is unlocked (per <a href='https://developer.amazon.com/docs/fire-tv/developer-options.html' target='_blank' rel='noopener noreferrer'>Amazon Developer documentation</a>).</li></ol>"
       },
       {
-        "title": "Download the player APK and delete the installer",
-        "description": "<p>Open Downloader, enter the player developer's official download URL, and let the package download. After selecting <strong>Install</strong>, choose <strong>Done</strong>, then select <strong>Delete</strong> when Downloader prompts you to remove the APK file to save internal storage.</p>"
+        "title": "Enter the player's official download link in Downloader",
+        "description": "<p>Open Downloader and type the direct download address that the player's developer publishes on its official website, for example for <a href=\"/players/tivimate\">TiviMate</a> or <a href=\"/players/iptv-smarters\">IPTV Smarters Pro</a>. Avoid APK mirrors and copied Downloader codes from other sites: you cannot tell what they install.</p>"
       },
       {
-        "title": "Open the player and select your login method",
-        "description": "<p>Launch your player from <strong>Your Apps &amp; Games</strong>. Select <strong>Login with <a href='/guides/what-are-xtream-codes'>Xtream Codes API</a></strong> (recommended) or <strong>Load M3U Playlist</strong> depending on your subscription format.</p>"
+        "title": "Complete the installation and delete the APK",
+        "description": "<p>Let the APK finish downloading, select <strong>Install</strong>, then <strong>Done</strong>. When Downloader offers to delete the downloaded file, select <strong>Delete</strong> to free up storage; the app stays installed.</p>"
       },
       {
-        "title": "Enter your server URL, username, and password",
-        "description": "<p>For Xtream Codes, enter your <strong>Server URL</strong>, <strong>Username</strong>, and <strong>Password</strong> without trailing spaces. If using an M3U link, enter the complete playlist URL. You can use the official <strong>Amazon Fire TV mobile app</strong> on your phone to paste long URLs directly into the on-screen keyboard.</p>"
+        "title": "Open the player and sign in with your provider's details",
+        "description": "<p>Launch the player from <strong>Your Apps &amp; Games</strong>. Choose <strong>Login with <a href='/guides/what-are-xtream-codes'>Xtream Codes API</a></strong> (recommended) and enter your <strong>Server URL</strong>, <strong>Username</strong>, and <strong>Password</strong> with no extra spaces, or choose <strong>Load M3U Playlist</strong> and enter the full playlist URL. The <strong>Amazon Fire TV</strong> app on your phone lets you paste long URLs into the on-screen keyboard.</p>"
       },
       {
         "title": "Synchronize channel bouquets and the TV guide",
@@ -107,12 +107,16 @@
     ],
     "faqs": [
       {
-        "question": "Does Fire TV Stick include a built-in IPTV player?",
-        "answer": "No. Fire TV devices do not come with a native IPTV player. You must install a third-party application like IPTV Smarters Pro or TiviMate to open streams."
+        "question": "Why aren't many IPTV apps in the Amazon Appstore?",
+        "answer": "Many IPTV player developers publish on Google Play but not in the Amazon Appstore, and availability varies by region. That is why sideloading the player's official APK with the Downloader app is the standard way to install them on Fire TV. Always check the Appstore first."
       },
       {
-        "question": "Can I install an IPTV player without using Downloader on Fire TV?",
-        "answer": "Yes, if the player is available directly in the Amazon Appstore in your region. Downloader is only required when sideloading an application not hosted in Amazon's store."
+        "question": "Can I turn off unknown sources afterward?",
+        "answer": "Yes. Once your IPTV app is installed, you can switch Downloader's Install unknown apps permission (or Apps from Unknown Sources) back off; the app keeps working. Turn it on again only when you need to install an update the same way."
+      },
+      {
+        "question": "Does Fire TV Stick include a built-in IPTV player?",
+        "answer": "No. Fire TV devices do not come with a native IPTV player. You must install a third-party application like IPTV Smarters Pro or TiviMate to open streams."
       },
       {
         "question": "How do I unlock Developer Options on newer Fire TV models?",

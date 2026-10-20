@@ -32,6 +32,6 @@ export const getArticlesWithEmbeddings = cache(async (): Promise<ArticleWithEmbe
     );
     return articlesWithEmbeddings;
 },
-['articles-with-embeddings-v2'],
+['articles-with-embeddings-v3'],
 { revalidate: 3600, tags: ['articles'] }
 );

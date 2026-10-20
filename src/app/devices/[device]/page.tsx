@@ -230,7 +230,7 @@ type SetupLink = { href: string; label: string };
 
 const DEVICE_QUICK_ANSWERS: Record<string, string> = {
   "firestick-iptv":
-    "Install Downloader from the Amazon Appstore, sideload a dedicated IPTV player like IPTV Smarters Pro or TiviMate, enter your Xtream Codes API credentials, and optimize Fire TV remote navigation and buffer settings.",
+    "Install the Downloader app from the Amazon Appstore, allow it to install unknown apps under Settings > My Fire TV > Developer Options, sideload an IPTV player such as TiviMate or IPTV Smarters Pro from its developer's official download link, then sign in with your Xtream Codes or M3U details.",
   "android-tv-iptv":
     "To use IPTV on Android TV or Google TV: (1) install a compatible TV player from Google Play; (2) open the player and choose Xtream Codes or M3U; (3) enter the credentials supplied by your IPTV provider and load your playlist.",
   "samsung-tv-iptv":
