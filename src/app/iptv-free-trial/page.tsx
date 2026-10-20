@@ -526,10 +526,13 @@ export default async function IptvFreeTrialPage() {
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {troubleshootingLinks.map((t) => (
                 <div key={t.issue} className="rounded-lg border border-white/[0.09] bg-card p-4">
-                  <p className="mb-1 text-xs font-semibold text-muted-foreground">{t.issue}</p>
+                  {/* Mouse keeps the original mt-1 on the link. Touch: the link is a block-level flex box so
+                      tap-target's padding/margin pair cancels exactly (mt-1 would override it), and the
+                      5px gap on the <p> reproduces the original card height. */}
+                  <p className="text-xs font-semibold text-muted-foreground pointer-coarse:mb-[5px]">{t.issue}</p>
                   <Link
                     href={t.href}
-                    className="tap-target inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline"
+                    className="tap-target inline-flex pointer-fine:mt-1 pointer-coarse:flex pointer-coarse:w-fit items-center gap-1 text-sm font-bold text-primary hover:underline"
                   >
                     {t.label} <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
