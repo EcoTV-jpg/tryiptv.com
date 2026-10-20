@@ -74,7 +74,7 @@ export const SITE_ROUTES: SiteRoute[] = [
 
   // ── Guides hub + guide pages ──────────────────────────────────────────────
   { path: '/guides',                     section: 'guides', indexable: true,  lastModified: '2026-10-05' },
-  { path: '/guides/what-is-iptv',        section: 'guides', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/guides/what-is-iptv',        section: 'guides', indexable: true,  lastModified: '2026-10-20' },
   { path: '/guides/how-does-iptv-work',  section: 'guides', indexable: true,  lastModified: '2026-10-06' },
   { path: '/guides/what-is-m3u',         section: 'guides', indexable: true,  lastModified: '2026-10-05' },
   { path: '/guides/what-are-xtream-codes',section: 'guides', indexable: true,  lastModified: '2026-10-05' },

@@ -2,22 +2,21 @@ import type { Metadata } from "next";
 import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
 import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
 import { Schema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FaqList } from "@/components/sections/FAQ";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "What Is IPTV? A Clear Beginner's Guide to Internet TV";
+const title = "What Is IPTV? A Beginner's Guide to Internet TV";
 const description =
-  "Learn what IPTV means, how internet-based TV differs from cable or satellite, and how playlists, players, EPG data, and devices fit together.";
+  "Learn what IPTV is, how it works, the devices and apps it runs on, and what you need to get started: internet speed, an app, and a subscription.";
 const canonical = "/guides/what-is-iptv";
-const modifiedDate = "2026-10-06";
+const modifiedDate = "2026-10-20";
 
 export function generateMetadata(): Metadata {
   return {
@@ -68,22 +67,30 @@ const comparisonRows = [
   },
 ];
 
-const essentials = [
+const devices = [
   {
-    title: "An IPTV service",
-    text: "The service supplies access details such as an M3U playlist URL or Xtream Codes login. TryIPTV supports both methods.",
+    label: "Smart TVs",
+    items: [
+      { name: "Android TV", href: "/devices/android-tv-iptv" },
+      { name: "Samsung Smart TV (Tizen)", href: "/devices/samsung-tv-iptv" },
+      { name: "LG Smart TV (webOS)", href: "/devices/lg-tv-iptv" },
+    ],
   },
   {
-    title: "A compatible device",
-    text: "Fire TV, Android TV, smart TVs, Apple TV, computers, phones, and set-top boxes can all work, but setup differs by platform.",
+    label: "TV boxes",
+    items: [
+      { name: "Apple TV", href: "/devices/apple-tv-iptv" },
+      { name: "Android boxes", href: "/devices/android-tv-iptv" },
+      { name: "Amazon Fire TV Stick", href: "/devices/firestick-iptv" },
+    ],
   },
   {
-    title: "A player app",
-    text: "The player is the software that reads your playlist or login details and presents channels, movies, series, and TV guide data.",
-  },
-  {
-    title: "A stable connection",
-    text: "IPTV does not need a cable line, but it does need steady internet. Ethernet or strong Wi-Fi usually matters more than peak speed alone.",
+    label: "Phones, tablets, and computers",
+    items: [
+      { name: "iPhone and iPad", href: "/devices/iphone-iptv" },
+      { name: "Windows", href: "/devices/windows-iptv" },
+      { name: "Mac", href: "/devices/mac-iptv" },
+    ],
   },
 ];
 
@@ -121,6 +128,21 @@ const legalityRows = [
 ];
 
 const faqs = [
+  {
+    question: "What internet speed do I need?",
+    answer:
+      "A download speed of at least 10 Mbps with low, stable latency works for standard streams (SD and 720p). For Full HD, plan on about 25 Mbps, and about 50 Mbps for 4K. Each extra screen streaming at the same time needs its own share.",
+  },
+  {
+    question: "Is IPTV legal?",
+    answer:
+      "IPTV is just a delivery technology and is legal in itself. Whether a particular service is legal depends on whether the provider holds the proper rights to the content it streams, so choose a reputable provider. This is general information, not legal advice.",
+  },
+  {
+    question: "Which app should I use?",
+    answer:
+      "It depends on your device. Smart IPTV and Set IPTV are popular on Samsung and LG TVs, TiviMate is a favourite on Android TV and Firestick, and IPTV Smarters works well across Android, iOS, Windows, and Mac.",
+  },
   {
     question: "What does IPTV stand for?",
     answer:
@@ -174,13 +196,11 @@ export default function WhatIsIptvPage() {
           <div className="mx-auto max-w-4xl text-center">
             <p className="eyebrow mb-3">IPTV Basics</p>
             <h1 className="font-headline text-3xl font-extrabold leading-[1.1] text-foreground sm:text-4xl lg:text-5xl">
-              What Is IPTV?
+              What Is IPTV? A Beginner&apos;s Guide
             </h1>
             <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-              IPTV (Internet Protocol Television) is television delivered over an internet connection
-              instead of a cable line, satellite dish, or antenna. A service supplies live channels and
-              on-demand video as streams, and you watch them in an IPTV player app on a TV, streaming
-              stick, phone, or computer.
+              Learn what IPTV is, how it works, the devices and apps it runs on, and what you need to get
+              started, including internet speed, an app, and a subscription.
             </p>
             <GuideByline path="/guides/what-is-iptv" />
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
@@ -202,11 +222,102 @@ export default function WhatIsIptvPage() {
           <article className="mx-auto max-w-4xl">
             <div className="prose prose-lg max-w-none dark:prose-invert">
               <p className="lead text-xl leading-8 text-foreground">
-                In practical terms, IPTV is a way to watch television using internet data. A service
-                provides access details, a player app reads those details, and your device plays the
-                live channels, movies, series, and guide information that the service makes available.
+                IPTV (Internet Protocol Television) delivers multimedia content over the internet, giving
+                you a wide range of live channels, on-demand video, and customization options. Instead of
+                receiving a signal through a cable or satellite dish, your device streams TV directly over
+                your internet connection.
               </p>
 
+              <h2>How IPTV works</h2>
+              <p>
+                IPTV sends television content as data packets over the internet. When you open a channel,
+                your IPTV app requests that stream from a server and plays it in real time. The same
+                technology also powers video on demand (VOD), so you can watch movies and series whenever
+                you want. For the full step-by-step picture, read{" "}
+                <Link href="/guides/how-does-iptv-work" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                  how IPTV works
+                </Link>
+                .
+              </p>
+
+              <h2>What devices and apps support IPTV</h2>
+              <p>IPTV runs on a wide variety of hardware and platforms, including:</p>
+            </div>
+
+            <ul className="my-6 grid gap-4 sm:grid-cols-3">
+              {devices.map((group) => (
+                <li key={group.label} className="rounded-lg border border-white/[0.09] bg-card p-5">
+                  <h3 className="font-headline text-lg font-extrabold text-foreground">{group.label}</h3>
+                  <ul className="mt-3 space-y-1.5 text-base sm:text-sm">
+                    {group.items.map((d) => (
+                      <li key={d.name}>
+                        <Link href={d.href} className="tap-target inline-flex items-center gap-1 text-primary hover:underline">
+                          {d.name} <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+
+            <div className="prose prose-lg max-w-none dark:prose-invert">
+              <p>
+                Popular apps include <Link href="/players/iptv-smarters">IPTV Smarters</Link>, Smart IPTV,
+                and Set IPTV, which support operating systems such as webOS (LG), Tizen (Samsung), and
+                Android TV. On Android TV and Firestick, <Link href="/players/tivimate">TiviMate</Link> is
+                another favourite. These player apps are made by other companies and contain no channels of
+                their own: TryIPTV is the service, and the player is the app that opens your TryIPTV login.{" "}
+                <Link href="/players">Compare IPTV players</Link>.
+              </p>
+
+              <h2>What you need to use IPTV</h2>
+              <p>To get started with IPTV, you need three things:</p>
+              <ol>
+                <li>
+                  <strong>An internet connection</strong>: a minimum of about 10 Mbps download speed with
+                  low, stable latency for smooth standard-quality playback; about 25 Mbps for Full HD and
+                  50 Mbps for 4K. You can check your connection at{" "}
+                  <a href="https://www.speedtest.net/" target="_blank" rel="noopener noreferrer">speedtest.net</a>,
+                  and read our <Link href="/guides/iptv-internet-speed">IPTV internet speed guide</Link>.
+                </li>
+                <li>
+                  <strong>An IPTV application</strong>: both free and premium options are available
+                  depending on your device.
+                </li>
+                <li>
+                  <strong>An IPTV subscription</strong>: provided as an M3U link or Xtream Codes
+                  credentials. TryIPTV supplies both, and you can test it first with a{" "}
+                  {PRODUCT_TRUTHS.trialDuration.toLowerCase()} <Link href="/iptv-free-trial">free trial</Link>.
+                </li>
+              </ol>
+
+              <h2>What is an M3U link?</h2>
+              <p>
+                An M3U link is a playlist file from your IPTV provider that contains all of your channels and
+                VOD content. You simply paste it into your IPTV app, which then loads your entire lineup at
+                once. Many apps also accept Xtream Codes credentials (server URL, username, and password) as
+                an alternative, and the EPG adds the TV guide.
+              </p>
+            </div>
+
+            <div className="my-8 grid gap-4 md:grid-cols-3">
+              {concepts.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-lg border border-white/[0.09] bg-card p-5 transition-colors hover:border-primary/40"
+                >
+                  <h3 className="font-headline text-lg font-extrabold text-foreground">{item.title}</h3>
+                  <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">{item.text}</p>
+                  <span className="mt-4 inline-flex items-center text-sm font-semibold text-primary">
+                    Read guide <ArrowRight className="ml-1.5 h-4 w-4" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="prose prose-lg max-w-none dark:prose-invert">
               <h2>How IPTV differs from cable or satellite</h2>
               <p>
                 Traditional TV systems are built around dedicated delivery networks. Cable TV arrives
@@ -256,69 +367,6 @@ export default function WhatIsIptvPage() {
                 device, and player support. TryIPTV&apos;s current product configuration lists{" "}
                 {PRODUCT_TRUTHS.channels} live channels and {PRODUCT_TRUTHS.vod} movies and series,
                 with {PRODUCT_TRUTHS.connections} simultaneous connections on prepaid plans.
-              </p>
-
-              <h2>What you need to use IPTV</h2>
-              <p>
-                To use IPTV you need four things: an IPTV service that supplies the channels, a device
-                such as a Firestick, smart TV, phone, or computer, an IPTV player app installed on that
-                device, and a stable internet connection of about 25 Mbps for Full HD. The service gives
-                you login details that you enter in the player.
-              </p>
-            </div>
-
-            <div className="my-8 grid gap-4 sm:grid-cols-2">
-              {essentials.map((item) => (
-                <Card key={item.title}>
-                  <CardHeader className="pb-3">
-                    <CardTitle as="h3" className="flex items-center gap-2 text-lg font-extrabold">
-                      <CheckCircle2 className="h-5 w-5 text-primary" />
-                      {item.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-base sm:text-sm leading-6 text-muted-foreground">{item.text}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            <div className="prose prose-lg max-w-none dark:prose-invert">
-              <h2>M3U, Xtream Codes, and EPG in plain English</h2>
-              <p>
-                IPTV setup terms can sound more complicated than they are. Most users only need to
-                know which login method their player supports and where to enter the details.
-              </p>
-            </div>
-
-            <div className="my-8 grid gap-4 md:grid-cols-3">
-              {concepts.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-lg border border-white/[0.09] bg-card p-5 transition-colors hover:border-primary/40"
-                >
-                  <h3 className="font-headline text-lg font-extrabold text-foreground">{item.title}</h3>
-                  <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">{item.text}</p>
-                  <span className="mt-4 inline-flex items-center text-sm font-semibold text-primary">
-                    Read guide <ArrowRight className="ml-1.5 h-4 w-4" />
-                  </span>
-                </Link>
-              ))}
-            </div>
-
-            <div className="prose prose-lg max-w-none dark:prose-invert">
-              <h2>Where devices and player apps fit in</h2>
-              <p>
-                TryIPTV is the IPTV service. Third-party IPTV players are separate apps used to open
-                compatible M3U or Xtream Codes access details. Some devices can install IPTV players
-                directly from an app store, while others have restrictions or require a different
-                setup method.
-              </p>
-              <p>
-                Start with the <Link href="/devices">device guides</Link> if you already know what
-                you want to watch on, or use the <Link href="/players">player guides</Link> if you
-                are comparing apps such as IPTV Smarters, TiviMate, or XCIPTV.
               </p>
 
               <h2>Internet speed and buffering basics</h2>
