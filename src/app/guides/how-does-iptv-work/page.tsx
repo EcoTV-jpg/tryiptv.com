@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -182,6 +183,7 @@ export default function HowDoesIptvWorkPage() {
               where those streams are, and the player on your TV, stick, phone, or computer downloads and plays
               them, with EPG data adding the schedule.
             </p>
+            <GuideByline path="/guides/how-does-iptv-work" />
           </div>
         </Container>
       </Section>

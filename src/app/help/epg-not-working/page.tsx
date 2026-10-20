@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   AlertCircle,
@@ -137,6 +138,7 @@ export default function EpgNotWorkingPage() {
               hours, or drops channels entirely, use this structured diagnostic sequence to isolate the
               metadata failure and restore accurate schedules.
             </p>
+            <GuideByline path="/help/epg-not-working" />
           </div>
         </Container>
       </Section>

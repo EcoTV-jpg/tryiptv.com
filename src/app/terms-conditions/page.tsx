@@ -7,6 +7,8 @@ import { Schema } from "@/components/shared/Schema";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { PAGE_LAST_MODIFIED, formatLegalDate } from "@/lib/site-data/page-modifications";
+import { COMPANY } from "@/lib/site-data/company";
+import { Confirm } from "@/components/shared/Confirm";
 
 export function generateMetadata(): Metadata {
   return generatePageMetadata({
@@ -85,12 +87,28 @@ export default function TermsConditionsPage() {
             <div className="space-y-3">
               <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">5. Service Availability & Quality</h2>
               <p>
-                While we strive for high uptime and smooth stream delivery, streaming quality depends significantly on your local internet connection, ISP routing, device processing power, and third-party media app settings. We recommend a minimum stable speed of 25 Mbps for HD and 50 Mbps for 4K streams.
+                While we strive for high uptime and smooth stream delivery, streaming quality depends significantly on your local internet connection, ISP routing, device processing power, and third-party media app settings. We recommend a stable connection of at least 25 Mbps for Full HD and 50 Mbps for 4K streams.
               </p>
             </div>
 
             <div className="space-y-3">
-              <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">6. Modifications and Contact</h2>
+              <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">6. Refunds</h2>
+              <p>
+                Refund eligibility, exclusions and how to request a refund are set out in our{" "}
+                <a href="/refund-policy" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">Refund Policy</a>, which forms part of these terms.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">7. Who Provides the Service and Governing Law</h2>
+              {COMPANY.legalName && <p>The service is provided by {COMPANY.legalName}{COMPANY.address ? `, ${COMPANY.address.street}, ${COMPANY.address.locality} ${COMPANY.address.postalCode}, ${COMPANY.address.country}` : ""}.</p>}
+              {COMPANY.governingLaw && <p>These terms are governed by {COMPANY.governingLaw}.</p>}
+              <Confirm value={COMPANY.legalName} question="Legal name (and registered address) of the entity that provides the service and enters this agreement." />
+              <Confirm value={COMPANY.governingLaw} question="Which country's or state's law governs these terms, and where are disputes resolved?" />
+            </div>
+
+            <div className="space-y-3">
+              <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">8. Modifications and Contact</h2>
               <p>
                 TryIPTV reserves the right to modify these terms as needed to reflect operational or regulatory changes. Continued use of the service constitutes agreement to updated terms. For questions, contact{" "}
                 <a href={`mailto:${siteConfig.links.email}`} className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">

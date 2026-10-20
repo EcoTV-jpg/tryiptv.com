@@ -31,15 +31,13 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${siteConfig.name} — Best IPTV Service in USA, UK & Worldwide`,
+    default: `${siteConfig.name} — Prepaid IPTV Service for the USA, UK & More`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   referrer: 'origin-when-cross-origin',
   keywords: [
-    'best IPTV',
-    'best IPTV service',
     'IPTV service',
     'IPTV provider',
     'IPTV subscription',
@@ -64,20 +62,20 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: `${SITE_URL}/`,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Best IPTV Service in USA, UK & Worldwide`,
+    title: `${siteConfig.name} — Prepaid IPTV Service for the USA, UK & More`,
     description: siteConfig.description,
     images: [
       {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} - Best Streaming Service`,
+        alt: `${siteConfig.name} - Prepaid IPTV Service`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteConfig.name} — Best IPTV Service in USA, UK & Worldwide`,
+    title: `${siteConfig.name} — Prepaid IPTV Service for the USA, UK & More`,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },

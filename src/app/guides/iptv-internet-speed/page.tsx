@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -168,6 +169,7 @@ export default function IptvInternetSpeedPage() {
               A practical guide to streaming bandwidth, household connection planning, Wi-Fi versus Ethernet,
               and multi-stream headroom.
             </p>
+            <GuideByline path="/guides/iptv-internet-speed" />
           </div>
         </Container>
       </Section>

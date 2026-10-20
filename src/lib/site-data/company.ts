@@ -1,0 +1,130 @@
+/**
+ * Company, trust and licensing facts. Every value here is either confirmed by the owner or `null`.
+ *
+ * Rules (Google QRG §4.5.3 rates invented addresses, authors or testing claims "Lowest"; Google's
+ * helpful-content guide calls fabricated creator profiles "a form of deception"):
+ * - Never fill a field with a guess. Leave it `null` until the owner confirms it.
+ * - Each `null` carries its question in CONFIRM_QUESTIONS. In production an unconfirmed fact is simply
+ *   not rendered; on Preview/dev builds it shows as a visible [CONFIRM] marker (see <Confirm>).
+ * - Pages that would consist only of unconfirmed claims (licensing, how we test, author profiles)
+ *   return 404 in production and stay out of the sitemap until confirmed.
+ */
+
+/** True on Vercel Preview and local dev: unconfirmed facts render as [CONFIRM] markers. */
+export const SHOW_CONFIRM_MARKERS = process.env.VERCEL_ENV !== "production";
+
+export const COMPANY = {
+  /** Brand name, as used everywhere (Bing §16: one consistent entity name). */
+  brand: "TryIPTV",
+  legalName: null as string | null,
+  registrationNumber: null as string | null,
+  vatOrTaxId: null as string | null,
+  /** Only if the owner wants a postal/registered address published. Never a virtual or invented one. */
+  address: null as { street: string; locality: string; postalCode: string; country: string } | null,
+  /** Country/city to state in prose, e.g. "Toronto, Canada". */
+  location: null as string | null,
+  /** ISO year the service started, e.g. "2021". */
+  foundingYear: null as string | null,
+  /** 2–4 sentence company story in the owner's words. */
+  story: null as string | null,
+  /** People who may be named publicly. Only real people who agreed to be listed. */
+  team: [] as { name: string; role: string; bio?: string }[],
+  support: {
+    email: "support@tryiptv.com",
+    whatsappDisplay: "+1 (520) 564-8298",
+    whatsappUrl: "https://wa.me/15205648298",
+    dmcaEmail: "dmca@tryiptv.com",
+    /** e.g. "Every day, 9:00–23:00 UTC". */
+    hours: null as string | null,
+    /** e.g. "Most WhatsApp messages are answered within 1 hour; email within 24 hours." */
+    responseTime: null as string | null,
+    languages: null as string | null,
+  },
+  /** Confirmed: "User business specification: Cryptocurrency, PayPal, Stripe (2026-10-09)" (content-quality registry). */
+  paymentMethods: "cryptocurrency, PayPal and Stripe" as string | null,
+  /** Governing law for the Terms, e.g. "the laws of Ontario, Canada". */
+  governingLaw: null as string | null,
+  /** Name and postal address of the DMCA designated agent, and whether it is registered with the US Copyright Office. */
+  dmcaAgent: null as { name: string; address: string; registeredWithUSCO: boolean } | null,
+} as const;
+
+/**
+ * Content-rights statement. Each line is shown only once `confirmed` is true for it.
+ * The wording is a neutral draft; the owner must confirm or correct every line before it goes live.
+ */
+export const LICENSING: { id: string; draft: string; confirmed: boolean; question: string }[] = [
+  {
+    id: "no-licence-alternative",
+    draft: "If no licences can be documented, this page is replaced by an accurate statement of what TryIPTV does and does not provide, plus the DMCA process; no licensing claim is made.",
+    confirmed: false,
+    question: "If you cannot document licences for the content, tell us. An unprovable licensing claim is worse than none (it is a deception signal for Google raters and AI engines); we will publish an accurate service description and the DMCA process instead.",
+  },
+  {
+    id: "rights-basis",
+    draft: "TryIPTV distributes channels under agreements with the rights holders or their authorised distributors.",
+    confirmed: false,
+    question: "Do you hold distribution agreements or licences for the channels and films you stream? If yes, with whom (rights holders, aggregators, distributors) and for which territories?",
+  },
+  {
+    id: "licensors",
+    draft: "Licensors or distribution partners: [names].",
+    confirmed: false,
+    question: "Which licensors or distribution partners can be named publicly?",
+  },
+  {
+    id: "territories",
+    draft: "The service is licensed for viewers in: [countries].",
+    confirmed: false,
+    question: "In which countries is the service licensed to be offered?",
+  },
+  {
+    id: "catalogue-basis",
+    draft: "The 25,000+ channel and 120,000+ title figures count the live and on-demand entries available to subscribers on [date].",
+    confirmed: false,
+    question: "How are the 25,000+ channels and 120,000+ titles counted, and on what date? Can you publish the method or a category breakdown?",
+  },
+  {
+    id: "takedown",
+    draft: "When a rights holder sends a valid notice, the affected stream is removed within [time].",
+    confirmed: false,
+    question: "What is your actual takedown time after a valid copyright notice?",
+  },
+];
+
+export const LICENSING_CONFIRMED = LICENSING.some((l) => l.confirmed);
+
+/** "How we test" methodology. Same rule: only confirmed lines render in production. */
+export const TESTING: { id: string; draft: string; confirmed: boolean; question: string }[] = [
+  {
+    id: "devices",
+    draft: "Setup guides are checked on: [device models and OS versions].",
+    confirmed: false,
+    question: "Which exact devices (model + OS version) do you test the setup guides on?",
+  },
+  {
+    id: "apps",
+    draft: "Player apps tested: [app names and versions], re-checked every [interval].",
+    confirmed: false,
+    question: "Which player app versions are tested, and how often are guides re-checked?",
+  },
+  {
+    id: "speed",
+    draft: "Stream bitrates are measured with [tool] on a [speed] connection; results are published in the internet speed guide.",
+    confirmed: false,
+    question: "Do you measure stream bitrates or speeds? With which tool, connection and on what dates?",
+  },
+  {
+    id: "uptime",
+    draft: "Server availability is monitored every [interval] with [tool]; [period] availability was [figure].",
+    confirmed: false,
+    question: "Do you run uptime monitoring? Which tool, interval, and can a figure or status page be published?",
+  },
+  {
+    id: "support-checks",
+    draft: "Support response times are measured from [source].",
+    confirmed: false,
+    question: "Can you measure and publish support response times (from WhatsApp/email logs)?",
+  },
+];
+
+export const TESTING_CONFIRMED = TESTING.some((t) => t.confirmed);

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   AlertCircle,
@@ -141,6 +142,7 @@ export default function IptvNotWorkingPage() {
               crashes, or nothing works on any device. Each symptom points to a different cause, and each has
               its own fix below.
             </p>
+            <GuideByline path="/help/iptv-not-working" />
           </div>
         </Container>
       </Section>

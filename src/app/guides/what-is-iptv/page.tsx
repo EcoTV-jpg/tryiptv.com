@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
@@ -180,6 +181,7 @@ export default function WhatIsIptvPage() {
               on-demand video as streams, and you watch them in an IPTV player app on a TV, streaming
               stick, phone, or computer.
             </p>
+            <GuideByline path="/guides/what-is-iptv" />
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
               <Button asChild>
                 <Link href="/guides/how-does-iptv-work">

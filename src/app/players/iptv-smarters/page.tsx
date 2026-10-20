@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
@@ -53,6 +54,7 @@ export default function IptvSmartersPage() {
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               IPTV Smarters is a media player, not an IPTV provider; it includes no channels or subscriptions. Users can connect compatible sources using supported API credentials or M3U playlists supplied by their provider. After login, the app can load the provider&apos;s live channels, movies, series, and EPG data where those are available.
             </p>
+            <GuideByline path="/players/iptv-smarters" />
             <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base leading-relaxed text-muted-foreground">
               <p className="font-semibold text-foreground">Official App Name &amp; Platform Availability</p>
               <ul className="mt-3 list-disc space-y-2 pl-5">

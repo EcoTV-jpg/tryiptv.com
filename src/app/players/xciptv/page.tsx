@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
@@ -53,6 +54,7 @@ export default function XciptvPage() {
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               XCIPTV is an IPTV media player and does not include channels or subscriptions. You need an M3U playlist URL or compatible login details from your IPTV provider. Install XCIPTV, enter those details, allow the available channels and EPG data to load, then test playback on several channels.
             </p>
+            <GuideByline path="/players/xciptv" />
           </div>
         </Container>
       </Section>

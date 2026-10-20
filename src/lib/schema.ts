@@ -1,3 +1,5 @@
+import { getAuthorForPath } from '@/lib/site-data/authors';
+import { COMPANY } from '@/lib/site-data/company';
 import type {
   Product,
   WebSite,
@@ -52,7 +54,22 @@ export function generateOrganizationSchema(): WithContext<Organization> {
       'height': 1024 as any,
     },
     'sameAs': [...publicBrandSocialLinks],
-  };
+    'email': COMPANY.support.email,
+    'contactPoint': {
+      '@type': 'ContactPoint',
+      'contactType': 'customer support',
+      'email': COMPANY.support.email,
+      'url': COMPANY.support.whatsappUrl,
+      ...(COMPANY.support.languages ? { 'availableLanguage': COMPANY.support.languages } : {}),
+    },
+    // Added only once confirmed by the owner (src/lib/site-data/company.ts); never guessed.
+    ...(COMPANY.legalName ? { 'legalName': COMPANY.legalName } : {}),
+    ...(COMPANY.foundingYear ? { 'foundingDate': COMPANY.foundingYear } : {}),
+    ...(COMPANY.vatOrTaxId ? { 'vatID': COMPANY.vatOrTaxId } : {}),
+    ...(COMPANY.address
+      ? { 'address': { '@type': 'PostalAddress', 'streetAddress': COMPANY.address.street, 'addressLocality': COMPANY.address.locality, 'postalCode': COMPANY.address.postalCode, 'addressCountry': COMPANY.address.country } }
+      : {}),
+  } as WithContext<Organization>;
 }
 
 interface ProductSchemaProps {
@@ -128,6 +145,15 @@ interface ArticleSchemaProps {
     authorName?: string;
     publisherName?: string;
     url: string;
+    /** Path of the page, used to look up a confirmed author (src/lib/site-data/authors.ts). */
+    path?: string;
+}
+
+function authorFor(path: string) {
+    const person = getAuthorForPath(path);
+    return person
+        ? { '@type': 'Person' as const, name: person.name, url: `${siteConfig.url}/authors/${person.slug}` }
+        : organizationReference;
 }
 
 export function generateArticleSchema(props: ArticleSchemaProps): WithContext<Article> {
@@ -141,7 +167,8 @@ export function generateArticleSchema(props: ArticleSchemaProps): WithContext<Ar
         // datePublished is intentionally omitted: no verified publication dates exist.
         image: props.image ?? `${siteConfig.url}${siteConfig.ogImage}?title=${encodeURIComponent(props.headline)}`,
         dateModified: props.dateModified,
-        author: organizationReference,
+        // A confirmed person if one is assigned to this page; otherwise the organisation (never invented people).
+        author: authorFor(props.path ?? props.url.replace(siteConfig.url, "")),
         publisher: defaultPublisher,
         mainEntityOfPage: {
             '@type': 'WebPage',

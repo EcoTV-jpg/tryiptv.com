@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -138,6 +139,7 @@ export default function WhatIsEpgPage() {
               XMLTV file and matched to the playlist's channels by ID. This guide explains how that data
               is structured, loaded, and kept in sync.
             </p>
+            <GuideByline path="/guides/what-is-epg" />
           </div>
         </Container>
       </Section>

@@ -7,6 +7,8 @@ import { Schema } from "@/components/shared/Schema";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { PAGE_LAST_MODIFIED, formatLegalDate } from "@/lib/site-data/page-modifications";
+import { COMPANY } from "@/lib/site-data/company";
+import { Confirm } from "@/components/shared/Confirm";
 
 export function generateMetadata(): Metadata {
   return {
@@ -70,20 +72,28 @@ export default function DmcaReportPage() {
             </div>
 
             <div className="space-y-3">
-              <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">2. Designated Copyright Agent</h2>
-              <p>Please send all infringement notifications to our designated copyright response team at:</p>
+              <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">2. Where to Send Notices</h2>
+              <p>Please send all infringement notifications to:</p>
                 <div
                   dangerouslySetInnerHTML={{
                     __html: `<!--email_off--><p>Email: <a href="mailto:dmca@tryiptv.com" class="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">dmca@tryiptv.com</a></p><p>Secondary: <a href="mailto:${siteConfig.links.email}" class="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">${siteConfig.links.email}</a></p><!--/email_off-->`,
                   }}
                 />
+                {COMPANY.dmcaAgent && (
+                  <p>
+                    Designated agent: {COMPANY.dmcaAgent.name}, {COMPANY.dmcaAgent.address}
+                    {COMPANY.dmcaAgent.registeredWithUSCO ? " (registered with the U.S. Copyright Office)" : ""}.
+                  </p>
+                )}
+                <Confirm value={COMPANY.dmcaAgent} question="Name and postal address of your DMCA designated agent, and is the agent registered with the U.S. Copyright Office? (Safe-harbour protection under 17 U.S.C. 512 requires registration.)" />
             </div>
 
             <div className="space-y-3">
               <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">3. Response Timeline & Takedown Procedure</h2>
               <p>
-                Upon receipt of a valid and complete notification fulfilling all statutory requirements, TryIPTV will promptly investigate the claim and take necessary remediation action, which may include disabling access to the specified stream feed or playlist pointer.
+                Upon receipt of a valid and complete notification fulfilling all statutory requirements, TryIPTV will investigate the claim and take the necessary action, which may include disabling access to the specified stream feed or playlist entry.
               </p>
+              <Confirm value={null} question="How quickly do you act on a valid notice (e.g. within 48 hours)? This replaces the vague 'promptly'." />
             </div>
 
             <div className="space-y-3">

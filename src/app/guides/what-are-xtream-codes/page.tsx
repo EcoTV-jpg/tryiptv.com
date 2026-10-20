@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -124,6 +125,7 @@ export default function WhatAreXtreamCodesPage() {
               already sorted into categories. It is a login method supported by most IPTV players, not a
               service or an app.
             </p>
+            <GuideByline path="/guides/what-are-xtream-codes" />
           </div>
         </Container>
       </Section>

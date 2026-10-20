@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FaqList } from "@/components/sections/FAQ";
@@ -163,6 +164,7 @@ export default function M3uVsXtreamCodesPage() {
               playlist or an Xtream-compatible login. Understand how each method operates, where their
               practical differences lie, and how to choose the right format for your setup.
             </p>
+            <GuideByline path="/guides/m3u-vs-xtream-codes" />
           </div>
         </Container>
       </Section>

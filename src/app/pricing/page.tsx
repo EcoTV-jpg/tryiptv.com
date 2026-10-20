@@ -59,7 +59,7 @@ const planBestFor: Record<string, string> = {
 
 // Same list as the homepage plan cards.
 const planCardFeatures = [
-  "4K Ultra HD Streaming Quality",
+  "HD and 4K Streams Where Available",
   "25,000+ Live Channels Worldwide",
   "120,000+ Movies & TV Shows",
   "PPV Events Included",

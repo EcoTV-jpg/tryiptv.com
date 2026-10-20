@@ -43,12 +43,12 @@ export const PAGE_LAST_MODIFIED: Record<string, string> = {
   '/iptv-free-trial': '2026-09-30',
   '/devices': '2026-09-30',
   '/faq': '2026-09-29',
-  '/contact-us': '2026-09-29',
-  '/privacy-policy': '2026-03-01',
-  '/terms-conditions': '2026-03-01',
-  '/refund-policy': '2026-03-01',
+  '/contact-us': '2026-10-20',
+  '/privacy-policy': '2026-10-20',
+  '/terms-conditions': '2026-10-20',
+  '/refund-policy': '2026-10-20',
   '/disclaimer': '2026-03-01',
-  '/dmca-report': '2026-03-01',
+  '/dmca-report': '2026-10-20',
 };
 
 /**

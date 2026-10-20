@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { ArrowRight, Code, Globe, List, Tv } from "lucide-react";
 import { FaqList } from "@/components/sections/FAQ";
@@ -130,6 +131,7 @@ export default function WhatIsM3uPage() {
               it as a web link that a player app downloads. This guide covers M3U vs M3U8, Extended M3U
               syntax, and how players parse it.
             </p>
+            <GuideByline path="/guides/what-is-m3u" />
           </div>
         </Container>
       </Section>

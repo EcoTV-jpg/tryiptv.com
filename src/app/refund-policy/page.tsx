@@ -8,6 +8,8 @@ import { Schema } from "@/components/shared/Schema";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { PAGE_LAST_MODIFIED, formatLegalDate } from "@/lib/site-data/page-modifications";
+import { COMPANY } from "@/lib/site-data/company";
+import { Confirm } from "@/components/shared/Confirm";
 import { Button } from "@/components/ui/button";
 
 export function generateMetadata(): Metadata {
@@ -94,6 +96,7 @@ export default function RefundPolicyPage() {
               <p>
                 Approved refunds are processed following technical confirmation by our support desk or applied as service credit. For cryptocurrency transactions, approved refunds exclude network miner fees.
               </p>
+              <Confirm value={null} question="How long does an approved refund take to reach the customer, and is it paid to the original payment method?" />
             </div>
 
             <div className="space-y-3">

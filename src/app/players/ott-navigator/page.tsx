@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
@@ -53,6 +54,7 @@ export default function OttNavigatorPage() {
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               OTT Navigator is an IPTV media player; it supplies no channels or subscription. Add your IPTV provider inside the app using an M3U/M3U8 playlist or Xtream Codes details supplied by that provider. OTT Navigator then loads the available channel list, on-demand content, and EPG data, which you should check separately before testing playback.
             </p>
+            <GuideByline path="/players/ott-navigator" />
           </div>
         </Container>
       </Section>

@@ -7,6 +7,8 @@ import { Schema } from "@/components/shared/Schema";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { PAGE_LAST_MODIFIED, formatLegalDate } from "@/lib/site-data/page-modifications";
+import { COMPANY } from "@/lib/site-data/company";
+import { Confirm } from "@/components/shared/Confirm";
 
 export function generateMetadata(): Metadata {
   return {
@@ -77,7 +79,18 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-3">
               <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">3. Third-Party Sharing</h2>
               <p>
-                We do not sell, rent, monetize, or trade your personal information to third parties or advertising brokers. Data is only handled by technical infrastructure providers required to operate communication and website availability.
+                We do not sell, rent, monetize, or trade your personal information to third parties or advertising brokers. Personal data is handled only by the service providers we use to run the website and support:
+              </p>
+              <ul className="list-disc pl-5 space-y-1.5">
+                <li><strong className="text-foreground">Vercel</strong> hosts the website, and <strong className="text-foreground">Cloudflare</strong> delivers it and protects it from abuse.</li>
+                <li><strong className="text-foreground">Cloudflare Turnstile</strong> checks that contact-form submissions come from a person.</li>
+                <li><strong className="text-foreground">Resend</strong> delivers contact-form messages to our support inbox by email.</li>
+                <li><strong className="text-foreground">WhatsApp</strong> (Meta) carries support and order conversations you start on WhatsApp.</li>
+                <li><strong className="text-foreground">Google Analytics</strong> measures aggregate website traffic (see section 5).</li>
+                <li><strong className="text-foreground">Sentry</strong> receives technical error reports from the website, with user-identifying data collection turned off.</li>
+                <li>Payment providers process payments under their own privacy policies; we do not see or store card or bank details.</li>
+              </ul>
+              <p>
               </p>
             </div>
 
@@ -91,12 +104,19 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-3">
               <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">5. Cookies and Analytics</h2>
               <p>
-                Our website may utilize essential cookies or privacy-respecting analytics to measure aggregate page traffic and improve website performance. We do not deploy cross-site advertising tracking cookies.
+                Our website uses Google Analytics to measure aggregate page traffic and improve the site. Google Analytics sets first-party cookies (such as <code>_ga</code>) to count visits; you can block them in your browser settings or with Google&apos;s opt-out add-on. Cloudflare may set strictly necessary security cookies. We do not use advertising or cross-site tracking cookies.
               </p>
             </div>
 
             <div className="space-y-3">
-              <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">6. Contacting Us About Privacy</h2>
+              <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">6. Who Is Responsible for Your Data and How Long We Keep It</h2>
+              {COMPANY.legalName && <p>The data controller is {COMPANY.legalName}.</p>}
+              <Confirm value={COMPANY.legalName} question="Legal name and address of the data controller (the entity responsible for personal data)." />
+              <Confirm value={null} question="How long do you keep support messages, order records and trial requests before deleting them?" />
+            </div>
+
+            <div className="space-y-3">
+              <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">7. Contacting Us About Privacy</h2>
               <p>
                 If you have questions regarding this Privacy Policy or wish to request deletion of your contact records, reach out to our team at{" "}
                 <a href={`mailto:${siteConfig.links.email}`} className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">

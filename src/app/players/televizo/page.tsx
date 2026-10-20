@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
@@ -53,6 +54,7 @@ export default function TelevizoPage() {
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               Televizo is an IPTV media player; it does not include channels. To use it, get an M3U playlist URL or Xtream Codes server URL, username, and password from your IPTV provider. Install Televizo, add the playlist or credentials, save the entry, and allow the channels and any available EPG data to load.
             </p>
+            <GuideByline path="/players/televizo" />
           </div>
         </Container>
       </Section>

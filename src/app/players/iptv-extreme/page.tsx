@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
@@ -47,6 +48,7 @@ export default function IptvExtremePage() {
         <span className="font-mono text-xs font-semibold uppercase tracking-wider text-primary">IPTV Extreme guide</span>
         <h1 className="mt-3 font-headline text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">IPTV Extreme Setup Guide: M3U, Xtream Codes &amp; MAG/Stalker</h1>
         <p className="mt-4 text-base leading-8 text-muted-foreground sm:text-lg">IPTV Extreme is a playlist player; it does not include channels or a subscription. Add your own compatible M3U playlist or, on supported versions, an Xtream Codes or MAG/Stalker configuration. The app can then load the channels, on-demand items, and EPG data available from that source. Check each stage separately if setup stops working.</p>
+        <GuideByline path="/players/iptv-extreme" />
       </div>
     </Container></Section>
     <Section className="py-12 sm:py-16"><Container><article className="mx-auto max-w-4xl space-y-12">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
@@ -56,6 +57,7 @@ export default function TivimatePage() {
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               TiviMate is an IPTV media player, not a source of channels or subscriptions. You need your own compatible playlist or login details from an IPTV provider. Install TiviMate, add an Xtream Codes login or M3U playlist, then allow channels and any available EPG data to load.
             </p>
+            <GuideByline path="/players/tivimate" />
           </div>
         </Container>
       </Section>

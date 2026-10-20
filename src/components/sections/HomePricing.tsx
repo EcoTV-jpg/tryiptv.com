@@ -68,7 +68,7 @@ const PLANS = [
 ] as const;
 
 const INCLUDED_FEATURES = [
-  "4K Ultra HD Streaming Quality",
+  "HD and 4K Streams Where Available",
   "25,000+ Live Channels Worldwide",
   "120,000+ Movies & TV Shows",
   "PPV Events Included",

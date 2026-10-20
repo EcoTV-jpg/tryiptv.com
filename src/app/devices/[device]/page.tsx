@@ -19,6 +19,7 @@ import {
   HardDrive,
 } from "lucide-react";
 import InternalLinks from "@/components/shared/InternalLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import { Schema } from "@/components/shared/Schema";
 import { generateArticleSchema, generateHowToSchema, generateFAQPageSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
@@ -761,6 +762,7 @@ export default async function HowToPage({ params }: Props) {
                   </time>
                 </span>
               </div>
+              <GuideByline path={`/devices/${id}`} />
 
               {/* Mobile Table of Contents */}
               <GuideToc items={tocItems} variant="mobile" />

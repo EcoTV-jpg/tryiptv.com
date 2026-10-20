@@ -1,3 +1,5 @@
+import { LICENSING_CONFIRMED, TESTING_CONFIRMED } from './site-data/company.ts';
+import { AUTHORS } from './site-data/authors.ts';
 /**
  * @file site-routes.ts
  * @description Single source of truth for TryIPTV's approved SEO URL architecture.
@@ -90,17 +92,22 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/help/epg-not-working',        section: 'help', indexable: true,  lastModified: '2026-10-05' },
 
   // ── Utility ───────────────────────────────────────────────────────────────
-  { path: '/about',      section: 'utility', indexable: true, lastModified: '2026-10-19' },
+  { path: '/about',      section: 'utility', indexable: true, lastModified: '2026-10-20' },
   { path: '/faq',        section: 'utility', indexable: true, lastModified: '2026-10-04' },
-  { path: '/contact-us', section: 'utility', indexable: true, lastModified: '2026-10-04' },
+  { path: '/contact-us', section: 'utility', indexable: true, lastModified: '2026-10-20' },
   { path: '/blog',       section: 'utility', indexable: false },
 
   // ── Legal ─────────────────────────────────────────────────────────────────
-  { path: '/privacy-policy',  section: 'legal', indexable: true, lastModified: '2026-03-01' },
-  { path: '/terms-conditions',section: 'legal', indexable: true, lastModified: '2026-03-01' },
-  { path: '/refund-policy',   section: 'legal', indexable: true, lastModified: '2026-03-01' },
+  { path: '/privacy-policy',  section: 'legal', indexable: true, lastModified: '2026-10-20' },
+  { path: '/terms-conditions',section: 'legal', indexable: true, lastModified: '2026-10-20' },
+  { path: '/refund-policy',   section: 'legal', indexable: true, lastModified: '2026-10-20' },
   { path: '/disclaimer',      section: 'legal', indexable: true, lastModified: '2026-03-01' },
-  { path: '/dmca-report',     section: 'legal', indexable: true, lastModified: '2026-03-01' },
+  { path: '/dmca-report',     section: 'legal', indexable: true, lastModified: '2026-10-20' },
+  // Owner-confirmed trust pages: indexable (and in the sitemap) only once a statement is confirmed.
+  { path: '/content-licensing', section: 'legal', indexable: LICENSING_CONFIRMED, lastModified: '2026-10-20' },
+  { path: '/how-we-test',       section: 'legal', indexable: TESTING_CONFIRMED,   lastModified: '2026-10-20' },
+  // Author profiles exist only for confirmed authors (src/lib/site-data/authors.ts).
+  ...AUTHORS.map((a) => ({ path: `/authors/${a.slug}`, section: 'utility' as const, indexable: true, lastModified: a.updated })),
 ];
 
 /** All indexable routes that should appear in sitemap.xml */

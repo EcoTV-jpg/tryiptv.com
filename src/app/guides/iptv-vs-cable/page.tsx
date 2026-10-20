@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -208,6 +209,7 @@ export default function IptvVsCablePage() {
               but depends on your broadband; cable keeps working when the internet is slow but usually needs
               rented equipment and longer contracts.
             </p>
+            <GuideByline path="/guides/iptv-vs-cable" />
           </div>
         </Container>
       </Section>

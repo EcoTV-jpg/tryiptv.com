@@ -10,19 +10,17 @@ import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site
 import { formatLegalDate } from "@/lib/site-data/page-modifications";
 import { plans } from "@/lib/site-data/pricing";
 import { publicBrandSocialLinks } from "@/lib/site-data/socials";
+import { COMPANY, LICENSING_CONFIRMED, SHOW_CONFIRM_MARKERS } from "@/lib/site-data/company";
+import { Confirm } from "@/components/shared/Confirm";
 
-const LAST_UPDATED = "2026-10-19";
+const LAST_UPDATED = "2026-10-20";
 
-// Facts still to be confirmed by the owner. Each line on the page that needs one is only
-// rendered once it is filled in, so the page never shows guesses or placeholders.
-const OPERATOR: { name: string | null; location: string | null; since: string | null } = {
-  name: null, // legal entity or owner name
-  location: null, // country, city (only if the owner wants it published)
-  since: null, // year started
-};
-const PAYMENT_METHODS: string | null = null; // e.g. "…" — accepted payment methods
-const SUPPORT_HOURS: string | null = null; // WhatsApp hours, time zone, typical response time
-const LANGUAGES: string | null = null;
+// Company facts live in src/lib/site-data/company.ts. An unconfirmed fact is not rendered in
+// production; Preview/dev builds show a [CONFIRM] marker in its place (see <Confirm>).
+const OPERATOR = { name: COMPANY.legalName, location: COMPANY.location, since: COMPANY.foundingYear };
+const PAYMENT_METHODS = COMPANY.paymentMethods;
+const SUPPORT_HOURS = COMPANY.support.hours;
+const LANGUAGES = COMPANY.support.languages;
 
 const title = "About Us: Prepaid IPTV Service, Trial & Support | TryIPTV";
 const description =
@@ -95,8 +93,15 @@ const schema = {
       url: `${base}/`,
       logo: `${base}/brand-logo-square.png`,
       email: siteConfig.links.email,
-      contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: siteConfig.links.email },
+      contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: siteConfig.links.email, url: COMPANY.support.whatsappUrl },
       sameAs: [...publicBrandSocialLinks],
+      // Only confirmed facts are added (Google: Organization properties must be true; QRG §4.5.3).
+      ...(COMPANY.legalName ? { legalName: COMPANY.legalName } : {}),
+      ...(COMPANY.foundingYear ? { foundingDate: COMPANY.foundingYear } : {}),
+      ...(COMPANY.vatOrTaxId ? { vatID: COMPANY.vatOrTaxId } : {}),
+      ...(COMPANY.address
+        ? { address: { "@type": "PostalAddress", streetAddress: COMPANY.address.street, addressLocality: COMPANY.address.locality, postalCode: COMPANY.address.postalCode, addressCountry: COMPANY.address.country } }
+        : {}),
     },
     {
       "@type": "BreadcrumbList",
@@ -141,17 +146,35 @@ export default function AboutPage() {
               <h2 className={h2}>Who we are</h2>
               <p>TryIPTV is an IPTV service provider. We supply streaming access to live TV and on-demand content that you watch on your own devices through a compatible IPTV player app.</p>
               <p>TryIPTV is not a player app. We don&apos;t make or sell the software you watch with. You bring a device and a player; we provide the service and the login details that player needs.</p>
+              <Confirm value={COMPANY.story} question="Company story: how and why TryIPTV started, in 2–4 sentences.">
+                <p>{COMPANY.story}</p>
+              </Confirm>
             </section>
 
             <section className="space-y-3">
               <h2 className={h2}>Who runs TryIPTV</h2>
               {runBy.length > 0 && <p>TryIPTV is {runBy.join(", ")}.</p>}
+              <div className="space-y-1">
+                <div><Confirm value={COMPANY.legalName} question="Legal name of the company or person that operates TryIPTV." /></div>
+                <div><Confirm value={COMPANY.location} question="Where is TryIPTV based (country, city), if you want it published?" /></div>
+                <div><Confirm value={COMPANY.foundingYear} question="Year TryIPTV started operating." /></div>
+                <div><Confirm value={COMPANY.registrationNumber} question="Company registration number and registry, if registered." /></div>
+              </div>
+              <Confirm value={COMPANY.team} question="Team members who agree to be named publicly (name, role, short bio).">
+                <ul className="list-disc space-y-1 pl-6">
+                  {COMPANY.team.map((m) => (
+                    <li key={m.name}><strong className="text-foreground">{m.name}</strong>, {m.role}{m.bio ? `: ${m.bio}` : ""}</li>
+                  ))}
+                </ul>
+              </Confirm>
               <p>The quickest ways to reach us:</p>
               <ul className="list-disc space-y-1 pl-6">
                 <li>Email: <a href={`mailto:${siteConfig.links.email}`} className={link}>{siteConfig.links.email}</a></li>
                 <li>WhatsApp: <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={link}>message support</a>{SUPPORT_HOURS ? ` (${SUPPORT_HOURS})` : ""}</li>
                 {LANGUAGES && <li>Languages: {LANGUAGES}</li>}
+                {COMPANY.support.responseTime && <li>Response time: {COMPANY.support.responseTime}</li>}
               </ul>
+              <Confirm value={SUPPORT_HOURS} question="Support hours (with time zone) for WhatsApp and email." />
             </section>
 
             <section className="space-y-3">
@@ -237,7 +260,13 @@ export default function AboutPage() {
 
             <section className="space-y-3">
               <h2 className={h2}>Content and copyright</h2>
-              {/* Content-source / licensing statement: add only the owner-approved wording here. */}
+              {/* Content-source / licensing statement: only owner-confirmed wording, from company.ts. */}
+              {(LICENSING_CONFIRMED || SHOW_CONFIRM_MARKERS) && (
+                <p>
+                  How TryIPTV is licensed to distribute its channels is explained on our{" "}
+                  <Link href="/content-licensing" className={link}>content licensing page</Link>.
+                </p>
+              )}
               <p>
                 If you believe content accessible through TryIPTV infringes your copyright, email{" "}
                 <a href="mailto:dmca@tryiptv.com" className={link}>dmca@tryiptv.com</a> or use our{" "}

@@ -16,6 +16,8 @@ import { getContactPageData } from '@/lib/data/contact-page';
 import { Schema } from '@/components/shared/Schema';
 import { generateMetadata as generatePageMetadata } from '@/lib/site-config';
 import { Mail, MessageCircle, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
+import { COMPANY } from '@/lib/site-data/company';
+import { Confirm } from '@/components/shared/Confirm';
 
 export function generateMetadata(): Metadata {
     return {
@@ -72,11 +74,8 @@ export default async function ContactPage() {
                                         <div className="flex-1">
                                             <div className="flex flex-wrap items-center justify-between gap-x-2">
                                                 <p className="text-base sm:text-sm font-extrabold text-foreground group-hover:text-primary">WhatsApp Live Chat</p>
-                                                <span className="flex items-center gap-1.5 text-[10px] font-bold text-primary">
-                                                    <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Online
-                                                </span>
                                             </div>
-                                            <p className="mt-1 text-xs text-muted-foreground">Contact us with your account, setup, or service question.</p>
+                                            <p className="mt-1 text-xs text-muted-foreground">{COMPANY.support.whatsappDisplay} • Contact us with your account, setup, or service question.</p>
                                         </div>
                                     </a>
 
@@ -89,13 +88,21 @@ export default async function ContactPage() {
                             </Card>
 
                             <div className="rounded-lg border border-white/[0.09] bg-[#070a08] p-6 space-y-4">
-                                <div className="flex items-center gap-3 text-xs font-semibold text-muted-foreground">
-                                    <Clock className="h-4 w-4 text-primary" />
-                                    <span>Support for account, setup, and service questions</span>
+                                {/* Hours and response time come from company.ts and show only once confirmed. */}
+                                <div className="flex items-start gap-3 text-xs font-semibold text-muted-foreground">
+                                    <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                                    <span>
+                                        Support for account, setup, and service questions
+                                        {COMPANY.support.hours ? <>: {COMPANY.support.hours}</> : null}
+                                        <Confirm value={COMPANY.support.hours} question="Support hours with time zone (WhatsApp and email)." />
+                                    </span>
                                 </div>
-                                <div className="flex items-center gap-3 text-xs font-semibold text-muted-foreground">
-                                    <ShieldCheck className="h-4 w-4 text-primary" />
-                                    <span>Encrypted &amp; Confidential Communication</span>
+                                <div className="flex items-start gap-3 text-xs font-semibold text-muted-foreground">
+                                    <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                                    <span>
+                                        {COMPANY.support.responseTime ?? "We reply to every message from the same channel you used."}
+                                        <Confirm value={COMPANY.support.responseTime} question="Typical response time for WhatsApp and for email (measured, not hoped)." />
+                                    </span>
                                 </div>
                                 <div className="pt-2 border-t border-white/[0.08]">
                                     <Link

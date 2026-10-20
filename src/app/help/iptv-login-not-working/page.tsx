@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   AlertTriangle,
@@ -130,6 +131,7 @@ export default function IptvLoginNotWorkingPage() {
               many devices streaming at once. Re-copy your details exactly, then follow the six checks below
               in order.
             </p>
+            <GuideByline path="/help/iptv-login-not-working" />
           </div>
         </Container>
       </Section>

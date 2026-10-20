@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   Activity,
@@ -130,6 +131,7 @@ export default function IptvBufferingPage() {
               continuous playback. Learn how to distinguish network starvation from decoder stutter,
               isolate network bottlenecks, and resolve playback interruptions methodically.
             </p>
+            <GuideByline path="/help/iptv-buffering" />
           </div>
         </Container>
       </Section>
