@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "skills": {
+    "developing-genkit-js": {
+      "source": "genkit-ai/skills",
+      "ref": "main",
+      "sourceType": "github",
+      "skillPath": "skills/developing-genkit-js/SKILL.md",
+      "computedHash": "511fbb0045b1e5150d529140055a5ddb47d504918be34052f8fde93109dba146"
+    },
+    "security-audit": {
+      "source": "cloudflare/security-audit-skill",
+      "sourceType": "github",
+      "skillPath": "skills/security-audit/SKILL.md",
+      "computedHash": "98b97aad2873b3b9a8e064007c25e7827b493ba27fda8bfbdb41dab586767973"
+    }
+  }
+}

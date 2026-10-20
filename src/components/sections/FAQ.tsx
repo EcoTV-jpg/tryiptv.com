@@ -1,0 +1,236 @@
+"use client";
+
+import {
+  ArrowUpRight,
+  BookOpen,
+  Mail,
+  MessagesSquare,
+} from "lucide-react";
+import Link from "next/link";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Container } from "../shared/Container";
+import { Section } from "../shared/Section";
+import { SectionHeader } from "../shared/SectionHeader";
+import { cn } from "@/lib/utils";
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface FaqListProps {
+  items: FaqItem[];
+  className?: string;
+}
+
+const CONTACTS = [
+  {
+    icon: MessagesSquare,
+    label: "Customer Support",
+    detail: "WhatsApp & chat assistance",
+    href: "/contact-us",
+    isExternal: false,
+  },
+  {
+    icon: Mail,
+    label: "support@tryiptv.com",
+    detail: "Billing & playlist inquiries",
+    href: "mailto:support@tryiptv.com",
+    isExternal: true,
+  },
+  {
+    icon: BookOpen,
+    label: "Universal Setup Guides",
+    detail: "Step-by-step device tutorials",
+    href: "/setup",
+    isExternal: false,
+  },
+];
+
+const homepageFaqs: FaqItem[] = [
+  {
+    question: "What is TryIPTV?",
+    answer:
+      'TryIPTV is an IPTV service provider. It supplies streaming access for compatible devices and IPTV player apps; it is not a player app itself. New to IPTV? <a href="/guides/what-is-iptv" class="text-primary hover:underline">Read what IPTV is</a>, or read <a href="/about" class="text-primary hover:underline">more about TryIPTV</a>, including how ordering, the free trial and refunds work.',
+  },
+  {
+    question: "Does TryIPTV offer a free trial?",
+    answer:
+      'Yes. TryIPTV offers a 24-hour free trial at $0. <a href="/iptv-free-trial" class="text-primary hover:underline">Request trial access</a>.',
+  },
+  {
+    question: "Which devices can I use?",
+    answer:
+      'TryIPTV works with compatible Smart TVs, streaming devices, computers, phones, and IPTV player apps. <a href="/devices" class="text-primary hover:underline">Browse device setup guides</a>.',
+  },
+  {
+    question: "How do I set up TryIPTV?",
+    answer:
+      'Install a compatible player, then enter the account details or M3U playlist URL provided after confirmation. <a href="/setup" class="text-primary hover:underline">View the setup guide</a>.',
+  },
+  {
+    question: "How many simultaneous connections are included?",
+    answer:
+      "Every standard TryIPTV subscription includes 2 simultaneous connections, meaning up to two devices can stream at the same time.",
+  },
+  {
+    question: "Do TryIPTV subscriptions renew automatically?",
+    answer:
+      'No. Plans are prepaid for the selected duration and do not automatically renew. <a href="/pricing" class="text-primary hover:underline">Compare plans</a>.',
+  },
+];
+
+/**
+ * Reusable single-column FaqList preserved for guide & device pages.
+ */
+export function FaqList({ items, className }: FaqListProps) {
+  return (
+    <Accordion
+      type="single"
+      collapsible
+      className={cn(
+        "mx-auto max-w-[880px] overflow-hidden rounded-[18px] border border-white/[0.08] bg-[#07080a] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
+        className
+      )}
+    >
+      {items.map((faq, i) => (
+        <AccordionItem
+          key={i}
+          value={`item-${i}`}
+          className="border-b border-white/[0.07] px-6 sm:px-8 last:border-b-0"
+        >
+          <AccordionTrigger className="min-h-[68px] py-5 sm:py-6 text-left text-[16px] font-semibold leading-snug text-foreground/90 hover:no-underline hover:text-foreground transition-colors sm:text-[17px]">
+            {faq.question}
+          </AccordionTrigger>
+          <AccordionContent className="pb-6 sm:pb-8 pr-4 sm:pr-8 text-[15px] sm:text-[16px] leading-relaxed text-muted-foreground">
+            <span
+              dangerouslySetInnerHTML={{
+                __html: faq.answer.includes("support@tryiptv.com")
+                  ? faq.answer.replace(
+                      "support@tryiptv.com",
+                      "<!--email_off-->support@tryiptv.com<!--/email_off-->"
+                    )
+                  : faq.answer,
+              }}
+            />
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  );
+}
+
+/**
+ * Modern two-column FAQ for homepage: sticky support card on the left
+ * and numbered accordion list on the right.
+ */
+export function FAQ() {
+  return (
+    <Section id="faq" className="border-t border-white/[0.07]">
+      <Container>
+        <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
+          {/* Left Column: Heading & Support Channels */}
+          <div className="lg:col-span-5">
+            <div className="lg:sticky lg:top-24">
+              <SectionHeader
+                align="left"
+                eyebrow="Support, clarified"
+                title="Frequently Asked Questions"
+                className="mb-4 sm:mb-4 lg:mb-4"
+              />
+              <p className="mb-6 max-w-2xl text-[15.5px] leading-relaxed text-muted-foreground sm:mb-8 sm:text-[16.5px]">
+                Quick answers about the service. See{" "}
+                <Link href="/faq" className="font-semibold text-primary hover:underline">all IPTV FAQs</Link>{" "}
+                or{" "}
+                <Link href="/help" className="font-semibold text-primary hover:underline">troubleshooting guides</Link>{" "}
+                for more.
+              </p>
+
+              <div className="rounded-2xl border border-white/[0.07] bg-card p-1.5">
+                <ul className="divide-y divide-white/[0.06]">
+                  {CONTACTS.map(({ icon: Icon, label, detail, href, isExternal }) => {
+                    const Component = isExternal ? "a" : Link;
+                    return (
+                      <li key={label}>
+                        <Component
+                          href={href}
+                          className="group/contact flex items-center gap-3.5 rounded-xl p-3.5 sm:p-4 outline-none transition-colors hover:bg-white/[0.04] focus-visible:ring-2 focus-visible:ring-primary/50"
+                        >
+                          <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-white/[0.07] bg-white/[0.025] transition-colors group-hover/contact:border-primary/40 group-hover/contact:bg-primary/10">
+                            <Icon aria-hidden className="size-4.5 text-primary" />
+                          </span>
+                          <span className="min-w-0 flex-1">
+                            <span className="block truncate text-sm font-semibold text-foreground/90 transition-colors group-hover/contact:text-foreground">
+                              {label}
+                            </span>
+                            <span className="block text-xs text-muted-foreground/85">
+                              {detail}
+                            </span>
+                          </span>
+                          <ArrowUpRight
+                            aria-hidden
+                            className="size-3.5 shrink-0 text-muted-foreground transition-transform group-hover/contact:-translate-y-0.5 group-hover/contact:translate-x-0.5 group-hover/contact:text-primary motion-reduce:transition-none"
+                          />
+                        </Component>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Numbered Accordion */}
+          <div className="lg:col-span-7">
+            <Accordion
+              type="multiple"
+              defaultValue={["item-0"]}
+              className="border-t border-white/[0.07]"
+            >
+              {homepageFaqs.map((faq, i) => (
+                <AccordionItem
+                  key={faq.question}
+                  value={`item-${i}`}
+                  className="border-b border-white/[0.07] [&>[role=region][data-state=closed]]:hidden"
+                >
+                  <AccordionTrigger className="gap-3.5 py-3 sm:py-3.5 text-left hover:no-underline group">
+                    <span className="flex items-start gap-3.5 sm:gap-5">
+                      {/* The number is CSS-generated so it stays out of the heading text. */}
+                      <span
+                        aria-hidden
+                        data-n={String(i + 1).padStart(2, "0")}
+                        className="mt-0.5 font-mono text-xs sm:text-sm font-semibold text-muted-foreground/60 tabular-nums group-data-[state=open]:text-primary transition-colors shrink-0 before:content-[attr(data-n)]"
+                      />
+                      <span className="font-headline text-[15.5px] sm:text-[16.5px] font-semibold text-foreground/90 transition-colors group-hover:text-foreground group-data-[state=open]:text-foreground leading-snug">
+                        {faq.question}
+                      </span>
+                    </span>
+                  </AccordionTrigger>
+                  {/* forceMount keeps closed answers in the HTML (hidden until opened) so they are crawlable. */}
+                  <AccordionContent forceMount className="pr-3 pb-4.5 pl-7 sm:pl-10 text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground/95">
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: faq.answer.includes("support@tryiptv.com")
+                          ? faq.answer.replace(
+                              "support@tryiptv.com",
+                              "<!--email_off-->support@tryiptv.com<!--/email_off-->"
+                            )
+                          : faq.answer,
+                      }}
+                    />
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  );
+}

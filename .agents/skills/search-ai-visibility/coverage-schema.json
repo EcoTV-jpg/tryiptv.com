@@ -1,0 +1,53 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "unit_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "class": {
+        "type": "string",
+        "minLength": 1
+      },
+      "scope": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "not_checked",
+          "checked",
+          "needs_validation",
+          "not_applicable"
+        ]
+      },
+      "checks": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "evidence": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "notes": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "unit_id",
+      "class",
+      "scope",
+      "status",
+      "checks",
+      "evidence"
+    ],
+    "additionalProperties": false
+  }
+}
