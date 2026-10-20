@@ -9,7 +9,8 @@ import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Schema } from "@/components/shared/Schema";
 import { getIptvFreeTrialPageData } from "@/lib/data/iptv-free-trial-page";
-import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { GuideScreenshot } from "@/components/guide";
 import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
 import { COMPANY } from "@/lib/site-data/company";
 
@@ -26,7 +27,13 @@ export function generateMetadata(): Metadata {
     "Start a 24-hour TryIPTV free trial on WhatsApp: $0, no credit card, no auto-renew. Login arrives in 5–15 minutes. See what to test and what plans cost.";
 
   return {
-    ...generatePageMetadata({ title, description, canonical: "/iptv-free-trial" }),
+    ...generatePageMetadata({
+      title,
+      description,
+      canonical: "/iptv-free-trial",
+      // Static 1200x630 share image built from the trial facts (no card, $0, 5–15 min login).
+      image: `${SITE_URL}/images/free-trial/iptv-free-trial-24-hours-no-credit-card.jpg`,
+    }),
     title: { absolute: title },
   };
 }
@@ -303,6 +310,18 @@ export default async function IptvFreeTrialPage() {
                 </li>
               ))}
             </ol>
+
+            <GuideScreenshot
+              src="/images/free-trial/how-to-get-iptv-free-trial-3-steps.webp"
+              alt="How to get the TryIPTV 24-hour free trial in 3 steps: message us on WhatsApp with no payment details, get your Xtream Codes or M3U login in 5–15 minutes, then watch for 24 hours with no auto-renew"
+              caption="The free trial in 3 steps: request on WhatsApp, get your login, watch for 24 hours."
+              width={1280}
+              height={740}
+              sizes="(max-width: 896px) calc(100vw - 2rem), 896px"
+              /* Phones already see the same three steps as cards just above; the graphic's
+                 small print only reads well from tablet width, and display:none skips the download. */
+              className="mt-8 hidden md:block"
+            />
 
             <p className="mt-6 rounded-lg border border-white/[0.08] bg-card/60 p-4 text-base sm:text-sm leading-6 text-muted-foreground">
               Login details are usually quick, but not always instant. If nothing has arrived after {T.activationTime}, reply in the same

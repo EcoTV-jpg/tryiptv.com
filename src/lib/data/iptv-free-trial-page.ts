@@ -76,6 +76,7 @@ export const getIptvFreeTrialPageData = cache(
       name: "24-Hour IPTV Free Trial",
       description:
         "24-hour free trial of TryIPTV to evaluate available live TV and on-demand viewing on a compatible device. No credit card required.",
+      image: `${baseUrl}/images/free-trial/iptv-free-trial-24-hours-no-credit-card.jpg`,
       offers: {
         "@type": "Offer",
         price: "0",
@@ -90,7 +91,7 @@ export const getIptvFreeTrialPageData = cache(
     };
   },
   // Bump the version when the static data above changes: the data cache outlives rebuilds.
-  ['iptv-free-trial-page-data-v4'],
+  ['iptv-free-trial-page-data-v5'],
   {
     revalidate: 3600,
     tags: ['pages', 'iptv-free-trial-page'],

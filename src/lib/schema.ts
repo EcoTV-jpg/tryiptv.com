@@ -233,6 +233,8 @@ interface ServiceSchemaProps {
     name: string;
     description: string;
     offers?: Offer | AggregateOffer;
+    /** Absolute URL of an image that represents the service. */
+    image?: string;
 }
 
 export function generateServiceSchema(props: ServiceSchemaProps): WithContext<Service> {
@@ -244,6 +246,7 @@ export function generateServiceSchema(props: ServiceSchemaProps): WithContext<Se
         ...(props.areaServed ? { areaServed: props.areaServed } : {}),
         name: props.name,
         description: props.description,
+        ...(props.image ? { image: props.image } : {}),
         offers: props.offers
     }
 }
