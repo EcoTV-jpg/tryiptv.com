@@ -102,6 +102,9 @@ const concepts = [
   },
 ];
 
+const stackedLabel =
+  "text-muted-foreground before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none";
+
 export default function WhatIsIptvPage() {
   return (
     <>
@@ -178,8 +181,10 @@ export default function WhatIsIptvPage() {
                   className="grid grid-cols-1 gap-2 border-t border-white/[0.09] px-4 py-4 text-base sm:text-sm leading-6 sm:grid-cols-3"
                 >
                   <span className="font-semibold text-foreground">{row.label}</span>
-                  <span className="text-muted-foreground"><span className="font-semibold text-foreground/80 sm:hidden">IPTV: </span>{row.iptv}</span>
-                  <span className="text-muted-foreground"><span className="font-semibold text-foreground/80 sm:hidden">Cable or satellite: </span>{row.traditional}</span>
+                  {/* Stacked (mobile) rows repeat the hidden column header via CSS-generated content,
+                      so no extra text is added to the HTML; sm+ shows the real header instead. */}
+                  <span data-label="IPTV: " className={stackedLabel}>{row.iptv}</span>
+                  <span data-label="Cable or satellite: " className={stackedLabel}>{row.traditional}</span>
                 </div>
               ))}
             </div>
