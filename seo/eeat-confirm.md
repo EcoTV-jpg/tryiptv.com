@@ -97,3 +97,10 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 49. **"Enabling two-factor authentication":** TryIPTV logins have no 2FA. This line is generic advice; keep it or remove it?
 50. **"First & Last Name (for account security)" and "Phone Number":** do you actually collect names and phone numbers (e.g. via WhatsApp orders)? The policy should list only what is really collected.
 51. **"Provide personalized content":** the site has no personalisation. Keep it or remove it?
+
+## Terms & Conditions (owner-supplied text, added 2026-10-20)
+52. **Refunds:** the supplied §6 said "All subscription payments … are final and non-refundable". That contradicts the Refund Policy, FAQ and About page, which describe a possible refund or credit when support can't fix a critical defect within 7 days. §6 now points to the Refund Policy. **Which is true?**
+    - If TryIPTV really is "no refunds", say so, and the Refund Policy, FAQ, About page and `PRODUCT_TRUTHS.refund` must all change together. Otherwise the site contradicts itself, which Bing says can cost citations.
+53. **Connections:** the supplied §11 said "Only one active stream is permitted at a time". That contradicts "2 simultaneous connections on every plan" (pricing, home, FAQ, schema). §3 and §11 now state 2 connections from `PRODUCT_TRUTHS`. Confirm 2 is correct.
+54. **Trademarks:** the supplied §15 said "registered trademarks". Is "TryIPTV" (or the logo) actually a registered trademark, and if so where and under which number? Until then the page says "trademarks and property of TryIPTV". Claiming a registration you don't hold is unlawful in some countries.
+55. **"Click-to-purchase" third-party vendors (§4):** does TryIPTV link to any third-party vendors? If not, this clause is harmless but can be removed.
