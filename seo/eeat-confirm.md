@@ -115,3 +115,8 @@ The supplied text came from iptvv.ca and described that company's product. Price
 58. **"24/7 support" and "99.9% server uptime":** both were left off. 24/7 needs the real support hours (question 9); a 99.9% figure needs monitoring data (question 35).
 59. **Catch-up TV:** the supplied text listed "Smart EPG and catch-up". Is catch-up (replay) available on TryIPTV? Until confirmed the page only mentions the TV guide.
 60. **Target market:** the supplied text was written for Canada. Is TryIPTV aimed at a particular country? The site currently prices in USD and speaks to an international audience.
+
+## Pricing page (owner-supplied text, added 2026-10-20)
+Same source as the trial page. Replaced with TryIPTV facts: CAD prices and the 1–4 device tabs (TryIPTV has one price list with 2 connections), Interac e-Transfer and the order-number memo (now a crypto payment note), email login in 1–2 hours (now WhatsApp, 5–15 minutes). Left out: "High Performance Server", 99.9% uptime, 24/7 Canadian support, "taxes calculated by province".
+61. **Multi-connection plans:** iptvv.ca sells 1–4 device versions of each plan. Do you want to sell 3- or 4-connection plans? If yes, send the prices and the pricing page can get device tabs.
+62. **Taxes:** are sales taxes added to any order? If so, the pricing page and Terms should say so.

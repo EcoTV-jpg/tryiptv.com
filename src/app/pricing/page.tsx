@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type React from "react";
 import Link from "next/link";
-import { ArrowRight, Check, ChevronDown, CirclePlay, HelpCircle, MessageCircle, ShieldCheck, Tv } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, CirclePlay, Gauge, HeadphonesIcon, MonitorSmartphone, Receipt, ShieldCheck, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
@@ -12,6 +12,10 @@ import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getPricingPageData } from "@/lib/data/pricing-page";
 import { plans } from "@/lib/site-data/pricing";
 import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
+import { COMPANY } from "@/lib/site-data/company";
+
+const link = "font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary";
+const T = PRODUCT_TRUTHS;
 
 export function generateMetadata(): Metadata {
   const title = "IPTV Subscription Plans & Pricing From $16 | TryIPTV";
@@ -69,76 +73,78 @@ const planCardFeatures = [
   "Multi-Device Compatibility",
 ] as const;
 
-const sharedFeatures: { title: string; desc: React.ReactNode }[] = [
-  {
-    title: "2 Simultaneous Connections",
-    desc: (
-      <>
-        Stream on up to two devices at the same time in your household. See{" "}
-        <Link href="/devices" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">supported devices</Link>.
-      </>
-    ),
-  },
-  {
-    title: "Xtream Codes API",
-    desc: (
-      <>
-        Server URL, username, and password login supported by most modern{" "}
-        <Link href="/players" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV players</Link>.
-      </>
-    ),
-  },
-  {
-    title: "M3U Playlist URL",
-    desc: "Standard playlist URL format for compatible media players and applications.",
-  },
-  {
-    title: "Smart EPG Support",
-    desc: "Programme schedule information and channel timelines where available.",
-  },
-  {
-    title: "25,000+ Live Channels",
-    desc: "Live sports, news, and entertainment channels where available.",
-  },
-  {
-    title: "120,000+ Movies & Series",
-    desc: "On-demand video catalog with regular updates where available.",
-  },
-  {
-    title: "HD, Full HD & 4K Streams",
-    desc: (
-      <>
-        High-definition video playback where supported by the source stream. Check{" "}
-        <Link href="/guides/iptv-internet-speed" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">how much internet speed IPTV needs</Link>.
-      </>
-    ),
-  },
-  {
-    title: "Prepaid Billing — No Auto-Renewal",
-    desc: "Flat upfront pricing with zero recurring billing or automatic charges.",
-  },
-];
-
 const orderSteps = [
   {
-    step: "01",
-    title: "Choose Your Plan",
-    desc: "Select a 1, 3, 6, or 12-month prepaid duration based on your viewing plans.",
+    step: "1",
+    title: "Pick your plan",
+    desc: `Choose 1, 3, 6 or 12 months. Every plan includes ${T.connections} simultaneous connections, and plans start at ${FACT_TEXT.fromPrice} for one month.`,
   },
   {
-    step: "02",
-    title: "Request Payment Instructions",
-    desc: "Click your chosen plan to connect with support and receive the current payment instructions for your order.",
+    step: "2",
+    title: "Pay on WhatsApp",
+    desc: COMPANY.paymentMethods
+      ? `Tap the plan's button to open WhatsApp; support sends payment instructions. Pay by ${COMPANY.paymentMethods}, once, with no automatic renewal.`
+      : "Tap the plan's button to open WhatsApp; support sends payment instructions. You pay once, with no automatic renewal.",
   },
   {
-    step: "03",
-    title: "Complete One-Time Payment",
-    desc: "Complete the one-time prepaid payment. There is no recurring subscription or automatic renewal.",
+    step: "3",
+    title: "Start streaming",
+    desc: `Your login arrives on WhatsApp within ${T.activationTime} after payment is confirmed. Works on Firestick, Android TV, smart TVs, Apple TV, MAG, phones and computers.`,
+  },
+] as const;
+
+const highlights = [
+  COMPANY.paymentMethods ? `${COMPANY.paymentMethods.replace(/^c/, "C")} accepted` : "Prepaid, one-time payment",
+  "Quick activation after payment is confirmed",
+  "Support on WhatsApp and email",
+  "Transparent, flat prepaid pricing",
+];
+
+const whatYouGet: React.ReactNode[] = [
+  `${T.channels} live TV channels and major sports events`,
+  `${T.vod} movies and series on demand (VOD)`,
+  "EPG (TV guide) in your IPTV player",
+  <>
+    HD/4K where available (about 25 Mbps for HD and 50 Mbps for 4K;{" "}
+    <Link href="/guides/iptv-internet-speed" className={link}>speed guide</Link>)
+  </>,
+  <>
+    Works on Firestick, Android TV, smart TVs, Apple TV, MAG and more (
+    <Link href="/devices" className={link}>supported devices</Link>)
+  </>,
+  `${T.connections} simultaneous connections on every plan`,
+];
+
+const streamFeatures = [
+  {
+    icon: MonitorSmartphone,
+    title: "Play anywhere, anytime",
+    desc: "Firestick, Android TV, smart TVs, Apple TV, MAG, phones and computers: enter your login in a compatible IPTV player and start watching.",
   },
   {
-    step: "04",
-    title: "Receive Account Credentials",
-    desc: "Credentials and setup details are typically delivered within 5–15 minutes after payment confirmation.",
+    icon: Gauge,
+    title: "Smooth streaming",
+    desc: "A stable 25 Mbps connection handles one HD stream and 50 Mbps handles 4K comfortably. Ethernet is steadier than Wi-Fi.",
+  },
+  {
+    icon: Sparkles,
+    title: "High quality video",
+    desc: "HD, Full HD and 4K where available, depending on the source stream and your connection.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "No auto-renewal",
+    desc: "Every plan is paid once upfront. Nothing renews and nothing is charged again unless you choose to buy another term.",
+  },
+  {
+    icon: Receipt,
+    title: "Transparent pricing",
+    desc: `One flat prepaid price per plan, ${FACT_TEXT.fromPrice} to $90, shown here before you order.`,
+  },
+  {
+    icon: HeadphonesIcon,
+    title: "Real support",
+    desc: "Help with setup and orders on WhatsApp and email, before and after you buy.",
   },
 ] as const;
 
@@ -150,16 +156,16 @@ export default async function IPTVSubscription() {
       <Schema id="product" schema={productSchema} />
       <Schema id="breadcrumb" schema={breadcrumbSchema} />
 
-      {/* Hero Section */}
+      {/* Hero + plans */}
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-8 pb-10 sm:pt-12 sm:pb-14">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />
         <Container className="relative">
           <Breadcrumb items={[{ label: "Pricing" }]} align="center" />
           <SectionHeader
             as="h1"
-            eyebrow="Prepaid Subscription Pricing"
-            title="TryIPTV Pricing & Subscription Plans"
-            subtitle="TryIPTV prepaid plans cost $16 for 1 month, $39 for 3 months, $60 for 6 months, or $90 for 12 months. All paid plans include two simultaneous connections and do not renew automatically. Longer prepaid terms reduce the equivalent monthly cost, from $16 for one month down to $7.50 per month on the 12-month plan."
+            eyebrow="Most Popular IPTV Subscription Plans"
+            title={`Choose Your IPTV Plan, From ${FACT_TEXT.fromPrice}/Month`}
+            subtitle={`TryIPTV prepaid plans cost ${FACT_TEXT.priceList}. Every plan includes ${T.connections} simultaneous connections and does not renew automatically. Longer terms lower the monthly equivalent, from ${FACT_TEXT.fromPrice} down to ${FACT_TEXT.lowestMonthly} a month on the 12-month plan.`}
           />
           <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-semibold sm:mt-6 sm:text-sm">
             {quickFacts.map((fact) => (
@@ -171,31 +177,12 @@ export default async function IPTVSubscription() {
               </div>
             ))}
           </div>
-          {/* Above-the-fold CTAs (same buttons as the homepage hero): the plan cards start below the fold. */}
-          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:justify-center">
-            <Button asChild>
-              <Link href="#pricing-plans">
-                Compare Plans <ArrowRight aria-hidden />
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/iptv-free-trial">
-                <CirclePlay aria-hidden /> Start Free Trial
-              </Link>
-            </Button>
-          </div>
         </Container>
       </Section>
 
-      {/* Section 1: Compare TryIPTV Plans */}
       <Section id="pricing-plans" className="scroll-mt-2 bg-[#050706] py-10 sm:py-14">
         <Container>
-          <SectionHeader
-            eyebrow="Prepaid IPTV Plans"
-            title="Compare TryIPTV Plans"
-            subtitle={`TryIPTV plans differ only in length and price: ${FACT_TEXT.priceList}. The 12-month plan works out to ${FACT_TEXT.lowestMonthly} a month. Each plan is paid once upfront, includes ${PRODUCT_TRUTHS.connections} simultaneous connections, and does not renew automatically.`}
-          />
-
+          <h2 className="sr-only">Compare TryIPTV Plans</h2>
           <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {plans.map((plan, index) => {
               const savingsText = planSavingsExact[plan.id];
@@ -278,6 +265,99 @@ export default async function IPTVSubscription() {
             Choosing a plan opens WhatsApp, where support sends payment instructions. Credentials typically arrive within <span className="whitespace-nowrap">5–15 minutes</span> after payment confirmation.
           </p>
 
+          <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
+            Choosing a plan opens WhatsApp, where support sends payment instructions. Credentials typically arrive within <span className="whitespace-nowrap">{T.activationTime}</span> after payment confirmation.
+          </p>
+        </Container>
+      </Section>
+
+      {/* How it works */}
+      <Section variant="alt" className="border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
+        <Container>
+          <SectionHeader
+            eyebrow="Order Process"
+            title="How Does TryIPTV Work?"
+            subtitle={`Order a plan on WhatsApp, pay once, and start watching. Most customers receive their login within ${T.activationTime} of payment confirmation, then enter it in a compatible IPTV player.`}
+          />
+
+          <ol className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {orderSteps.map((s) => (
+              <li key={s.step} className="rounded-xl border border-white/[0.08] bg-card p-5">
+                <span className="font-mono text-sm font-bold text-primary">{s.step}</span>
+                <h3 className="mt-2 font-headline text-lg font-extrabold text-foreground">{s.title}</h3>
+                <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">{s.desc}</p>
+              </li>
+            ))}
+          </ol>
+
+          <p className="mt-6 text-center text-base sm:text-sm text-muted-foreground">
+            Need installation help? Read the{" "}
+            <Link href="/setup" className={link}>
+              Universal IPTV Setup Guide
+            </Link>
+            .
+          </p>
+        </Container>
+      </Section>
+
+      {/* Stream smarter */}
+      <Section className="border-t border-white/[0.06] py-10 sm:py-14">
+        <Container>
+          <SectionHeader
+            eyebrow="Plans Compared"
+            title="Stream Smarter With TryIPTV"
+            subtitle={`TryIPTV plans start at ${FACT_TEXT.fromPrice} for one month and drop to ${FACT_TEXT.lowestMonthly} a month on the annual term. Every plan includes ${T.channels} live channels, ${T.vod} movies and series, the TV guide, ${T.connections} simultaneous connections and support on WhatsApp and email.`}
+          />
+
+          <ul className="mx-auto mb-10 flex max-w-4xl flex-wrap justify-center gap-2 text-sm font-semibold">
+            {highlights.map((h) => (
+              <li key={h} className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.09] bg-card px-3 py-1 text-muted-foreground">
+                <Check className="h-3.5 w-3.5 text-primary" aria-hidden /> {h}
+              </li>
+            ))}
+          </ul>
+
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+            <div className="rounded-xl border border-white/[0.08] bg-card p-6">
+              <h3 className="font-headline text-lg font-extrabold text-foreground">What you get</h3>
+              <ul className="mt-4 space-y-2.5 text-base sm:text-sm leading-6 text-muted-foreground">
+                {whatYouGet.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-xl border border-primary/25 bg-[#0b100d] p-6">
+              <h3 className="font-headline text-lg font-extrabold text-foreground">Risk-free to try</h3>
+              <p className="mt-3 text-base sm:text-sm leading-6 text-muted-foreground">
+                Test TryIPTV first with a free {FACT_TEXT.trialHours}-hour trial before you buy a plan: $0, no credit card, no auto-renew.
+                After you buy, a refund is only possible if we can&apos;t provide a working subscription.
+              </p>
+              <div className="mt-5 flex flex-col gap-3">
+                <Button asChild>
+                  <Link href="/iptv-free-trial">
+                    <CirclePlay className="mr-2 h-4 w-4" aria-hidden /> Start Free Trial
+                  </Link>
+                </Button>
+                <Button asChild variant="outline">
+                  <Link href="/refund-policy">See refund policy</Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-white/[0.08] bg-card p-6">
+              <h3 className="font-headline text-lg font-extrabold text-foreground">Paying by cryptocurrency?</h3>
+              <p className="mt-3 text-base sm:text-sm leading-6 text-muted-foreground">
+                Follow the payment instructions support sends on WhatsApp exactly, and use the network and wallet address given for your
+                order: a payment sent on the wrong network can be delayed or lost. If anything is unclear, ask in the same chat before you
+                pay.
+              </p>
+            </div>
+          </div>
+
           {/* Plan Comparison Table */}
           <div className="mt-10 rounded-xl border border-white/[0.08] bg-card">
             <div className="border-b border-white/[0.07] px-5 py-4 sm:px-6">
@@ -328,111 +408,13 @@ export default async function IPTVSubscription() {
         </Container>
       </Section>
 
-      {/* Section 2: How to Buy a Plan */}
-      <Section variant="alt" className="border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
-        <Container>
-          <SectionHeader
-            eyebrow="Order Process"
-            title="How Do I Buy a TryIPTV Plan?"
-            subtitle={`To buy a TryIPTV plan, choose a duration and tap its order button to open WhatsApp, where support sends payment instructions. Once payment is confirmed, your Xtream Codes or M3U login details usually arrive within ${PRODUCT_TRUTHS.activationTime}. Enter them in a compatible IPTV player to start watching.`}
-          />
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {orderSteps.map((s) => (
-              <div key={s.step} className="rounded-xl border border-white/[0.08] bg-card p-5">
-                <span className="font-mono text-xs font-bold text-primary">{s.step}</span>
-                <h3 className="mt-2 font-headline text-base font-extrabold text-foreground">{s.title}</h3>
-                <p className="mt-2 text-base sm:text-xs leading-5 text-muted-foreground">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-6 text-center text-base sm:text-sm text-muted-foreground">
-            Looking for installation help? Read our{" "}
-            <Link href="/setup" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
-              Universal IPTV Setup Guide
-            </Link>
-            .
-          </p>
-        </Container>
-      </Section>
-
-      {/* Section 3: What Is Included With Every Paid Plan? */}
-      <Section className="border-t border-white/[0.06] py-10 sm:py-14">
-        <Container>
-          <SectionHeader
-            eyebrow="Included Features"
-            title="What Is Included With Every Paid Plan?"
-            subtitle={`Every TryIPTV plan includes ${PRODUCT_TRUTHS.channels} live channels, ${PRODUCT_TRUTHS.vod} movies and TV shows, ${PRODUCT_TRUTHS.connections} simultaneous connections, Xtream Codes and M3U login formats, and setup support on WhatsApp and email. The 1-, 3-, 6- and 12-month plans share the same service; only the prepaid duration and price change.`}
-          />
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {sharedFeatures.map((feat) => (
-              <div key={feat.title} className="rounded-xl border border-white/[0.08] bg-card p-5">
-                <Check className="h-5 w-5 text-primary" />
-                <h3 className="mt-3 font-headline text-base font-extrabold text-foreground">{feat.title}</h3>
-                <p className="mt-1 text-base sm:text-xs leading-5 text-muted-foreground">{feat.desc}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* Section 4: How TryIPTV Pricing Works */}
-      <Section className="border-t border-white/[0.06] py-10 sm:py-14">
-        <Container>
-          <SectionHeader
-            eyebrow="Pricing Model"
-            title="How Does TryIPTV Billing Work?"
-            subtitle={`TryIPTV billing is a single prepaid payment for 1, 3, 6, or 12 months. Nothing renews automatically and there is no recurring charge: when a plan ends, access stops until you buy another. The monthly equivalent is the plan price divided by its months, from ${FACT_TEXT.fromPrice} down to ${FACT_TEXT.lowestMonthly}.`}
-          />
-
-          <p className="mx-auto max-w-3xl text-base leading-7 text-muted-foreground">
-            Every plan is a single prepaid payment for 1, 3, 6, or 12 months and does not renew automatically. The monthly equivalent is the plan price divided by its months; savings compare each plan with buying the $16 1-month plan repeatedly (for example, $192 for twelve months versus $90 for the 12-month plan).
-          </p>
-        </Container>
-      </Section>
-
-      {/* Section 5: Test Before Choosing a Plan */}
-      <Section className="border-t border-white/[0.06] py-10 sm:py-14">
-        <Container>
-          <div className="relative overflow-hidden rounded-xl border border-primary/25 bg-[#0b100d] p-7 sm:p-8 md:p-10 lg:flex lg:items-center lg:justify-between lg:text-left">
-            <div className="absolute inset-y-0 left-0 w-1 bg-primary" />
-            <div className="max-w-2xl">
-              <p className="eyebrow mb-3 flex items-center justify-center gap-2 lg:justify-start">
-                <ShieldCheck className="h-4 w-4 text-primary" /> Evaluate First
-              </p>
-              <h2 className="font-headline text-3xl font-extrabold leading-[1.12] text-foreground sm:text-4xl">
-                Test Before Choosing a Plan
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-muted-foreground lg:mx-0">
-                Not ready to choose a prepaid term? Use the 24-hour free trial to test TryIPTV on your own compatible setup before purchasing. The trial costs $0, requires no credit card, and does not automatically renew. A refund is only possible if we can&apos;t provide a working subscription; see the{" "}
-                <Link href="/refund-policy" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">refund policy</Link>.
-              </p>
-            </div>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:ml-10 lg:mt-0 lg:shrink-0">
-              <Button asChild size="lg">
-                <Link href="/iptv-free-trial">
-                  <CirclePlay className="mr-2 h-4 w-4" /> Start Free Trial
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href="/contact-us">
-                  <MessageCircle className="mr-2 h-4 w-4" /> Contact Support
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Section 6: Pricing FAQ */}
+      {/* Pricing FAQ */}
       <Section id="faq" className="scroll-mt-2 border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
         <Container>
           <SectionHeader
             eyebrow="Pricing &amp; Billing Questions"
-            title="Frequently Asked Questions About IPTV Pricing"
-            subtitle="Straightforward answers about plan durations, payment instructions, renewal policies, and connections."
+            title="Frequently Asked Questions"
+            subtitle="Straight answers about plan prices, renewals, connections, delivery times and refunds."
           />
 
           <div className="mx-auto max-w-[880px] overflow-hidden rounded-[18px] border border-white/[0.08] bg-[#07080a]">
@@ -464,49 +446,53 @@ export default async function IPTVSubscription() {
           </div>
 
           <p className="mt-8 text-center text-base sm:text-sm text-muted-foreground">
-            Questions about ordering?{" "}
-            <Link href="/contact-us" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
-              Contact our support team
-            </Link>{" "}
-            or see{" "}
-            <Link href="/faq" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+            Questions?{" "}
+            <Link href="/contact-us" className={link}>
+              Contact us
+            </Link>
+            , or see{" "}
+            <Link href="/faq" className={link}>
               all IPTV FAQs
+            </Link>{" "}
+            and the{" "}
+            <Link href="/terms-conditions" className={link}>
+              Terms &amp; Conditions
             </Link>
             .
           </p>
         </Container>
       </Section>
 
-      {/* Section 7: About TryIPTV Pricing */}
+      {/* Everything you need */}
       <Section className="border-t border-white/[0.06] py-10 sm:py-14">
         <Container>
-          <div className="mx-auto max-w-4xl">
-            <SectionHeader eyebrow="Commercial Transparency" title="About TryIPTV Pricing" />
+          <SectionHeader
+            eyebrow="Why TryIPTV"
+            title="Everything You Need to Stream"
+            subtitle="Built for everyday viewing: simple setup on the devices you already own, clear picture where your connection allows it, and a flat prepaid price."
+          />
 
-            <div className="space-y-4 text-base leading-6 text-muted-foreground sm:leading-7">
-              <p>
-                TryIPTV sells prepaid IPTV plans with no recurring billing; current payment instructions are provided when ordering.
-              </p>
-
-              {/* Touch: 44px link rows with no vertical gap so wrapped rows never overlap. */}
-              <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-sm font-semibold pointer-coarse:gap-y-0 [&>a]:inline-flex [&>a]:min-h-11 [&>a]:items-center pointer-fine:[&>a]:min-h-0">
-                <Link href="/iptv-free-trial" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
-                  24-Hour Free Trial
-                </Link>
-                <Link href="/setup" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
-                  Universal IPTV Setup Guide
-                </Link>
-                <Link href="/refund-policy" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
-                  Refund Policy
-                </Link>
-                <Link href="/terms-conditions" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
-                  Terms &amp; Conditions
-                </Link>
-                <Link href="/contact-us" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
-                  Contact Support
-                </Link>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {streamFeatures.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="rounded-xl border border-white/[0.08] bg-card p-5">
+                <Icon className="h-5 w-5 text-primary" aria-hidden />
+                <h3 className="mt-3 font-headline text-base font-extrabold text-foreground">{title}</h3>
+                <p className="mt-1 text-base sm:text-sm leading-6 text-muted-foreground">{desc}</p>
               </div>
-            </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button asChild size="lg">
+              <Link href="#pricing-plans">
+                Compare Plans <ArrowRight aria-hidden />
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link href="/iptv-free-trial">
+                <CirclePlay aria-hidden /> Start Free Trial
+              </Link>
+            </Button>
           </div>
         </Container>
       </Section>
