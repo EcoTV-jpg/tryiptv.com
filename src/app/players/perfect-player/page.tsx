@@ -27,7 +27,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 const h2 = "font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl";
 const p = "mt-4 text-base leading-7 text-muted-foreground";
-const a = "text-primary underline underline-offset-4 hover:text-primary/80";
+const a = "text-primary underline decoration-primary/40 underline-offset-4 hover:text-primary/80";
 
 export default function PerfectPlayerPage() {
   return <>
@@ -95,7 +95,7 @@ export default function PerfectPlayerPage() {
           <tr><td className="p-3">Installation</td><td className="p-3">Existing installs may remain usable; original Play listing unavailable</td><td className="p-3">Use a verified official listing or developer source</td></tr>
         </tbody></table></div>
       </section>
-      <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm text-muted-foreground">Need IPTV credentials for an existing player or a replacement? <Link href="/iptv-free-trial" className={a}>Start with a 24-hour IPTV trial</Link>. TryIPTV is independent of Niklabs.</div>
+      <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm text-muted-foreground">Need IPTV credentials for an existing player or a replacement? <Link href="/iptv-free-trial" className={a}>Start with a 24-hour IPTV trial</Link>. TryIPTV is independent of Niklabs.</div>
     </article></Container></Section>
   </>;
 }

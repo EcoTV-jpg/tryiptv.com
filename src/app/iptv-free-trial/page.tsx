@@ -48,7 +48,7 @@ const quickFacts = [
     "Supported devices",
     <>
       Firestick, Android TV, Chromecast with Google TV, Smart TVs (Samsung, LG), Apple TV, Windows, Mac, MAG, and Roku{" "}
-      <Link href="/devices/roku-iptv" className="font-semibold text-primary underline underline-offset-4">
+      <Link href="/devices/roku-iptv" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
         via AirPlay or screen mirroring
       </Link>
     </>,
@@ -59,7 +59,7 @@ const quickFacts = [
     "Trials per household",
     <>
       One trial per household or user (
-      <Link href="/terms-conditions" className="font-semibold text-primary underline underline-offset-4">
+      <Link href="/terms-conditions" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
         Terms &amp; Conditions
       </Link>
       )
@@ -305,7 +305,7 @@ export default async function IptvFreeTrialPage() {
                       <>
                         {" "}
                         Follow the{" "}
-                        <Link href="/setup" className="font-semibold text-primary underline underline-offset-4">
+                        <Link href="/setup" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                           Universal IPTV Setup Guide
                         </Link>{" "}
                         if you need step-by-step assistance.
@@ -338,7 +338,7 @@ export default async function IptvFreeTrialPage() {
                     {"linkText" in req && req.linkText && req.linkHref && (
                       <>
                         {" "}
-                        <Link href={req.linkHref} className="font-semibold text-primary underline underline-offset-4">
+                        <Link href={req.linkHref} className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                           {req.linkText}
                         </Link>
                         .
@@ -402,7 +402,7 @@ export default async function IptvFreeTrialPage() {
 
                 <div className="mt-6 rounded-lg border border-white/[0.08] bg-card/60 p-4 text-base sm:text-xs leading-5 text-muted-foreground">
                   Looking for general instructions? Follow the{" "}
-                  <Link href="/setup" className="font-semibold text-primary underline underline-offset-4">
+                  <Link href="/setup" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     Universal IPTV Setup Guide
                   </Link>
                   .
@@ -502,7 +502,7 @@ export default async function IptvFreeTrialPage() {
               </p>
               <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                 If you want to continue watching,{" "}
-                <Link href="/pricing" className="font-semibold text-primary underline underline-offset-4">
+                <Link href="/pricing" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   compare prepaid plans
                 </Link>
                 . All subscriptions are prepaid upfront with no recurring billing.
@@ -552,7 +552,7 @@ export default async function IptvFreeTrialPage() {
             <div className="overflow-hidden rounded-lg border border-white/[0.08] bg-[#07080a]">
               {trialFaqs.map((faq) => (
                 <details key={faq.question} className="group border-b border-white/[0.07] px-5 last:border-b-0 sm:px-7">
-                  <summary className="flex min-h-[60px] cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-sm font-semibold text-foreground sm:text-base [&::-webkit-details-marker]:hidden">
+                  <summary className="flex min-h-[60px] cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-base font-semibold text-foreground [&::-webkit-details-marker]:hidden">
                     {faq.question}
                     <span aria-hidden="true" className="text-primary transition-transform group-open:rotate-45">+</span>
                   </summary>
@@ -563,7 +563,7 @@ export default async function IptvFreeTrialPage() {
 
             <p className="mt-6 text-center text-base sm:text-sm text-muted-foreground">
               Need help with a specific issue?{" "}
-              <Link href="/contact-us" className="font-semibold text-primary underline underline-offset-4">
+              <Link href="/contact-us" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                 Contact support
               </Link>
               .
@@ -583,7 +583,8 @@ export default async function IptvFreeTrialPage() {
                 TryIPTV is an IPTV service provider, not a player app: you watch through a compatible IPTV player on your own device. After the trial, paid plans are prepaid for 1, 3, 6, or 12 months with no automatic renewal.
               </p>
 
-              <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-sm font-semibold [&>a]:tap-target">
+              {/* Touch: 44px link rows with no vertical gap so wrapped rows never overlap. */}
+              <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-sm font-semibold pointer-coarse:gap-y-0 [&>a]:inline-flex [&>a]:min-h-11 [&>a]:items-center pointer-fine:[&>a]:min-h-0">
                 <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   Compare prepaid plans
                 </Link>

@@ -97,7 +97,7 @@ export default function RefundPolicyPage() {
               <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">5. How to Initiate a Request</h2>
               <p>
                 Contact our support team directly via email at{" "}
-                <a href={`mailto:${siteConfig.links.email}`} className="text-primary underline">
+                <a href={`mailto:${siteConfig.links.email}`} className="text-primary underline decoration-primary/40 hover:decoration-primary">
                   {siteConfig.links.email}
                 </a>{" "}
                 or on WhatsApp. Please include your order identifier, MAC/M3U username, device model, and a brief description of the technical issue.

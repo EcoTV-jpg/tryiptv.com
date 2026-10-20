@@ -41,9 +41,11 @@ function initSentry() {
   });
 }
 
-// Safari has no requestIdleCallback; fall back to a short timeout after load.
-if ("requestIdleCallback" in window) {
-  requestIdleCallback(initSentry, { timeout: 4000 });
+// Safari has no requestIdleCallback; fall back to a short timeout after the load event.
+if (typeof window.requestIdleCallback === "function") {
+  window.requestIdleCallback(initSentry, { timeout: 4000 });
 } else {
-  setTimeout(initSentry, 2000);
+  const later = () => setTimeout(initSentry, 2000);
+  if (document.readyState === "complete") later();
+  else window.addEventListener("load", later, { once: true });
 }

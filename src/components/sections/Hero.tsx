@@ -30,7 +30,7 @@ export function Hero() {
               Best IPTV Streaming
             </p>
 
-            <h1 className="mt-5 font-headline text-[length:clamp(2rem,1.586rem+1.768vw,3rem)] font-bold leading-[1.1] tracking-tight text-foreground">
+            <h1 className="mt-5 font-headline text-[32px] font-bold leading-[1.1] tracking-tight text-foreground sm:text-[42px] lg:text-[46px] xl:text-[48px]">
               TryIPTV — <span className="text-primary">Best IPTV Service</span> in USA, UK &amp; Worldwide
             </h1>
 

@@ -65,8 +65,8 @@ const SheetContent = React.forwardRef<
       {...props}
     >
       {children}
-      {/* 44x44 hit area (icon stays 16px); global :focus-visible outline provides the focus ring. */}
-      <SheetPrimitive.Close className="absolute right-[max(0.5rem,env(safe-area-inset-right))] top-[max(0.5rem,env(safe-area-inset-top))] inline-flex size-11 items-center justify-center rounded-md opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100 disabled:pointer-events-none data-[state=open]:bg-secondary">
+      {/* 44x44 hit area centred on the original icon position (16px from the corner); global :focus-visible outline provides the focus ring. */}
+      <SheetPrimitive.Close className="absolute right-[max(0.125rem,env(safe-area-inset-right))] top-[max(0.125rem,env(safe-area-inset-top))] inline-flex size-11 items-center justify-center rounded-sm opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100 disabled:pointer-events-none data-[state=open]:bg-secondary">
         <X className="h-4 w-4" />
         <span className="sr-only">Close</span>
       </SheetPrimitive.Close>

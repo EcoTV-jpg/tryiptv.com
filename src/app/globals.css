@@ -40,9 +40,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    /* viewport-fit=cover lets the page paint under notches; keep content clear of them in landscape. */
-    padding-left: env(safe-area-inset-left, 0px);
-    padding-right: env(safe-area-inset-right, 0px);
     background:
       radial-gradient(circle at 50% 0%, rgb(0 240 120 / 0.055), transparent 38rem),
       #040506;
@@ -64,21 +61,22 @@
     /* A single long word must wrap rather than widen the page at 320px. */
     overflow-wrap: break-word;
   }
-  /* Long URLs / query strings in inline code wrap instead of causing horizontal scroll.
-     word-break is the fallback for engines without overflow-wrap:anywhere. */
   /* Class-less links come from injected CMS/JSON HTML; underline them so they aren't
-     distinguished by colour alone (WCAG 1.4.1). Tailwind preflight resets them to plain text. */
+     distinguished by colour alone (WCAG 1.4.1). Tailwind preflight resets them to plain text.
+     Same treatment as the site's inline links: primary text, 40% primary underline. */
   main :where(p, li, dd) a:not([class]) {
     color: hsl(var(--primary));
     text-decoration: underline;
+    text-decoration-color: hsl(var(--primary) / 0.4);
     text-underline-offset: 4px;
   }
-  @media (pointer: coarse) {
-    /* Same 44px touch hit area as the tap-target utility (padding on inline links never shifts lines). */
-    main :where(p, li, dd) a:not([class]) {
-      padding-block: max(0px, calc((44px - 1em) / 2));
+  @media (hover: hover) {
+    main :where(p, li, dd) a:not([class]):hover {
+      text-decoration-color: hsl(var(--primary));
     }
   }
+  /* Long URLs / query strings in inline code wrap instead of causing horizontal scroll.
+     word-break is the fallback for engines without overflow-wrap:anywhere. */
   :where(p, li, td, dd, blockquote) code {
     word-break: break-word;
     overflow-wrap: anywhere;
@@ -274,7 +272,8 @@
 }
 
 @layer utilities {
-  /* 100vh fallback, then dynamic viewport height so iOS/Android toolbars don't hide content. */
+  /* Dynamic viewport height so iOS/Android toolbars don't hide content. Lightning CSS drops the
+     100vh line because every target browser supports dvh; it stays as source documentation. */
   .min-h-viewport {
     min-height: 100vh;
     min-height: 100dvh;
@@ -301,10 +300,16 @@
 /* Touch screens: grow a text link's hit area to >=44px tall without shifting layout.
    Padding enlarges the box; the equal negative margin cancels it for block/flex links
    (inline links ignore vertical margin and their padding never affects line layout).
-   Based on 1em because an inline box is ~1.2em tall regardless of line-height. */
+   Based on 1em because an inline box is ~1.2em tall regardless of line-height.
+   Use only on isolated links: on stacked/wrapping links the enlarged boxes overlap (use 44px rows instead).
+   On keyboard focus both are dropped (they cancel, so nothing moves) so the outline hugs the text. */
 @utility tap-target {
   @media (pointer: coarse) {
     padding-block: max(0px, calc((44px - 1em) / 2));
     margin-block: min(0px, calc((1em - 44px) / 2));
+    &:focus-visible {
+      padding-block: 0;
+      margin-block: 0;
+    }
   }
 }

@@ -73,7 +73,7 @@ export function GuideBufferingChecklist() {
               {item.step}
             </span>
             <div className="min-w-0 flex-1">
-              <h3 className="font-headline font-bold text-foreground text-sm sm:text-[15px] mb-1">
+              <h3 className="font-headline font-bold text-foreground text-base sm:text-[15px] mb-1">
                 {item.title}
               </h3>
               <p className="text-base sm:text-[13px] leading-relaxed text-muted-foreground">

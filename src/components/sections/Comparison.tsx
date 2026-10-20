@@ -45,10 +45,10 @@ export function Comparison() {
           <p className="mb-2 text-xs font-mono font-bold uppercase tracking-[0.08em] text-primary">
             Stream More. Pay Less.
           </p>
-          <h2 className="font-headline text-[length:clamp(1.75rem,1.461rem+1.233vw,2.25rem)] font-bold leading-[1.14] tracking-tight text-foreground">
+          <h2 className="font-headline text-[28px] font-bold leading-[1.14] tracking-tight text-foreground sm:text-[34px] lg:text-[36px]">
             Why Choose TryIPTV Over Cable and Other IPTV Providers?
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-base sm:text-[15.5px] leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-2xl text-[15.5px] leading-relaxed text-muted-foreground">
             Compare TryIPTV with traditional cable and other IPTV providers based on pricing, device support, connections, setup, and renewal terms.
           </p>
         </div>
@@ -88,7 +88,7 @@ export function Comparison() {
           </div>
         </div>
 
-        <p className="mx-auto mt-4 max-w-4xl text-center text-base sm:text-sm leading-relaxed text-muted-foreground/85">
+        <p className="mx-auto mt-4 max-w-4xl text-center text-sm leading-relaxed text-muted-foreground/85">
           TryIPTV works with supported TVs, streaming devices, computers, and IPTV players.
         </p>
       </Container>

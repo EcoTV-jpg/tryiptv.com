@@ -74,7 +74,7 @@ const sharedFeatures: { title: string; desc: React.ReactNode }[] = [
     desc: (
       <>
         Stream on up to two devices at the same time in your household. See{" "}
-        <Link href="/devices" className="font-semibold text-primary underline underline-offset-4">supported devices</Link>.
+        <Link href="/devices" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">supported devices</Link>.
       </>
     ),
   },
@@ -83,7 +83,7 @@ const sharedFeatures: { title: string; desc: React.ReactNode }[] = [
     desc: (
       <>
         Server URL, username, and password login supported by most modern{" "}
-        <Link href="/players" className="font-semibold text-primary underline underline-offset-4">IPTV players</Link>.
+        <Link href="/players" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV players</Link>.
       </>
     ),
   },
@@ -108,7 +108,7 @@ const sharedFeatures: { title: string; desc: React.ReactNode }[] = [
     desc: (
       <>
         High-definition video playback where supported by the source stream. Check{" "}
-        <Link href="/guides/iptv-internet-speed" className="font-semibold text-primary underline underline-offset-4">how much internet speed IPTV needs</Link>.
+        <Link href="/guides/iptv-internet-speed" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">how much internet speed IPTV needs</Link>.
       </>
     ),
   },
@@ -335,7 +335,7 @@ export default async function IPTVSubscription() {
 
           <p className="mt-6 text-center text-base sm:text-sm text-muted-foreground">
             Looking for installation help? Read our{" "}
-            <Link href="/setup" className="font-semibold text-primary underline underline-offset-4">
+            <Link href="/setup" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
               Universal IPTV Setup Guide
             </Link>
             .
@@ -393,7 +393,7 @@ export default async function IPTVSubscription() {
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-muted-foreground lg:mx-0">
                 Not ready to choose a prepaid term? Use the 24-hour free trial to test TryIPTV on your own compatible setup before purchasing. The trial costs $0, requires no credit card, and does not automatically renew. Technical issues support can&apos;t resolve within 7 days of purchase may qualify under the{" "}
-                <Link href="/refund-policy" className="font-semibold text-primary underline underline-offset-4">refund policy</Link>.
+                <Link href="/refund-policy" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">refund policy</Link>.
               </p>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:ml-10 lg:mt-0 lg:shrink-0">
@@ -437,7 +437,7 @@ export default async function IPTVSubscription() {
                     {faq.link && (
                       <>
                         {" "}
-                        <Link href={faq.link.href} className="font-semibold text-primary underline underline-offset-4">
+                        <Link href={faq.link.href} className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                           {faq.link.label}
                         </Link>
                         .
@@ -451,11 +451,11 @@ export default async function IPTVSubscription() {
 
           <p className="mt-8 text-center text-base sm:text-sm text-muted-foreground">
             Questions about ordering?{" "}
-            <Link href="/contact-us" className="font-semibold text-primary underline underline-offset-4">
+            <Link href="/contact-us" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
               Contact our support team
             </Link>{" "}
             or see{" "}
-            <Link href="/faq" className="font-semibold text-primary underline underline-offset-4">
+            <Link href="/faq" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
               all IPTV FAQs
             </Link>
             .
@@ -474,7 +474,8 @@ export default async function IPTVSubscription() {
                 TryIPTV sells prepaid IPTV plans with no recurring billing; current payment instructions are provided when ordering.
               </p>
 
-              <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-sm font-semibold [&>a]:tap-target">
+              {/* Touch: 44px link rows with no vertical gap so wrapped rows never overlap. */}
+              <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-sm font-semibold pointer-coarse:gap-y-0 [&>a]:inline-flex [&>a]:min-h-11 [&>a]:items-center pointer-fine:[&>a]:min-h-0">
                 <Link href="/iptv-free-trial" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   24-Hour Free Trial
                 </Link>

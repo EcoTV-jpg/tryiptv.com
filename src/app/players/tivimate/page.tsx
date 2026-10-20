@@ -38,7 +38,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 const headingClass = "font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl";
 const textClass = "mt-4 text-base leading-relaxed text-muted-foreground";
 const listClass = "mt-4 list-decimal space-y-2 pl-6 text-base leading-relaxed text-muted-foreground";
-const linkClass = "text-primary underline underline-offset-4 hover:text-foreground";
+const linkClass = "text-primary underline decoration-primary/40 underline-offset-4 hover:text-foreground";
 
 export default function TivimatePage() {
   return (
@@ -231,7 +231,7 @@ export default function TivimatePage() {
                   <p className={textClass}>Restart the device, check available storage, and update through Google Play or the official TiviMate site, matching the installation method you used. If an update fails, note the app version and device model before contacting TiviMate support.</p>
                 </div>
               </div>
-              <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm text-muted-foreground">
+              <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm text-muted-foreground">
                 Need IPTV credentials for TiviMate? <Link href="/iptv-free-trial" className={linkClass}>Start with a 24-hour IPTV trial</Link>. TryIPTV is an independent IPTV provider, not the developer of TiviMate.
               </div>
             </section>

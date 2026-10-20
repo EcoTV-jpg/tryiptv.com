@@ -73,7 +73,8 @@ export default function DevicesPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0 flex flex-col justify-between flex-1">
-                    <p className="text-base sm:text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-6">
+                    {/* Full description below 640px: at 16px a 3-line clamp hid most of it. */}
+                    <p className="text-base sm:text-sm text-muted-foreground leading-relaxed sm:line-clamp-3 mb-6">
                       {article.description}
                     </p>
                     <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between">

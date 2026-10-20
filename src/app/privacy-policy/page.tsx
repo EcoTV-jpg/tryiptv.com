@@ -96,7 +96,7 @@ export default function PrivacyPolicyPage() {
               <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">6. Contacting Us About Privacy</h2>
               <p>
                 If you have questions regarding this Privacy Policy or wish to request deletion of your contact records, reach out to our team at{" "}
-                <a href={`mailto:${siteConfig.links.email}`} className="text-primary underline">
+                <a href={`mailto:${siteConfig.links.email}`} className="text-primary underline decoration-primary/40 hover:decoration-primary">
                   {siteConfig.links.email}
                 </a>.
               </p>

@@ -72,7 +72,7 @@ export function GuideTroubleshooting() {
             <div>
               <div className="flex items-start gap-2.5 mb-3.5">
                 <AlertCircle className="h-4.5 w-4.5 text-amber-400 shrink-0 mt-0.5" aria-hidden="true" />
-                <h3 className="font-headline font-bold text-foreground text-sm sm:text-[15px] leading-snug">
+                <h3 className="font-headline font-bold text-foreground text-base sm:text-[15px] leading-snug">
                   {item.problem}
                 </h3>
               </div>

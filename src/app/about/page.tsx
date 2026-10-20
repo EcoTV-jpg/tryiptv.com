@@ -34,7 +34,7 @@ export function generateMetadata(): Metadata {
   return { ...generatePageMetadata({ title, description, canonical }), title: { absolute: title } };
 }
 
-const link = "font-semibold text-primary underline underline-offset-4 hover:text-primary/80";
+const link = "font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:text-primary/80";
 const h2 = "font-headline text-xl font-bold text-foreground sm:text-2xl";
 
 const runBy = [

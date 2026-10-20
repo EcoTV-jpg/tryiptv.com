@@ -86,7 +86,7 @@ export default function DisclaimerPage() {
               <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">5. Contact Information</h2>
               <p>
                 For questions regarding this disclaimer, contact us at{" "}
-                <a href={`mailto:${siteConfig.links.email}`} className="text-primary underline">
+                <a href={`mailto:${siteConfig.links.email}`} className="text-primary underline decoration-primary/40 hover:decoration-primary">
                   {siteConfig.links.email}
                 </a>.
               </p>

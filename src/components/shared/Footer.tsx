@@ -128,7 +128,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-11 min-w-11 items-center text-base text-muted-foreground transition-colors duration-150 hover:text-foreground sm:text-[13.5px] pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
+                    className="inline-flex min-h-11 min-w-11 items-center text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
                   >
                     {link.name}
                   </Link>
@@ -147,7 +147,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-11 min-w-11 items-center text-base text-muted-foreground transition-colors duration-150 hover:text-foreground sm:text-[13.5px] pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
+                    className="inline-flex min-h-11 min-w-11 items-center text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
                   >
                     {link.name}
                   </Link>
@@ -166,7 +166,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-11 min-w-11 items-center text-base text-muted-foreground transition-colors duration-150 hover:text-foreground sm:text-[13.5px] pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
+                    className="inline-flex min-h-11 min-w-11 items-center text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
                   >
                     {link.name}
                   </Link>

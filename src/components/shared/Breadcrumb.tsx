@@ -22,10 +22,11 @@ export function Breadcrumb({ items, className, align = 'left' }: BreadcrumbProps
         className
       )}
     >
-      {/* Links grow to 44px rows on touch screens (pointer-coarse); mouse layouts are unchanged. */}
-      <ol className="flex flex-wrap items-center gap-x-2 pointer-fine:gap-y-2">
+      {/* Touch: links get a 44px-tall, >=44px-wide hit area via padding cancelled by negative margin,
+          and the list's -my-3.5 cancels the extra row height, so the trail renders exactly as on desktop. */}
+      <ol className="flex flex-wrap items-center gap-2 pointer-coarse:-my-3.5">
         <li>
-          <Link href="/" className="inline-flex min-h-11 min-w-11 items-center transition-colors duration-200 hover:text-primary pointer-fine:min-h-0 pointer-fine:min-w-0">
+          <Link href="/" className="transition-colors duration-200 hover:text-primary pointer-coarse:-mx-2.5 pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center pointer-coarse:px-2.5">
             Home
           </Link>
         </li>
@@ -33,7 +34,7 @@ export function Breadcrumb({ items, className, align = 'left' }: BreadcrumbProps
           <li key={index} className="flex items-center gap-2">
             <span className="text-white/20 select-none">/</span>
             {item.href ? (
-              <Link href={item.href} className="inline-flex min-h-11 min-w-11 items-center transition-colors duration-200 hover:text-primary pointer-fine:min-h-0 pointer-fine:min-w-0">
+              <Link href={item.href} className="transition-colors duration-200 hover:text-primary pointer-coarse:-mx-2.5 pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center pointer-coarse:px-2.5">
                 {item.label}
               </Link>
             ) : (

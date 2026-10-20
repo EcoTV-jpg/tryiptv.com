@@ -343,7 +343,7 @@ export default function SetupPage() {
                   Having everything prepared ensures a smooth, straightforward installation. Review this checklist before configuring your application.
                 </p>
                 <div className="rounded-xl border border-primary/20 bg-primary/[0.04] p-5 space-y-3">
-                  <div className="flex items-center gap-2 text-xs font-bold text-primary">
+                  <div className="flex items-center gap-2 text-base sm:text-xs font-bold text-primary">
                     <ShieldCheck className="h-4 w-4" />
                     Security &amp; Account Protection
                   </div>
@@ -367,7 +367,7 @@ export default function SetupPage() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                <CardContent className="text-base sm:text-sm text-muted-foreground leading-relaxed">
                   Stable streaming requires consistent download bandwidth: minimum 15–25 Mbps for 1080p Full HD streams and 40–50+ Mbps for 4K Ultra HD live broadcasts. A wired Ethernet cable or low-interference 5GHz Wi-Fi connection eliminates packet buffering.
                 </CardContent>
               </Card>
@@ -384,7 +384,7 @@ export default function SetupPage() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                <CardContent className="text-base sm:text-sm text-muted-foreground leading-relaxed">
                   IPTV runs on virtually all modern hardware: Amazon Fire TV Sticks, Android TV boxes, Google Chromecast, Apple TV, Smart TVs (Samsung Tizen &amp; LG webOS), Windows PCs, Macs, iPhones, and Android devices.
                 </CardContent>
               </Card>
@@ -401,7 +401,7 @@ export default function SetupPage() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                <CardContent className="text-base sm:text-sm text-muted-foreground leading-relaxed">
                   TryIPTV supplies server access and credentials. You choose the player app (such as TiviMate, IPTV Smarters Pro, or XCIPTV) to manage your channel lists, program guide, and playback interface.
                 </CardContent>
               </Card>
@@ -418,7 +418,7 @@ export default function SetupPage() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                <CardContent className="text-base sm:text-sm text-muted-foreground leading-relaxed">
                   TryIPTV delivers credentials formatted for both standard connection methods:
                   <ul className="mt-2 space-y-1.5 list-disc list-inside text-foreground/90">
                     <li><strong className="text-primary font-semibold">Xtream Codes API:</strong> Server URL, Username, and Password.</li>
@@ -572,7 +572,7 @@ export default function SetupPage() {
                 <CardTitle as="h3" className="text-xl font-extrabold">Xtream Codes API</CardTitle>
                 <CardDescription className="text-xs">Modern, fast, structured credential format</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <CardContent className="space-y-4 text-base sm:text-sm text-muted-foreground leading-relaxed">
                 <p>
                   Xtream Codes uses three distinct fields provided by your service:
                 </p>
@@ -612,7 +612,7 @@ export default function SetupPage() {
                 <CardTitle as="h3" className="text-xl font-extrabold">M3U Playlist URL</CardTitle>
                 <CardDescription className="text-xs">Plaintext index compatible with any player</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <CardContent className="space-y-4 text-base sm:text-sm text-muted-foreground leading-relaxed">
                 <p>
                   M3U setup uses a single extended web link containing your streaming token:
                 </p>

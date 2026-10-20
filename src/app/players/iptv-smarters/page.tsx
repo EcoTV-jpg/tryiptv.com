@@ -35,7 +35,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 const headingClass = "font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl";
 const textClass = "mt-4 text-base leading-relaxed text-muted-foreground";
 const listClass = "mt-4 list-decimal space-y-2 pl-6 text-base leading-relaxed text-muted-foreground";
-const linkClass = "text-primary underline underline-offset-4 hover:text-foreground";
+const linkClass = "text-primary underline decoration-primary/40 underline-offset-4 hover:text-foreground";
 
 export default function IptvSmartersPage() {
   return (
@@ -229,7 +229,7 @@ export default function IptvSmartersPage() {
                   <p className={textClass}>Restart the device, check free storage, and install an update from the same verified source you used originally. If the problem started after an update, note the app version and device model for the developer. Reinstall only after preserving any playlist details you will need to enter again.</p>
                 </div>
               </div>
-              <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm text-muted-foreground">
+              <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm text-muted-foreground">
                 Need IPTV credentials for Smarters? <Link href="/iptv-free-trial" className={linkClass}>Start with a 24-hour IPTV trial</Link>. TryIPTV is an independent provider and does not operate IPTV Smarters.
               </div>
             </section>

@@ -37,10 +37,9 @@ export function SectionHeader({
       <Heading
         className={cn(
           "font-headline font-bold text-foreground tracking-tight",
-          // Fluid: scales linearly from the 375px size to the desktop size (h1 36→52px, h2 28→38px).
           Heading === 'h1'
-            ? "text-[length:clamp(2.25rem,1.672rem+2.465vw,3.25rem)] leading-[1.08]"
-            : "text-[length:clamp(1.75rem,1.491rem+1.105vw,2.375rem)] leading-[1.14]"
+            ? "text-4xl sm:text-5xl lg:text-[52px] leading-[1.08]"
+            : "text-[28px] sm:text-[34px] lg:text-[36px] xl:text-[38px] leading-[1.14]"
         )}
       >
         {title}
@@ -48,7 +47,7 @@ export function SectionHeader({
       {subtitle && (
         <p
           className={cn(
-            "mt-4 max-w-2xl text-[15.5px] sm:text-[16.5px] leading-relaxed text-muted-foreground",
+            "mt-4 max-w-2xl text-base sm:text-[16.5px] leading-relaxed text-muted-foreground",
             align === 'center' && 'mx-auto'
           )}
         >

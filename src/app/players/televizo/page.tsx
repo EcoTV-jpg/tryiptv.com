@@ -35,7 +35,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 const headingClass = "font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl";
 const textClass = "mt-4 text-base leading-relaxed text-muted-foreground";
 const listClass = "mt-4 list-decimal space-y-2 pl-6 text-base leading-relaxed text-muted-foreground";
-const linkClass = "text-primary underline underline-offset-4 hover:text-foreground";
+const linkClass = "text-primary underline decoration-primary/40 underline-offset-4 hover:text-foreground";
 
 export default function TelevizoPage() {
   return (
@@ -170,7 +170,7 @@ export default function TelevizoPage() {
                   <p className={textClass}>Test another channel and another app or network activity to narrow down whether the issue is one stream or the connection. Restart Televizo and the device; if the same stream fails across players, report it to the provider. See <Link href="/help/iptv-buffering" className={linkClass}>IPTV buffering checks</Link>.</p>
                 </div>
               </div>
-              <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm text-muted-foreground">
+              <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm text-muted-foreground">
                 Need IPTV credentials? <Link href="/iptv-free-trial" className={linkClass}>Start with a 24-hour IPTV trial</Link>.
               </div>
             </section>

@@ -35,7 +35,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 const headingClass = "font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl";
 const textClass = "mt-4 text-base leading-relaxed text-muted-foreground";
 const listClass = "mt-4 list-decimal space-y-2 pl-6 text-base leading-relaxed text-muted-foreground";
-const linkClass = "text-primary underline underline-offset-4 hover:text-foreground";
+const linkClass = "text-primary underline decoration-primary/40 underline-offset-4 hover:text-foreground";
 
 export default function OttNavigatorPage() {
   return (
@@ -247,7 +247,7 @@ export default function OttNavigatorPage() {
                   <p className={textClass}>Compare channels, check Wi-Fi or wired network stability, and consider device playback limits. If the same source stutters elsewhere, ask the provider about stream health. See <Link href="/help/iptv-buffering" className={linkClass}>IPTV buffering checks</Link>.</p>
                 </div>
               </div>
-              <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm text-muted-foreground">
+              <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm text-muted-foreground">
                 Need IPTV credentials for OTT Navigator? <Link href="/iptv-free-trial" className={linkClass}>Start with a 24-hour IPTV trial</Link>. TryIPTV is independent of OTT Navigator.
               </div>
             </section>

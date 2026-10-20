@@ -54,7 +54,7 @@ export default async function ContactPage() {
                                 <CardHeader>
                                     <p className="eyebrow mb-1">Direct support</p>
                                     <CardTitle as="h2" className="font-headline text-2xl font-extrabold">Customer Support</CardTitle>
-                                    <CardDescription>Contact our support team for setup, billing, or technical help.</CardDescription>
+                                    <CardDescription className="text-base sm:text-sm">Contact our support team for setup, billing, or technical help.</CardDescription>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <a

@@ -88,7 +88,7 @@ export function GuideCallout({
           >
             {type}
           </span>
-          <span className="font-bold text-foreground text-xs sm:text-sm">
+          <span className="font-bold text-foreground text-base sm:text-sm">
             {title || config.defaultTitle}
           </span>
         </div>
