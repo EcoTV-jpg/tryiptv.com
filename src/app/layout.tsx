@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const Toaster = dynamic(() => import("@/components/ui/toaster").then((mod) => mod.Toaster));
+const LazyToaster = dynamic(() => import("@/components/ui/lazy-toaster").then((mod) => mod.LazyToaster));
 const ContactSheet = dynamic(() => import("@/components/shared/ContactSheet").then((mod) => mod.ContactSheet));
 import { Analytics } from "@/components/shared/Analytics";
 import { Schema } from "@/components/shared/Schema";
@@ -166,7 +166,7 @@ export default function RootLayout({
             <Footer />
           </div>
           <ContactSheet />
-          <Toaster />
+          <LazyToaster />
         </ThemeProvider>
       </body>
     </html>

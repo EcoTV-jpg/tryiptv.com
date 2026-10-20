@@ -433,7 +433,7 @@ export default function WhatIsM3uPage() {
               <p>
                 Some Xtream-compatible IPTV panel implementations generate playlist URLs structured with specific query parameters, such as:
               </p>
-              <div className="my-4 overflow-x-auto rounded-lg border border-white/[0.08] bg-black/40 p-3 font-mono text-xs text-foreground/90 sm:text-sm">
+              <div tabIndex={0} role="region" aria-label="Example M3U playlist URL" className="my-4 overflow-x-auto rounded-lg border border-white/[0.08] bg-black/40 p-3 font-mono text-xs text-foreground/90 sm:text-sm">
                 https://example.com/get.php?username=USER&amp;password=PASS&amp;type=m3u_plus&amp;output=ts
               </div>
               <p>

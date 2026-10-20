@@ -49,7 +49,7 @@ export function GuideRequirements({
   const requirements = items && items.length > 0 ? items : defaultRequirements;
 
   return (
-    <div id="what-you-need" className={`scroll-mt-24 my-8 ${className || ""}`}>
+    <div id="what-you-need" className={`scroll-mt-2 my-8 ${className || ""}`}>
       <div className="mb-4">
         <p className="eyebrow mb-1">Prerequisites</p>
         <h2 className="font-headline text-xl sm:text-2xl font-extrabold text-foreground">

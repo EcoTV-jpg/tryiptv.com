@@ -52,7 +52,7 @@ const TROUBLESHOOTING_ITEMS: TroubleshootingItem[] = [
 
 export function GuideTroubleshooting() {
   return (
-    <div id="troubleshooting" className="scroll-mt-24 my-10">
+    <div id="troubleshooting" className="scroll-mt-2 my-10">
       <div className="mb-6">
         <p className="eyebrow mb-1">Diagnostic Interface</p>
         <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">

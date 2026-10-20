@@ -75,7 +75,7 @@ export default function XciptvPage() {
               <p className={textClass}>
                 App store availability varies across operating systems. When searching for XCIPTV, verify the publisher name to ensure you install the genuine application rather than an unverified copy.
               </p>
-              <div className="mt-5 overflow-x-auto rounded-xl border border-white/[0.08]">
+              <div tabIndex={0} role="region" aria-label="XCIPTV comparison table" className="mt-5 overflow-x-auto rounded-xl border border-white/[0.08]">
                 <table className="w-full min-w-[32rem] text-left text-sm text-muted-foreground">
                   <thead className="bg-white/[0.03] text-foreground">
                     <tr>
@@ -224,7 +224,7 @@ export default function XciptvPage() {
               <p className={textClass}>
                 Use the first failing stage to choose a test, not to declare a definite cause. Compare several channels and, when possible, the same provider details in another compatible player. If credentials fail everywhere, contact the provider. If they work elsewhere but fail in XCIPTV, compare the XCIPTV login format, app version, and copied fields.
               </p>
-              <div className="mt-5 overflow-x-auto rounded-xl border border-white/[0.08]">
+              <div tabIndex={0} role="region" aria-label="XCIPTV troubleshooting table" className="mt-5 overflow-x-auto rounded-xl border border-white/[0.08]">
                 <table className="w-full min-w-[32rem] text-left text-sm text-muted-foreground">
                   <thead className="bg-white/[0.03] text-foreground"><tr><th className="p-3 font-semibold">Symptom</th><th className="p-3 font-semibold">Likely area to check</th></tr></thead>
                   <tbody className="divide-y divide-white/[0.06]">

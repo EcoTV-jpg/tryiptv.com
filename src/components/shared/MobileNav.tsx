@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/shared/Logo';
 import { navLinks } from '@/lib/site-data/nav';
@@ -19,9 +19,11 @@ export function MobileNav() {
           <span className="sr-only">Toggle Navigation</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="flex flex-col border-white/[0.08] bg-[#07080a]">
+      {/* Dialog needs an accessible name; the title is visually hidden so the design is unchanged. */}
+      <SheetContent side="right" className="flex flex-col border-white/[0.08] bg-[#07080a]" aria-describedby={undefined}>
+        <SheetTitle className="sr-only">Site navigation</SheetTitle>
         <Logo />
-        <nav className="mt-8 flex flex-1 flex-col gap-4">
+        <nav className="mt-8 flex flex-1 flex-col gap-4" aria-label="Mobile navigation">
           {navLinks.map((link) => (
             <Link
               key={link.name}

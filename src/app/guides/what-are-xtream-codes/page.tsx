@@ -386,7 +386,7 @@ export default function WhatAreXtreamCodesPage() {
               </p>
 
               <h2>Summary: What Xtream Codes Is and Is Not</h2>
-              <div className="not-prose my-6 sm:my-8 overflow-x-auto rounded-xl sm:rounded-2xl border border-white/[0.08] bg-[#07080a] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
+              <div tabIndex={0} role="region" aria-label="Xtream Codes summary table" className="not-prose my-6 sm:my-8 overflow-x-auto rounded-xl sm:rounded-2xl border border-white/[0.08] bg-[#07080a] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
                 <table className="w-full min-w-[500px] text-left text-sm">
                   <thead className="bg-[#07080a] px-4 py-3 font-semibold text-foreground border-b border-white/[0.08]">
                     <tr>

@@ -196,7 +196,7 @@ export default function OttNavigatorPage() {
               <p className={textClass}>
                 Treat the first failing stage as a clue. Compare another channel and, when possible, another compatible player or network activity. If the same provider fails everywhere, ask the provider to check its service or your account. If it works elsewhere, compare OTT Navigator&apos;s template, URL, and device-specific settings.
               </p>
-              <div className="mt-5 overflow-x-auto rounded-xl border border-white/[0.08]">
+              <div tabIndex={0} role="region" aria-label="OTT Navigator comparison table" className="mt-5 overflow-x-auto rounded-xl border border-white/[0.08]">
                 <table className="w-full min-w-[32rem] text-left text-sm text-muted-foreground">
                   <thead className="bg-white/[0.03] text-foreground"><tr><th className="p-3 font-semibold">Symptom</th><th className="p-3 font-semibold">Likely area to check</th></tr></thead>
                   <tbody className="divide-y divide-white/[0.06]">

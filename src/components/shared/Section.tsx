@@ -9,8 +9,7 @@ export function Section({ className, variant = 'default', ...props }: SectionPro
   return (
     <section
       className={cn(
-        // scroll-mt keeps #anchor targets clear of the sticky 80px header.
-        'scroll-mt-20 py-14 sm:py-16 md:py-20 lg:py-24',
+        'py-14 sm:py-16 md:py-20 lg:py-24',
         variant === 'alt' && 'border-y border-white/[0.05] bg-[#07080a]',
         className
       )}

@@ -38,6 +38,12 @@
   * {
     @apply border-border;
   }
+  html {
+    /* Keeps keyboard-focused elements and #anchor targets clear of the sticky 80px header
+       (WCAG 2.4.11). Existing scroll-mt-* offsets were reduced by the same 5.5rem so anchor
+       jumps land where they did before. */
+    scroll-padding-top: 5.5rem;
+  }
   body {
     @apply bg-background text-foreground;
     background:

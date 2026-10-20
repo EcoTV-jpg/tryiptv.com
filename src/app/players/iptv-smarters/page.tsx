@@ -179,7 +179,7 @@ export default function IptvSmartersPage() {
               <p className={textClass}>
                 The symptom narrows the next check, but it does not prove a single cause. Compare another channel, another network activity, or another compatible player when possible. If the same credentials fail in every player, contact the provider; if they work elsewhere, compare Smarters&apos; login format and app version.
               </p>
-              <div className="mt-5 overflow-x-auto rounded-xl border border-white/[0.08]">
+              <div tabIndex={0} role="region" aria-label="IPTV Smarters comparison table" className="mt-5 overflow-x-auto rounded-xl border border-white/[0.08]">
                 <table className="w-full min-w-[32rem] text-left text-sm text-muted-foreground">
                   <thead className="bg-white/[0.03] text-foreground"><tr><th className="p-3 font-semibold">Symptom</th><th className="p-3 font-semibold">Check first</th></tr></thead>
                   <tbody className="divide-y divide-white/[0.06]">

@@ -29,7 +29,7 @@ export function ArticleCodeBlock({
           <span>{title}</span>
         </div>
       </div>
-      <pre className="overflow-x-auto p-4 sm:p-5 text-xs sm:text-[13px] font-mono leading-relaxed text-foreground/90 selection:bg-primary/20">
+      <pre tabIndex={0} aria-label={title} className="overflow-x-auto p-4 sm:p-5 text-xs sm:text-[13px] font-mono leading-relaxed text-foreground/90 selection:bg-primary/20">
         <code>{code}</code>
       </pre>
     </div>

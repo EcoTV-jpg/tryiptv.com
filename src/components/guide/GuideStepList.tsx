@@ -21,7 +21,7 @@ export function GuideStepList({
 }: GuideStepListProps) {
 
   return (
-    <div id="setup-steps" className={`scroll-mt-28 my-10 ${className || ""}`}>
+    <div id="setup-steps" className={`scroll-mt-6 my-10 ${className || ""}`}>
       <div className="mb-8">
         <p className="eyebrow mb-1.5">Step-by-Step Walkthrough</p>
         <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
@@ -41,7 +41,7 @@ export function GuideStepList({
             <div
               key={index}
               id={`step-${index + 1}`}
-              className="group relative flex items-start gap-4 sm:gap-6 scroll-mt-28"
+              className="group relative flex items-start gap-4 sm:gap-6 scroll-mt-6"
             >
               {/* Timeline indicator & vertical rail */}
               <div className="flex flex-col items-center self-stretch shrink-0">

@@ -763,7 +763,7 @@ export default async function HowToPage({ params }: Props) {
                   <div className="space-y-12">
                     {/* Service vs Player */}
                     {extraSections.find((s) => s.id === "service-vs-player") && (
-                      <div id="service-vs-player" className="scroll-mt-28 pt-8 border-t border-white/[0.08]">
+                      <div id="service-vs-player" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
                           {extraSections.find((s) => s.id === "service-vs-player")?.title}
                         </h2>
@@ -778,7 +778,7 @@ export default async function HowToPage({ params }: Props) {
 
                     {/* M3U vs Xtream Codes */}
                     {extraSections.find((s) => s.id === "m3u-vs-xtream") && (
-                      <div id="m3u-vs-xtream" className="scroll-mt-28 pt-8 border-t border-white/[0.08]">
+                      <div id="m3u-vs-xtream" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
                           {extraSections.find((s) => s.id === "m3u-vs-xtream")?.title}
                         </h2>
@@ -800,7 +800,7 @@ export default async function HowToPage({ params }: Props) {
 
                     {/* Developer Options & Sideloading */}
                     {extraSections.find((s) => s.id === "developer-options") && (
-                      <div id="developer-options" className="scroll-mt-28 pt-8 border-t border-white/[0.08]">
+                      <div id="developer-options" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
                           {extraSections.find((s) => s.id === "developer-options")?.title}
                         </h2>
@@ -858,7 +858,7 @@ export default async function HowToPage({ params }: Props) {
 
                     {/* Xtream Setup Detail */}
                     {extraSections.find((s) => s.id === "xtream-setup-detail") && (
-                      <div id="xtream-setup-detail" className="scroll-mt-28 pt-8 border-t border-white/[0.08]">
+                      <div id="xtream-setup-detail" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
                           {extraSections.find((s) => s.id === "xtream-setup-detail")?.title}
                         </h2>
@@ -873,7 +873,7 @@ export default async function HowToPage({ params }: Props) {
 
                     {/* M3U Setup Detail */}
                     {extraSections.find((s) => s.id === "m3u-setup-detail") && (
-                      <div id="m3u-setup-detail" className="scroll-mt-28 pt-8 border-t border-white/[0.08]">
+                      <div id="m3u-setup-detail" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
                           {extraSections.find((s) => s.id === "m3u-setup-detail")?.title}
                         </h2>
@@ -888,7 +888,7 @@ export default async function HowToPage({ params }: Props) {
 
                     {/* EPG Setup Detail */}
                     {extraSections.find((s) => s.id === "epg-detail") && (
-                      <div id="epg-detail" className="scroll-mt-28 pt-8 border-t border-white/[0.08]">
+                      <div id="epg-detail" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
                           {extraSections.find((s) => s.id === "epg-detail")?.title}
                         </h2>
@@ -909,7 +909,7 @@ export default async function HowToPage({ params }: Props) {
 
                     {/* Two Firesticks */}
                     {extraSections.find((s) => s.id === "two-firesticks") && (
-                      <div id="two-firesticks" className="scroll-mt-28 pt-8 border-t border-white/[0.08]">
+                      <div id="two-firesticks" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <div className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5 sm:p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
                           <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/[0.08] border border-primary/20 rounded px-2 py-0.5 inline-block mb-3">
                             Device Policy
@@ -929,7 +929,7 @@ export default async function HowToPage({ params }: Props) {
 
                     {/* Before Paying / Free Trial Section */}
                     {extraSections.find((s) => s.id === "before-paying") && (
-                      <div id="before-paying" className="scroll-mt-28 pt-8 border-t border-white/[0.08]">
+                      <div id="before-paying" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <div className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5 sm:p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
                           <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-white/[0.04] border border-white/[0.1] rounded px-2 py-0.5 inline-block mb-3">
                             Trial Terms
@@ -949,7 +949,7 @@ export default async function HowToPage({ params }: Props) {
 
                     {/* Storage Management */}
                     {extraSections.find((s) => s.id === "storage") && (
-                      <div id="storage" className="scroll-mt-28 pt-8 border-t border-white/[0.08]">
+                      <div id="storage" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <div className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5 sm:p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
                           <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/[0.08] border border-amber-400/20 rounded px-2 py-0.5 inline-block mb-3">
                             Device Maintenance
@@ -969,7 +969,7 @@ export default async function HowToPage({ params }: Props) {
 
                     {/* Sideloading Security */}
                     {extraSections.find((s) => s.id === "security") && (
-                      <div id="security" className="scroll-mt-28 pt-8 border-t border-white/[0.08]">
+                      <div id="security" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <div className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5 sm:p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] space-y-4">
                           <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-sky-400 bg-sky-400/[0.08] border border-sky-400/20 rounded px-2 py-0.5 inline-block">
                             Security Verification
@@ -999,7 +999,7 @@ export default async function HowToPage({ params }: Props) {
                 {!isFirestick && extraSections && extraSections.length > 0 && (
                   <div className="space-y-12">
                     {extraSections.map((section) => (
-                      <div key={section.id} id={section.id} className="scroll-mt-28 pt-8 border-t border-white/[0.08]">
+                      <div key={section.id} id={section.id} className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                         <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
                           {section.title}
                         </h2>
@@ -1017,7 +1017,7 @@ export default async function HowToPage({ params }: Props) {
 
                 {/* Frequently Asked Questions */}
                 {faqs && (
-                  <div id="faq" className="scroll-mt-28 pt-8 border-t border-white/[0.08]">
+                  <div id="faq" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                     <div className="mb-6">
                       <p className="eyebrow mb-1">Direct Answers</p>
                       <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">

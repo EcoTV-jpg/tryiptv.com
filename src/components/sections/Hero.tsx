@@ -65,7 +65,10 @@ export function Hero() {
                   alt="Couple watching TV with TryIPTV streaming service"
                   width={1024}
                   height={682}
-                  preload
+                  // LCP image: Next 16 docs recommend eager + high fetch priority over `preload`
+                  // (preload alone was fetched at Low priority).
+                  loading="eager"
+                  fetchPriority="high"
                   className="h-auto w-full object-cover"
                   sizes="(min-width: 1024px) 460px, (min-width: 640px) 512px, 100vw"
                 />

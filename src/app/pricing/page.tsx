@@ -174,7 +174,7 @@ export default async function IPTVSubscription() {
       </Section>
 
       {/* Section 1: Compare TryIPTV Plans */}
-      <Section id="pricing-plans" className="scroll-mt-24 bg-[#050706] py-10 sm:py-14">
+      <Section id="pricing-plans" className="scroll-mt-2 bg-[#050706] py-10 sm:py-14">
         <Container>
           <SectionHeader
             eyebrow="Prepaid IPTV Plans"
@@ -272,7 +272,7 @@ export default async function IPTVSubscription() {
                 Every plan includes the same 2 simultaneous connections and features. Only the prepaid term, upfront total, and monthly equivalent change.
               </p>
             </div>
-            <div className="overflow-x-auto">
+            <div tabIndex={0} role="region" aria-label="Plan prices table" className="overflow-x-auto">
               <table className="w-full min-w-[640px] text-left text-sm">
                 <caption className="sr-only">TryIPTV prepaid plan prices, durations, and best use cases</caption>
                 <thead className="border-b border-white/[0.07] text-xs uppercase tracking-wide text-muted-foreground">
@@ -413,7 +413,7 @@ export default async function IPTVSubscription() {
       </Section>
 
       {/* Section 6: Pricing FAQ */}
-      <Section id="faq" className="scroll-mt-24 border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
+      <Section id="faq" className="scroll-mt-2 border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
         <Container>
           <SectionHeader
             eyebrow="Pricing &amp; Billing Questions"

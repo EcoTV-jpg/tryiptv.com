@@ -52,7 +52,7 @@ const BUFFERING_STEPS: BufferingStep[] = [
 
 export function GuideBufferingChecklist() {
   return (
-    <div id="buffering" className="scroll-mt-24 my-10">
+    <div id="buffering" className="scroll-mt-2 my-10">
       <div className="mb-6">
         <p className="eyebrow mb-1">Performance Tuning</p>
         <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
