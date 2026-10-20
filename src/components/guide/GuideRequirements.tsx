@@ -70,7 +70,7 @@ export function GuideRequirements({
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-2 mb-1">
-                  <h3 className="font-headline text-base sm:text-[15px] font-bold text-foreground">
+                  <h3 className="font-headline text-base sm:text-[15px] sm:leading-[calc(1.25/0.875)] font-bold text-foreground">
                     {req.title}
                   </h3>
                   <span className="text-[10px] font-medium text-muted-foreground/75 px-1.5 py-0.5 rounded border border-white/[0.06] bg-white/[0.02]">
