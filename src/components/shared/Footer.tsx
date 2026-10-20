@@ -192,7 +192,7 @@ export function Footer() {
                     title={link.name}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex size-11 items-center justify-center rounded-xl border border-white/[0.07] pointer-fine:lg:size-9 bg-white/[0.03] text-muted-foreground transition-colors duration-150 hover:border-primary/30 hover:text-primary"
+                    className="inline-flex size-11 items-center justify-center rounded-xl border border-white/[0.07] pointer-fine:size-10 pointer-fine:lg:size-9 bg-white/[0.03] text-muted-foreground transition-colors duration-150 hover:border-primary/30 hover:text-primary"
                   >
                     <SocialIcon name={link.icon} />
                   </a>
