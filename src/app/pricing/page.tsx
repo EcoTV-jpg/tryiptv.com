@@ -199,7 +199,7 @@ export default async function IPTVSubscription() {
                   <div className="flex-1">
                     {/* The badge takes the plan-number slot so it can't overlap it or push the heading down. */}
                     {isLowestMonthly ? (
-                      <p className="w-fit whitespace-nowrap rounded-md border border-primary/25 bg-primary/[0.08] px-2 text-[10px] font-mono font-bold uppercase leading-[14.5px] text-primary">
+                      <p className="w-fit whitespace-nowrap rounded-md border border-primary/25 bg-primary/[0.08] px-2 text-[10px] font-mono font-bold uppercase leading-[14.5px] tracking-wider text-primary">
                         Lowest Monthly Equivalent
                       </p>
                     ) : (

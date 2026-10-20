@@ -113,6 +113,7 @@ export function Footer() {
               >
                 <MessageCircle className="h-3.5 w-3.5 text-primary shrink-0" />
                 <span>WhatsApp Support</span>
+                <span className="sr-only"> (opens WhatsApp in a new tab)</span>
                 <ArrowUpRight className="size-3.5 transition-transform group-hover/wa:translate-x-0.5 group-hover/wa:-translate-y-0.5" />
               </a>
             </div>
@@ -185,7 +186,7 @@ export function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    aria-label={link.ariaLabel}
+                    aria-label={`${link.ariaLabel} (opens in a new tab)`}
                     title={link.name}
                     target="_blank"
                     rel="noopener noreferrer"

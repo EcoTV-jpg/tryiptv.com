@@ -75,6 +75,7 @@ export default function ThankYouPage() {
                 >
                   <MessageCircle className="mr-2 h-4 w-4" />
                   Contact Us on WhatsApp
+                  <span className="sr-only"> (opens WhatsApp in a new tab)</span>
                 </a>
               </Button>
               <Button

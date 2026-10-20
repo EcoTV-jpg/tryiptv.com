@@ -438,7 +438,7 @@ export default function SetupPage() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
             <div>
               <span className="eyebrow mb-1">Hardware Setup</span>
-              <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
+              <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
                 Choose Your Device
               </h2>
               <p className="mt-1.5 text-base sm:text-sm text-muted-foreground max-w-xl">
@@ -499,7 +499,7 @@ export default function SetupPage() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
             <div>
               <span className="eyebrow mb-1">Software Selection</span>
-              <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
+              <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
                 Choose an IPTV Player Application
               </h2>
               <p className="mt-1.5 text-base sm:text-sm text-muted-foreground max-w-2xl">
@@ -554,7 +554,7 @@ export default function SetupPage() {
         <Container>
           <div className="mx-auto max-w-3xl text-center mb-10">
             <span className="eyebrow mb-1">Connection Protocols</span>
-            <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
               Xtream Codes vs. M3U Setup Explained
             </h2>
             <p className="mt-2 text-base sm:text-sm text-muted-foreground leading-relaxed">
@@ -649,7 +649,7 @@ export default function SetupPage() {
         <Container>
           <div className="mx-auto max-w-3xl text-center mb-12">
             <span className="eyebrow mb-1">Standard Workflow</span>
-            <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
               7-Step Universal Setup Walkthrough
             </h2>
             <p className="mt-2 text-base sm:text-sm text-muted-foreground leading-relaxed">
@@ -694,7 +694,7 @@ export default function SetupPage() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
             <div>
               <span className="eyebrow mb-1">Self-Help Directory</span>
-              <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
+              <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
                 Having Setup or Playback Problems?
               </h2>
               <p className="mt-1.5 text-base sm:text-sm text-muted-foreground max-w-xl">
@@ -856,7 +856,7 @@ export default function SetupPage() {
           <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-[#0b100d] p-8 sm:p-10 text-center max-w-3xl mx-auto">
             <div className="absolute inset-x-0 top-0 h-1 bg-primary sm:inset-y-0 sm:left-0 sm:h-full sm:w-1" />
             <span className="eyebrow mb-2">Ready to Get Started?</span>
-            <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
               Experience High-Definition IPTV Streaming
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-base sm:text-sm leading-relaxed text-muted-foreground">

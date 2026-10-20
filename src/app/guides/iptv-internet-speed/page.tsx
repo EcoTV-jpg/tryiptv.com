@@ -460,7 +460,8 @@ export default function IptvInternetSpeedPage() {
                 Every TryIPTV plan includes {PRODUCT_TRUTHS.connections} simultaneous connections across flat prepaid terms with no recurring contracts.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Button asChild>
+                {/* Below 360px the label is wider than the card; let it wrap instead of overflowing. */}
+                <Button asChild className="max-[359px]:h-auto max-[359px]:whitespace-normal max-[359px]:text-center">
                   <Link href="/iptv-free-trial">
                     Start 24-Hour Free Trial <ArrowRight className="ml-1.5 h-4 w-4" />
                   </Link>

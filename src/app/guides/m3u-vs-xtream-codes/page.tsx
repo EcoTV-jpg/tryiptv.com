@@ -211,7 +211,8 @@ export default function M3uVsXtreamCodesPage() {
 
             {/* Comparison Table */}
             <div className="my-8 sm:my-10 overflow-hidden rounded-xl border border-white/[0.08] bg-[#07080a] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-              <div className="grid grid-cols-1 bg-[#07080a] px-4 py-3 text-xs sm:text-sm font-bold text-foreground sm:grid-cols-12 border-b border-white/[0.08]">
+              {/* Header shows from sm up; stacked mobile cells repeat it via CSS-generated labels (data-label). */}
+              <div className="hidden bg-[#07080a] px-4 py-3 text-xs sm:text-sm font-bold text-foreground sm:grid sm:grid-cols-12 border-b border-white/[0.08]">
                 <div className="sm:col-span-3">Feature</div>
                 <div className="sm:col-span-4">M3U Playlist</div>
                 <div className="sm:col-span-5">Xtream-Compatible API</div>
@@ -224,8 +225,8 @@ export default function M3uVsXtreamCodesPage() {
                   } ${idx % 2 === 1 ? "bg-white/[0.01]" : ""}`}
                 >
                   <div className="font-semibold text-foreground sm:col-span-3">{row.feature}</div>
-                  <div className="text-muted-foreground sm:col-span-4">{row.m3u}</div>
-                  <div className="text-muted-foreground sm:col-span-5">{row.xtream}</div>
+                  <div data-label="M3U Playlist: " className="text-muted-foreground sm:col-span-4 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">{row.m3u}</div>
+                  <div data-label="Xtream-Compatible API: " className="text-muted-foreground sm:col-span-5 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">{row.xtream}</div>
                 </div>
               ))}
             </div>

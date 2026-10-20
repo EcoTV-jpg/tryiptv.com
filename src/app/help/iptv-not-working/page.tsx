@@ -353,7 +353,8 @@ export default function IptvNotWorkingPage() {
 
             {/* Two-Minute Checklist Table */}
             <div className="my-8 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#07080a]">
-              <div className="grid grid-cols-1 bg-white/[0.03] px-4 py-3 text-xs sm:text-sm font-bold text-foreground sm:grid-cols-12 border-b border-white/[0.08]">
+              {/* Header shows from sm up; stacked mobile cells repeat it via CSS-generated labels (data-label). */}
+              <div className="hidden bg-white/[0.03] px-4 py-3 text-xs sm:text-sm font-bold text-foreground sm:grid sm:grid-cols-12 border-b border-white/[0.08]">
                 <div className="sm:col-span-1">#</div>
                 <div className="sm:col-span-5">Check Point</div>
                 <div className="sm:col-span-6">Diagnostic Routing</div>
@@ -410,9 +411,9 @@ export default function IptvNotWorkingPage() {
                     idx !== 0 ? "border-t border-white/[0.08]" : ""
                   } ${idx % 2 === 1 ? "bg-white/[0.02]" : ""}`}
                 >
-                  <div className="font-bold text-primary sm:col-span-1">{item.step}</div>
-                  <div className="font-semibold text-foreground sm:col-span-5">{item.check}</div>
-                  <div className="text-muted-foreground sm:col-span-6">
+                  <div data-label="#" className="font-bold text-primary sm:col-span-1 before:content-[attr(data-label)] sm:before:content-none">{item.step}</div>
+                  <div data-label="Check Point: " className="font-semibold text-foreground sm:col-span-5 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">{item.check}</div>
+                  <div data-label="Diagnostic Routing: " className="text-muted-foreground sm:col-span-6 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">
                     {item.link ? (
                       <Link href={item.link} className="tap-target text-primary hover:underline font-medium">
                         {item.route}

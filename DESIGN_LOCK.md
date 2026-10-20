@@ -132,6 +132,8 @@ Theme is **dark-only**: `<html className="dark …">` (layout.tsx:129), `forcedT
 | red | border-red-500/25, bg-red-500/[0.04], text-red-400 — 1 each rare | help/iptv-not-working:533-535 |
 | zinc | text-zinc-400, border-zinc-400/20, bg-zinc-400/10 — 1 each rare | players/page.tsx:115 |
 | destructive | border-destructive/20, bg-destructive/10 (ContactForm error) | shared/ContactForm.tsx:55 |
+| purple | text-purple-400 4; border-purple-400/20 2; bg-purple-400/10 2 (added in audit P-13; present in the original) | players/page.tsx:67; help/iptv-buffering:233 |
+| cyan | text-cyan-400 2; border-cyan-400/20 2; bg-cyan-400/10 2 (added in audit P-13; present in the original) | players/page.tsx:103; help/m3u-not-loading:193 |
 
 ### 1g. Shadows / glows (colors) — see §5.
 
@@ -373,6 +375,21 @@ Badge (ui/badge.tsx:7, unused live): `rounded-full border px-2.5 py-0.5 text-xs 
 - Light theme or theme toggling (site is forced dark).
 - Reviving dead code in §0 (velora, carousels, Reveal, unused ui/*) as a design source.
 - Size tweaks must snap to an existing scale value; no new arbitrary `text-[Npx]`, `py-N`, `gap-N`, `max-w-[N]` values.
+
+## 13. Owner-approved additions (after the original snapshot)
+
+These were approved by the owner during the design QA (see AUDIT_REPORT.md) and are part of the lock from now on.
+
+| Addition | Rule | Where |
+|---|---|---|
+| Mobile body text | Running body copy is `text-base` (16px) below 640px and returns to its original size from `sm:` up. Labels, eyebrows, badges, captions (marked `data-small-print`) and table cells keep their original sizes. | ~60 page/component files |
+| Inline links | Option A: `text-primary underline decoration-primary/40 underline-offset-4`, full-primary underline on hover. Class-less CMS links get the same treatment in globals.css. | guides, help, players, about, globals.css |
+| Touch targets | On `pointer: coarse`, interactive elements are at least 44×44px: isolated text links use the `tap-target` utility (invisible hit area); stacked/wrapping links become 44px rows with no gap; mouse/trackpad layouts are unchanged. | button.tsx, Footer, Breadcrumb, InternalLinks, players, pricing, free-trial |
+| Form fields | `text-base` (16px) on touch to prevent iOS zoom, `text-sm` with a fine pointer; 44px min height on touch. | ui/input.tsx, ui/textarea.tsx |
+| Error text | `text-red-400` for form error text (the `--destructive` token stays for backgrounds/borders). | ContactForm, ContactSheetForm |
+| Stacked table labels | Mobile stacked rows repeat the column header via `data-label` + `::before` (no HTML text); header row from `sm:` up. | guides/what-is-iptv, guides/m3u-vs-xtream-codes, help/iptv-not-working |
+| Browser theme color | `theme-color` is `#040506` (body background) for both OS color schemes. | layout.tsx viewport |
+| Viewport | `viewport-fit=cover`; Container side padding is `max(original padding, env(safe-area-inset-*))`. | layout.tsx, Container.tsx |
 
 ## Identity summary
 1. Forced-dark, near-black green-tinted canvas (#040506 body, #07080a / bg-card #090c0a surfaces) with a faint top radial green wash.

@@ -223,7 +223,7 @@ export default function PlayersHubPage() {
       <Section className="py-12 sm:py-16 border-b border-white/[0.07]">
         <Container>
           <div className="max-w-3xl">
-            <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            <h2 className="font-headline text-2xl font-bold text-foreground sm:text-3xl">
               IPTV Player Feature &amp; Platform Comparison Matrix
             </h2>
             <p className="mt-2 text-base sm:text-sm text-muted-foreground">
@@ -281,7 +281,7 @@ export default function PlayersHubPage() {
       <Section className="py-12 sm:py-16">
         <Container>
           <div className="max-w-3xl">
-            <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            <h2 className="font-headline text-2xl font-bold text-foreground sm:text-3xl">
               Independent Player Reviews &amp; Setup Walkthroughs
             </h2>
             <p className="mt-2 text-base sm:text-sm text-muted-foreground">
@@ -335,7 +335,7 @@ export default function PlayersHubPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             <div className="space-y-8 lg:col-span-8">
               <div>
-                <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                <h2 className="font-headline text-2xl font-bold text-foreground sm:text-3xl">
                   How to Choose the Right IPTV Player for Your Setup
                 </h2>
                 <p className="mt-3 text-base leading-relaxed text-muted-foreground">
@@ -415,7 +415,7 @@ export default function PlayersHubPage() {
 
               {/* FAQs */}
               <div>
-                <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                <h2 className="font-headline text-2xl font-bold text-foreground sm:text-3xl">
                   Frequently Asked Questions About IPTV Players
                 </h2>
                 <div className="mt-6 divide-y divide-white/[0.06] rounded-xl border border-white/[0.08] bg-white/[0.02]">

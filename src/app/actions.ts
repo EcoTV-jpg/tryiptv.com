@@ -10,7 +10,7 @@ export async function submitContactForm(prevState: State, formData: FormData): P
     name: formData.get('name'),
     email: formData.get('email'),
     message: formData.get('message'),
-    company: formData.get('company'),
+    company: formData.get('hp_ref'), // honeypot field (see ContactForm)
     turnstileToken: formData.get('cf-turnstile-response'),
   };
 

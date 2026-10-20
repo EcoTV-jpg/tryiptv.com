@@ -531,7 +531,8 @@ export default function HowDoesIptvWorkPage() {
                     Universal Setup Guide <ArrowRight className="ml-1.5 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline">
+                {/* Below 360px the label is wider than the card; let it wrap instead of overflowing. */}
+                <Button asChild variant="outline" className="max-[359px]:h-auto max-[359px]:whitespace-normal max-[359px]:text-center">
                   <Link href="/iptv-free-trial">Start 24-Hour Free Trial</Link>
                 </Button>
                 <Button asChild variant="outline">

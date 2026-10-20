@@ -196,6 +196,7 @@ export default async function IptvFreeTrialPage() {
               <Button asChild size="lg">
                 <a href={freeTrialWhatsAppUrl} target="_blank" rel="noopener noreferrer">
                   <SiWhatsapp aria-hidden="true" className="mr-2 h-4 w-4" /> Start Free Trial
+                  <span className="sr-only"> (opens WhatsApp in a new tab)</span>
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline">
@@ -613,6 +614,7 @@ export default async function IptvFreeTrialPage() {
                 <Button asChild size="lg">
                   <a href={freeTrialWhatsAppUrl} target="_blank" rel="noopener noreferrer">
                     <SiWhatsapp aria-hidden="true" className="mr-2 h-4 w-4" /> Start Free Trial
+                    <span className="sr-only"> (opens WhatsApp in a new tab)</span>
                   </a>
                 </Button>
                 <Button asChild size="lg" variant="outline">

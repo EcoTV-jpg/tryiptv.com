@@ -130,7 +130,7 @@ export function GuideToc({ items, className, variant = "desktop" }: GuideTocProp
                     aria-hidden="true"
                   />
                 )}
-                <span className="truncate">{item.label}</span>
+                <span className="line-clamp-2">{item.label}</span>
               </a>
             </li>
           );

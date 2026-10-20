@@ -32,7 +32,7 @@ export function Breadcrumb({ items, className, align = 'left' }: BreadcrumbProps
         </li>
         {items.map((item, index) => (
           <li key={index} className="flex items-center gap-2">
-            <span className="text-white/20 select-none">/</span>
+            <span className="text-white/20 select-none" aria-hidden="true">/</span>
             {item.href ? (
               <Link href={item.href} className="transition-colors duration-200 hover:text-primary pointer-coarse:-mx-2.5 pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center pointer-coarse:px-2.5">
                 {item.label}

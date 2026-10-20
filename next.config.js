@@ -9,7 +9,9 @@ const nextConfig = {
   ],
   images: {
     formats: ['image/avif', 'image/webp'],
-    deviceSizes: [360, 640, 768, 1024, 1280, 1536],
+    // 480 added: ~417-455px-wide renders (e.g. customer screenshots on phones) were served 640px files.
+    // (It belongs here, not in imageSizes, which must stay below the smallest device size.)
+    deviceSizes: [360, 480, 640, 768, 1024, 1280, 1536],
     imageSizes: [32, 48, 64, 96, 128, 192, 256, 320],
     remotePatterns: [
       {

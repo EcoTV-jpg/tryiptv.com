@@ -17,8 +17,9 @@ import { SITE_URL, siteConfig } from "@/lib/site-config";
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+    // Dark-only site: tint the browser UI with the page background (#040506) in both OS themes.
+    { media: '(prefers-color-scheme: light)', color: '#040506' },
+    { media: '(prefers-color-scheme: dark)', color: '#040506' },
   ],
   width: 'device-width',
   initialScale: 1,

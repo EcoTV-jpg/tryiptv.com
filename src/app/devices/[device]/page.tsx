@@ -764,7 +764,7 @@ export default async function HowToPage({ params }: Props) {
                     {/* Service vs Player */}
                     {extraSections.find((s) => s.id === "service-vs-player") && (
                       <div id="service-vs-player" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
-                        <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
+                        <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-4">
                           {extraSections.find((s) => s.id === "service-vs-player")?.title}
                         </h2>
                         <div
@@ -779,7 +779,7 @@ export default async function HowToPage({ params }: Props) {
                     {/* M3U vs Xtream Codes */}
                     {extraSections.find((s) => s.id === "m3u-vs-xtream") && (
                       <div id="m3u-vs-xtream" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
-                        <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
+                        <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-4">
                           {extraSections.find((s) => s.id === "m3u-vs-xtream")?.title}
                         </h2>
                         <div
@@ -801,7 +801,7 @@ export default async function HowToPage({ params }: Props) {
                     {/* Developer Options & Sideloading */}
                     {extraSections.find((s) => s.id === "developer-options") && (
                       <div id="developer-options" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
-                        <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
+                        <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-4">
                           {extraSections.find((s) => s.id === "developer-options")?.title}
                         </h2>
                         <div
@@ -811,10 +811,11 @@ export default async function HowToPage({ params }: Props) {
                           }}
                         />
 
+                        {/* Screenshot sizes measured: ~317px at 375, 264-328px at 640-768, max 351px at >=1024. */}
                         <div className="mt-6 grid gap-5 sm:grid-cols-2">
                           <GuideScreenshot
                             src="/images/firestick/settings-home.jpeg"
-                            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px"
+                            sizes="(max-width: 639px) calc(100vw - 3.5rem), (max-width: 1023px) 42vw, 352px"
                             alt="Fire TV Settings home screen with the Settings gear selected"
                             caption="Open Settings from the Fire TV home screen."
                             width={1200}
@@ -822,7 +823,7 @@ export default async function HowToPage({ params }: Props) {
                           />
                           <GuideScreenshot
                             src="/images/firestick/my-fire-tv-developer-options.jpeg"
-                            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px"
+                            sizes="(max-width: 639px) calc(100vw - 3.5rem), (max-width: 1023px) 42vw, 352px"
                             alt="Fire TV My Fire TV menu with Developer Options highlighted"
                             caption="Open Developer Options under My Fire TV."
                             width={1024}
@@ -830,7 +831,7 @@ export default async function HowToPage({ params }: Props) {
                           />
                           <GuideScreenshot
                             src="/images/firestick/about-device-name.jpeg"
-                            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px"
+                            sizes="(max-width: 639px) calc(100vw - 3.5rem), (max-width: 1023px) 42vw, 352px"
                             alt="Fire TV About screen with the Fire TV Stick device name highlighted"
                             caption="Select the device name in About when Developer Options is hidden."
                             note="Account and serial fields are redacted in this supplied capture."
@@ -839,7 +840,7 @@ export default async function HowToPage({ params }: Props) {
                           />
                           <GuideScreenshot
                             src="/images/firestick/install-unknown-apps-downloader-on.jpeg"
-                            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px"
+                            sizes="(max-width: 639px) calc(100vw - 3.5rem), (max-width: 1023px) 42vw, 352px"
                             alt="Fire TV Install Unknown Apps screen with Downloader enabled"
                             caption="Allow Downloader to install apps from unknown sources."
                             width={800}
@@ -859,7 +860,7 @@ export default async function HowToPage({ params }: Props) {
                     {/* Xtream Setup Detail */}
                     {extraSections.find((s) => s.id === "xtream-setup-detail") && (
                       <div id="xtream-setup-detail" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
-                        <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
+                        <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-4">
                           {extraSections.find((s) => s.id === "xtream-setup-detail")?.title}
                         </h2>
                         <div
@@ -874,7 +875,7 @@ export default async function HowToPage({ params }: Props) {
                     {/* M3U Setup Detail */}
                     {extraSections.find((s) => s.id === "m3u-setup-detail") && (
                       <div id="m3u-setup-detail" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
-                        <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
+                        <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-4">
                           {extraSections.find((s) => s.id === "m3u-setup-detail")?.title}
                         </h2>
                         <div
@@ -889,7 +890,7 @@ export default async function HowToPage({ params }: Props) {
                     {/* EPG Setup Detail */}
                     {extraSections.find((s) => s.id === "epg-detail") && (
                       <div id="epg-detail" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
-                        <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
+                        <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-4">
                           {extraSections.find((s) => s.id === "epg-detail")?.title}
                         </h2>
                         <div
@@ -1000,7 +1001,7 @@ export default async function HowToPage({ params }: Props) {
                   <div className="space-y-12">
                     {extraSections.map((section) => (
                       <div key={section.id} id={section.id} className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
-                        <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
+                        <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-4">
                           {section.title}
                         </h2>
                         <div

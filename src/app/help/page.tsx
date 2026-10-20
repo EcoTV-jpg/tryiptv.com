@@ -166,7 +166,7 @@ export default function HelpPage() {
               return (
                 <Card
                   key={guide.href}
-                  className="group flex flex-col justify-between rounded-2xl border-white/[0.08] bg-[#07080a] transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:bg-[#07080a] shadow-sm"
+                  className="group flex flex-col justify-between border-white/[0.08] bg-[#07080a] transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:bg-[#07080a] shadow-sm"
                 >
                   <CardHeader className="pb-3">
                     <div className="mb-3 flex items-center justify-between gap-2">

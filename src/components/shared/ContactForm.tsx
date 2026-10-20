@@ -36,10 +36,11 @@ export function ContactForm() {
         className="absolute -left-[9999px] -top-[9999px] h-0 w-0 overflow-hidden opacity-0 pointer-events-none"
         aria-hidden="true"
       >
-        <label htmlFor="company-form">Company</label>
+        {/* Honeypot: deliberately not called "company"/"name"-like so browser autofill never fills it. */}
+        <label htmlFor="hp-ref-form">Leave this field empty</label>
         <input
-          id="company-form"
-          name="company"
+          id="hp-ref-form"
+          name="hp_ref"
           type="text"
           tabIndex={-1}
           autoComplete="off"
@@ -59,7 +60,7 @@ export function ContactForm() {
       )}
       <div className="space-y-2">
         <Label htmlFor="name-form">Name</Label>
-        <Input id="name-form" autoComplete="name" aria-invalid={!!state.errors?.name} aria-describedby={state.errors?.name ? 'name-form-error' : undefined} name="name" defaultValue={state.fields?.name} placeholder="Your Name" />
+        <Input id="name-form" autoComplete="name" aria-invalid={!!state.errors?.name} aria-describedby={state.errors?.name ? 'name-form-error' : undefined} name="name" aria-required="true" defaultValue={state.fields?.name} placeholder="Your Name" />
         {state.errors?.name && (
           <p id="name-form-error" role="alert" className="text-base sm:text-sm text-red-400">{state.errors.name[0]}</p>
         )}
@@ -71,7 +72,7 @@ export function ContactForm() {
           autoComplete="email"
           aria-invalid={!!state.errors?.email}
           aria-describedby={state.errors?.email ? 'email-form-error' : undefined}
-          name="email"
+          name="email" aria-required="true"
           defaultValue={state.fields?.email}
           type="email"
           placeholder="your@email.com"
@@ -82,7 +83,7 @@ export function ContactForm() {
       </div>
       <div className="space-y-2">
         <Label htmlFor="message-form">Message</Label>
-        <Textarea id="message-form" aria-invalid={!!state.errors?.message} aria-describedby={state.errors?.message ? 'message-form-error' : undefined} name="message" defaultValue={state.fields?.message} placeholder="How can we help you?" />
+        <Textarea id="message-form" aria-invalid={!!state.errors?.message} aria-describedby={state.errors?.message ? 'message-form-error' : undefined} name="message" aria-required="true" defaultValue={state.fields?.message} placeholder="How can we help you?" />
         {state.errors?.message && (
           <p id="message-form-error" role="alert" className="text-base sm:text-sm text-red-400">{state.errors.message[0]}</p>
         )}
