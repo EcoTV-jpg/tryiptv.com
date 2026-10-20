@@ -1,6 +1,6 @@
 # TryIPTV
 
-> TryIPTV is a prepaid IPTV subscription service offering live television and on-demand access through compatible devices and independent IPTV player apps.
+> TryIPTV is a prepaid IPTV service with 25,000+ live channels and 120,000+ movies and TV shows, watched on your own devices through compatible IPTV player apps. Plans start at $16 with 2 connections, no automatic renewal and a 24-hour free trial.
 
 The linked website pages hold the current facts. Pricing, trial terms, and refund conditions are governed by their respective pages. Device pages cover platform setup; player pages cover app configuration; guides explain concepts; help pages diagnose problems.
 

@@ -81,3 +81,11 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 ## Off-site, highest impact (no code)
 39. Do you have a **Trustpilot** (or BBB) profile? If yes, which URL? It can be added to `sameAs` once it has genuine reviews. Never buy or incentivise reviews without disclosure.
 40. Are the social profiles in `sameAs` (x.com/tryiptv, instagram.com/tryiptvofficial, facebook.com/tryiptv) active and owned by you?
+
+## Brand entity (added on the `brand` branch)
+41. **Press inbox:** a real, monitored press address, such as press@tryiptv.com, and the name of a spokesperson who can be quoted. → `COMPANY.support.pressEmail`. Until then, `/press` shows the support email.
+42. **Tagline:** do you approve "Prepaid IPTV with a 24-hour free trial"? It is used in the schema `slogan`, llms files and profile bios. → `BRAND.tagline`
+43. **Name spelling:** the logo wordmark reads "Try IPTV" while all text uses "TryIPTV". Keep "TryIPTV" as the one written form, or change the logo to match?
+44. **Instagram handle:** it is @tryiptvofficial. Is @tryiptv obtainable, for an exact match with the other profiles?
+45. **YouTube channel:** does one exist? If not, can you record real setup videos on your own devices (one per device guide)?
+46. **Search Console / Bing Webmaster Tools:** are both verified? Is Search Console's "Search generative AI" setting on Include? This is needed for the knowledge panel claim and Preferred Sources.

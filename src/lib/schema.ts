@@ -1,5 +1,6 @@
 import { getAuthorForPath } from '@/lib/site-data/authors';
 import { COMPANY } from '@/lib/site-data/company';
+import { BRAND } from '@/lib/site-data/brand';
 import type {
   Product,
   WebSite,
@@ -32,8 +33,9 @@ export function generateWebSiteSchema(): WithContext<WebSite> {
     '@type': 'WebSite',
     '@id': websiteId,
     'url': `${siteConfig.url}/`,
-    'name': siteConfig.name,
-    'alternateName': 'Try IPTV',
+    // Same name and alternateName as the Organization (Google: site names and Organization docs).
+    'name': BRAND.name,
+    'alternateName': [...BRAND.alternateNames],
     'publisher': organizationReference,
   };
 }
@@ -41,15 +43,18 @@ export function generateWebSiteSchema(): WithContext<WebSite> {
 export function generateOrganizationSchema(): WithContext<Organization> {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    // Most specific subtype (Google Organization doc): an online-only service.
+    '@type': 'OnlineBusiness' as 'Organization',
     '@id': organizationId,
-    'name': siteConfig.name,
-    'alternateName': 'Try IPTV',
+    'name': BRAND.name,
+    'alternateName': [...BRAND.alternateNames],
     'url': `${siteConfig.url}/`,
+    'description': BRAND.description,
+    'slogan': BRAND.tagline,
     'logo': {
       '@type': 'ImageObject',
-      'url': `${siteConfig.url}/logo.png`,
-      'contentUrl': `${siteConfig.url}/logo.png`,
+      'url': `${siteConfig.url}${BRAND.logos.primary}`,
+      'contentUrl': `${siteConfig.url}${BRAND.logos.primary}`,
       'width': 1024 as any,
       'height': 1024 as any,
     },

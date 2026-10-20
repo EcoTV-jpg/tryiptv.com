@@ -12,6 +12,7 @@ import { plans } from "@/lib/site-data/pricing";
 import { publicBrandSocialLinks } from "@/lib/site-data/socials";
 import { COMPANY, LICENSING_CONFIRMED, SHOW_CONFIRM_MARKERS } from "@/lib/site-data/company";
 import { Confirm } from "@/components/shared/Confirm";
+import { BRAND } from "@/lib/site-data/brand";
 
 const LAST_UPDATED = "2026-10-20";
 
@@ -87,11 +88,14 @@ const schema = {
       breadcrumb: { "@id": `${base}/about#breadcrumb` },
     },
     {
-      "@type": "Organization",
+      "@type": "OnlineBusiness",
       "@id": `${base}/#organization`,
       name: siteConfig.name,
       url: `${base}/`,
-      logo: `${base}/brand-logo-square.png`,
+      logo: `${base}${BRAND.logos.primary}`,
+      alternateName: [...BRAND.alternateNames],
+      description: BRAND.description,
+      slogan: BRAND.tagline,
       email: siteConfig.links.email,
       contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: siteConfig.links.email, url: COMPANY.support.whatsappUrl },
       sameAs: [...publicBrandSocialLinks],

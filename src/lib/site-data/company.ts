@@ -39,6 +39,8 @@ export const COMPANY = {
     /** e.g. "Most WhatsApp messages are answered within 1 hour; email within 24 hours." */
     responseTime: null as string | null,
     languages: null as string | null,
+    /** Media contact for /press, e.g. "press@tryiptv.com" — must be a real, monitored inbox. */
+    pressEmail: null as string | null,
   },
   /** Confirmed: "User business specification: Cryptocurrency, PayPal, Stripe (2026-10-09)" (content-quality registry). */
   paymentMethods: "cryptocurrency, PayPal and Stripe" as string | null,

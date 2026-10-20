@@ -2,7 +2,7 @@
 
 Official website: https://www.tryiptv.com/
 
-TryIPTV is a prepaid IPTV subscription service. It provides access details used with compatible, independent IPTV player applications; it does not develop those applications. The website offers commercial information, device and player setup guides, IPTV concept guides, and symptom-based help.
+TryIPTV is a prepaid IPTV subscription service. It provides access details used with compatible, independent IPTV player applications; it does not develop those applications. Tagline: "Prepaid IPTV with a 24-hour free trial". The website offers commercial information, device and player setup guides, IPTV concept guides, and symptom-based help.
 
 ## Current site facts
 
