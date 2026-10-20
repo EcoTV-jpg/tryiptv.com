@@ -167,7 +167,7 @@ export function HomePricing() {
         <div className="mt-6 flex flex-col items-center justify-center gap-x-8 gap-y-1 text-sm sm:flex-row">
           <p className="inline-flex min-h-11 flex-wrap items-center justify-center gap-x-1.5 text-muted-foreground">
             Want the full plan comparison?
-            <Link href="/pricing" className="inline-flex items-center gap-1.5 font-semibold text-primary hover:underline">
+            <Link href="/pricing" className="tap-target inline-flex items-center gap-1.5 font-semibold text-primary hover:underline">
               Compare plan prices and savings <ArrowRight className="size-4" aria-hidden />
             </Link>
           </p>
