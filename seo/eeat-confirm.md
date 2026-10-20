@@ -90,3 +90,10 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 44. **Instagram handle:** it is @tryiptvofficial. Is @tryiptv obtainable, for an exact match with the other profiles?
 45. **YouTube channel:** does one exist? If not, can you record real setup videos on your own devices (one per device guide)?
 46. **Search Console / Bing Webmaster Tools:** are both verified? Is Search Console's "Search generative AI" setting on Include? This is needed for the knowledge panel claim and Preferred Sources.
+
+## Privacy policy (owner-supplied text, added 2026-10-20)
+47. **Data location:** the policy says data is stored on "encrypted servers, which may be located outside your country, including in the United Kingdom". Is that true for TryIPTV? The website is hosted on Vercel and Cloudflare, support runs on WhatsApp, and email on Resend.
+48. **"Communicated via email to registered users":** TryIPTV has no user accounts. Will policy changes really be emailed to customers? If not, drop this line.
+49. **"Enabling two-factor authentication":** TryIPTV logins have no 2FA. This line is generic advice; keep it or remove it?
+50. **"First & Last Name (for account security)" and "Phone Number":** do you actually collect names and phone numbers (e.g. via WhatsApp orders)? The policy should list only what is really collected.
+51. **"Provide personalized content":** the site has no personalisation. Keep it or remove it?
