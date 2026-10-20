@@ -17,7 +17,7 @@ export const trialFaqs = [
   {
     question: "Do I need a credit card for the IPTV free trial?",
     answer:
-      "No. Trial access is issued without collecting credit card or payment information.",
+      "No. The TryIPTV free trial is issued without collecting any credit card, PayPal, or other payment details. You request it on WhatsApp, receive login details, and get 24 hours of access for $0. When the trial ends it simply stops; nothing is charged and it never turns into a paid plan.",
   },
   {
     question: "How long does trial activation take?",
@@ -96,7 +96,7 @@ export const getIptvFreeTrialPageData = cache(
     };
   },
   // Bump the version when the static data above changes: the data cache outlives rebuilds.
-  ['iptv-free-trial-page-data-v2'],
+  ['iptv-free-trial-page-data-v3'],
   {
     revalidate: 3600,
     tags: ['pages', 'iptv-free-trial-page'],

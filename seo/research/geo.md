@@ -153,7 +153,7 @@ Legend: ✅ already true · 🔧 done on branch `geo` · ❓ needs owner decisio
 11. 🔧 Quotable one-sentence definitions of IPTV, M3U, EPG and Xtream Codes now open their guide pages: what it is, what it contains, and how it is used.
 12. 🔧 Statistics: first-party facts come from `PRODUCT_TRUTHS`. Bandwidth figures that contradicted each other across four pages are aligned. Unsourced figures are listed as `[NEEDS DATA]` in `seo/geo-stats-audit.md`, not marked on the live pages.
 13. 🔧 No engineered language: lines in `llms-full.txt` that gave AI readers instructions became plain statements. No hidden text, prompt-like text or AI-bait phrasing (Bing "Prompt Injection and AI Manipulation").
-14. ✅ FAQ answers are in the server HTML (force-mounted accordions). FAQPage JSON-LD matches the visible text.
+14. 🔧 **Corrected 2026-10-20:** most FAQ answers were *not* in the server HTML (`FaqList` lacked `forceMount`); fixed on branch `ai-overviews`. FAQPage JSON-LD is only emitted on `/about`; `Schema.tsx` suppresses it elsewhere.
 15. ✅ llms.txt and llms-full.txt are accurate after the trial-connection fix. They stay low priority.
 
 **Off-site (owner)**

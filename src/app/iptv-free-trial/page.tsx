@@ -142,6 +142,7 @@ const deviceGuides = [
   { name: "Samsung Smart TV", href: "/devices/samsung-tv-iptv", note: "Configuration instructions for compatible players on Samsung smart TVs." },
   { name: "LG Smart TV", href: "/devices/lg-tv-iptv", note: "Setup guide for supported IPTV players on LG smart TVs." },
   { name: "Apple TV", href: "/devices/apple-tv-iptv", note: "Setup steps for compatible media players on Apple TV (tvOS)." },
+  { name: "iPhone & iPad", href: "/devices/iphone-iptv", note: "App Store player setup for iPhone and iPad, with AirPlay to your TV." },
   { name: "Windows PC", href: "/devices/windows-iptv", note: "Setup guide for IPTV player software on Windows computers." },
   { name: "Apple Mac", href: "/devices/mac-iptv", note: "Configuration instructions for compatible players on macOS." },
   { name: "Google Chromecast", href: "/devices/chromecast-iptv", note: "Player apps on Chromecast with Google TV, or casting to older Chromecast models." },

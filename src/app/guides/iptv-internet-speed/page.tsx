@@ -179,10 +179,10 @@ export default function IptvInternetSpeedPage() {
             {/* Quick Answer Summary */}
             <ArticleSummary title="The Direct Answer: IPTV Bandwidth Requirements">
               <p>
-                There is no single universal internet speed requirement for IPTV. The bandwidth your connection
-                needs depends on the <strong className="text-foreground font-semibold">actual bitrate of the stream</strong>,
-                the resolution and video codec, and how many devices or family members share your internet connection
-                simultaneously.
+                For IPTV, plan on a stable 25 Mbps or more for one Full HD (1080p) stream and 50 Mbps or more for
+                4K; two streams at once need roughly double. The exact need depends on the{" "}
+                <strong className="text-foreground font-semibold">actual bitrate of the stream</strong>, the
+                resolution and codec, and how many people share your connection.
               </p>
               <p>
                 As a practical planning guideline, individual streams typically draw between 3–6 Mbps for standard
@@ -417,7 +417,7 @@ export default function IptvInternetSpeedPage() {
 
               <h2>Data Usage Estimates: How Many Gigabytes Does IPTV Use per Hour?</h2>
               <p>
-                Hourly data consumption is directly tied to the stream&apos;s continuous bitrate. Using standard decimal gigabytes:
+                IPTV uses about 0.45 GB per hour for every 1 Mbps of stream bitrate: roughly 1.4–2.7 GB an hour for 720p, 3–7 GB for 1080p, and 8–16 GB for 4K. Two simultaneous streams use about twice as much. The formula, in standard decimal gigabytes:
               </p>
               <div className="my-6 rounded-lg border border-white/[0.08] bg-[#0c100d] p-4 text-xs sm:text-sm font-mono text-foreground/90">
                 GB/hour ≈ bitrate in Mbps × 0.45

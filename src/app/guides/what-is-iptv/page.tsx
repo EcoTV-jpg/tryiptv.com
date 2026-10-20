@@ -7,6 +7,7 @@ import { Schema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { FaqList } from "@/components/sections/FAQ";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
@@ -102,6 +103,54 @@ const concepts = [
   },
 ];
 
+const legalityRows = [
+  { label: "IPTV technology and apps", us: "Legal", uk: "Legal" },
+  { label: "Watching a licensed IPTV service", us: "Legal", uk: "Legal" },
+  {
+    label: "Watching unlicensed streams",
+    us: "Copyright infringement; viewers can face civil claims",
+    uk: "Unlawful (GOV.UK 2018; EU Court of Justice C-527/15)",
+  },
+  {
+    label: "Selling or running an unlicensed service",
+    us: "Federal crime under 18 U.S.C. § 2319C",
+    uk: "Criminal offence under copyright and fraud law",
+  },
+];
+
+const faqs = [
+  {
+    question: "What does IPTV stand for?",
+    answer:
+      "IPTV stands for Internet Protocol Television. It means TV channels and on-demand video are delivered as data over an internet connection, instead of through a cable line, satellite dish, or antenna, and played in an app on a TV, streaming stick, phone, or computer.",
+  },
+  {
+    question: "Do you have to pay for IPTV?",
+    answer:
+      "Usually, yes. Licensed IPTV services charge a subscription because they pay for the rights to their channels. IPTV player apps are often free or cheap, but they contain no channels. A free trial, such as the 24-hour TryIPTV trial, lets you test before paying.",
+  },
+  {
+    question: "Can I watch IPTV for free?",
+    answer:
+      "Some broadcasters offer free, legal streams of their own channels, but free lists of premium channels are almost always unlicensed and can be unsafe or illegal to use. A free trial from a paid service is the safer way to test IPTV on your own device before you subscribe.",
+  },
+  {
+    question: "Is IPTV the same as Netflix or YouTube TV?",
+    answer:
+      "Not exactly. Netflix is an on-demand streaming service, and YouTube TV is a live TV streaming service with its own app. IPTV usually means a service that supplies live channels as a playlist or Xtream Codes login that you open in a separate IPTV player app.",
+  },
+  {
+    question: "How does IPTV connect to a TV?",
+    answer:
+      "IPTV reaches a TV through an app. Install an IPTV player on a smart TV, or on a Firestick, Android TV box, Apple TV, or MAG box plugged into the TV, then enter the login details from your service. Phones can also send IPTV to a TV with AirPlay or casting.",
+  },
+  {
+    question: "Do I need a VPN for IPTV?",
+    answer:
+      "No, a VPN is not required to use IPTV. A VPN can help you test whether your internet provider slows video traffic, but it adds overhead and can reduce speed. If streams buffer, check your connection and player settings first using the IPTV buffering guide.",
+  },
+];
+
 const stackedLabel =
   "text-muted-foreground before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none";
 
@@ -169,26 +218,32 @@ export default function WhatIsIptvPage() {
               </p>
             </div>
 
-            <div className="my-8 overflow-hidden rounded-lg border border-white/[0.09]">
+            {/* A real <table> (so answer engines read rows and headers) laid out with the same grid as before. */}
+            <table className="my-8 block w-full overflow-hidden rounded-lg border border-white/[0.09]">
+              <caption className="sr-only">IPTV compared with cable or satellite TV</caption>
               {/* Column header only fits once rows go 3-up; stacked rows carry their own labels below. */}
-              <div className="hidden bg-card px-4 py-3 text-sm font-bold text-foreground sm:grid sm:grid-cols-3">
-                <span>Topic</span>
-                <span>IPTV</span>
-                <span>Cable or satellite</span>
-              </div>
-              {comparisonRows.map((row) => (
-                <div
-                  key={row.label}
-                  className="grid grid-cols-1 gap-2 border-t border-white/[0.09] px-4 py-4 text-base sm:text-sm leading-6 sm:grid-cols-3"
-                >
-                  <span className="font-semibold text-foreground">{row.label}</span>
-                  {/* Stacked (mobile) rows repeat the hidden column header via CSS-generated content,
-                      so no extra text is added to the HTML; sm+ shows the real header instead. */}
-                  <span data-label="IPTV: " className={stackedLabel}>{row.iptv}</span>
-                  <span data-label="Cable or satellite: " className={stackedLabel}>{row.traditional}</span>
-                </div>
-              ))}
-            </div>
+              <thead className="hidden sm:block">
+                <tr className="grid grid-cols-3 bg-card px-4 py-3 text-left text-sm font-bold text-foreground">
+                  <th scope="col" className="text-left font-bold">Topic</th>
+                  <th scope="col" className="text-left font-bold">IPTV</th>
+                  <th scope="col" className="text-left font-bold">Cable or satellite</th>
+                </tr>
+              </thead>
+              <tbody className="block">
+                {comparisonRows.map((row) => (
+                  <tr
+                    key={row.label}
+                    className="grid grid-cols-1 gap-2 border-t border-white/[0.09] px-4 py-4 text-base sm:text-sm leading-6 sm:grid-cols-3"
+                  >
+                    <th scope="row" className="text-left font-semibold text-foreground">{row.label}</th>
+                    {/* Stacked (mobile) rows repeat the hidden column header via CSS-generated content,
+                        so no extra text is added to the HTML; sm+ shows the real header instead. */}
+                    <td data-label="IPTV: " className={stackedLabel}>{row.iptv}</td>
+                    <td data-label="Cable or satellite: " className={stackedLabel}>{row.traditional}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
 
             <div className="prose prose-lg max-w-none dark:prose-invert">
               <h2>What you can watch with IPTV</h2>
@@ -201,6 +256,12 @@ export default function WhatIsIptvPage() {
               </p>
 
               <h2>What you need to use IPTV</h2>
+              <p>
+                To use IPTV you need four things: an IPTV service that supplies the channels, a device
+                such as a Firestick, smart TV, phone, or computer, an IPTV player app installed on that
+                device, and a stable internet connection of about 25 Mbps for Full HD. The service gives
+                you login details that you enter in the player.
+              </p>
             </div>
 
             <div className="my-8 grid gap-4 sm:grid-cols-2">
@@ -273,7 +334,58 @@ export default function WhatIsIptvPage() {
                 credentials. It is not identical to a cable box experience, and the best setup
                 depends on your device, player, and internet connection.
               </p>
+
+              <h2 id="is-iptv-legal">Is IPTV legal?</h2>
+              <p>
+                IPTV technology is legal: it is simply a way of delivering television over the internet,
+                and major licensed services use it. Whether a particular IPTV service is legal depends on
+                whether it has the rights to the channels and films it streams. Watching or selling
+                unlicensed streams can break copyright law.
+              </p>
+              <h3>Is IPTV legal in the US?</h3>
+              <p>
+                Yes, IPTV itself is legal in the US. Running an unlicensed streaming service for profit is
+                a federal crime under the Protecting Lawful Streaming Act of 2020{" "}
+                (<a href="https://www.law.cornell.edu/uscode/text/18/2319C" target="_blank" rel="noopener noreferrer">18 U.S.C. § 2319C</a>),
+                which targets the people who operate such services. Viewers of unlicensed streams can
+                still be liable for copyright infringement.
+              </p>
+              <h3>Is IPTV legal in the UK?</h3>
+              <p>
+                Yes, IPTV and streaming devices are legal in the UK. The UK government states that
+                streaming boxes become illegal to use once apps or add-ons give access to paid-for
+                content for free{" "}
+                (<a href="https://www.gov.uk/government/news/pressure-grows-on-producers-of-illegal-streaming-devices-and-thieves-of-paid-for-content" target="_blank" rel="noopener noreferrer">GOV.UK, October 2018</a>),
+                and the EU Court of Justice ruled in 2017 that streaming unlicensed content is not
+                lawful (<a href="https://curia.europa.eu/juris/liste.jsf?num=C-527/15" target="_blank" rel="noopener noreferrer">case C-527/15</a>).
+              </p>
             </div>
+
+            <table className="my-8 block w-full overflow-hidden rounded-lg border border-white/[0.09]">
+              <caption className="sr-only">IPTV legality at a glance</caption>
+              <thead className="hidden sm:block">
+                <tr className="grid grid-cols-3 bg-card px-4 py-3 text-left text-sm font-bold text-foreground">
+                  <th scope="col" className="text-left font-bold">Situation</th>
+                  <th scope="col" className="text-left font-bold">United States</th>
+                  <th scope="col" className="text-left font-bold">United Kingdom</th>
+                </tr>
+              </thead>
+              <tbody className="block">
+                {legalityRows.map((row) => (
+                  <tr
+                    key={row.label}
+                    className="grid grid-cols-1 gap-2 border-t border-white/[0.09] px-4 py-4 text-base sm:text-sm leading-6 sm:grid-cols-3"
+                  >
+                    <th scope="row" className="text-left font-semibold text-foreground">{row.label}</th>
+                    <td data-label="United States: " className={stackedLabel}>{row.us}</td>
+                    <td data-label="United Kingdom: " className={stackedLabel}>{row.uk}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="text-sm leading-6 text-muted-foreground">
+              This is general information, not legal advice. Laws differ by country and change over time.
+            </p>
 
             <div className="mt-10 rounded-lg border border-primary/25 bg-[#0b100d] p-6 sm:p-8">
               <p className="eyebrow mb-3">Next steps</p>
@@ -295,6 +407,20 @@ export default function WhatIsIptvPage() {
               </div>
             </div>
           </article>
+        </Container>
+      </Section>
+
+      <Section className="border-t border-white/[0.07] bg-black/20 pt-12 pb-16 sm:pt-14 sm:pb-20">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-8 text-center sm:text-left">
+              <p className="eyebrow mb-2">Frequently Asked Questions</p>
+              <h2 className="font-headline text-2xl font-bold text-foreground sm:text-3xl">
+                Common Questions About IPTV
+              </h2>
+            </div>
+            <FaqList items={faqs} />
+          </div>
         </Container>
       </Section>
     </>

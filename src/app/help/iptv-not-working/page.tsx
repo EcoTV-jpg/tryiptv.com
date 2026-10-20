@@ -136,9 +136,10 @@ export default function IptvNotWorkingPage() {
               IPTV Not Working? Start With This Troubleshooting Checklist
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              When television playback fails, the broad symptom &quot;IPTV not working&quot; can stem from six
-              completely different failure points. Use this triage guide to pinpoint the exact failure layer
-              and route directly to the right diagnostic solution.
+              When IPTV stops working, match what you see to one of six symptoms: the login is rejected, the
+              playlist loads 0 channels, channels freeze or buffer, the TV guide is blank, the player app
+              crashes, or nothing works on any device. Each symptom points to a different cause, and each has
+              its own fix below.
             </p>
           </div>
         </Container>
@@ -352,13 +353,18 @@ export default function IptvNotWorkingPage() {
             </ArticleProse>
 
             {/* Two-Minute Checklist Table */}
-            <div className="my-8 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#07080a]">
+            {/* A real <table> (so answer engines read rows and headers), laid out with the same grid as before. */}
+            <table className="my-8 block w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[#07080a]">
+              <caption className="sr-only">Two-minute IPTV checklist</caption>
               {/* Header shows from sm up; stacked mobile cells repeat it via CSS-generated labels (data-label). */}
-              <div className="hidden bg-white/[0.03] px-4 py-3 text-xs sm:text-sm font-bold text-foreground sm:grid sm:grid-cols-12 border-b border-white/[0.08]">
-                <div className="sm:col-span-1">#</div>
-                <div className="sm:col-span-5">Check Point</div>
-                <div className="sm:col-span-6">Diagnostic Routing</div>
-              </div>
+              <thead className="hidden sm:block">
+                <tr className="grid grid-cols-12 bg-white/[0.03] px-4 py-3 text-xs sm:text-sm font-bold text-foreground border-b border-white/[0.08]">
+                  <th scope="col" className="col-span-1 text-left font-bold">#</th>
+                  <th scope="col" className="col-span-5 text-left font-bold">Check Point</th>
+                  <th scope="col" className="col-span-6 text-left font-bold">Diagnostic Routing</th>
+                </tr>
+              </thead>
+              <tbody className="block">
               {[
                 {
                   step: "1",
@@ -405,15 +411,15 @@ export default function IptvNotWorkingPage() {
                   route: "Isolates hardware/app issues from account/upstream failures.",
                 },
               ].map((item, idx) => (
-                <div
+                <tr
                   key={item.step}
                   className={`grid grid-cols-1 gap-2 px-4 py-3.5 text-xs sm:text-sm leading-6 sm:grid-cols-12 ${
                     idx !== 0 ? "border-t border-white/[0.08]" : ""
                   } ${idx % 2 === 1 ? "bg-white/[0.02]" : ""}`}
                 >
-                  <div data-label="#" className="font-bold text-primary sm:col-span-1 before:content-[attr(data-label)] sm:before:content-none">{item.step}</div>
-                  <div data-label="Check Point: " className="font-semibold text-foreground sm:col-span-5 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">{item.check}</div>
-                  <div data-label="Diagnostic Routing: " className="text-muted-foreground sm:col-span-6 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">
+                  <td data-label="#" className="font-bold text-primary sm:col-span-1 before:content-[attr(data-label)] sm:before:content-none">{item.step}</td>
+                  <th scope="row" data-label="Check Point: " className="text-left font-semibold text-foreground sm:col-span-5 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">{item.check}</th>
+                  <td data-label="Diagnostic Routing: " className="text-muted-foreground sm:col-span-6 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">
                     {item.link ? (
                       <Link href={item.link} className="tap-target text-primary hover:underline font-medium">
                         {item.route}
@@ -421,10 +427,11 @@ export default function IptvNotWorkingPage() {
                     ) : (
                       item.route
                     )}
-                  </div>
-                </div>
+                  </td>
+                </tr>
               ))}
-            </div>
+              </tbody>
+            </table>
 
             <ArticleProse>
               <h2>Rapid Network Baseline Check</h2>

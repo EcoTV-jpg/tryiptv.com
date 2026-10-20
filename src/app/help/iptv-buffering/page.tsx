@@ -144,7 +144,7 @@ export default function IptvBufferingPage() {
               className="mb-10 sm:mb-12"
             >
               <p className="font-medium text-foreground">
-                Before changing router settings, modifying cables, or reinstalling applications, execute this 60-second initial triage:
+                IPTV usually buffers because video data is not reaching the player fast or steadily enough: weak Wi-Fi, a busy home network, an overloaded server, or a device that struggles to decode the stream. Most cases improve with Ethernet or 5 GHz Wi-Fi, a restart, or a lower quality. Start with this 60-second check:
               </p>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-relaxed text-muted-foreground">
                 <li>

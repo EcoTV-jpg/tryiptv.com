@@ -85,6 +85,13 @@ const deviceGuides = [
     badge: "tvOS",
   },
   {
+    name: "iPhone & iPad",
+    slug: "iphone-iptv",
+    description: "Install an App Store IPTV player, paste your Xtream Codes details, and AirPlay streams to your TV.",
+    icon: Smartphone,
+    badge: "iOS / iPadOS",
+  },
+  {
     name: "Google Chromecast",
     slug: "chromecast-iptv",
     description: "Stream via Google TV interface or cast streams wirelessly from your phone, tablet, or browser.",

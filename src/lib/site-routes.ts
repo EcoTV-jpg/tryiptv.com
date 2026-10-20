@@ -57,6 +57,7 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/devices/mag-box-iptv',    section: 'devices', indexable: true,  lastModified: '2026-10-04' },
   { path: '/devices/roku-iptv',       section: 'devices', indexable: true,  lastModified: '2026-10-04' },
   { path: '/devices/windows-iptv',    section: 'devices', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/devices/iphone-iptv',     section: 'devices', indexable: true,  lastModified: '2026-10-20' },
   { path: '/devices/mac-iptv',        section: 'devices', indexable: true,  lastModified: '2026-10-04' },
 
   // ── Players hub + player pages ────────────────────────────────────────────

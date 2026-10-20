@@ -210,26 +210,32 @@ export default function M3uVsXtreamCodesPage() {
             </ArticleProse>
 
             {/* Comparison Table */}
-            <div className="my-8 sm:my-10 overflow-hidden rounded-xl border border-white/[0.08] bg-[#07080a] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
+            {/* A real <table> (so answer engines read rows and headers), laid out with the same grid as before. */}
+            <table className="my-8 sm:my-10 block w-full overflow-hidden rounded-xl border border-white/[0.08] bg-[#07080a] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
+              <caption className="sr-only">M3U playlist compared with an Xtream-compatible API login</caption>
               {/* Header shows from sm up; stacked mobile cells repeat it via CSS-generated labels (data-label). */}
-              <div className="hidden bg-[#07080a] px-4 py-3 text-xs sm:text-sm font-bold text-foreground sm:grid sm:grid-cols-12 border-b border-white/[0.08]">
-                <div className="sm:col-span-3">Feature</div>
-                <div className="sm:col-span-4">M3U Playlist</div>
-                <div className="sm:col-span-5">Xtream-Compatible API</div>
-              </div>
-              {comparisonRows.map((row, idx) => (
-                <div
-                  key={row.feature}
-                  className={`grid grid-cols-1 gap-2 px-4 py-4 text-xs sm:text-sm leading-6 sm:grid-cols-12 ${
-                    idx !== 0 ? "border-t border-white/[0.08]" : ""
-                  } ${idx % 2 === 1 ? "bg-white/[0.01]" : ""}`}
-                >
-                  <div className="font-semibold text-foreground sm:col-span-3">{row.feature}</div>
-                  <div data-label="M3U Playlist: " className="text-muted-foreground sm:col-span-4 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">{row.m3u}</div>
-                  <div data-label="Xtream-Compatible API: " className="text-muted-foreground sm:col-span-5 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">{row.xtream}</div>
-                </div>
-              ))}
-            </div>
+              <thead className="hidden sm:block">
+                <tr className="grid grid-cols-12 bg-[#07080a] px-4 py-3 text-xs sm:text-sm font-bold text-foreground border-b border-white/[0.08]">
+                  <th scope="col" className="col-span-3 text-left font-bold">Feature</th>
+                  <th scope="col" className="col-span-4 text-left font-bold">M3U Playlist</th>
+                  <th scope="col" className="col-span-5 text-left font-bold">Xtream-Compatible API</th>
+                </tr>
+              </thead>
+              <tbody className="block">
+                {comparisonRows.map((row, idx) => (
+                  <tr
+                    key={row.feature}
+                    className={`grid grid-cols-1 gap-2 px-4 py-4 text-xs sm:text-sm leading-6 sm:grid-cols-12 ${
+                      idx !== 0 ? "border-t border-white/[0.08]" : ""
+                    } ${idx % 2 === 1 ? "bg-white/[0.01]" : ""}`}
+                  >
+                    <th scope="row" className="text-left font-semibold text-foreground sm:col-span-3">{row.feature}</th>
+                    <td data-label="M3U Playlist: " className="text-muted-foreground sm:col-span-4 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">{row.m3u}</td>
+                    <td data-label="Xtream-Compatible API: " className="text-muted-foreground sm:col-span-5 before:font-semibold before:text-foreground/80 before:content-[attr(data-label)] sm:before:content-none">{row.xtream}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
 
             <ArticleProse>
               <h2>Architectural Ingestion Models</h2>
@@ -338,8 +344,10 @@ export default function M3uVsXtreamCodesPage() {
 
               <h2>How to Choose Between M3U and Xtream Codes</h2>
               <p>
-                Neither connection format changes the underlying video stream quality. Use these practical
-                guidelines to choose:
+                Use Xtream Codes if your player supports it: you enter three short fields instead of one
+                long URL, and live TV, movies, series, and the TV guide load in organised sections. Use an
+                M3U URL when a player only accepts playlists, such as VLC. Neither choice changes picture
+                quality. Use these practical guidelines to choose:
               </p>
 
               <h3>Choose an M3U Playlist When:</h3>

@@ -46,6 +46,11 @@ export function generateMetadata(): Metadata {
 
 const faqs = [
   {
+    question: "What is an M3U link?",
+    answer:
+      "An M3U link is a web address (URL) that points to an M3U playlist file. You paste it into the M3U URL or Add playlist field of an IPTV player, which downloads the channel list from it. Keep it private: it usually contains your username and password.",
+  },
+  {
     question: "What is the difference between an M3U and an M3U8 file?",
     answer:
       "Both formats are text-based playlists that list media stream locations. The primary distinction relates to character encoding conventions. The .m3u8 extension is commonly used for UTF-8 encoded M3U playlists, allowing it to display international characters, non-Latin scripts, and accents. While modern .m3u files often use UTF-8 as well, legacy files sometimes relied on local system character sets. In HTTP Live Streaming (HLS, RFC 8216), UTF-8 encoding is required.",

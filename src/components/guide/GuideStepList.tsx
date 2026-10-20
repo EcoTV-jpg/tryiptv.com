@@ -11,14 +11,24 @@ export interface StepItem {
 interface GuideStepListProps {
   steps: StepItem[];
   primaryKeyword?: string;
+  /** Replaces the generated summary when the "steps" are alternatives rather than a sequence. */
+  intro?: string;
   className?: string;
 }
 
 export function GuideStepList({
   steps,
   primaryKeyword = "Fire TV Stick",
+  intro,
   className,
 }: GuideStepListProps) {
+  // Answer-first summary built from the real step titles, so the count and order always match the list.
+  const lower = (t: string) => t.charAt(0).toLowerCase() + t.slice(1);
+  const titles = steps.map((s) => lower(s.title));
+  const summary =
+    titles.length > 1
+      ? `${titles.slice(0, -1).join("; ")}; and ${titles[titles.length - 1]}`
+      : titles[0] ?? "";
 
   return (
     <div id="setup-steps" className={`scroll-mt-6 my-10 ${className || ""}`}>
@@ -28,17 +38,17 @@ export function GuideStepList({
           Step-by-Step Installation Guide for {primaryKeyword}
         </h2>
         <p className="mt-2 text-base leading-relaxed text-muted-foreground max-w-2xl">
-          Follow this 7-step sequence to configure your IPTV player, load channel bouquets, and verify live stream playback.
+          {intro ?? `Setting up IPTV on ${primaryKeyword} takes ${steps.length} steps: ${summary}.`}
         </p>
       </div>
 
-      <div className="relative">
+      <ol className="relative list-none">
         {steps.map((step, index) => {
           const stepNumber = String(index + 1).padStart(2, "0");
           const isLast = index === steps.length - 1;
 
           return (
-            <div
+            <li
               key={index}
               id={`step-${index + 1}`}
               className="group relative flex items-start gap-4 sm:gap-6 scroll-mt-6"
@@ -72,10 +82,10 @@ export function GuideStepList({
                   dangerouslySetInnerHTML={{ __html: step.description }}
                 />
               </div>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ol>
     </div>
   );
 }

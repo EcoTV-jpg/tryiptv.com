@@ -46,6 +46,7 @@ The [setup overview](https://www.tryiptv.com/setup) explains the general path: r
 - [Samsung TV](https://www.tryiptv.com/devices/samsung-tv-iptv)
 - [LG TV](https://www.tryiptv.com/devices/lg-tv-iptv)
 - [Apple TV](https://www.tryiptv.com/devices/apple-tv-iptv)
+- [iPhone and iPad](https://www.tryiptv.com/devices/iphone-iptv)
 - [Chromecast](https://www.tryiptv.com/devices/chromecast-iptv)
 - [MAG Box](https://www.tryiptv.com/devices/mag-box-iptv)
 - [Roku](https://www.tryiptv.com/devices/roku-iptv)

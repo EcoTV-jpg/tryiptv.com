@@ -177,8 +177,10 @@ export default function HowDoesIptvWorkPage() {
               How Does IPTV Work?
             </h1>
             <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-              A clear, practical explanation of how television broadcasts travel from media servers across
-              broadband networks to your streaming player, screen, and sound system.
+              IPTV works by sending TV channels and on-demand video as data over the internet. The provider&apos;s
+              servers turn each channel into a stream, an M3U playlist or Xtream Codes login tells your player
+              where those streams are, and the player on your TV, stick, phone, or computer downloads and plays
+              them, with EPG data adding the schedule.
             </p>
           </div>
         </Container>
