@@ -27,7 +27,8 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 10. **Typical response time** for WhatsApp and for email. It should be measured, not hoped for. → `support.responseTime`
 11. **Support languages.** → `support.languages`
 12. **Contact form email delivery.** The form sends through Resend from `onboarding@resend.dev`, Resend's test sender. Resend generally only delivers mail from that address to the Resend account owner's own inbox. Should it send from a verified `@tryiptv.com` address instead? That needs DNS records in Resend and Cloudflare. *Not changed.*
-13. **Does `dmca@tryiptv.com` exist and get read?** Both the DMCA page and the About page publish it.
+13. **Does `care@tryiptv.com` exist and get read?** Since 2026-10-20 it is the DMCA address on `/dmca-report` and `/about` (it replaced `dmca@tryiptv.com`, using the owner-supplied DMCA text).
+    - **Counter-notice jurisdiction:** the DMCA page says "consent to the jurisdiction of Canadian courts", which was kept from the supplied text. Confirm this matches the governing law (question 23). Under 17 U.S.C. 512(g)(3)(D) the consent is normally to the US federal district court for the subscriber's address, or, outside the US, any district where the provider may be found.
 14. **Is the WhatsApp number +1 (520) 564-8298 the permanent support line?** It is now shown as text on the contact page and in the Organization schema `contactPoint` URL.
 
 ## Content licensing (`LICENSING`; the page stays hidden until a line is confirmed)

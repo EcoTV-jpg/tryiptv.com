@@ -273,7 +273,7 @@ export default function AboutPage() {
               )}
               <p>
                 If you believe content accessible through TryIPTV infringes your copyright, email{" "}
-                <a href="mailto:dmca@tryiptv.com" className={link}>dmca@tryiptv.com</a> or use our{" "}
+                <a href={`mailto:${COMPANY.support.dmcaEmail}`} className={link}>{COMPANY.support.dmcaEmail}</a> or use our{" "}
                 <Link href="/dmca-report" className={link}>copyright (DMCA) report page</Link>.
               </p>
             </section>

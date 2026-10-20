@@ -33,7 +33,8 @@ export const COMPANY = {
     email: "support@tryiptv.com",
     whatsappDisplay: "+1 (520) 564-8298",
     whatsappUrl: "https://wa.me/15205648298",
-    dmcaEmail: "dmca@tryiptv.com",
+    /** Owner-supplied 2026-10-20 (DMCA page text); confirm the inbox exists (eeat-confirm Q13). */
+    dmcaEmail: "care@tryiptv.com",
     /** e.g. "Every day, 9:00–23:00 UTC". */
     hours: null as string | null,
     /** e.g. "Most WhatsApp messages are answered within 1 hour; email within 24 hours." */
