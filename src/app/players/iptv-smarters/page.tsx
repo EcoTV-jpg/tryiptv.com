@@ -7,6 +7,7 @@ import { Container } from "@/components/shared/Container";
 import { Schema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { FaqList } from "@/components/sections/FAQ";
+import { GuideScreenshot } from "@/components/guide";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
@@ -29,6 +30,8 @@ const articleSchema = generateArticleSchema({
   description,
   dateModified: "2026-10-20",
   url: `${SITE_URL}${canonical}`,
+  // Real app screenshot so image results and AI answers show the Smarters login form.
+  image: `${SITE_URL}/images/iptv-smarters/iptv-smarters-xtream-codes-login-form.webp`,
 });
 
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -104,6 +107,31 @@ export default function IptvSmartersPage() {
                 <li><strong className="text-foreground">Enter your connection details.</strong> In the first field, type any name for your playlist. Then enter the username, password, and server URL from your IPTV provider, and press <strong className="text-foreground">Add User</strong>.</li>
                 <li><strong className="text-foreground">Start watching.</strong> Once you are logged in, open <strong className="text-foreground">Live TV</strong>, <strong className="text-foreground">Movies</strong> (VOD), or <strong className="text-foreground">Series</strong> to browse and play your content.</li>
               </ol>
+              <GuideScreenshot
+                src="/images/iptv-smarters/iptv-smarters-login-with-xtream-codes-api.webp"
+                alt="IPTV Smarters Pro start screen with Load Your Playlist Or File/URL, Load Your Data From Device, Login with Xtream Codes API and Play Single Stream options"
+                caption="Step 1: choose Login with Xtream Codes API (or Load Your Playlist Or File/URL for an M3U link)."
+                width={1280}
+                height={692}
+                sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
+              />
+              <GuideScreenshot
+                src="/images/iptv-smarters/iptv-smarters-xtream-codes-login-form.webp"
+                alt="IPTV Smarters Pro Enter Your Login Details form with playlist name, username, password and server URL fields and the Add User button"
+                caption="Step 2: enter any playlist name, then your username, password and server URL, and press Add User."
+                note="Example values are placeholders, not real account details."
+                width={1280}
+                height={691}
+                sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
+              />
+              <GuideScreenshot
+                src="/images/iptv-smarters/iptv-smarters-home-live-tv-movies-series.webp"
+                alt="IPTV Smarters Pro home screen with Live TV, Movies and Series tiles plus Install EPG, Multi-Screen and Catch Up buttons"
+                caption="Step 3: after login, open Live TV, Movies or Series. Install EPG loads the TV guide."
+                width={1280}
+                height={720}
+                sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
+              />
               <p className={textClass}>The detailed Xtream Codes and M3U sections below cover each field and common login mistakes.</p>
             </section>
 
@@ -169,6 +197,14 @@ export default function IptvSmartersPage() {
                 <li>Enter the exact username and password from the provider.</li>
                 <li>Enter the complete server URL, including <code className="text-foreground">http://</code> or <code className="text-foreground">https://</code> and the port if supplied, then submit the login.</li>
               </ol>
+              <GuideScreenshot
+                src="/images/iptv-smarters/m3u-link-server-url-username-password.webp"
+                alt="Diagram of an example M3U link showing which parts are the Xtream Codes server URL, username and password"
+                caption="An M3U link already contains your Xtream Codes details: the server URL, the username and the password."
+                width={1280}
+                height={620}
+                sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
+              />
               <p className={textClass}>Do not paste the full M3U playlist URL into the server URL field. Check for spaces copied around the address or credentials. For the meaning of these fields, see <Link href="/guides/what-are-xtream-codes" className={linkClass}>Xtream Codes login details</Link>.</p>
             </section>
 
