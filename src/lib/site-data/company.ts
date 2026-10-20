@@ -48,6 +48,8 @@ export const COMPANY = {
   governingLaw: null as string | null,
   /** Name and postal address of the DMCA designated agent, and whether it is registered with the US Copyright Office. */
   dmcaAgent: null as { name: string; address: string; registeredWithUSCO: boolean } | null,
+  /** Confirmed by the owner on 2026-10-20 (exact wording). Shown on /dmca-report. */
+  dmcaTakedownTarget: "Our target takedown time after receiving and validating a valid copyright notice is within 5 minutes." as string | null,
 } as const;
 
 /**
@@ -84,12 +86,6 @@ export const LICENSING: { id: string; draft: string; confirmed: boolean; questio
     draft: "The 25,000+ channel and 120,000+ title figures count the live and on-demand entries available to subscribers on [date].",
     confirmed: false,
     question: "How are the 25,000+ channels and 120,000+ titles counted, and on what date? Can you publish the method or a category breakdown?",
-  },
-  {
-    id: "takedown",
-    draft: "When a rights holder sends a valid notice, the affected stream is removed within [time].",
-    confirmed: false,
-    question: "What is your actual takedown time after a valid copyright notice?",
   },
 ];
 

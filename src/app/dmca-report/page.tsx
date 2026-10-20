@@ -93,7 +93,8 @@ export default function DmcaReportPage() {
               <p>
                 Upon receipt of a valid and complete notification fulfilling all statutory requirements, TryIPTV will investigate the claim and take the necessary action, which may include disabling access to the specified stream feed or playlist entry.
               </p>
-              <Confirm value={null} question="How quickly do you act on a valid notice (e.g. within 48 hours)? This replaces the vague 'promptly'." />
+              {COMPANY.dmcaTakedownTarget && <p>{COMPANY.dmcaTakedownTarget}</p>}
+              <Confirm value={COMPANY.dmcaTakedownTarget} question="How quickly do you act on a valid notice?" />
             </div>
 
             <div className="space-y-3">

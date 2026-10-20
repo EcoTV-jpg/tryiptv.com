@@ -35,7 +35,7 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 16. **Which licensors or distribution partners** can be named publicly?
 17. **In which countries** is the service licensed to be offered?
 18. **If you cannot document licences, tell us.** We will then publish an accurate description of what TryIPTV provides, plus the DMCA process, instead of a licensing claim. An unprovable claim is a deception signal for Google raters and for AI engines.
-19. **What is your actual takedown time** after a valid copyright notice? This replaces the vague "promptly" on the DMCA page.
+19. ✅ **Answered 2026-10-20:** "Our target takedown time after receiving and validating a valid copyright notice is within 5 minutes." It is shown on `/dmca-report` (`COMPANY.dmcaTakedownTarget`).
 
 ## Catalogue claims (`PRODUCT_TRUTHS` in src/lib/site-config.ts)
 20. **How are the 25,000+ channels and 120,000+ movies and TV shows counted, and as of what date?** Can you publish the method or a category breakdown?
