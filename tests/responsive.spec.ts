@@ -106,6 +106,7 @@ const isTouchProject = (name: string) => name.startsWith('mobile') || name.start
 test.describe('every page', () => {
   for (let chunk = 0; chunk < CHUNKS; chunk++) {
     test(`pages chunk ${chunk + 1}/${CHUNKS}`, async ({ page, request }, info) => {
+      test.setTimeout(15 * 60_000); // ~8 routes x up to 11 widths
       const routes = chunkOf(await getRoutes(request), chunk);
       const touch = isTouchProject(info.project.name);
       const base = page.viewportSize()!;
@@ -145,11 +146,9 @@ test.describe('every page', () => {
   }
 });
 
-test.describe('touch interactions', () => {
-  test.beforeEach(({}, info) => test.skip(!isTouchProject(info.project.name), 'touch devices only'));
-
-  test('mobile menu opens by tap, links and close button are reachable', async ({ page }, info) => {
-    test.skip(info.project.name.startsWith('tablet'), 'tablet shows desktop nav at >=1024 landscape; covered by mobile');
+test.describe('touch interactions', { tag: '@touch' }, () => {
+  // @phone: tablets show the desktop nav at >=1024px landscape, so the mobile menu is phone-only.
+  test('mobile menu opens by tap, links and close button are reachable', { tag: '@phone' }, async ({ page }) => {
     await gotoStable(page, '/');
     await page.getByRole('button', { name: 'Open navigation' }).tap();
     const dialog = page.getByRole('dialog');
@@ -188,9 +187,7 @@ test.describe('touch interactions', () => {
   });
 });
 
-test.describe('keyboard', () => {
-  test.beforeEach(({}, info) => test.skip(isTouchProject(info.project.name), 'desktop engines only'));
-
+test.describe('keyboard', { tag: '@desktop' }, () => {
   test('mobile menu and contact sheet work by keyboard', async ({ page, browserName }) => {
     await page.setViewportSize({ width: 375, height: 800 });
     await gotoStable(page, '/');
