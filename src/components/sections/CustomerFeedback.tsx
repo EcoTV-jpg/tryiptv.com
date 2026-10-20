@@ -3,6 +3,7 @@ import { Container } from "../shared/Container";
 import { SectionHeader } from "../shared/SectionHeader";
 import { Section } from "../shared/Section";
 import { MessageSquareCheck } from "lucide-react";
+import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
 
 export const customerFeedbackItems = [
   {
@@ -49,7 +50,7 @@ export function CustomerFeedback() {
         <SectionHeader
           align="left"
           title="Customer Support Conversations"
-          subtitle="WhatsApp conversations with TryIPTV customers showing account setup, credential delivery, and player assistance. Personal details are blurred."
+          subtitle={`These WhatsApp conversations show how TryIPTV support delivers login details, sets up accounts, and helps customers configure their IPTV player apps. Personal details are blurred. TryIPTV support is available on WhatsApp and by email at ${PRODUCT_TRUTHS.support.email} for setup, billing, and playback questions.`}
           eyebrow="Customer Support"
         />
 

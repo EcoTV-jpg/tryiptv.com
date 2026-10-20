@@ -1,3 +1,5 @@
+import { PRODUCT_TRUTHS } from "@/lib/site-config";
+
 export const pricingPageFaqs: { question: string; answer: string; link?: { href: string; label: string } }[] = [
   {
     question: "How much does TryIPTV cost?",
@@ -52,7 +54,7 @@ export const pricingPageFaqs: { question: string; answer: string; link?: { href:
   {
     question: "Is there a refund policy?",
     answer:
-      "Yes. Technical issues that support cannot resolve may qualify under our 7-day refund policy. Review our refund policy page for specific terms and conditions.",
+      `Yes, with conditions. ${PRODUCT_TRUTHS.refund.summary} The refund policy page lists the exclusions and how to make a request.`,
   },
   {
     question: "Why does the TV guide show \"No Information\"?",

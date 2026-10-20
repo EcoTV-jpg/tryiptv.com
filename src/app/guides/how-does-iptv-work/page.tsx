@@ -476,7 +476,7 @@ export default function HowDoesIptvWorkPage() {
               </p>
               <ol>
                 <li>
-                  <strong>A Stable Broadband Connection:</strong> While individual streams use 5–25 Mbps, we recommend plan speeds of at least 25 Mbps for 1080p Full HD and 50+ Mbps for 4K to leave ample headroom for household devices. For detailed bandwidth planning, see our complete guide on{" "}
+                  <strong>A Stable Broadband Connection:</strong> While individual streams typically use about 3–35 Mbps depending on resolution, we recommend plan speeds of at least 25 Mbps for 1080p Full HD and 50+ Mbps for 4K to leave ample headroom for household devices. For detailed bandwidth planning, see our complete guide on{" "}
                   <Link href="/guides/iptv-internet-speed" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     IPTV internet speed requirements
                   </Link>

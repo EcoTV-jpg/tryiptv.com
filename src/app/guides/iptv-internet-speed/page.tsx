@@ -185,7 +185,7 @@ export default function IptvInternetSpeedPage() {
                 simultaneously.
               </p>
               <p>
-                As a practical planning guideline, individual streams typically draw between 3–5 Mbps for standard
+                As a practical planning guideline, individual streams typically draw between 3–6 Mbps for standard
                 HD (720p), 7–15 Mbps for Full HD (1080p), and 18–35 Mbps for 4K Ultra HD. However, planning for additional
                 headroom above the raw stream bitrate is useful for Wi-Fi variability, background traffic, other household
                 devices, and bitrate spikes.

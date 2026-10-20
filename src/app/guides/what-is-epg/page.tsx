@@ -133,9 +133,10 @@ export default function WhatIsEpgPage() {
               What Is an EPG? How IPTV TV Guides Work
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              An Electronic Programme Guide transforms a raw list of live video streams into a familiar,
-              navigable television guide. Understand how guide data is structured, how IPTV players ingest
-              schedules, and how streams and metadata interact.
+              An EPG (Electronic Programme Guide) is the on-screen TV guide in an IPTV player: schedule
+              data that shows what is airing now and next on each channel. It is usually supplied as an
+              XMLTV file and matched to the playlist's channels by ID. This guide explains how that data
+              is structured, loaded, and kept in sync.
             </p>
           </div>
         </Container>

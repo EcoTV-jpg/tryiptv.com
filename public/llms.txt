@@ -2,7 +2,7 @@
 
 > TryIPTV is a prepaid IPTV subscription service offering live television and on-demand access through compatible devices and independent IPTV player apps.
 
-Use the linked website pages for current facts. Pricing, trial terms, and refund conditions are governed by their respective pages. Device pages cover platform setup; player pages cover app configuration; guides explain concepts; help pages diagnose problems.
+The linked website pages hold the current facts. Pricing, trial terms, and refund conditions are governed by their respective pages. Device pages cover platform setup; player pages cover app configuration; guides explain concepts; help pages diagnose problems.
 
 ## Service
 

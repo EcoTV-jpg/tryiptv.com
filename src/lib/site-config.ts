@@ -1,6 +1,12 @@
 
 export const SITE_URL = "https://www.tryiptv.com";
 
+/**
+ * Single source of truth for every product fact the site states (prices, catalogue size,
+ * connections, trial, delivery, refunds, support). Pages, structured data and the facts
+ * check (`npm run check:facts`, which also covers public/llms*.txt and ai.txt) read from here;
+ * change a fact here first, then fix anything the check reports.
+ */
 export const PRODUCT_TRUTHS = {
   brand: "TryIPTV",
   domain: SITE_URL,
@@ -9,8 +15,20 @@ export const PRODUCT_TRUTHS = {
   connections: 2,
   trialDuration: "24 Hours",
   trialCost: "$0 (Free, no credit card required)",
+  /** The trial page states the trial's connection limit is confirmed when credentials are issued. */
+  trialConnections: "Confirmed when trial credentials are issued",
   activationTime: "5–15 minutes",
   billing: "Prepaid plans, no automatic renewal",
+  /** Mirrors /refund-policy §2–4. Not an unconditional money-back guarantee. */
+  refund: {
+    windowDays: 7,
+    summary:
+      "If support cannot resolve a critical technical defect within 7 days of purchase, you may be eligible for a full or partial refund or service credit.",
+  },
+  support: {
+    email: "support@tryiptv.com",
+    whatsapp: "+15205648298",
+  },
   paymentMethods: [
     "Cryptocurrency",
     "PayPal",
@@ -22,6 +40,19 @@ export const PRODUCT_TRUTHS = {
     { duration: "6 Months", price: 60.00, monthlyEquivalent: 10.00 },
     { duration: "12 Months", price: 90.00, monthlyEquivalent: 7.50 },
   ],
+} as const;
+
+const usd = (n: number) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
+
+/** Ready-made phrases built from PRODUCT_TRUTHS, for copy that states prices or limits. */
+export const FACT_TEXT = {
+  /** "$16 for 1 month, $39 for 3 months, $60 for 6 months, or $90 for 12 months" */
+  priceList: PRODUCT_TRUTHS.plans
+    .map((p, i, all) => `${i === all.length - 1 ? "or " : ""}${usd(p.price)} for ${p.duration.toLowerCase()}`)
+    .join(", "),
+  fromPrice: usd(Math.min(...PRODUCT_TRUTHS.plans.map((p) => p.price))),
+  lowestMonthly: usd(Math.min(...PRODUCT_TRUTHS.plans.map((p) => p.monthlyEquivalent))),
+  trialHours: parseInt(PRODUCT_TRUTHS.trialDuration, 10),
 } as const;
 
 export const siteConfig = {

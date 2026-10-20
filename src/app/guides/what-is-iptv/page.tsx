@@ -126,9 +126,10 @@ export default function WhatIsIptvPage() {
               What Is IPTV?
             </h1>
             <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-              IPTV means Internet Protocol Television. Instead of receiving TV through a cable line,
-              satellite dish, or antenna broadcast, IPTV delivers live TV and on-demand video through
-              an internet connection to a compatible app or device.
+              IPTV (Internet Protocol Television) is television delivered over an internet connection
+              instead of a cable line, satellite dish, or antenna. A service supplies live channels and
+              on-demand video as streams, and you watch them in an IPTV player app on a TV, streaming
+              stick, phone, or computer.
             </p>
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
               <Button asChild>

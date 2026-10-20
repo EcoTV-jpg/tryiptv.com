@@ -11,6 +11,7 @@ import { Schema } from "@/components/shared/Schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getPricingPageData } from "@/lib/data/pricing-page";
 import { plans } from "@/lib/site-data/pricing";
+import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
 
 export function generateMetadata(): Metadata {
   const title = "IPTV Subscription Plans & Pricing From $16 | TryIPTV";
@@ -192,7 +193,7 @@ export default async function IPTVSubscription() {
           <SectionHeader
             eyebrow="Prepaid IPTV Plans"
             title="Compare TryIPTV Plans"
-            subtitle="Choose the prepaid duration that best matches your viewing needs. Each plan is paid upfront and does not renew automatically."
+            subtitle={`TryIPTV plans differ only in length and price: ${FACT_TEXT.priceList}. The 12-month plan works out to ${FACT_TEXT.lowestMonthly} a month. Each plan is paid once upfront, includes ${PRODUCT_TRUTHS.connections} simultaneous connections, and does not renew automatically.`}
           />
 
           <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
@@ -332,8 +333,8 @@ export default async function IPTVSubscription() {
         <Container>
           <SectionHeader
             eyebrow="Order Process"
-            title="How to Buy a Plan"
-            subtitle="Four straightforward steps take you from plan selection to streaming."
+            title="How Do I Buy a TryIPTV Plan?"
+            subtitle={`To buy a TryIPTV plan, choose a duration and tap its order button to open WhatsApp, where support sends payment instructions. Once payment is confirmed, your Xtream Codes or M3U login details usually arrive within ${PRODUCT_TRUTHS.activationTime}. Enter them in a compatible IPTV player to start watching.`}
           />
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -362,7 +363,7 @@ export default async function IPTVSubscription() {
           <SectionHeader
             eyebrow="Included Features"
             title="What Is Included With Every Paid Plan?"
-            subtitle="Every prepaid subscription includes the same core service, format access, and connection allowance."
+            subtitle={`Every TryIPTV plan includes ${PRODUCT_TRUTHS.channels} live channels, ${PRODUCT_TRUTHS.vod} movies and TV shows, ${PRODUCT_TRUTHS.connections} simultaneous connections, Xtream Codes and M3U login formats, and setup support on WhatsApp and email. The 1-, 3-, 6- and 12-month plans share the same service; only the prepaid duration and price change.`}
           />
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -382,8 +383,8 @@ export default async function IPTVSubscription() {
         <Container>
           <SectionHeader
             eyebrow="Pricing Model"
-            title="How TryIPTV Pricing Works"
-            subtitle="Straightforward upfront billing with transparent math and zero recurring surprises."
+            title="How Does TryIPTV Billing Work?"
+            subtitle={`TryIPTV billing is a single prepaid payment for 1, 3, 6, or 12 months. Nothing renews automatically and there is no recurring charge: when a plan ends, access stops until you buy another. The monthly equivalent is the plan price divided by its months, from ${FACT_TEXT.fromPrice} down to ${FACT_TEXT.lowestMonthly}.`}
           />
 
           <p className="mx-auto max-w-3xl text-base leading-7 text-muted-foreground">

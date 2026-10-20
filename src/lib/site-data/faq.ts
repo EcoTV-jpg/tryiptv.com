@@ -1,3 +1,5 @@
+import { PRODUCT_TRUTHS } from "@/lib/site-config";
+
 
 export const faqs = [
     {
@@ -34,7 +36,7 @@ export const faqs = [
     },
     {
         question: "What is the TryIPTV refund policy?",
-        answer: "TryIPTV offers a 7-day refund policy on all prepaid subscription plans if you experience technical issues that our support team cannot resolve. We also encourage viewers to test the service first using our 24-hour free trial to confirm compatibility before purchasing."
+        answer: `${PRODUCT_TRUTHS.refund.summary} Change of mind after credentials are used, home network problems, and unsupported devices are not refundable. Test first with the free 24-hour trial; the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> has the full conditions.`
     },
     {
         question: "Does TryIPTV automatically renew?",

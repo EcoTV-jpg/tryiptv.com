@@ -243,7 +243,7 @@ const setupFaqs: FaqItem[] = [
   {
     question: "What do I need to set up IPTV?",
     answer:
-      "To set up IPTV, you need three elements: a reliable high-speed internet connection (recommended 25+ Mbps for HD and 50+ Mbps for 4K), a compatible streaming device or Smart TV, and a third-party IPTV player application. Once you have these, you simply enter the subscription credentials (Xtream Codes API details or M3U playlist link) provided with your TryIPTV account.",
+      "To set up IPTV, you need three elements: a reliable high-speed internet connection (recommended 25+ Mbps for Full HD and 50+ Mbps for 4K), a compatible streaming device or Smart TV, and a third-party IPTV player application. Once you have these, you simply enter the subscription credentials (Xtream Codes API details or M3U playlist link) provided with your TryIPTV account.",
   },
   {
     question: "Should I set up using Xtream Codes API or M3U playlist?",
@@ -368,7 +368,7 @@ export default function SetupPage() {
                   </div>
                 </CardHeader>
                 <CardContent className="text-base sm:text-sm text-muted-foreground leading-relaxed">
-                  Stable streaming requires consistent download bandwidth: minimum 15–25 Mbps for 1080p Full HD streams and 40–50+ Mbps for 4K Ultra HD live broadcasts. A wired Ethernet cable or low-interference 5GHz Wi-Fi connection eliminates packet buffering.
+                  Stable streaming requires consistent download bandwidth: about 25–35 Mbps for one 1080p Full HD stream and 50–60 Mbps for one 4K Ultra HD stream. A wired Ethernet cable or low-interference 5GHz Wi-Fi connection reduces buffering.
                 </CardContent>
               </Card>
 

@@ -151,7 +151,7 @@ const faqs: FaqItem[] = [
   {
     question: "Can IPTV completely replace a traditional cable TV subscription?",
     answer:
-      "Many households transition completely to IPTV if they maintain a reliable broadband connection (recommended 25+ Mbps for HD/4K) and feel comfortable using streaming apps. However, households with slow rural internet or those who prefer traditional set-top box numeric remotes may still prefer cable.",
+      "Many households transition completely to IPTV if they maintain a reliable broadband connection (recommended 25+ Mbps for Full HD and 50+ Mbps for 4K) and feel comfortable using streaming apps. However, households with slow rural internet or those who prefer traditional set-top box numeric remotes may still prefer cable.",
   },
   {
     question: "Does IPTV use more internet data than standard web browsing?",
@@ -321,7 +321,7 @@ export default function IptvVsCablePage() {
               <ul>
                 <li>
                   <strong className="text-foreground font-semibold">Bandwidth Requirements:</strong> While individual streams typically consume
-                  4–15 Mbps depending on resolution and frame rate, household networks need surplus headroom to absorb background traffic and
+                  about 3–35 Mbps depending on resolution and frame rate (roughly 7–15 Mbps for 1080p), household networks need surplus headroom to absorb background traffic and
                   Wi-Fi fluctuations. For detailed speed planning benchmarks across resolutions, explore our guide on{" "}
                   <Link href="/guides/iptv-internet-speed" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     IPTV internet speed requirements
@@ -452,7 +452,7 @@ export default function IptvVsCablePage() {
                 IPTV may appeal to viewers who:
               </p>
               <ul>
-                <li>Maintain a reliable broadband internet connection with sufficient speed (such as 25+ Mbps for HD/4K).</li>
+                <li>Maintain a reliable broadband internet connection with sufficient speed (such as 25+ Mbps for Full HD and 50+ Mbps for 4K).</li>
                 <li>Prefer watching on existing consumer hardware (Firestick, Apple TV, Smart TVs, tablets, or laptops) without dedicated box rentals.</li>
                 <li>Value portability across devices and locations, subject to provider terms and network access.</li>
                 <li>Prefer prepaid, non-recurring subscription models (such as TryIPTV) over long-term contracts.</li>

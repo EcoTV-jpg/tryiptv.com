@@ -6,6 +6,7 @@ import { Container } from "../shared/Container";
 import { Section } from "../shared/Section";
 import { SectionHeader } from "../shared/SectionHeader";
 import { cn } from "@/lib/utils";
+import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
 
 const PLANS = [
   {
@@ -83,8 +84,8 @@ export function HomePricing() {
       <Container>
         <SectionHeader
           eyebrow="Prepaid Subscriptions"
-          title="TryIPTV Subscription Plans"
-          subtitle="Simple, flat prepaid plans with no hidden fees and no automatic renewals. Every plan includes the same service and 2 simultaneous connections; only the duration changes."
+          title="How Much Does TryIPTV Cost?"
+          subtitle={`TryIPTV costs ${FACT_TEXT.priceList}, which works out to ${FACT_TEXT.lowestMonthly} a month on the 12-month plan. Each plan is a single prepaid payment with no automatic renewal, and every plan includes the same channels and ${PRODUCT_TRUTHS.connections} simultaneous connections; only the duration changes.`}
         />
 
         <div className="mx-auto grid max-w-md grid-cols-1 gap-4 sm:max-w-none sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">

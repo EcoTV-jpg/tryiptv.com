@@ -23,6 +23,7 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Schema } from "@/components/shared/Schema";
 import { getIptvFreeTrialPageData } from "@/lib/data/iptv-free-trial-page";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
 
 const freeTrialWhatsAppUrl =
   "https://wa.me/15205648298?text=Hello%20TryIPTV%2C%20I%20would%20like%20to%20start%20my%20free%20IPTV%20trial.";
@@ -221,7 +222,7 @@ export default async function IptvFreeTrialPage() {
             <SectionHeader
               eyebrow="Quick Overview"
               title="How the TryIPTV Free Trial Works"
-              subtitle="The trial gives you 24 hours of free access, issued over WhatsApp in about 5–15 minutes, to test TryIPTV on your own device and IPTV player."
+              subtitle={`The TryIPTV free trial gives you ${FACT_TEXT.trialHours} consecutive hours of access for $0, with no credit card or billing details. Request it on WhatsApp and the login details usually arrive within ${PRODUCT_TRUTHS.activationTime}. Access then expires automatically; the trial never turns into a paid plan, and there is one trial per household.`}
             />
             <p className="text-base leading-7 text-muted-foreground sm:text-lg">
               The TryIPTV free trial provides temporary 24-hour access so you can evaluate stream playback, device compatibility, and available channels on your home network before spending money. Testing on your own device and home connection gives you the most realistic view of how the service works in your setup.
@@ -255,7 +256,7 @@ export default async function IptvFreeTrialPage() {
             <SectionHeader
               eyebrow="Evaluation Checklist"
               title="What to Test During Your 24-Hour Trial"
-              subtitle="Use the 24-hour testing period to evaluate the specific channels, categories, and features you plan to watch regularly."
+              subtitle={`During the ${FACT_TEXT.trialHours}-hour TryIPTV trial, check the channels you watch most, live sports stability, picture quality, channel switching speed, on-demand playback, and whether the TV guide (EPG) loads in your player. Testing over both Wi-Fi and Ethernet shows whether any buffering comes from your home network.`}
             />
 
             <div className="overflow-hidden rounded-lg border border-white/[0.09] bg-card">
@@ -291,8 +292,8 @@ export default async function IptvFreeTrialPage() {
           <div className="mx-auto max-w-4xl">
             <SectionHeader
               eyebrow="Simple Steps"
-              title="How to Request and Start Your Free Trial"
-              subtitle="Four straightforward steps from request to evaluation."
+              title="How Do I Get a TryIPTV Free Trial?"
+              subtitle={`To get a TryIPTV free trial, send a request on WhatsApp, install a compatible IPTV player on your device, and enter the Xtream Codes or M3U details support sends you, usually within ${PRODUCT_TRUTHS.activationTime}. The ${FACT_TEXT.trialHours}-hour clock starts at activation, so set up your player before you request access.`}
             />
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -327,7 +328,7 @@ export default async function IptvFreeTrialPage() {
             <SectionHeader
               eyebrow="Core Requirements"
               title="What You Need Before You Begin"
-              subtitle="Three components are required to stream: a device, a player app, and account credentials."
+              subtitle="To watch TryIPTV you need three things: a supported device such as a Firestick, smart TV, or computer; a compatible IPTV player app such as TiviMate or IPTV Smarters; and the TryIPTV login details, either an Xtream Codes server, username, and password or an M3U playlist URL."
             />
 
             <div className="space-y-4">
@@ -425,7 +426,7 @@ export default async function IptvFreeTrialPage() {
 
             <div className="space-y-4 text-base leading-7 text-muted-foreground sm:text-lg">
               <p>
-                A free trial helps you evaluate whether your device, player, and home connection work well with the service before paying.
+                Yes, an IPTV free trial is worth it when it costs nothing and needs no card, as the TryIPTV trial does. Paid plans are prepaid and refunds are conditional, so 24 hours on your own device, player, and home connection is the most reliable way to find compatibility or buffering problems before you pay.
               </p>
               <p>
                 Testing on your own equipment during your normal viewing hours lets you check channel startup time, stream smoothness, and guide loading firsthand.
@@ -467,7 +468,7 @@ export default async function IptvFreeTrialPage() {
             <SectionHeader
               eyebrow="Plan Comparison"
               title="Free Trial vs. Paid Subscription"
-              subtitle="Review how the 24-hour evaluation compares to standard prepaid subscriptions."
+              subtitle={`The TryIPTV free trial lasts ${FACT_TEXT.trialHours} hours, costs $0, and needs no payment; its connection limit is confirmed when the login details are issued. Paid plans cost ${FACT_TEXT.fromPrice} to $90 for 1 to 12 months and include ${PRODUCT_TRUTHS.connections} simultaneous connections. Neither renews automatically, and both use Xtream Codes or M3U.`}
             />
 
             <div className="overflow-hidden rounded-lg border border-white/[0.09] bg-card">
