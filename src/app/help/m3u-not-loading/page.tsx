@@ -144,7 +144,7 @@ export default function M3uNotLoadingPage() {
               className="mb-10 sm:mb-12"
             >
               <p>
-                An <Link href="/guides/what-is-m3u" className="text-primary hover:underline">M3U playlist</Link>{" "}
+                An <Link href="/guides/what-is-m3u" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">M3U playlist</Link>{" "}
                 is a plain-text file listing channel stream URLs and metadata tags. Loading a playlist
                 involves three distinct phases: downloading the text file over the network, parsing the
                 metadata lines into memory, and playing the resulting stream addresses.
@@ -171,7 +171,7 @@ export default function M3uNotLoadingPage() {
                   <Globe className="h-5 w-5 text-amber-400" />
                   Network &amp; HTTP Errors
                 </div>
-                <p className="mt-2.5 text-sm leading-6 text-muted-foreground">
+                <p className="mt-2.5 text-base sm:text-sm leading-6 text-muted-foreground">
                   The player displays messages like &quot;Download failed,&quot; &quot;Server returned error
                   404/401,&quot; or &quot;Host not found.&quot; The text file was never successfully downloaded.
                 </p>
@@ -182,7 +182,7 @@ export default function M3uNotLoadingPage() {
                   <Cpu className="h-5 w-5 text-sky-400" />
                   Parser &amp; Memory Freezes
                 </div>
-                <p className="mt-2.5 text-sm leading-6 text-muted-foreground">
+                <p className="mt-2.5 text-base sm:text-sm leading-6 text-muted-foreground">
                   The download begins or reaches 100%, but the player becomes unresponsive, restarts, or
                   crashes to the home screen while processing lines into channel groups.
                 </p>
@@ -193,10 +193,10 @@ export default function M3uNotLoadingPage() {
                   <Tv className="h-5 w-5 text-purple-400" />
                   Stream Playback Failures
                 </div>
-                <p className="mt-2.5 text-sm leading-6 text-muted-foreground">
+                <p className="mt-2.5 text-base sm:text-sm leading-6 text-muted-foreground">
                   The channel list loads completely with categories and names visible, but selecting a stream
                   results in an infinite loading spinner or playback error (see{" "}
-                  <Link href="/help/iptv-buffering" className="text-primary hover:underline">
+                  <Link href="/help/iptv-buffering" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     buffering troubleshooting
                   </Link>
                   ).
@@ -368,7 +368,7 @@ export default function M3uNotLoadingPage() {
               <h3 className="text-lg font-bold text-foreground">
                 Playlist Delivery with TryIPTV
               </h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                 Before altering your player settings or device configurations, verify that your playlist URL
                 is complete and active. TryIPTV provides M3U and M3U8 links alongside Xtream-compatible logins,
                 and our support team can help with playlist loading issues.

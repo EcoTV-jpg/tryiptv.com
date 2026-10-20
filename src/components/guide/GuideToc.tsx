@@ -51,7 +51,7 @@ export function GuideToc({ items, className, variant = "desktop" }: GuideTocProp
         <button
           type="button"
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex w-full items-center justify-between p-3.5 text-xs font-semibold text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded-xl"
+          className="flex w-full items-center justify-between p-3.5 text-xs font-semibold text-foreground focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-primary rounded-xl"
           aria-expanded={mobileOpen}
         >
           <span className="flex items-center gap-2">
@@ -75,7 +75,8 @@ export function GuideToc({ items, className, variant = "desktop" }: GuideTocProp
                       href={`#${item.id}`}
                       onClick={() => setMobileOpen(false)}
                       className={cn(
-                        "block rounded-md px-2.5 py-1.5 transition-colors",
+                        // Mobile TOC: 44px rows for touch.
+                        "flex min-h-11 items-center rounded-md px-2.5 py-1.5 transition-colors",
                         isActive
                           ? "bg-primary/[0.08] text-primary font-medium"
                           : "text-muted-foreground hover:bg-white/[0.03] hover:text-foreground"
@@ -109,7 +110,7 @@ export function GuideToc({ items, className, variant = "desktop" }: GuideTocProp
         </h3>
       </div>
 
-      <ul className="space-y-1 text-xs max-h-[calc(100vh-14rem)] overflow-y-auto pr-1">
+      <ul className="space-y-1 text-xs [max-height:calc(100vh-14rem)] supports-[height:100dvh]:max-h-[calc(100dvh-14rem)] overflow-y-auto pr-1">
         {items.map((item) => {
           const isActive = activeId === item.id;
           return (
@@ -117,7 +118,7 @@ export function GuideToc({ items, className, variant = "desktop" }: GuideTocProp
               <a
                 href={`#${item.id}`}
                 className={cn(
-                  "group relative flex items-center rounded-md py-1.5 transition-all text-xs",
+                  "group relative flex items-center rounded-md py-1.5 transition-all text-xs pointer-coarse:min-h-11",
                   isActive
                     ? "bg-primary/[0.08] text-primary font-semibold pl-3 pr-2.5"
                     : "text-muted-foreground hover:bg-white/[0.02] hover:text-foreground px-2.5"

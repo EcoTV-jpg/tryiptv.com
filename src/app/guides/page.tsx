@@ -153,7 +153,7 @@ export default function GuidesPage() {
             <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               Fundamental IPTV Concepts &amp; Standards
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground sm:text-base">
+            <p className="mt-2 text-base text-muted-foreground">
               Learn the foundational technologies and specifications that power modern Internet Protocol Television.
             </p>
           </div>
@@ -175,20 +175,20 @@ export default function GuidesPage() {
                       <span className="text-xs text-muted-foreground">{guide.readTime}</span>
                     </div>
                     <CardTitle as="h3" className="font-headline text-lg font-bold leading-snug sm:text-xl">
-                      <Link href={guide.href} className="text-foreground transition-colors group-hover:text-primary">
+                      <Link href={guide.href} className="tap-target text-foreground transition-colors group-hover:text-primary">
                         {guide.title}
                       </Link>
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0 flex flex-1 flex-col justify-between">
-                    <p className="mb-6 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                    <p className="mb-6 text-base leading-relaxed text-muted-foreground sm:text-sm">
                       {guide.description}
                     </p>
                     <div className="flex items-center justify-between border-t border-white/[0.06] pt-3">
                       <span className="text-xs text-muted-foreground">Technical Article</span>
                       <Link
                         href={guide.href}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-colors hover:underline"
+                        className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-colors hover:underline"
                       >
                         Read Full Guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                       </Link>
@@ -205,7 +205,7 @@ export default function GuidesPage() {
             <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               Architectural &amp; Practical Comparisons
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground sm:text-base">
+            <p className="mt-2 text-base text-muted-foreground">
               Direct, side-by-side evaluations to help you select the optimal connection method for your hardware.
             </p>
           </div>
@@ -227,20 +227,20 @@ export default function GuidesPage() {
                       <span className="text-xs text-muted-foreground">{guide.readTime}</span>
                     </div>
                     <CardTitle as="h3" className="font-headline text-lg font-bold leading-snug sm:text-xl">
-                      <Link href={guide.href} className="text-foreground transition-colors group-hover:text-primary">
+                      <Link href={guide.href} className="tap-target text-foreground transition-colors group-hover:text-primary">
                         {guide.title}
                       </Link>
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0 flex flex-1 flex-col justify-between">
-                    <p className="mb-6 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                    <p className="mb-6 text-base leading-relaxed text-muted-foreground sm:text-sm">
                       {guide.description}
                     </p>
                     <div className="flex items-center justify-between border-t border-white/[0.06] pt-3">
                       <span className="text-xs text-muted-foreground">Comparison Matrix</span>
                       <Link
                         href={guide.href}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-colors hover:underline"
+                        className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-colors hover:underline"
                       >
                         Read Full Guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                       </Link>
@@ -259,7 +259,7 @@ export default function GuidesPage() {
                 <h3 className="font-headline text-lg font-bold text-foreground sm:text-xl">
                   Diagnose Playback, Login, or EPG Issues
                 </h3>
-                <p className="mt-1.5 max-w-xl text-xs text-muted-foreground sm:text-sm">
+                <p className="mt-1.5 max-w-xl text-base text-muted-foreground sm:text-sm">
                   If you are experiencing buffering, authentication errors, or missing program data, explore our dedicated troubleshooting directory for step-by-step diagnostic workflows.
                 </p>
               </div>

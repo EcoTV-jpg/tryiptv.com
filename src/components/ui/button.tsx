@@ -22,9 +22,10 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-12 min-h-[48px] px-6 py-3 text-[15px]",
-        sm: "h-9 rounded-lg px-3.5 text-xs",
+        // pointer-coarse: grow to a 44px tap target on touch screens; mouse layouts keep the compact size.
+        sm: "h-9 rounded-lg px-3.5 text-xs pointer-coarse:min-h-11",
         lg: "h-[50px] min-h-[48px] px-7 py-3 text-base rounded-xl",
-        icon: "h-10 w-10 rounded-xl",
+        icon: "h-10 w-10 rounded-xl pointer-coarse:min-h-11 pointer-coarse:min-w-11",
       },
     },
     defaultVariants: {

@@ -200,7 +200,7 @@ export default function PlayersHubPage() {
               <p>
                 To choose the right application for your streaming setup:
               </p>
-              <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
+              <ul className="list-disc pl-5 space-y-1.5 text-base sm:text-sm">
                 <li>
                   <strong className="text-foreground font-semibold">Amazon Firestick, Android TV &amp; Google TV:</strong> Choose <Link href="/players/tivimate" className="text-primary underline">TiviMate</Link> for television EPG navigation, or <Link href="/players/xciptv" className="text-primary underline">XCIPTV Player (OTR Player)</Link> for dual ExoPlayer and VLC playback engines.
                 </li>
@@ -226,7 +226,7 @@ export default function PlayersHubPage() {
             <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               IPTV Player Feature &amp; Platform Comparison Matrix
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-base sm:text-sm text-muted-foreground">
               Direct comparison of platforms, authentication protocols, and standout technical capabilities across the seven major IPTV players.
             </p>
           </div>
@@ -249,7 +249,7 @@ export default function PlayersHubPage() {
                     <td className="p-4 font-semibold text-foreground">
                       <div className="flex items-center gap-2">
                         <player.icon className="h-4 w-4 text-primary shrink-0" />
-                        <Link href={`/players/${player.slug}`} className="hover:text-primary transition-colors">
+                        <Link href={`/players/${player.slug}`} className="tap-target hover:text-primary transition-colors">
                           {player.name}
                         </Link>
                       </div>
@@ -284,14 +284,14 @@ export default function PlayersHubPage() {
             <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               Independent Player Reviews &amp; Setup Walkthroughs
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-base sm:text-sm text-muted-foreground">
               Select an IPTV player below for in-depth setup instructions, buffer tuning, EPG integration, and troubleshooting guides:
             </p>
           </div>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {playersList.map((player) => (
-              <Card key={player.slug} className="flex flex-col justify-between border-white/[0.08] bg-white/[0.02] transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:bg-white/[0.04]">
+              <Card key={player.slug} className="flex flex-col justify-between border-white/[0.08] bg-white/[0.02] transition-all duration-200 motion-safe:hover:-translate-y-1 hover:border-primary/40 hover:bg-white/[0.04]">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${player.badgeColor}`}>
@@ -300,16 +300,16 @@ export default function PlayersHubPage() {
                     </span>
                   </div>
                   <CardTitle className="font-headline text-lg sm:text-xl font-bold text-foreground">
-                    <Link href={`/players/${player.slug}`} className="hover:text-primary transition-colors">
+                    <Link href={`/players/${player.slug}`} className="tap-target hover:text-primary transition-colors">
                       {player.name}
                     </Link>
                   </CardTitle>
-                  <CardDescription className="text-xs text-muted-foreground">
+                  <CardDescription data-small-print className="text-xs text-muted-foreground">
                     By {player.developer} • {player.platforms}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="pt-0 flex flex-col justify-between flex-1">
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-base sm:text-sm text-muted-foreground leading-relaxed mb-6">
                     {player.description}
                   </p>
                   <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between">
@@ -332,48 +332,48 @@ export default function PlayersHubPage() {
       {/* Decision Guide: How to choose */}
       <Section className="py-12 sm:py-16 border-t border-white/[0.07] bg-white/[0.01]">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-12">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             <div className="space-y-8 lg:col-span-8">
               <div>
                 <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                   How to Choose the Right IPTV Player for Your Setup
                 </h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
                   Because different streaming devices use fundamentally different operating systems and hardware decoders, there is no single &quot;one-size-fits-all&quot; player for every situation:
                 </p>
 
                 <div className="mt-6 space-y-4">
                   <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
                     <h3 className="font-semibold text-foreground text-base">If You Have an Amazon Firestick or Android TV:</h3>
-                    <p className="mt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
                       Choose <Link href="/players/tivimate" className="text-primary underline">TiviMate</Link> if you want a dedicated television EPG grid layout with SMB network recording. Choose <Link href="/players/xciptv" className="text-primary underline">XCIPTV Player (OTR Player)</Link> if you want multi-screen sports viewing or selectable playback engines, or <Link href="/players/televizo" className="text-primary underline">Televizo</Link> for an uncluttered interface with a functional free tier. (See our step-by-step <Link href="/devices/firestick-iptv" className="text-primary underline">Firestick setup</Link> and <Link href="/devices/android-tv-iptv" className="text-primary underline">Android TV setup</Link> guides.)
                     </p>
                   </div>
 
                   <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
                     <h3 className="font-semibold text-foreground text-base">If You Stream on Apple Devices, Samsung, or LG Smart TVs:</h3>
-                    <p className="mt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
                       Choose <Link href="/players/iptv-smarters" className="text-primary underline">IPTV Smarters Pro</Link>. It is natively available in the Apple App Store, Samsung Smart Hub (Tizen), and LG Content Store (webOS). For device-specific setup, consult our walkthroughs for <Link href="/devices/apple-tv-iptv" className="text-primary underline">Apple TV</Link>, <Link href="/devices/samsung-tv-iptv" className="text-primary underline">Samsung Smart TV</Link>, or <Link href="/devices/lg-tv-iptv" className="text-primary underline">LG Smart TV</Link>.
                     </p>
                   </div>
 
                   <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
                     <h3 className="font-semibold text-foreground text-base">If You Watch High-Framerate 50fps Sports on a 4K OLED TV:</h3>
-                    <p className="mt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
                       Choose <Link href="/players/ott-navigator" className="text-primary underline">OTT Navigator</Link>. Its native Auto Frame Rate (AFR) switching synchronizes HDMI refresh rates to reduce frame-rate pacing stutter, and its MPV engine provides hardware deinterlacing for 1080i sports feeds.
                     </p>
                   </div>
 
                   <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
                     <h3 className="font-semibold text-foreground text-base">If You Prefer Web-Portal Setup or Scheduled DVR Recording:</h3>
-                    <p className="mt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
                       Consider <Link href="/players/iptv-extreme" className="text-primary underline">IPTV Extreme</Link>. It allows uploading playlists remotely via its web portal and includes granular manual stream buffer configuration for Android devices.
                     </p>
                   </div>
 
                   <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
                     <h3 className="font-semibold text-foreground text-base">If You Are Using Older Legacy Hardware:</h3>
-                    <p className="mt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
                       Consult our <Link href="/players/perfect-player" className="text-primary underline">Perfect Player guide</Link>. Although Perfect Player is a legacy application no longer actively maintained on Google Play, its low memory footprint suits older Android set-top boxes.
                     </p>
                   </div>
@@ -383,7 +383,7 @@ export default function PlayersHubPage() {
               {/* Protocol Guides */}
               <div>
                 <h3 className="font-headline text-xl font-bold tracking-tight text-foreground">
-                  <Link href="/guides">Essential Streaming Guides</Link>
+                  <Link href="/guides" className="tap-target">Essential Streaming Guides</Link>
                 </h3>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2 text-xs">
                   <Link href="/guides/what-are-xtream-codes" className="rounded-lg border border-white/[0.06] p-3 hover:bg-white/[0.03] transition-colors block">
@@ -424,7 +424,7 @@ export default function PlayersHubPage() {
                       <h3 className="font-headline text-base font-semibold text-foreground">
                         {faq.question}
                       </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">
                         {faq.answer}
                       </p>
                     </div>
@@ -443,7 +443,7 @@ export default function PlayersHubPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="space-y-2 text-xs text-muted-foreground">
+                  <div className="space-y-2 text-base sm:text-xs text-muted-foreground">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-primary" />
                       <span>{PRODUCT_TRUTHS.connections} simultaneous stream connections</span>
@@ -464,7 +464,7 @@ export default function PlayersHubPage() {
                         Start 24-Hour Free Trial <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
-                    <p className="mt-2 text-center text-[11px] text-muted-foreground">
+                    <p data-small-print className="mt-2 text-center text-[11px] text-muted-foreground">
                       Setup credentials typically delivered by email within 5–15 minutes
                     </p>
                   </div>
@@ -477,22 +477,22 @@ export default function PlayersHubPage() {
                   <CardTitle className="text-base text-foreground">Device Installation Guides</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2 text-xs">
-                  <Link href="/setup" className="block text-primary font-semibold hover:underline">
+                  <Link href="/setup" className="tap-target block text-primary font-semibold hover:underline">
                     → Universal IPTV Setup Guide
                   </Link>
-                  <Link href="/devices/firestick-iptv" className="block text-muted-foreground hover:text-primary">
+                  <Link href="/devices/firestick-iptv" className="tap-target block text-muted-foreground hover:text-primary">
                     → Amazon Firestick IPTV Setup
                   </Link>
-                  <Link href="/devices/android-tv-iptv" className="block text-muted-foreground hover:text-primary">
+                  <Link href="/devices/android-tv-iptv" className="tap-target block text-muted-foreground hover:text-primary">
                     → Android TV &amp; Google TV Setup
                   </Link>
-                  <Link href="/devices/apple-tv-iptv" className="block text-muted-foreground hover:text-primary">
+                  <Link href="/devices/apple-tv-iptv" className="tap-target block text-muted-foreground hover:text-primary">
                     → Apple TV IPTV Setup
                   </Link>
-                  <Link href="/devices/samsung-tv-iptv" className="block text-muted-foreground hover:text-primary">
+                  <Link href="/devices/samsung-tv-iptv" className="tap-target block text-muted-foreground hover:text-primary">
                     → Samsung Smart TV (Tizen) Setup
                   </Link>
-                  <Link href="/devices/lg-tv-iptv" className="block text-muted-foreground hover:text-primary">
+                  <Link href="/devices/lg-tv-iptv" className="tap-target block text-muted-foreground hover:text-primary">
                     → LG Smart TV (webOS) Setup
                   </Link>
                 </CardContent>

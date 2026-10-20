@@ -83,7 +83,7 @@ const nextConfig = {
       "base-uri 'self'",
       "form-action 'self'",
       "frame-ancestors 'self'",
-      "upgrade-insecure-requests",
+      // upgrade-insecure-requests omitted: browsers ignore it in a Report-Only policy and log a console error.
     ].join('; ');
 
     return [

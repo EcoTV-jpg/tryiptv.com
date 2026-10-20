@@ -724,7 +724,7 @@ export default async function HowToPage({ params }: Props) {
                   <h2 id="quick-answer" className="font-headline text-xl sm:text-2xl font-extrabold text-foreground">
                     How to set up IPTV on {primaryKeyword}
                   </h2>
-                  <p className="mt-2 text-sm sm:text-base leading-relaxed text-muted-foreground">
+                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">
                     {quickAnswerText}
                   </p>
                   {nextSteps.length > 0 && (
@@ -733,7 +733,7 @@ export default async function HowToPage({ params }: Props) {
                       <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-2 text-sm">
                         {nextSteps.map((step) => (
                           <li key={step.href}>
-                            <Link href={step.href} className="text-primary underline underline-offset-4 hover:text-foreground">
+                            <Link href={step.href} className="inline-flex min-h-11 items-center text-primary underline underline-offset-4 hover:text-foreground pointer-fine:min-h-0">
                               {step.label}
                             </Link>
                           </li>
@@ -768,7 +768,7 @@ export default async function HowToPage({ params }: Props) {
                           {extraSections.find((s) => s.id === "service-vs-player")?.title}
                         </h2>
                         <div
-                          className="text-sm sm:text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>ul]:space-y-2 [&>ul]:list-disc [&>ul]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold"
+                          className="text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>ul]:space-y-2 [&>ul]:list-disc [&>ul]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold"
                           dangerouslySetInnerHTML={{
                             __html: extraSections.find((s) => s.id === "service-vs-player")?.content || "",
                           }}
@@ -783,7 +783,7 @@ export default async function HowToPage({ params }: Props) {
                           {extraSections.find((s) => s.id === "m3u-vs-xtream")?.title}
                         </h2>
                         <div
-                          className="text-sm sm:text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>strong]:text-foreground [&>strong]:font-semibold"
+                          className="text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>strong]:text-foreground [&>strong]:font-semibold"
                           dangerouslySetInnerHTML={{
                             __html: extraSections.find((s) => s.id === "m3u-vs-xtream")?.content || "",
                           }}
@@ -805,7 +805,7 @@ export default async function HowToPage({ params }: Props) {
                           {extraSections.find((s) => s.id === "developer-options")?.title}
                         </h2>
                         <div
-                          className="text-sm sm:text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>ol]:space-y-2.5 [&>ol]:list-decimal [&>ol]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold"
+                          className="text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>ol]:space-y-2.5 [&>ol]:list-decimal [&>ol]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold"
                           dangerouslySetInnerHTML={{
                             __html: extraSections.find((s) => s.id === "developer-options")?.content || "",
                           }}
@@ -814,6 +814,7 @@ export default async function HowToPage({ params }: Props) {
                         <div className="mt-6 grid gap-5 sm:grid-cols-2">
                           <GuideScreenshot
                             src="/images/firestick/settings-home.jpeg"
+                            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px"
                             alt="Fire TV Settings home screen with the Settings gear selected"
                             caption="Open Settings from the Fire TV home screen."
                             width={1200}
@@ -821,6 +822,7 @@ export default async function HowToPage({ params }: Props) {
                           />
                           <GuideScreenshot
                             src="/images/firestick/my-fire-tv-developer-options.jpeg"
+                            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px"
                             alt="Fire TV My Fire TV menu with Developer Options highlighted"
                             caption="Open Developer Options under My Fire TV."
                             width={1024}
@@ -828,6 +830,7 @@ export default async function HowToPage({ params }: Props) {
                           />
                           <GuideScreenshot
                             src="/images/firestick/about-device-name.jpeg"
+                            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px"
                             alt="Fire TV About screen with the Fire TV Stick device name highlighted"
                             caption="Select the device name in About when Developer Options is hidden."
                             note="Account and serial fields are redacted in this supplied capture."
@@ -836,6 +839,7 @@ export default async function HowToPage({ params }: Props) {
                           />
                           <GuideScreenshot
                             src="/images/firestick/install-unknown-apps-downloader-on.jpeg"
+                            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px"
                             alt="Fire TV Install Unknown Apps screen with Downloader enabled"
                             caption="Allow Downloader to install apps from unknown sources."
                             width={800}
@@ -859,7 +863,7 @@ export default async function HowToPage({ params }: Props) {
                           {extraSections.find((s) => s.id === "xtream-setup-detail")?.title}
                         </h2>
                         <div
-                          className="text-sm sm:text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>ul]:space-y-2 [&>ul]:list-disc [&>ul]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold"
+                          className="text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>ul]:space-y-2 [&>ul]:list-disc [&>ul]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold"
                           dangerouslySetInnerHTML={{
                             __html: extraSections.find((s) => s.id === "xtream-setup-detail")?.content || "",
                           }}
@@ -874,7 +878,7 @@ export default async function HowToPage({ params }: Props) {
                           {extraSections.find((s) => s.id === "m3u-setup-detail")?.title}
                         </h2>
                         <div
-                          className="text-sm sm:text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>strong]:text-foreground [&>strong]:font-semibold"
+                          className="text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>strong]:text-foreground [&>strong]:font-semibold"
                           dangerouslySetInnerHTML={{
                             __html: extraSections.find((s) => s.id === "m3u-setup-detail")?.content || "",
                           }}
@@ -889,7 +893,7 @@ export default async function HowToPage({ params }: Props) {
                           {extraSections.find((s) => s.id === "epg-detail")?.title}
                         </h2>
                         <div
-                          className="text-sm sm:text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>ul]:space-y-2 [&>ul]:list-disc [&>ul]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold"
+                          className="text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>ul]:space-y-2 [&>ul]:list-disc [&>ul]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold"
                           dangerouslySetInnerHTML={{
                             __html: extraSections.find((s) => s.id === "epg-detail")?.content || "",
                           }}
@@ -914,7 +918,7 @@ export default async function HowToPage({ params }: Props) {
                             {extraSections.find((s) => s.id === "two-firesticks")?.title}
                           </h2>
                           <div
-                            className="text-xs sm:text-sm leading-relaxed text-muted-foreground space-y-3 [&>p]:leading-relaxed [&>strong]:text-foreground [&>strong]:font-semibold"
+                            className="text-base sm:text-sm leading-relaxed text-muted-foreground space-y-3 [&>p]:leading-relaxed [&>strong]:text-foreground [&>strong]:font-semibold"
                             dangerouslySetInnerHTML={{
                               __html: extraSections.find((s) => s.id === "two-firesticks")?.content || "",
                             }}
@@ -934,7 +938,7 @@ export default async function HowToPage({ params }: Props) {
                             {extraSections.find((s) => s.id === "before-paying")?.title}
                           </h2>
                           <div
-                            className="text-xs sm:text-sm leading-relaxed text-muted-foreground space-y-3 [&>p]:leading-relaxed [&>strong]:text-foreground [&>strong]:font-semibold [&>a]:text-primary [&>a]:underline [&>a]:underline-offset-4"
+                            className="text-base sm:text-sm leading-relaxed text-muted-foreground space-y-3 [&>p]:leading-relaxed [&>strong]:text-foreground [&>strong]:font-semibold [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4"
                             dangerouslySetInnerHTML={{
                               __html: extraSections.find((s) => s.id === "before-paying")?.content || "",
                             }}
@@ -954,7 +958,7 @@ export default async function HowToPage({ params }: Props) {
                             {extraSections.find((s) => s.id === "storage")?.title}
                           </h2>
                           <div
-                            className="text-xs sm:text-sm leading-relaxed text-muted-foreground space-y-3 [&>p]:leading-relaxed [&>ul]:space-y-1.5 [&>ul]:list-disc [&>ul]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold"
+                            className="text-base sm:text-sm leading-relaxed text-muted-foreground space-y-3 [&>p]:leading-relaxed [&>ul]:space-y-1.5 [&>ul]:list-disc [&>ul]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold"
                             dangerouslySetInnerHTML={{
                               __html: extraSections.find((s) => s.id === "storage")?.content || "",
                             }}
@@ -974,7 +978,7 @@ export default async function HowToPage({ params }: Props) {
                             {extraSections.find((s) => s.id === "security")?.title}
                           </h2>
                           <div
-                            className="text-xs sm:text-sm leading-relaxed text-muted-foreground space-y-3 [&>p]:leading-relaxed [&>strong]:text-foreground [&>strong]:font-semibold"
+                            className="text-base sm:text-sm leading-relaxed text-muted-foreground space-y-3 [&>p]:leading-relaxed [&>strong]:text-foreground [&>strong]:font-semibold"
                             dangerouslySetInnerHTML={{
                               __html: extraSections.find((s) => s.id === "security")?.content || "",
                             }}
@@ -1000,7 +1004,7 @@ export default async function HowToPage({ params }: Props) {
                           {section.title}
                         </h2>
                         <div
-                          className="text-sm sm:text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>ul]:space-y-2 [&>ul]:list-disc [&>ul]:pl-5 [&>ol]:space-y-2 [&>ol]:list-decimal [&>ol]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold [&>a]:text-primary [&>a]:underline [&>a]:underline-offset-4"
+                          className="text-base leading-relaxed text-muted-foreground space-y-4 [&>p]:leading-relaxed [&>ul]:space-y-2 [&>ul]:list-disc [&>ul]:pl-5 [&>ol]:space-y-2 [&>ol]:list-decimal [&>ol]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4"
                           dangerouslySetInnerHTML={{ __html: section.content }}
                         />
                       </div>
@@ -1019,7 +1023,7 @@ export default async function HowToPage({ params }: Props) {
                       <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
                         Frequently Asked Questions
                       </h2>
-                      <p className="mt-2 text-sm sm:text-base leading-relaxed text-muted-foreground">
+                      <p className="mt-2 text-base leading-relaxed text-muted-foreground">
                         Clear, non-marketing answers to common setup, compatibility, and playback questions for {primaryKeyword}.
                       </p>
                     </div>
@@ -1030,7 +1034,10 @@ export default async function HowToPage({ params }: Props) {
 
               {/* Sidebar Column: Sticky TOC + Related Guides */}
               <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
-                <GuideToc items={tocItems} variant="desktop" />
+                {/* Mobile already renders the collapsible TOC above the article; avoid a duplicate nav landmark. */}
+                <div className="hidden lg:block">
+                  <GuideToc items={tocItems} variant="desktop" />
+                </div>
 
                 <InternalLinks currentId={id} />
               </aside>

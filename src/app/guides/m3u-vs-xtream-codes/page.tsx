@@ -192,11 +192,11 @@ export default function M3uVsXtreamCodesPage() {
               <p>
                 To understand the underlying specifications of each format in detail, you can read our
                 dedicated technical guides on{" "}
-                <Link href="/guides/what-is-m3u" className="text-primary hover:underline">
+                <Link href="/guides/what-is-m3u" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   what an M3U playlist is
                 </Link>{" "}
                 and{" "}
-                <Link href="/guides/what-are-xtream-codes" className="text-primary hover:underline">
+                <Link href="/guides/what-are-xtream-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   how Xtream Codes API logins work
                 </Link>
                 . Below, we compare their practical characteristics directly.
@@ -308,15 +308,15 @@ export default function M3uVsXtreamCodesPage() {
               <ul>
                 <li>
                   <strong>Dedicated IPTV Applications:</strong> Advanced television players such as{" "}
-                  <Link href="/players/tivimate" className="text-primary hover:underline">
+                  <Link href="/players/tivimate" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     TiviMate
                   </Link>
                   ,{" "}
-                  <Link href="/players/iptv-smarters" className="text-primary hover:underline">
+                  <Link href="/players/iptv-smarters" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     IPTV Smarters Pro
                   </Link>
                   ,{" "}
-                  <Link href="/players/televizo" className="text-primary hover:underline">
+                  <Link href="/players/televizo" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     Televizo
                   </Link>
                   , and XCIPTV natively support both connection methods. You can choose either option based on
@@ -363,7 +363,7 @@ export default function M3uVsXtreamCodesPage() {
               <h3 className="font-headline text-lg sm:text-xl font-bold text-foreground">
                 Dual-Format Access with TryIPTV
               </h3>
-              <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-muted-foreground">
+              <p className="mt-2.5 text-base leading-relaxed text-muted-foreground">
                 TryIPTV provides both standard Extended M3U playlist links and Xtream-compatible credentials
                 with every subscription. You can test both connection formats during our free trial to decide
                 which interface delivers the most comfortable experience on your television or mobile setup.

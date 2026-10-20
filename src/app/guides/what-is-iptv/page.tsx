@@ -158,7 +158,7 @@ export default function WhatIsIptvPage() {
                 broadcast TV arrives over the air. IPTV uses the same general internet connection you
                 use for websites, apps, and video calls. For an in-depth side-by-side breakdown of costs,
                 equipment, contracts, and reliability tradeoffs, see our complete guide on{" "}
-                <Link href="/guides/iptv-vs-cable" className="text-primary hover:underline">
+                <Link href="/guides/iptv-vs-cable" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   IPTV vs. cable TV
                 </Link>
                 .
@@ -166,7 +166,8 @@ export default function WhatIsIptvPage() {
             </div>
 
             <div className="my-8 overflow-hidden rounded-lg border border-white/[0.09]">
-              <div className="grid grid-cols-3 bg-card px-4 py-3 text-sm font-bold text-foreground">
+              {/* Column header only fits once rows go 3-up; stacked rows carry their own labels below. */}
+              <div className="hidden bg-card px-4 py-3 text-sm font-bold text-foreground sm:grid sm:grid-cols-3">
                 <span>Topic</span>
                 <span>IPTV</span>
                 <span>Cable or satellite</span>
@@ -174,11 +175,11 @@ export default function WhatIsIptvPage() {
               {comparisonRows.map((row) => (
                 <div
                   key={row.label}
-                  className="grid grid-cols-1 gap-2 border-t border-white/[0.09] px-4 py-4 text-sm leading-6 sm:grid-cols-3"
+                  className="grid grid-cols-1 gap-2 border-t border-white/[0.09] px-4 py-4 text-base sm:text-sm leading-6 sm:grid-cols-3"
                 >
                   <span className="font-semibold text-foreground">{row.label}</span>
-                  <span className="text-muted-foreground">{row.iptv}</span>
-                  <span className="text-muted-foreground">{row.traditional}</span>
+                  <span className="text-muted-foreground"><span className="font-semibold text-foreground/80 sm:hidden">IPTV: </span>{row.iptv}</span>
+                  <span className="text-muted-foreground"><span className="font-semibold text-foreground/80 sm:hidden">Cable or satellite: </span>{row.traditional}</span>
                 </div>
               ))}
             </div>
@@ -206,7 +207,7 @@ export default function WhatIsIptvPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm leading-6 text-muted-foreground">{item.text}</p>
+                    <p className="text-base sm:text-sm leading-6 text-muted-foreground">{item.text}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -228,7 +229,7 @@ export default function WhatIsIptvPage() {
                   className="rounded-lg border border-white/[0.09] bg-card p-5 transition-colors hover:border-primary/40"
                 >
                   <h3 className="font-headline text-lg font-extrabold text-foreground">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.text}</p>
+                  <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">{item.text}</p>
                   <span className="mt-4 inline-flex items-center text-sm font-semibold text-primary">
                     Read guide <ArrowRight className="ml-1.5 h-4 w-4" />
                   </span>
@@ -273,7 +274,7 @@ export default function WhatIsIptvPage() {
               <h2 className="font-headline text-2xl font-extrabold text-foreground">
                 Learn the setup path before choosing a plan
               </h2>
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
+              <p className="mt-3 max-w-2xl text-base leading-6 text-muted-foreground">
                 TryIPTV offers a {PRODUCT_TRUTHS.trialDuration.toLowerCase()} free trial with no card
                 required. If you want to test compatibility first, start with the trial, then follow
                 the setup guide for your device and player.

@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
     "typecheck": "tsc --noEmit",
+    "test:responsive": "playwright test",
     "content:audit": "node scripts/content-audit.mjs",
     "indexnow": "node scripts/indexnow.mjs",
     "gsc:test": "node scripts/gsc-test.mjs",
@@ -79,6 +80,7 @@
     "zod": "latest"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "latest",
     "@types/react": "^19.3.0",
@@ -97,9 +99,11 @@
     "node": ">=20.9.0"
   },
   "browserslist": [
-    "Chrome 111",
-    "Edge 111",
-    "Firefox 111",
-    "Safari 16.4"
+    "Chrome >= 111",
+    "Edge >= 111",
+    "Firefox >= 128",
+    "Safari >= 16.4",
+    "iOS >= 16.4",
+    "Samsung >= 22"
   ]
 }

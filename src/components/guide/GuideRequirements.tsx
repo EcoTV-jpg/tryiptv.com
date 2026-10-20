@@ -77,7 +77,7 @@ export function GuideRequirements({
                     {req.tag}
                   </span>
                 </div>
-                <p className="text-xs sm:text-[13px] text-muted-foreground leading-relaxed">
+                <p className="text-base sm:text-[13px] text-muted-foreground leading-relaxed">
                   {req.desc}
                 </p>
               </div>

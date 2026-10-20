@@ -43,7 +43,7 @@ export default function TermsConditionsPage() {
 
       <Section className="py-12 sm:py-16">
         <Container className="max-w-4xl">
-          <div className="space-y-8 text-sm sm:text-base leading-relaxed text-muted-foreground">
+          <div className="space-y-8 text-base leading-relaxed text-muted-foreground">
             <div>
               <p className="text-xs font-semibold text-primary">Last Updated: {formatLegalDate(PAGE_LAST_MODIFIED["/terms-conditions"])}</p>
               <p className="mt-2">

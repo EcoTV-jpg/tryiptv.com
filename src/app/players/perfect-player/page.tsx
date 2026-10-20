@@ -26,7 +26,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Perfect Player", item: `${SITE_URL}${canonical}` },
 ]);
 const h2 = "font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl";
-const p = "mt-4 text-sm leading-7 text-muted-foreground sm:text-base";
+const p = "mt-4 text-base leading-7 text-muted-foreground";
 const a = "text-primary underline underline-offset-4 hover:text-primary/80";
 
 export default function PerfectPlayerPage() {
@@ -53,7 +53,7 @@ export default function PerfectPlayerPage() {
       </section>
       <section><h2 className={h2}>How to Add an M3U Playlist to Perfect Player</h2>
         <p className={p}>In the original Niklabs Android app, the historical path is <strong className="text-foreground">Settings → General → Playlist</strong>. Enter the complete M3U URL supplied by your provider, give it a recognizable name if prompted, select M3U when a format choice appears, and save. Return to the main interface and allow the channel list to load. Menu wording can differ between legacy versions.</p>
-        <ol className="mt-4 list-decimal space-y-2 pl-6 text-sm leading-7 text-muted-foreground sm:text-base">
+        <ol className="mt-4 list-decimal space-y-2 pl-6 text-base leading-7 text-muted-foreground">
           <li>Confirm that your provider supplied an M3U URL rather than only separate account credentials.</li>
           <li>Open Settings, General, then Playlist; enter the URL exactly and save the entry.</li>
           <li>Return to the channel view. If groups or channels appear, the playlist was likely downloaded and parsed; test a stream next.</li>

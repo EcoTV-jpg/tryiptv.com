@@ -184,7 +184,7 @@ export default function IptvNotWorkingPage() {
                     <Lock className="h-5 w-5 text-amber-400" />
                     Symptom 1: Login Rejected or Auth Failed
                   </div>
-                  <div className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                  <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                     <p>
                       <strong>What happens:</strong> The player displays &quot;Invalid Details,&quot;
                       &quot;Authentication Failed,&quot; &quot;Account Expired,&quot; or an HTTP 401/403 error when
@@ -212,7 +212,7 @@ export default function IptvNotWorkingPage() {
                     <FileText className="h-5 w-5 text-blue-400" />
                     Symptom 2: Playlist Won&apos;t Load (0 Channels)
                   </div>
-                  <div className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                  <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                     <p>
                       <strong>What happens:</strong> The app shows &quot;Download Error,&quot; &quot;Failed to Load
                       Playlist,&quot; a permanent loading spinner during import, or loads zero channels.
@@ -239,7 +239,7 @@ export default function IptvNotWorkingPage() {
                     <PlaySquare className="h-5 w-5 text-rose-400" />
                     Symptom 3: Channels Load but Freeze or Buffer
                   </div>
-                  <div className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                  <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                     <p>
                       <strong>What happens:</strong> Channels start playing, but playback stutters, loops every few
                       seconds, pauses with a spinning buffer icon, or drops audio.
@@ -266,7 +266,7 @@ export default function IptvNotWorkingPage() {
                     <ListFilter className="h-5 w-5 text-emerald-400" />
                     Symptom 4: Video Works but Guide Is Blank or Wrong
                   </div>
-                  <div className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                  <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                     <p>
                       <strong>What happens:</strong> Video plays smoothly, but the TV guide displays &quot;No
                       Information,&quot; shows an empty grid, or listings are shifted by several hours.
@@ -338,7 +338,7 @@ export default function IptvNotWorkingPage() {
                 <li>Account-level expiration or administrative suspension.</li>
                 <li>Upstream transit path disruptions between the provider and your regional network.</li>
               </ul>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base sm:text-sm text-muted-foreground">
                 <em>Caution:</em> While multi-device, multi-network failure strongly suggests an upstream cause, it does
                 not definitively prove a permanent outage. Service providers frequently perform routine maintenance
                 or experience temporary network failovers.
@@ -414,7 +414,7 @@ export default function IptvNotWorkingPage() {
                   <div className="font-semibold text-foreground sm:col-span-5">{item.check}</div>
                   <div className="text-muted-foreground sm:col-span-6">
                     {item.link ? (
-                      <Link href={item.link} className="text-primary hover:underline font-medium">
+                      <Link href={item.link} className="tap-target text-primary hover:underline font-medium">
                         {item.route}
                       </Link>
                     ) : (
@@ -447,7 +447,7 @@ export default function IptvNotWorkingPage() {
                   playlists to fail unexpectedly.
                 </li>
               </ul>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base sm:text-sm text-muted-foreground">
                 <em>Note:</em> Raw download speed alone does not guarantee smooth streaming. Video delivery requires
                 low packet loss and steady latency rather than just burst bandwidth.
               </p>
@@ -466,7 +466,7 @@ export default function IptvNotWorkingPage() {
                   <Smartphone className="h-5 w-5 text-primary" />
                   Indicators of a Local Issue
                 </div>
-                <div className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                   <p>The failure is likely local to your device, network, or app when:</p>
                   <ul className="list-disc space-y-1 pl-5">
                     <li>The service works normally on your phone but fails on your TV.</li>
@@ -483,7 +483,7 @@ export default function IptvNotWorkingPage() {
                   <Server className="h-5 w-5 text-amber-400" />
                   Indicators of an Upstream Issue
                 </div>
-                <div className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                   <p>The failure is likely upstream at the provider or network transit when:</p>
                   <ul className="list-disc space-y-1 pl-5">
                     <li>The service fails across multiple devices and separate networks (Wi-Fi and mobile data).</li>
@@ -530,7 +530,7 @@ export default function IptvNotWorkingPage() {
                 </li>
               </ul>
 
-              <div className="my-6 rounded-2xl border border-red-500/25 bg-red-500/[0.04] p-5 text-sm leading-6 text-muted-foreground">
+              <div className="my-6 rounded-2xl border border-red-500/25 bg-red-500/[0.04] p-5 text-base sm:text-sm leading-6 text-muted-foreground">
                 <div className="flex items-center gap-2 font-semibold text-foreground">
                   <ShieldAlert className="h-5 w-5 text-red-400" />
                   Security Warning: Never Share Passwords Publicly
@@ -548,7 +548,7 @@ export default function IptvNotWorkingPage() {
               <h3 className="text-lg font-bold text-foreground">
                 Dependable Streaming Architecture with TryIPTV
               </h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                 Experiencing persistent downtime or unreliable connections? Use the free trial to test playback
                 on your own devices and networks.
               </p>

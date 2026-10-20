@@ -228,7 +228,7 @@ export default async function IPTVSubscription() {
                           {savingsText}
                         </p>
                       )}
-                      <p className="mt-3 min-h-10 text-xs leading-5 text-muted-foreground">
+                      <p className="mt-3 min-h-10 text-base sm:text-xs leading-5 text-muted-foreground">
                         {planDescriptions[plan.id]}
                       </p>
                     </div>
@@ -247,7 +247,7 @@ export default async function IPTVSubscription() {
                     </Button>
                   </div>
 
-                  <ul className="mt-6 space-y-2.5 border-t border-white/[0.07] pt-6 text-sm text-muted-foreground">
+                  <ul className="mt-6 space-y-2.5 border-t border-white/[0.07] pt-6 text-base sm:text-sm text-muted-foreground">
                     {planCardFeatures.map((feature) => (
                       <li key={feature} className="flex items-start gap-2.5">
                         <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
@@ -260,7 +260,7 @@ export default async function IPTVSubscription() {
             })}
           </div>
 
-          <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-6 text-muted-foreground">
+          <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
             Choosing a plan opens WhatsApp, where support sends payment instructions. Credentials typically arrive within <span className="whitespace-nowrap">5–15 minutes</span> after payment confirmation.
           </p>
 
@@ -268,7 +268,7 @@ export default async function IPTVSubscription() {
           <div className="mt-10 rounded-xl border border-white/[0.08] bg-card">
             <div className="border-b border-white/[0.07] px-5 py-4 sm:px-6">
               <h3 className="font-headline text-lg font-extrabold text-foreground">Plan Duration &amp; Price Breakdown</h3>
-              <p className="mt-1 text-sm leading-6 text-muted-foreground">
+              <p className="mt-1 text-base sm:text-sm leading-6 text-muted-foreground">
                 Every plan includes the same 2 simultaneous connections and features. Only the prepaid term, upfront total, and monthly equivalent change.
               </p>
             </div>
@@ -307,7 +307,7 @@ export default async function IPTVSubscription() {
                 </tbody>
               </table>
             </div>
-            <p className="border-t border-white/[0.07] px-5 py-4 text-xs leading-5 text-muted-foreground sm:px-6">
+            <p className="border-t border-white/[0.07] px-5 py-4 text-base sm:text-xs leading-5 text-muted-foreground sm:px-6">
               <strong className="text-foreground">What does 2 connections mean?</strong> Up to two devices can stream at the same time in your household. You can configure your credentials on multiple devices, but playback is limited to two simultaneous streams.
             </p>
           </div>
@@ -328,12 +328,12 @@ export default async function IPTVSubscription() {
               <div key={s.step} className="rounded-xl border border-white/[0.08] bg-card p-5">
                 <span className="font-mono text-xs font-bold text-primary">{s.step}</span>
                 <h3 className="mt-2 font-headline text-base font-extrabold text-foreground">{s.title}</h3>
-                <p className="mt-2 text-xs leading-5 text-muted-foreground">{s.desc}</p>
+                <p className="mt-2 text-base sm:text-xs leading-5 text-muted-foreground">{s.desc}</p>
               </div>
             ))}
           </div>
 
-          <p className="mt-6 text-center text-sm text-muted-foreground">
+          <p className="mt-6 text-center text-base sm:text-sm text-muted-foreground">
             Looking for installation help? Read our{" "}
             <Link href="/setup" className="font-semibold text-primary underline underline-offset-4">
               Universal IPTV Setup Guide
@@ -357,7 +357,7 @@ export default async function IPTVSubscription() {
               <div key={feat.title} className="rounded-xl border border-white/[0.08] bg-card p-5">
                 <Check className="h-5 w-5 text-primary" />
                 <h3 className="mt-3 font-headline text-base font-extrabold text-foreground">{feat.title}</h3>
-                <p className="mt-1 text-xs leading-5 text-muted-foreground">{feat.desc}</p>
+                <p className="mt-1 text-base sm:text-xs leading-5 text-muted-foreground">{feat.desc}</p>
               </div>
             ))}
           </div>
@@ -431,7 +431,7 @@ export default async function IPTVSubscription() {
                   <span>{faq.question}</span>
                   <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180" />
                 </summary>
-                <div className="pb-5 pr-4 text-[15px] leading-relaxed text-muted-foreground sm:pr-8">
+                <div className="pb-5 pr-4 text-base sm:text-[15px] leading-relaxed text-muted-foreground sm:pr-8">
                   <p>
                     {faq.answer}
                     {faq.link && (
@@ -449,7 +449,7 @@ export default async function IPTVSubscription() {
             ))}
           </div>
 
-          <p className="mt-8 text-center text-sm text-muted-foreground">
+          <p className="mt-8 text-center text-base sm:text-sm text-muted-foreground">
             Questions about ordering?{" "}
             <Link href="/contact-us" className="font-semibold text-primary underline underline-offset-4">
               Contact our support team
@@ -469,25 +469,25 @@ export default async function IPTVSubscription() {
           <div className="mx-auto max-w-4xl">
             <SectionHeader eyebrow="Commercial Transparency" title="About TryIPTV Pricing" />
 
-            <div className="space-y-4 text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
+            <div className="space-y-4 text-base leading-6 text-muted-foreground sm:leading-7">
               <p>
                 TryIPTV sells prepaid IPTV plans with no recurring billing; current payment instructions are provided when ordering.
               </p>
 
-              <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-sm font-semibold">
-                <Link href="/iptv-free-trial" className="text-primary hover:underline">
+              <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-sm font-semibold [&>a]:tap-target">
+                <Link href="/iptv-free-trial" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   24-Hour Free Trial
                 </Link>
-                <Link href="/setup" className="text-primary hover:underline">
+                <Link href="/setup" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   Universal IPTV Setup Guide
                 </Link>
-                <Link href="/refund-policy" className="text-primary hover:underline">
+                <Link href="/refund-policy" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   Refund Policy
                 </Link>
-                <Link href="/terms-conditions" className="text-primary hover:underline">
+                <Link href="/terms-conditions" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   Terms &amp; Conditions
                 </Link>
-                <Link href="/contact-us" className="text-primary hover:underline">
+                <Link href="/contact-us" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   Contact Support
                 </Link>
               </div>

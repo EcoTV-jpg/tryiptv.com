@@ -60,7 +60,7 @@ export function ContactForm() {
         <Label htmlFor="name-form">Name</Label>
         <Input id="name-form" autoComplete="name" aria-invalid={!!state.errors?.name} aria-describedby={state.errors?.name ? 'name-form-error' : undefined} name="name" defaultValue={state.fields?.name} placeholder="Your Name" />
         {state.errors?.name && (
-          <p id="name-form-error" role="alert" className="text-sm text-destructive">{state.errors.name[0]}</p>
+          <p id="name-form-error" role="alert" className="text-base sm:text-sm text-destructive">{state.errors.name[0]}</p>
         )}
       </div>
       <div className="space-y-2">
@@ -76,14 +76,14 @@ export function ContactForm() {
           placeholder="your@email.com"
         />
         {state.errors?.email && (
-          <p id="email-form-error" role="alert" className="text-sm text-destructive">{state.errors.email[0]}</p>
+          <p id="email-form-error" role="alert" className="text-base sm:text-sm text-destructive">{state.errors.email[0]}</p>
         )}
       </div>
       <div className="space-y-2">
         <Label htmlFor="message-form">Message</Label>
         <Textarea id="message-form" aria-invalid={!!state.errors?.message} aria-describedby={state.errors?.message ? 'message-form-error' : undefined} name="message" defaultValue={state.fields?.message} placeholder="How can we help you?" />
         {state.errors?.message && (
-          <p id="message-form-error" role="alert" className="text-sm text-destructive">{state.errors.message[0]}</p>
+          <p id="message-form-error" role="alert" className="text-base sm:text-sm text-destructive">{state.errors.message[0]}</p>
         )}
       </div>
       <Turnstile resetSignal={state} />

@@ -153,7 +153,7 @@ export default function EpgNotWorkingPage() {
               <p>
                 When an on-screen guide fails, your primary instinct might be to restart your router or adjust
                 video buffers. However, because{" "}
-                <Link href="/guides/what-is-epg" className="text-primary hover:underline">
+                <Link href="/guides/what-is-epg" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   EPG schedule data is completely separate from the video stream
                 </Link>
                 , video playback and guide metadata operate on different pathways.
@@ -180,7 +180,7 @@ export default function EpgNotWorkingPage() {
                   <AlertCircle className="h-5 w-5 text-amber-400" />
                   Type A: Complete Guide Blackout (No Channels)
                 </div>
-                <div className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                   <p>
                     <strong>Symptom:</strong> Every channel shows &quot;No Information,&quot; an empty timeline, or
                     a permanent loading spinner across the entire guide grid.
@@ -198,7 +198,7 @@ export default function EpgNotWorkingPage() {
                   <ListFilter className="h-5 w-5 text-primary" />
                   Type B: Partial Coverage (Some Channels Only)
                 </div>
-                <div className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                   <p>
                     <strong>Symptom:</strong> Major broadcast networks display complete program grids, but specialty,
                     international, or regional channels remain blank.
@@ -216,7 +216,7 @@ export default function EpgNotWorkingPage() {
                   <Clock className="h-5 w-5 text-blue-400" />
                   Type C: Present but Time Is Shifted (Offset)
                 </div>
-                <div className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                   <p>
                     <strong>Symptom:</strong> Correct program titles appear, but the timeline is shifted one, two, or
                     several hours ahead or behind live broadcast.
@@ -233,7 +233,7 @@ export default function EpgNotWorkingPage() {
                   <RefreshCw className="h-5 w-5 text-emerald-400" />
                   Type D: Stale or Frozen Listings (Outdated)
                 </div>
-                <div className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                   <p>
                     <strong>Symptom:</strong> The guide displays yesterday&apos;s or last week&apos;s programming, or
                     abruptly cuts off with no upcoming listings past a certain hour.
@@ -247,7 +247,7 @@ export default function EpgNotWorkingPage() {
             </div>
 
             <ArticleProse>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base sm:text-sm text-muted-foreground">
                 <em>Note:</em> These symptom mappings are practical diagnostic indicators rather than absolute
                 guarantees. Work through the following five verification steps in order.
               </p>
@@ -263,7 +263,7 @@ export default function EpgNotWorkingPage() {
                   active. In most Xtream setups, the player requests guide data through a dedicated endpoint (e.g.,{" "}
                   <code>/xmltv.php</code> or API action). If your main account login is rejected, guide queries will
                   fail as well. Check our{" "}
-                  <Link href="/help/iptv-login-not-working" className="text-primary hover:underline">
+                  <Link href="/help/iptv-login-not-working" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     IPTV login troubleshooting guide
                   </Link>{" "}
                   if you suspect an authentication failure.
@@ -274,7 +274,7 @@ export default function EpgNotWorkingPage() {
                 </li>
               </ul>
 
-              <div className="my-6 rounded-2xl border border-amber-500/25 bg-amber-500/[0.04] p-5 text-sm leading-6 text-muted-foreground">
+              <div className="my-6 rounded-2xl border border-amber-500/25 bg-amber-500/[0.04] p-5 text-base sm:text-sm leading-6 text-muted-foreground">
                 <div className="flex items-center gap-2 font-semibold text-foreground">
                   <ShieldAlert className="h-5 w-5 text-amber-400" />
                   Crucial Security Rule: Avoid Third-Party Online Validators
@@ -315,7 +315,7 @@ export default function EpgNotWorkingPage() {
                   <em>EPG</em> or <em>Guide</em> section, and trigger a manual reload or clear database action.
                 </li>
               </ul>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base sm:text-sm text-muted-foreground">
                 <em>Safety Note:</em> Clearing your EPG cache deletes only temporary program listings. It does{" "}
                 <strong>not</strong> delete your playlists, credentials, channel groups, or favorited channels.
               </p>
@@ -406,7 +406,7 @@ export default function EpgNotWorkingPage() {
                   discard programme blocks.
                 </li>
               </ul>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base sm:text-sm text-muted-foreground">
                 <em>Note:</em> XMLTV is a structured format commonly used to carry programme schedule data to an
                 IPTV player. This page focuses on diagnosing missing, stale, or incorrectly mapped guide data.
               </p>
@@ -421,28 +421,28 @@ export default function EpgNotWorkingPage() {
                 <li>
                   If channels load their guide correctly but the video freezes, stutters, or buffers constantly, read
                   our{" "}
-                  <Link href="/help/iptv-buffering" className="text-primary hover:underline">
+                  <Link href="/help/iptv-buffering" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     IPTV buffering diagnostic guide
                   </Link>
                   .
                 </li>
                 <li>
                   If the player rejects your server URL, username, or password, visit our{" "}
-                  <Link href="/help/iptv-login-not-working" className="text-primary hover:underline">
+                  <Link href="/help/iptv-login-not-working" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     IPTV login troubleshooting guide
                   </Link>
                   .
                 </li>
                 <li>
                   If the playlist itself refuses to download or parse any channels, consult our{" "}
-                  <Link href="/help/m3u-not-loading" className="text-primary hover:underline">
+                  <Link href="/help/m3u-not-loading" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     M3U playlist loading guide
                   </Link>
                   .
                 </li>
                 <li>
                   If multiple systems are failing at once across devices, start with our master{" "}
-                  <Link href="/help/iptv-not-working" className="text-primary hover:underline">
+                  <Link href="/help/iptv-not-working" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     IPTV troubleshooting checklist
                   </Link>
                   .
@@ -455,7 +455,7 @@ export default function EpgNotWorkingPage() {
               <h3 className="text-lg font-bold text-foreground">
                 Guide Data with TryIPTV
               </h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                 Tired of empty &quot;No Information&quot; bars and shifted program hours? EPG data may be available
                 through supported player integrations and XMLTV-compatible endpoints where supported.
               </p>

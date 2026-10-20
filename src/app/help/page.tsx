@@ -133,7 +133,7 @@ export default function HelpPage() {
                   <h2 className="font-headline text-2xl font-extrabold text-foreground sm:text-3xl">
                     Not Sure What Is Wrong? Start With Master Triage
                   </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">
                     Saying &quot;my IPTV is not working&quot; can describe problems at five completely different layers. Use our 2-minute master checklist to identify whether the issue is local to your device, network, player application, or upstream server, and jump directly to the right fix.
                   </p>
                 </div>
@@ -155,7 +155,7 @@ export default function HelpPage() {
             <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               Troubleshoot by Specific Symptom
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground sm:text-base">
+            <p className="mt-2 text-base text-muted-foreground">
               Already know which part of your setup is failing? Select your symptom below to follow targeted diagnostic steps.
             </p>
           </div>
@@ -176,23 +176,23 @@ export default function HelpPage() {
                       </span>
                     </div>
                     <CardTitle as="h3" className="font-headline text-lg font-bold leading-snug sm:text-xl">
-                      <Link href={guide.href} className="text-foreground transition-colors group-hover:text-primary">
+                      <Link href={guide.href} className="tap-target text-foreground transition-colors group-hover:text-primary">
                         {guide.title}
                       </Link>
                     </CardTitle>
-                    <p className="mt-1 text-xs font-medium text-amber-400/90 sm:text-sm">
+                    <p className="mt-1 text-base font-medium text-amber-400/90 sm:text-sm">
                       Symptom: {guide.symptom}
                     </p>
                   </CardHeader>
                   <CardContent className="pt-0 flex flex-1 flex-col justify-between">
-                    <p className="mb-6 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                    <p className="mb-6 text-base leading-relaxed text-muted-foreground sm:text-sm">
                       {guide.description}
                     </p>
                     <div className="flex items-center justify-between border-t border-white/[0.06] pt-3">
                       <span className="text-xs text-muted-foreground">Step-by-Step Diagnostic</span>
                       <Link
                         href={guide.href}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-colors hover:underline"
+                        className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-colors hover:underline"
                       >
                         Troubleshoot Issue <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                       </Link>
@@ -211,7 +211,7 @@ export default function HelpPage() {
                 <h3 className="font-headline text-lg font-bold text-foreground sm:text-xl">
                   Understand IPTV Formats and Architecture
                 </h3>
-                <p className="mt-1.5 max-w-xl text-xs text-muted-foreground sm:text-sm">
+                <p className="mt-1.5 max-w-xl text-base text-muted-foreground sm:text-sm">
                   Want to learn how M3U playlists, Xtream Codes APIs, and XMLTV guides operate under the hood? Explore our comprehensive educational guides.
                 </p>
               </div>

@@ -26,6 +26,7 @@ export function GuideQuickInfo({
   return (
     <div
       className={`grid grid-cols-2 lg:grid-cols-4 gap-3 my-6 rounded-xl border border-white/[0.08] bg-[#07080a] p-3.5 sm:p-4 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] ${className || ""}`}
+      role="group"
       aria-label="Quick setup specifications"
     >
       {items.map((item, index) => {
@@ -36,7 +37,8 @@ export function GuideQuickInfo({
               <Icon className="h-3 w-3 shrink-0 text-primary" aria-hidden="true" />
               {item.label}
             </span>
-            <span className="text-xs sm:text-sm font-semibold text-foreground truncate" title={item.value}>
+            {/* Wrap instead of truncating: the title tooltip is unreachable on touch screens. */}
+            <span className="text-xs sm:text-sm font-semibold text-foreground break-words">
               {item.value}
             </span>
           </div>

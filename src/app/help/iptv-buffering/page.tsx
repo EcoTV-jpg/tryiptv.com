@@ -146,7 +146,7 @@ export default function IptvBufferingPage() {
               <p className="font-medium text-foreground">
                 Before changing router settings, modifying cables, or reinstalling applications, execute this 60-second initial triage:
               </p>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm sm:text-base leading-relaxed text-muted-foreground">
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-relaxed text-muted-foreground">
                 <li>
                   <strong className="text-foreground">Test two alternative streams:</strong> Switch to a channel in a completely different category and one on-demand (VOD) title. If one stream buffers while several others play normally, the issue may be specific to that source or feed rather than your entire connection or playback hardware.
                 </li>
@@ -157,7 +157,7 @@ export default function IptvBufferingPage() {
                   <strong className="text-foreground">Check local Wi-Fi stability:</strong> If streaming over Wi-Fi, test bringing your streaming device closer to your router or connecting via an Ethernet cable to check whether wireless interference is a factor.
                 </li>
               </ul>
-              <p className="mt-4 text-xs sm:text-sm text-muted-foreground border-t border-white/[0.08] pt-3">
+              <p className="mt-4 text-base sm:text-sm text-muted-foreground border-t border-white/[0.08] pt-3">
                 <strong className="text-foreground">Underlying Mechanism:</strong> Buffering happens when incoming data fails to fill the player&apos;s memory buffer at or above the rate it is consumed (buffer underrun), or when device processing limits cause frame rendering lag. Use the symptom matrix and step-by-step test sequence below to identify potential bottlenecks.
               </p>
             </ArticleSummary>
@@ -180,10 +180,10 @@ export default function IptvBufferingPage() {
                     <h3 className="text-base font-bold text-foreground">
                       Symptom: Buffering occurs on every channel across all categories
                     </h3>
-                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                    <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
                       <strong className="text-foreground">Potential Cause:</strong> Local network throughput saturation, home Wi-Fi signal degradation, or primary connection routing constraints.
                     </p>
-                    <p className="mt-2 text-xs sm:text-sm text-primary/90 font-mono">
+                    <p className="mt-2 text-base sm:text-sm text-primary/90 font-mono">
                       Immediate Test: Compare wired Ethernet with Wi-Fi, or test streaming over an alternative connection (such as a temporary mobile hotspot).
                     </p>
                   </div>
@@ -199,10 +199,10 @@ export default function IptvBufferingPage() {
                     <h3 className="text-base font-bold text-foreground">
                       Symptom: Only one specific channel buffers, while other live channels play smoothly
                     </h3>
-                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                    <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
                       <strong className="text-foreground">Potential Cause:</strong> Source-specific feed disruption or upstream stream issue.
                     </p>
-                    <p className="mt-2 text-xs sm:text-sm text-primary/90 font-mono">
+                    <p className="mt-2 text-base sm:text-sm text-primary/90 font-mono">
                       Immediate Test: Switch to a backup or alternative resolution feed (e.g., HD instead of 4K) for that channel if available. Avoid altering local router or device settings.
                     </p>
                   </div>
@@ -218,10 +218,10 @@ export default function IptvBufferingPage() {
                     <h3 className="text-base font-bold text-foreground">
                       Symptom: Buffering occurs on Wi-Fi, but wired Ethernet devices play smoothly
                     </h3>
-                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                    <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
                       <strong className="text-foreground">Potential Cause:</strong> Wireless interference, signal attenuation through distance or walls, or local channel congestion.
                     </p>
-                    <p className="mt-2 text-xs sm:text-sm text-primary/90 font-mono">
+                    <p className="mt-2 text-base sm:text-sm text-primary/90 font-mono">
                       Immediate Test: Test wired Ethernet where possible, compare Wi-Fi signal quality, or try a different Wi-Fi band or access point.
                     </p>
                   </div>
@@ -237,10 +237,10 @@ export default function IptvBufferingPage() {
                     <h3 className="text-base font-bold text-foreground">
                       Symptom: Buffering consistently appears during busy evening or peak periods
                     </h3>
-                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                    <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
                       <strong className="text-foreground">Potential Cause:</strong> Network congestion or routing along your connection path may be one possible cause.
                     </p>
-                    <p className="mt-2 text-xs sm:text-sm text-primary/90 font-mono">
+                    <p className="mt-2 text-base sm:text-sm text-primary/90 font-mono">
                       Immediate Test: Perform a comparative test on an alternate connection (such as a mobile hotspot or diagnostic VPN route) to evaluate whether an alternate path behaves differently.
                     </p>
                   </div>
@@ -256,10 +256,10 @@ export default function IptvBufferingPage() {
                     <h3 className="text-base font-bold text-foreground">
                       Symptom: Audio continues playing smoothly while video skips frames or freezes
                     </h3>
-                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                    <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
                       <strong className="text-foreground">Potential Cause:</strong> Hardware video decoder incompatibility, stream profile mismatch, or device rendering lag rather than a network delivery failure.
                     </p>
-                    <p className="mt-2 text-xs sm:text-sm text-primary/90 font-mono">
+                    <p className="mt-2 text-base sm:text-sm text-primary/90 font-mono">
                       Immediate Test: Toggle between Hardware (HW) and Software (SW) decoding in your media player settings.
                     </p>
                   </div>
@@ -275,10 +275,10 @@ export default function IptvBufferingPage() {
                     <h3 className="text-base font-bold text-foreground">
                       Symptom: Playback starts normally but freezes after continuous viewing
                     </h3>
-                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                    <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
                       <strong className="text-foreground">Potential Cause:</strong> Device heating, app memory pressure, or gradual buffer underrun may be possible factors.
                     </p>
-                    <p className="mt-2 text-xs sm:text-sm text-primary/90 font-mono">
+                    <p className="mt-2 text-base sm:text-sm text-primary/90 font-mono">
                       Immediate Test: Restart the player app, check physical device temperature, compare playback in another player or on another device, or test an alternate stream.
                     </p>
                   </div>
@@ -287,7 +287,7 @@ export default function IptvBufferingPage() {
             </div>
 
             <ArticleProse>
-              <p className="text-xs text-muted-foreground italic">
+              <p data-small-print className="text-xs text-muted-foreground italic">
                 *Note: These symptom patterns indicate potential technical factors, but are not guaranteed diagnoses. Concurrent local conditions (such as background network activity alongside wireless interference) can produce overlapping symptoms.
               </p>
 
@@ -316,7 +316,7 @@ export default function IptvBufferingPage() {
               </p>
               <p>
                 <strong>Simultaneous Streaming Consideration:</strong> Each concurrent stream on your network consumes additional bandwidth. As an illustrative calculation: if two devices stream 4K video simultaneously, they would consume roughly 30–50 Mbps of stable capacity based on those platform examples, in addition to normal household internet usage. For more background on bandwidth, review our guide on{" "}
-                <Link href="/guides/iptv-internet-speed" className="text-primary hover:underline">
+                <Link href="/guides/iptv-internet-speed" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   IPTV internet speed requirements
                 </Link>
                 .
@@ -383,11 +383,11 @@ export default function IptvBufferingPage() {
               </ul>
               <p>
                 <strong>Diagnostic Action:</strong> In your player&apos;s playback settings (such as in{" "}
-                <Link href="/players/tivimate" className="text-primary hover:underline">
+                <Link href="/players/tivimate" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   TiviMate
                 </Link>{" "}
                 or{" "}
-                <Link href="/players/iptv-smarters" className="text-primary hover:underline">
+                <Link href="/players/iptv-smarters" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   IPTV Smarters
                 </Link>
                 ), test switching between Hardware and Software decoding to check whether one mode handles the stream profile more smoothly on your specific hardware.
@@ -448,7 +448,7 @@ export default function IptvBufferingPage() {
               <h3 className="text-lg font-bold text-foreground">
                 Testing Stream Stability on Your Setup
               </h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                 Before purchasing new hardware or altering network configurations, isolate whether buffering stems from your local Wi-Fi, player app decoding, or upstream delivery. If you are evaluating service reliability, TryIPTV provides structured 24-hour evaluation access and multi-connection plans so you can test stream consistency directly on your home devices.
               </p>
               <div className="mt-4 flex flex-wrap gap-3">

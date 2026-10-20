@@ -34,7 +34,7 @@ export function ArticleTermGrid({ items, className }: ArticleTermGridProps) {
                 {item.name}
               </h3>
             </div>
-            <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-2.5 text-base sm:text-sm leading-relaxed text-muted-foreground">
               {item.description}
             </p>
           </div>

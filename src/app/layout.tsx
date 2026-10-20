@@ -23,6 +23,8 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
+  // Required for env(safe-area-inset-*) to report real values on notched devices.
+  viewportFit: 'cover',
 };
 
 export const metadata: Metadata = {
@@ -137,12 +139,6 @@ export default function RootLayout({
           <Schema id="website" schema={generateWebSiteSchema()} />
         </head>
       <body>
-        <Script
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-          strategy="lazyOnload"
-          async
-          defer
-        />
         <Analytics />
         {isProduction ? (
           <Script
@@ -158,7 +154,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-screen flex-col">
+          <div className="relative flex min-h-viewport flex-col">
             <a 
               href="#main-content" 
               className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"

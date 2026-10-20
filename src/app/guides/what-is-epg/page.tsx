@@ -162,7 +162,7 @@ export default function WhatIsEpgPage() {
                 separation is key to diagnosing guide issues quickly.
               </p>
               <p className="mt-3">
-                EPG describes the user-facing schedule; <strong className="font-semibold text-foreground">XMLTV</strong> is one common structured data format used to carry that schedule to a player. If channels play but listings are missing or shifted, use the <Link href="/help/epg-not-working" className="text-primary hover:underline">EPG troubleshooting guide</Link> for diagnosis.
+                EPG describes the user-facing schedule; <strong className="font-semibold text-foreground">XMLTV</strong> is one common structured data format used to carry that schedule to a player. If channels play but listings are missing or shifted, use the <Link href="/help/epg-not-working" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">EPG troubleshooting guide</Link> for diagnosis.
               </p>
             </ArticleSummary>
 
@@ -204,7 +204,7 @@ export default function WhatIsEpgPage() {
                   position programmes along a visual timeline, showing past, current, and upcoming broadcasts.
                 </li>
               </ul>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base sm:text-sm text-muted-foreground">
                 <em>Note:</em> Not every EPG source supplies all of these metadata attributes. Some lightweight
                 or community feeds provide only basic titles and broadcast times, while full commercial feeds
                 include rich synopses and high-resolution poster artwork.
@@ -226,9 +226,9 @@ export default function WhatIsEpgPage() {
                   <Database className="h-5 w-5 text-primary" />
                   Provider API Integration
                 </div>
-                <p className="mt-2.5 text-sm leading-6 text-muted-foreground">
+                <p className="mt-2.5 text-base sm:text-sm leading-6 text-muted-foreground">
                   When connecting via an{" "}
-                  <Link href="/guides/what-are-xtream-codes" className="text-primary hover:underline">
+                  <Link href="/guides/what-are-xtream-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     Xtream-compatible API login
                   </Link>
                   , the player queries dedicated server endpoints that return structured EPG data directly
@@ -241,9 +241,9 @@ export default function WhatIsEpgPage() {
                   <FileCode className="h-5 w-5 text-primary" />
                   Dedicated XMLTV URL
                 </div>
-                <p className="mt-2.5 text-sm leading-6 text-muted-foreground">
+                <p className="mt-2.5 text-base sm:text-sm leading-6 text-muted-foreground">
                   When using an{" "}
-                  <Link href="/guides/what-is-m3u" className="text-primary hover:underline">
+                  <Link href="/guides/what-is-m3u" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     M3U playlist
                   </Link>
                   , the player downloads an external XML file (or a compressed <code>.xml.gz</code> archive)
@@ -256,7 +256,7 @@ export default function WhatIsEpgPage() {
                   <ListFilter className="h-5 w-5 text-primary" />
                   Third-Party Guide Sources
                 </div>
-                <p className="mt-2.5 text-sm leading-6 text-muted-foreground">
+                <p className="mt-2.5 text-base sm:text-sm leading-6 text-muted-foreground">
                   Advanced players allow users to add secondary or custom guide sources. If a provider&apos;s
                   feed lacks data for specific regional channels, users can map external XMLTV feeds to
                   supplement missing listings.
@@ -374,7 +374,7 @@ export default function WhatIsEpgPage() {
                 If your guide shows the correct show titles but places them one or two hours in the future or
                 past, the problem is almost always a timezone conversion discrepancy. For step-by-step
                 instructions on correcting time mismatches, see our dedicated guide on{" "}
-                <Link href="/help/epg-not-working" className="text-primary hover:underline">
+                <Link href="/help/epg-not-working" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   troubleshooting EPG issues
                 </Link>
                 .
@@ -400,7 +400,7 @@ export default function WhatIsEpgPage() {
                 <li>Others schedule automated background downloads at fixed intervals (such as every 12 or 24 hours).</li>
                 <li>Most modern players allow users to trigger a manual EPG update on demand from the settings menu.</li>
               </ul>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base sm:text-sm text-muted-foreground">
                 <em>Note:</em> There is no universal standard for cache retention across players. Exact retention
                 windows and refresh behaviors are determined by each application&apos;s design and available
                 device storage.
@@ -420,7 +420,7 @@ export default function WhatIsEpgPage() {
                   <Tv className="h-5 w-5 text-primary" />
                   The Video Stream Layer
                 </div>
-                <div className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                   <p>
                     Delivers raw media packets (MPEG Transport Stream or HLS video segments) from the media
                     streaming server to your device&apos;s hardware video decoder.
@@ -437,7 +437,7 @@ export default function WhatIsEpgPage() {
                   <Calendar className="h-5 w-5 text-primary" />
                   The EPG Metadata Layer
                 </div>
-                <div className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                   <p>
                     Delivers structured textual listings (XML or JSON) containing show titles, air times, and
                     channel IDs to populate the on-screen guide grid.
@@ -464,7 +464,7 @@ export default function WhatIsEpgPage() {
               <h3 className="text-lg font-bold text-foreground">
                 Consistent Guide Integration with TryIPTV
               </h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                 EPG data may be available through Xtream-compatible credentials in TiviMate or an Extended M3U
                 playlist with an external XMLTV URL; loading and time display depend on the source and player.
               </p>

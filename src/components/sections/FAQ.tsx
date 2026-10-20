@@ -144,7 +144,7 @@ export function FAQ() {
                 title="Frequently Asked Questions"
                 className="mb-4 sm:mb-4 lg:mb-4"
               />
-              <p className="mb-6 max-w-2xl text-[15.5px] leading-relaxed text-muted-foreground sm:mb-8 sm:text-[16.5px]">
+              <p className="mb-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mb-8 sm:text-[16.5px]">
                 Quick answers about the service. See{" "}
                 <Link href="/faq" className="font-semibold text-primary hover:underline">all IPTV FAQs</Link>{" "}
                 or{" "}
@@ -160,7 +160,7 @@ export function FAQ() {
                       <li key={label}>
                         <Component
                           href={href}
-                          className="group/contact flex items-center gap-3.5 rounded-xl p-3.5 sm:p-4 outline-none transition-colors hover:bg-white/[0.04] focus-visible:ring-2 focus-visible:ring-primary/50"
+                          className="group/contact flex items-center gap-3.5 rounded-xl p-3.5 sm:p-4 outline-hidden transition-colors hover:bg-white/[0.04] focus-visible:ring-2 focus-visible:ring-primary/50"
                         >
                           <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-white/[0.07] bg-white/[0.025] transition-colors group-hover/contact:border-primary/40 group-hover/contact:bg-primary/10">
                             <Icon aria-hidden className="size-4.5 text-primary" />
@@ -213,7 +213,7 @@ export function FAQ() {
                     </span>
                   </AccordionTrigger>
                   {/* forceMount keeps closed answers in the HTML (hidden until opened) so they are crawlable. */}
-                  <AccordionContent forceMount className="pr-3 pb-4.5 pl-7 sm:pl-10 text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground/95">
+                  <AccordionContent forceMount className="pr-3 pb-4.5 pl-7 sm:pl-10 text-base sm:text-[15px] leading-relaxed text-muted-foreground/95">
                     <span
                       dangerouslySetInnerHTML={{
                         __html: faq.answer.includes("support@tryiptv.com")

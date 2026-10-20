@@ -195,14 +195,14 @@ export default async function IptvFreeTrialPage() {
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
               <Button asChild size="lg">
                 <a href={freeTrialWhatsAppUrl} target="_blank" rel="noopener noreferrer">
-                  <SiWhatsapp className="mr-2 h-4 w-4" /> Start Free Trial
+                  <SiWhatsapp aria-hidden="true" className="mr-2 h-4 w-4" /> Start Free Trial
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline">
                 <Link href="/setup">View Setup Guide</Link>
               </Button>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">Opens WhatsApp — no payment details needed.</p>
+            <p className="mt-4 text-base sm:text-sm text-muted-foreground">Opens WhatsApp — no payment details needed.</p>
             <div className="mt-3 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs font-semibold text-muted-foreground">
               <span>24-Hour Access</span>
               <span>$0 Cost</span>
@@ -227,7 +227,7 @@ export default async function IptvFreeTrialPage() {
             </p>
 
             <div className="mt-6 overflow-hidden rounded-lg border border-white/[0.09] bg-card">
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Free trial details table">
                 <table className="w-full text-left text-sm">
                   <caption className="sr-only">TryIPTV free trial details and specifications</caption>
                   <tbody className="divide-y divide-white/[0.06]">
@@ -258,8 +258,8 @@ export default async function IptvFreeTrialPage() {
             />
 
             <div className="overflow-hidden rounded-lg border border-white/[0.09] bg-card">
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm">
+              <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Trial testing checklist table">
+                <table className="w-full min-w-[32rem] text-left text-sm">
                   <caption className="sr-only">Trial testing priorities and checklist</caption>
                   <thead className="border-b border-white/[0.09] bg-white/[0.02] text-xs font-extrabold uppercase tracking-wider text-muted-foreground">
                     <tr>
@@ -299,7 +299,7 @@ export default async function IptvFreeTrialPage() {
                 <div key={s.step} className="rounded-lg border border-white/[0.09] bg-card p-5">
                   <span className="font-mono text-xs font-bold text-primary">{s.step}</span>
                   <h3 className="mt-2 font-headline text-lg font-extrabold text-foreground">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                     {s.desc}
                     {s.step === "03" && (
                       <>
@@ -333,7 +333,7 @@ export default async function IptvFreeTrialPage() {
               {coreRequirements.map((req) => (
                 <div key={req.title} className="rounded-lg border border-white/[0.09] bg-card p-5">
                   <h3 className="font-headline text-lg font-extrabold text-foreground">{req.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                     {req.description}
                     {"linkText" in req && req.linkText && req.linkHref && (
                       <>
@@ -373,10 +373,10 @@ export default async function IptvFreeTrialPage() {
                       href={d.href}
                       className="group block rounded-lg border border-white/[0.09] bg-card p-4 transition-colors hover:border-primary/40"
                     >
-                      <p className="font-headline text-sm font-bold text-foreground group-hover:text-primary">
+                      <p className="font-headline text-base sm:text-sm font-bold text-foreground group-hover:text-primary">
                         {d.name} <ArrowRight className="ml-1 inline h-3.5 w-3.5" />
                       </p>
-                      <p className="mt-1 text-xs leading-5 text-muted-foreground">{d.note}</p>
+                      <p className="mt-1 text-base sm:text-xs leading-5 text-muted-foreground">{d.note}</p>
                     </Link>
                   ))}
                 </div>
@@ -392,15 +392,15 @@ export default async function IptvFreeTrialPage() {
                       href={p.href}
                       className="group block rounded-lg border border-white/[0.09] bg-card p-4 transition-colors hover:border-primary/40"
                     >
-                      <p className="font-headline text-sm font-bold text-foreground group-hover:text-primary">
+                      <p className="font-headline text-base sm:text-sm font-bold text-foreground group-hover:text-primary">
                         {p.name} <ArrowRight className="ml-1 inline h-3.5 w-3.5" />
                       </p>
-                      <p className="mt-1 text-xs leading-5 text-muted-foreground">{p.note}</p>
+                      <p className="mt-1 text-base sm:text-xs leading-5 text-muted-foreground">{p.note}</p>
                     </Link>
                   ))}
                 </div>
 
-                <div className="mt-6 rounded-lg border border-white/[0.08] bg-card/60 p-4 text-xs leading-5 text-muted-foreground">
+                <div className="mt-6 rounded-lg border border-white/[0.08] bg-card/60 p-4 text-base sm:text-xs leading-5 text-muted-foreground">
                   Looking for general instructions? Follow the{" "}
                   <Link href="/setup" className="font-semibold text-primary underline underline-offset-4">
                     Universal IPTV Setup Guide
@@ -429,14 +429,14 @@ export default async function IptvFreeTrialPage() {
               <p>
                 Testing on your own equipment during your normal viewing hours lets you check channel startup time, stream smoothness, and guide loading firsthand.
               </p>
-              <p className="rounded-lg border border-white/[0.09] bg-card p-4 text-sm leading-6 sm:text-base">
+              <p className="rounded-lg border border-white/[0.09] bg-card p-4 text-base leading-6">
                 <strong className="text-foreground">Service Evaluation Note:</strong> A 24-hour test is useful for evaluating current compatibility and playback, but it cannot guarantee how any internet-delivered service will perform over several months. To minimize risk after evaluating the trial, consider starting with a shorter prepaid term (such as a 1-month plan) before selecting a longer subscription.
               </p>
             </div>
 
             <div className="mt-8">
               <h3 className="font-headline text-xl font-extrabold text-foreground">Who Should Use the Free Trial</h3>
-              <ul className="mt-4 space-y-2.5 text-sm leading-6 text-muted-foreground">
+              <ul className="mt-4 space-y-2.5 text-base sm:text-sm leading-6 text-muted-foreground">
                 <li className="flex items-start gap-2.5">
                   <Check className="mt-1 h-4 w-4 shrink-0 text-primary" />
                   <span>New viewers testing TryIPTV for the first time.</span>
@@ -470,7 +470,7 @@ export default async function IptvFreeTrialPage() {
             />
 
             <div className="overflow-hidden rounded-lg border border-white/[0.09] bg-card">
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Free trial vs paid plan table">
                 <table className="w-full text-left text-sm">
                   <caption className="sr-only">Comparison between free trial and paid subscription plans</caption>
                   <thead className="border-b border-white/[0.09] bg-white/[0.02] text-xs font-extrabold uppercase tracking-wider text-muted-foreground">
@@ -497,10 +497,10 @@ export default async function IptvFreeTrialPage() {
 
             <div className="mt-8 rounded-lg border border-white/[0.09] bg-card p-6">
               <h3 className="font-headline text-lg font-extrabold text-foreground">What Happens When Your Trial Ends</h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                 When your 24 hours conclude, trial access expires and streams will stop loading. The trial does not automatically renew or convert into a paid subscription, and no cancellation request is required.
               </p>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                 If you want to continue watching,{" "}
                 <Link href="/pricing" className="font-semibold text-primary underline underline-offset-4">
                   compare prepaid plans
@@ -528,7 +528,7 @@ export default async function IptvFreeTrialPage() {
                   <p className="text-xs font-semibold text-muted-foreground">{t.issue}</p>
                   <Link
                     href={t.href}
-                    className="mt-1 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline"
+                    className="tap-target mt-1 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline"
                   >
                     {t.label} <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -556,12 +556,12 @@ export default async function IptvFreeTrialPage() {
                     {faq.question}
                     <span aria-hidden="true" className="text-primary transition-transform group-open:rotate-45">+</span>
                   </summary>
-                  <p className="pb-5 pr-6 text-sm leading-6 text-muted-foreground">{faq.answer}</p>
+                  <p className="pb-5 pr-6 text-base sm:text-sm leading-6 text-muted-foreground">{faq.answer}</p>
                 </details>
               ))}
             </div>
 
-            <p className="mt-6 text-center text-sm text-muted-foreground">
+            <p className="mt-6 text-center text-base sm:text-sm text-muted-foreground">
               Need help with a specific issue?{" "}
               <Link href="/contact-us" className="font-semibold text-primary underline underline-offset-4">
                 Contact support
@@ -578,22 +578,22 @@ export default async function IptvFreeTrialPage() {
           <div className="mx-auto max-w-4xl">
             <SectionHeader eyebrow="About TryIPTV" title="About TryIPTV" />
 
-            <div className="space-y-4 text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
+            <div className="space-y-4 text-base leading-6 text-muted-foreground sm:leading-7">
               <p>
                 TryIPTV is an IPTV service provider, not a player app: you watch through a compatible IPTV player on your own device. After the trial, paid plans are prepaid for 1, 3, 6, or 12 months with no automatic renewal.
               </p>
 
-              <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-sm font-semibold">
-                <Link href="/pricing" className="text-primary hover:underline">
+              <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-sm font-semibold [&>a]:tap-target">
+                <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   Compare prepaid plans
                 </Link>
-                <Link href="/contact-us" className="text-primary hover:underline">
+                <Link href="/contact-us" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   Contact support
                 </Link>
-                <Link href="/terms-conditions" className="text-primary hover:underline">
+                <Link href="/terms-conditions" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   Terms &amp; Conditions
                 </Link>
-                <Link href="/refund-policy" className="text-primary hover:underline">
+                <Link href="/refund-policy" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   Refund Policy
                 </Link>
               </div>
@@ -605,13 +605,13 @@ export default async function IptvFreeTrialPage() {
               <h2 className="font-headline text-2xl font-extrabold text-foreground sm:text-3xl">
                 Test TryIPTV Before You Pay
               </h2>
-              <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">
+              <p className="mx-auto mt-2 max-w-xl text-base leading-6 text-muted-foreground">
                 Request a 24-hour trial to evaluate channels, playback, and player compatibility on your own setup.
               </p>
               <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                 <Button asChild size="lg">
                   <a href={freeTrialWhatsAppUrl} target="_blank" rel="noopener noreferrer">
-                    <SiWhatsapp className="mr-2 h-4 w-4" /> Start Free Trial
+                    <SiWhatsapp aria-hidden="true" className="mr-2 h-4 w-4" /> Start Free Trial
                   </a>
                 </Button>
                 <Button asChild size="lg" variant="outline">

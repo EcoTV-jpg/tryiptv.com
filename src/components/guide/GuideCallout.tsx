@@ -78,7 +78,7 @@ export function GuideCallout({
       <div className={cn("mt-0.5 shrink-0", config.iconClass)}>
         <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5" aria-hidden="true" />
       </div>
-      <div className="min-w-0 flex-1 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+      <div className="min-w-0 flex-1 text-base sm:text-sm leading-relaxed text-muted-foreground">
         <div className="flex items-center gap-2 mb-1.5">
           <span
             className={cn(

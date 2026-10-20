@@ -65,7 +65,7 @@ export function HowItWorks() {
               <h3 className="mt-5 font-headline text-lg font-bold tracking-tight text-foreground">
                 {step.title}
               </h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                 {step.description}
               </p>
             </div>

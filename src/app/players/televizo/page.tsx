@@ -33,8 +33,8 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 
 const headingClass = "font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl";
-const textClass = "mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base";
-const listClass = "mt-4 list-decimal space-y-2 pl-6 text-sm leading-relaxed text-muted-foreground sm:text-base";
+const textClass = "mt-4 text-base leading-relaxed text-muted-foreground";
+const listClass = "mt-4 list-decimal space-y-2 pl-6 text-base leading-relaxed text-muted-foreground";
 const linkClass = "text-primary underline underline-offset-4 hover:text-foreground";
 
 export default function TelevizoPage() {

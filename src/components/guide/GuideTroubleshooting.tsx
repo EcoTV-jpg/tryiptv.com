@@ -58,7 +58,7 @@ export function GuideTroubleshooting() {
         <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
           Troubleshooting: IPTV Not Working on Firestick
         </h2>
-        <p className="mt-2 text-sm sm:text-base leading-relaxed text-muted-foreground max-w-2xl">
+        <p className="mt-2 text-base leading-relaxed text-muted-foreground max-w-2xl">
           Use this diagnostic matrix to match your exact symptom with the immediate inspection step and recommended solution.
         </p>
       </div>
@@ -77,7 +77,7 @@ export function GuideTroubleshooting() {
                 </h3>
               </div>
 
-              <div className="space-y-2.5 text-xs sm:text-[13px] leading-relaxed">
+              <div className="space-y-2.5 text-base sm:text-[13px] leading-relaxed">
                 <div className="rounded-lg bg-white/[0.02] border border-white/[0.06] p-3">
                   <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-amber-400/90 block mb-1">
                     CHECK FIRST

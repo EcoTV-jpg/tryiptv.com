@@ -33,8 +33,8 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 
 const headingClass = "font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl";
-const textClass = "mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base";
-const listClass = "mt-4 list-decimal space-y-2 pl-6 text-sm leading-relaxed text-muted-foreground sm:text-base";
+const textClass = "mt-4 text-base leading-relaxed text-muted-foreground";
+const listClass = "mt-4 list-decimal space-y-2 pl-6 text-base leading-relaxed text-muted-foreground";
 const linkClass = "text-primary underline underline-offset-4 hover:text-foreground";
 
 export default function IptvSmartersPage() {
@@ -53,7 +53,7 @@ export default function IptvSmartersPage() {
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               IPTV Smarters is a media player, not an IPTV provider; it includes no channels or subscriptions. Users can connect compatible sources using supported API credentials or M3U playlists supplied by their provider. After login, the app can load the provider&apos;s live channels, movies, series, and EPG data where those are available.
             </p>
-            <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base leading-relaxed text-muted-foreground">
               <p className="font-semibold text-foreground">Official App Name &amp; Platform Availability</p>
               <ul className="mt-3 list-disc space-y-2 pl-5">
                 <li>
@@ -166,7 +166,7 @@ export default function IptvSmartersPage() {
               <p className={textClass}>
                 A successful login only establishes access to the provider&apos;s source. The app must then load categories and channel entries, followed by live streams and any movies, series, or EPG data the provider supplies. These stages can fail independently: a working login does not prove that every channel or guide entry exists, and working channels do not guarantee an EPG.
               </p>
-              <div className="mt-5 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm leading-relaxed text-muted-foreground">
+              <div className="mt-5 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm leading-relaxed text-muted-foreground">
                 <p><strong className="text-foreground">Immediate login rejection:</strong> check account details and server access.</p>
                 <p className="mt-2"><strong className="text-foreground">Login succeeds, empty categories:</strong> check provider playlist data or account permissions.</p>
                 <p className="mt-2"><strong className="text-foreground">Channels appear, guide empty:</strong> check the separate EPG source or channel mapping.</p>

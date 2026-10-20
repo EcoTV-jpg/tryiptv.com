@@ -88,27 +88,28 @@ function SocialIcon({ name }: { name: SocialIconName }) {
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/[0.07] bg-[#040506] pt-14 pb-8 sm:pt-16">
+    <footer className="border-t border-white/[0.07] bg-[#040506] pt-14 pb-[calc(6rem+env(safe-area-inset-bottom,0px))] sm:pt-16 sm:pb-8">
+      {/* Extra bottom padding on phones so the fixed chat button never covers the last footer row. */}
 
       <Container>
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 lg:gap-8">
           {/* Brand statement */}
           <div className="sm:col-span-2 md:col-span-3 lg:col-span-4">
             <Logo />
-            <p className="mt-3.5 max-w-sm text-[13.5px] leading-relaxed text-muted-foreground/90">
+            <p className="mt-3.5 max-w-sm text-base leading-relaxed text-muted-foreground/90 sm:text-[13.5px]">
               Premium live TV and on-demand entertainment, built for the devices you already use. Prepaid access with 25,000+ live channels worldwide and 120,000+ movies and TV shows.
             </p>
             <div className="mt-4 flex flex-col items-start text-sm">
               <span
                 dangerouslySetInnerHTML={{
-                  __html: `<!--email_off--><a href="mailto:${footerLinks.contact.email}" class="group/email inline-flex items-center gap-2 py-1 font-medium text-muted-foreground/90 transition-colors hover:text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-primary shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>${footerLinks.contact.email}<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 transition-transform group-hover/email:translate-x-0.5 group-hover/email:-translate-y-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a><!--/email_off-->`,
+                  __html: `<!--email_off--><a href="mailto:${footerLinks.contact.email}" class="group/email inline-flex min-h-11 items-center gap-2 py-1 font-medium pointer-fine:min-h-0 text-muted-foreground/90 transition-colors hover:text-primary"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-primary shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>${footerLinks.contact.email}<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 transition-transform group-hover/email:translate-x-0.5 group-hover/email:-translate-y-0.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a><!--/email_off-->`,
                 }}
               />
               <a
                 href="https://wa.me/15205648298"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/wa inline-flex items-center gap-2 py-1 font-medium text-muted-foreground/90 transition-colors hover:text-primary"
+                className="group/wa inline-flex min-h-11 items-center gap-2 py-1 font-medium pointer-fine:min-h-0 text-muted-foreground/90 transition-colors hover:text-primary"
               >
                 <MessageCircle className="h-3.5 w-3.5 text-primary shrink-0" />
                 <span>WhatsApp Support</span>
@@ -127,7 +128,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-block py-1 text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground"
+                    className="inline-flex min-h-11 min-w-11 items-center text-base text-muted-foreground transition-colors duration-150 hover:text-foreground sm:text-[13.5px] pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
                   >
                     {link.name}
                   </Link>
@@ -146,7 +147,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-block py-1 text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground"
+                    className="inline-flex min-h-11 min-w-11 items-center text-base text-muted-foreground transition-colors duration-150 hover:text-foreground sm:text-[13.5px] pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
                   >
                     {link.name}
                   </Link>
@@ -165,7 +166,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-block py-1 text-[13.5px] text-muted-foreground transition-colors duration-150 hover:text-foreground"
+                    className="inline-flex min-h-11 min-w-11 items-center text-base text-muted-foreground transition-colors duration-150 hover:text-foreground sm:text-[13.5px] pointer-fine:min-h-0 pointer-fine:min-w-0 pointer-fine:py-1"
                   >
                     {link.name}
                   </Link>
@@ -188,7 +189,7 @@ export function Footer() {
                     title={link.name}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex size-10 items-center justify-center rounded-xl border border-white/[0.07] lg:size-9 bg-white/[0.03] text-muted-foreground transition-colors duration-150 hover:border-primary/30 hover:text-primary"
+                    className="inline-flex size-11 items-center justify-center rounded-xl border border-white/[0.07] pointer-fine:lg:size-9 bg-white/[0.03] text-muted-foreground transition-colors duration-150 hover:border-primary/30 hover:text-primary"
                   >
                     <SocialIcon name={link.icon} />
                   </a>

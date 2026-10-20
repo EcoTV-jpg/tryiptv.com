@@ -67,13 +67,13 @@ export default function DevicesPage() {
                       )}
                     </div>
                     <CardTitle as="h2" className="font-headline text-lg sm:text-xl font-extrabold leading-snug">
-                      <Link href={`/devices/${getDeviceSlug(article.id)}`} className="hover:text-primary transition-colors">
+                      <Link href={`/devices/${getDeviceSlug(article.id)}`} className="tap-target hover:text-primary transition-colors">
                         {article.title}
                       </Link>
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0 flex flex-col justify-between flex-1">
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-6">
+                    <p className="text-base sm:text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-6">
                       {article.description}
                     </p>
                     <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between">
@@ -82,7 +82,7 @@ export default function DevicesPage() {
                       </span>
                       <Link
                         href={`/devices/${getDeviceSlug(article.id)}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-primary group-hover:underline"
+                        className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary group-hover:underline"
                       >
                         Read Guide <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
@@ -97,7 +97,7 @@ export default function DevicesPage() {
             <h3 className="font-headline text-base sm:text-lg font-bold text-foreground">
               New to IPTV or need a general installation overview?
             </h3>
-            <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="mt-1.5 text-base sm:text-sm text-muted-foreground leading-relaxed">
               Check our <Link href="/setup" className="text-primary font-semibold hover:underline">universal IPTV setup hub</Link> for general walkthroughs and credential tips, or <Link href="/players" className="text-primary font-semibold hover:underline">browse player guides</Link> to configure apps like TiviMate, IPTV Smarters Pro, and XCIPTV.
             </p>
           </div>
@@ -108,7 +108,7 @@ export default function DevicesPage() {
             <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
               Ready to Start Watching on a Compatible Device?
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-sm sm:text-base leading-6 text-muted-foreground">
+            <p className="mx-auto mt-3 max-w-xl text-base leading-6 text-muted-foreground">
               Get access to 25,000+ live channels worldwide and 120,000+ movies and TV shows with 2 simultaneous connections on compatible devices and supported player apps.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">

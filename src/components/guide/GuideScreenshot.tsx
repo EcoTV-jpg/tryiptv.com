@@ -9,6 +9,8 @@ interface GuideScreenshotProps {
   width?: number;
   height?: number;
   priority?: boolean;
+  /** Override when the screenshot is not full article width (e.g. inside a 2-column grid). */
+  sizes?: string;
   className?: string;
 }
 
@@ -25,6 +27,7 @@ export function GuideScreenshot({
   width = 1024,
   height = 576,
   priority = false,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 760px, 820px",
   className,
 }: GuideScreenshotProps) {
   if (!src || typeof src !== "string" || src.trim() === "") {
@@ -42,7 +45,7 @@ export function GuideScreenshot({
           width={width}
           height={height}
           priority={priority}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 760px, 820px"
+          sizes={sizes}
           className="w-full h-auto object-contain rounded-md"
         />
       </div>

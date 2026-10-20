@@ -115,7 +115,7 @@ export default function ThankYouPage() {
                     <h2 className="font-headline text-xl font-extrabold leading-7 text-foreground">
                       {step.title}
                     </h2>
-                    <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    <p className="mt-3 text-base sm:text-sm leading-6 text-muted-foreground">
                       {step.description}
                     </p>
                   </article>
@@ -139,7 +139,7 @@ export default function ThankYouPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex items-start gap-3 rounded-lg border border-white/[0.08] bg-[#101512] p-4 text-sm leading-6 text-muted-foreground">
+                  <div className="flex items-start gap-3 rounded-lg border border-white/[0.08] bg-[#101512] p-4 text-base sm:text-sm leading-6 text-muted-foreground">
                     <ShieldAlert className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                     <p>
                       Never send passwords, private keys, seed phrases, or full
@@ -149,7 +149,7 @@ export default function ThankYouPage() {
                 </CardContent>
               </Card>
 
-              <div className="rounded-lg border border-white/[0.09] bg-[#070a08] p-5 text-sm leading-6 text-muted-foreground">
+              <div className="rounded-lg border border-white/[0.09] bg-[#070a08] p-5 text-base sm:text-sm leading-6 text-muted-foreground">
                 Already contacted us? You can close this page. We&apos;ll
                 continue with you on WhatsApp.
               </div>

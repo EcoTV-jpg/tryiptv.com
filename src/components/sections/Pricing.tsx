@@ -70,7 +70,7 @@ export function Pricing({
                       equivalent to ${plan.price_monthly.toFixed(2)}/month
                     </span>
                     {plan.savings && (
-                      <span className="ml-1.5 inline-block rounded bg-primary/10 px-1.5 py-0.2 text-[10px] font-semibold text-primary">
+                      <span className="ml-1.5 inline-block rounded bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
                         {plan.savings}
                       </span>
                     )}
@@ -89,7 +89,7 @@ export function Pricing({
             </Card>
           ))}
         </div>
-        <div className="mt-6 rounded-xl border border-white/[0.07] bg-white/[0.02] p-4 text-center text-xs text-muted-foreground sm:text-sm">
+        <div className="mt-6 rounded-xl border border-white/[0.07] bg-white/[0.02] p-4 text-center text-base text-muted-foreground sm:text-sm">
           Every plan includes the same core service features: access to 25,000+ live channels worldwide, 120,000+ movies and TV shows, Smart EPG, and 2 simultaneous device connections. Only duration and prepaid savings differ.
         </div>
       </Container>

@@ -33,8 +33,8 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 
 const headingClass = "font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl";
-const textClass = "mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base";
-const listClass = "mt-4 list-decimal space-y-2 pl-6 text-sm leading-relaxed text-muted-foreground sm:text-base";
+const textClass = "mt-4 text-base leading-relaxed text-muted-foreground";
+const listClass = "mt-4 list-decimal space-y-2 pl-6 text-base leading-relaxed text-muted-foreground";
 const linkClass = "text-primary underline underline-offset-4 hover:text-foreground";
 
 export default function XciptvPage() {
@@ -169,25 +169,25 @@ export default function XciptvPage() {
                 XCIPTV provides interface features tailored for remote-control and touch-based IPTV navigation:
               </p>
               <div className="mt-5 space-y-4">
-                <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm leading-relaxed text-muted-foreground">
+                <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm leading-relaxed text-muted-foreground">
                   <h3 className="font-headline text-base font-semibold text-foreground">Multi-Screen Viewing</h3>
                   <p className="mt-2">
                     XCIPTV includes a multi-screen grid feature that lets you display multiple live channels simultaneously on compatible screens. Opening multiple live streams at the same time may use multiple concurrent connections, depending on the IPTV provider&apos;s connection policy. TryIPTV includes 2 simultaneous connections.
                   </p>
                 </div>
-                <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm leading-relaxed text-muted-foreground">
+                <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm leading-relaxed text-muted-foreground">
                   <h3 className="font-headline text-base font-semibold text-foreground">Dual Built-in Players (ExoPlayer &amp; VLC)</h3>
                   <p className="mt-2">
                     XCIPTV integrates two major Android media frameworks: ExoPlayer and VLC. Users can test playback across both engines if a specific stream format or audio codec encounters decoding issues.
                   </p>
                 </div>
-                <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm leading-relaxed text-muted-foreground">
+                <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm leading-relaxed text-muted-foreground">
                   <h3 className="font-headline text-base font-semibold text-foreground">EPG Guide &amp; Catch-Up Support</h3>
                   <p className="mt-2">
                     The interface supports XMLTV-formatted program guides and past broadcast catch-up when provided by your subscription. Guide schedules load independently from live stream connections.
                   </p>
                 </div>
-                <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm leading-relaxed text-muted-foreground">
+                <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm leading-relaxed text-muted-foreground">
                   <h3 className="font-headline text-base font-semibold text-foreground">VOD Management &amp; DVR Recording</h3>
                   <p className="mt-2">
                     Video on demand (movies and series) is organized with category listings, episode details, and artwork when connected via Xtream Codes. Scheduled recording functionality requires sufficient local device storage and appropriate operating system storage permissions.
@@ -201,7 +201,7 @@ export default function XciptvPage() {
               <p className={textClass}>
                 XCIPTV first checks the provider login or playlist URL, then loads the available categories and channel entries. Live streams, movies, series, and EPG schedules are separate data or playback stages supplied by the provider. A successful login does not guarantee working streams, and playable channels do not guarantee valid guide data.
               </p>
-              <div className="mt-5 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm leading-relaxed text-muted-foreground">
+              <div className="mt-5 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm leading-relaxed text-muted-foreground">
                 <p><strong className="text-foreground">Login rejected:</strong> check credentials, server address, and account access.</p>
                 <p className="mt-2"><strong className="text-foreground">Login accepted, empty library:</strong> check provider playlist data, permissions, or sync.</p>
                 <p className="mt-2"><strong className="text-foreground">Channels listed, no playback:</strong> test the stream source, device/network, account limit, and player engine.</p>

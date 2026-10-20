@@ -27,7 +27,7 @@ export function GuideStepList({
         <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
           Step-by-Step Installation Guide for {primaryKeyword}
         </h2>
-        <p className="mt-2 text-sm sm:text-base leading-relaxed text-muted-foreground max-w-2xl">
+        <p className="mt-2 text-base leading-relaxed text-muted-foreground max-w-2xl">
           Follow this 7-step sequence to configure your IPTV player, load channel bouquets, and verify live stream playback.
         </p>
       </div>
@@ -68,7 +68,7 @@ export function GuideStepList({
                 </div>
 
                 <div
-                  className="text-xs sm:text-sm leading-relaxed text-muted-foreground space-y-2.5 [&>p]:leading-relaxed [&>ul]:space-y-1.5 [&>ul]:list-disc [&>ul]:pl-5 [&>ol]:space-y-1.5 [&>ol]:list-decimal [&>ol]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold [&>a]:text-primary [&>a]:underline [&>a]:underline-offset-4"
+                  className="text-base sm:text-sm leading-relaxed text-muted-foreground space-y-2.5 [&>p]:leading-relaxed [&>ul]:space-y-1.5 [&>ul]:list-disc [&>ul]:pl-5 [&>ol]:space-y-1.5 [&>ol]:list-decimal [&>ol]:pl-5 [&>strong]:text-foreground [&>strong]:font-semibold [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4"
                   dangerouslySetInnerHTML={{ __html: step.description }}
                 />
               </div>

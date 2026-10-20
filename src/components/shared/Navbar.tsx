@@ -30,7 +30,7 @@ export function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                className="py-3 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
               >
                 {link.name}
               </Link>

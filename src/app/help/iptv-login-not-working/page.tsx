@@ -145,7 +145,7 @@ export default function IptvLoginNotWorkingPage() {
               <p>
                 An IPTV login failure means your media player was unable to complete an authentication
                 handshake with your provider&apos;s server. In most setups, this involves an{" "}
-                <Link href="/guides/what-are-xtream-codes" className="text-primary hover:underline">
+                <Link href="/guides/what-are-xtream-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   Xtream-compatible API login
                 </Link>{" "}
                 using a Server URL, Username, and Password.
@@ -216,7 +216,7 @@ export default function IptvLoginNotWorkingPage() {
                   </ul>
                 </li>
               </ul>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base sm:text-sm text-muted-foreground">
                 <em>Safety Precaution:</em> Avoid making dozen rapid consecutive login attempts if errors
                 persist. Some intermediate web firewalls (such as Cloudflare or fail2ban rules) temporarily block
                 IP addresses that generate excessive failed authentications within a short window.
@@ -237,7 +237,7 @@ export default function IptvLoginNotWorkingPage() {
                   <KeyRound className="h-4 w-4 text-amber-400" />
                   HTTP 401 Unauthorized
                 </div>
-                <div className="mt-3 space-y-2 text-xs sm:text-sm leading-6 text-muted-foreground">
+                <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                   <p>
                     <strong className="text-foreground">Standard Meaning (RFC 9110):</strong> The request lacks
                     valid authentication credentials for the target resource.
@@ -255,7 +255,7 @@ export default function IptvLoginNotWorkingPage() {
                   <Lock className="h-4 w-4 text-rose-400" />
                   HTTP 403 Forbidden
                 </div>
-                <div className="mt-3 space-y-2 text-xs sm:text-sm leading-6 text-muted-foreground">
+                <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                   <p>
                     <strong className="text-foreground">Standard Meaning (RFC 9110):</strong> The server
                     understood the request, but refuses to authorize access.
@@ -273,7 +273,7 @@ export default function IptvLoginNotWorkingPage() {
                   <Globe className="h-4 w-4 text-sky-400" />
                   HTTP 404 Not Found
                 </div>
-                <div className="mt-3 space-y-2 text-xs sm:text-sm leading-6 text-muted-foreground">
+                <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                   <p>
                     <strong className="text-foreground">Standard Meaning (RFC 9110):</strong> The origin server
                     did not find a current representation for the target URI.
@@ -291,7 +291,7 @@ export default function IptvLoginNotWorkingPage() {
                   <Server className="h-4 w-4 text-purple-400" />
                   HTTP 5xx Server Errors (500, 502, 503)
                 </div>
-                <div className="mt-3 space-y-2 text-xs sm:text-sm leading-6 text-muted-foreground">
+                <div className="mt-3 space-y-2 text-base sm:text-sm leading-6 text-muted-foreground">
                   <p>
                     <strong className="text-foreground">Standard Meaning (RFC 9110):</strong> The server
                     encountered an unexpected condition or failed to fulfill an apparently valid request.
@@ -410,7 +410,7 @@ export default function IptvLoginNotWorkingPage() {
               <h3 className="text-lg font-bold text-foreground">
                 Account Activation & Support
               </h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                 Before seeking new services, systematically verify your login formatting, server ports, and
                 network connection. If you are setting up with TryIPTV, credentials are typically delivered
                 within 5–15 minutes after order confirmation, and our support team is available to assist

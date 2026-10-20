@@ -58,7 +58,7 @@ export function GuideBufferingChecklist() {
         <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
           How to Reduce IPTV Buffering on Firestick
         </h2>
-        <p className="mt-2 text-sm sm:text-base leading-relaxed text-muted-foreground max-w-2xl">
+        <p className="mt-2 text-base leading-relaxed text-muted-foreground max-w-2xl">
           Work through these 8 diagnostic checks in order before adjusting multiple player configurations at once.
         </p>
       </div>
@@ -76,7 +76,7 @@ export function GuideBufferingChecklist() {
               <h3 className="font-headline font-bold text-foreground text-sm sm:text-[15px] mb-1">
                 {item.title}
               </h3>
-              <p className="text-xs sm:text-[13px] leading-relaxed text-muted-foreground">
+              <p className="text-base sm:text-[13px] leading-relaxed text-muted-foreground">
                 {item.description}
               </p>
             </div>

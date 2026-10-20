@@ -22,9 +22,10 @@ export function Breadcrumb({ items, className, align = 'left' }: BreadcrumbProps
         className
       )}
     >
-      <ol className="flex flex-wrap items-center gap-2">
+      {/* Links grow to 44px rows on touch screens (pointer-coarse); mouse layouts are unchanged. */}
+      <ol className="flex flex-wrap items-center gap-x-2 pointer-fine:gap-y-2">
         <li>
-          <Link href="/" className="transition-colors duration-200 hover:text-primary">
+          <Link href="/" className="inline-flex min-h-11 min-w-11 items-center transition-colors duration-200 hover:text-primary pointer-fine:min-h-0 pointer-fine:min-w-0">
             Home
           </Link>
         </li>
@@ -32,7 +33,7 @@ export function Breadcrumb({ items, className, align = 'left' }: BreadcrumbProps
           <li key={index} className="flex items-center gap-2">
             <span className="text-white/20 select-none">/</span>
             {item.href ? (
-              <Link href={item.href} className="transition-colors duration-200 hover:text-primary">
+              <Link href={item.href} className="inline-flex min-h-11 min-w-11 items-center transition-colors duration-200 hover:text-primary pointer-fine:min-h-0 pointer-fine:min-w-0">
                 {item.label}
               </Link>
             ) : (

@@ -33,8 +33,8 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 
 const headingClass = "font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl";
-const textClass = "mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base";
-const listClass = "mt-4 list-decimal space-y-2 pl-6 text-sm leading-relaxed text-muted-foreground sm:text-base";
+const textClass = "mt-4 text-base leading-relaxed text-muted-foreground";
+const listClass = "mt-4 list-decimal space-y-2 pl-6 text-base leading-relaxed text-muted-foreground";
 const linkClass = "text-primary underline underline-offset-4 hover:text-foreground";
 
 export default function OttNavigatorPage() {
@@ -146,7 +146,7 @@ export default function OttNavigatorPage() {
               <p className={textClass}>
                 After you save a provider, OTT Navigator requests the provider data, then builds groups and channel entries. On-demand items and EPG schedules load where supplied, while stream playback is a further request to the source. These stages can fail independently: accepting a provider configuration does not guarantee populated channels, playable streams, or a working guide.
               </p>
-              <div className="mt-5 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm leading-relaxed text-muted-foreground">
+              <div className="mt-5 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm leading-relaxed text-muted-foreground">
                 <p><strong className="text-foreground">Cannot add provider:</strong> check template, URL, and credentials.</p>
                 <p className="mt-2"><strong className="text-foreground">Provider added, no channels:</strong> check playlist response and account permissions.</p>
                 <p className="mt-2"><strong className="text-foreground">Channels listed, HTTP playback error:</strong> check provider stream access.</p>

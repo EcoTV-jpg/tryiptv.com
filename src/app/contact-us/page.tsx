@@ -61,14 +61,14 @@ export default async function ContactPage() {
                                         href="https://wa.me/15205648298"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="group flex items-start gap-4 rounded-lg border border-white/[0.08] bg-[#101512] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-primary/[0.05]"
+                                        className="group flex items-start gap-4 rounded-lg border border-white/[0.08] bg-[#101512] p-4 transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:border-primary/40 hover:bg-primary/[0.05]"
                                     >
                                         <div className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-primary/20 bg-primary/[0.06] text-primary">
                                             <MessageCircle className="h-5 w-5" />
                                         </div>
                                         <div className="flex-1">
-                                            <div className="flex items-center justify-between">
-                                                <p className="text-sm font-extrabold text-foreground group-hover:text-primary">WhatsApp Live Chat</p>
+                                            <div className="flex flex-wrap items-center justify-between gap-x-2">
+                                                <p className="text-base sm:text-sm font-extrabold text-foreground group-hover:text-primary">WhatsApp Live Chat</p>
                                                 <span className="flex items-center gap-1.5 text-[10px] font-bold text-primary">
                                                     <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Online
                                                 </span>
@@ -79,7 +79,7 @@ export default async function ContactPage() {
 
                                     <div
                                         dangerouslySetInnerHTML={{
-                                            __html: `<!--email_off--><a href="mailto:support@tryiptv.com" class="group flex items-start gap-4 rounded-lg border border-white/[0.08] bg-[#101512] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-primary/[0.05]"><div class="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-primary/20 bg-primary/[0.06] text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><div class="flex-1"><p class="text-sm font-extrabold text-foreground group-hover:text-primary">Email Support</p><p class="mt-1 text-xs text-muted-foreground">support@tryiptv.com • Contact us with your question.</p></div></a><!--/email_off-->`,
+                                            __html: `<!--email_off--><a href="mailto:support@tryiptv.com" class="group flex items-start gap-4 rounded-lg border border-white/[0.08] bg-[#101512] p-4 transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:border-primary/40 hover:bg-primary/[0.05]"><div class="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-primary/20 bg-primary/[0.06] text-primary"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><div class="flex-1"><p class="text-sm font-extrabold text-foreground group-hover:text-primary">Email Support</p><p class="mt-1 text-xs text-muted-foreground">support@tryiptv.com • Contact us with your question.</p></div></a><!--/email_off-->`,
                                         }}
                                     />
                                 </CardContent>
@@ -97,7 +97,7 @@ export default async function ContactPage() {
                                 <div className="pt-2 border-t border-white/[0.08]">
                                     <Link
                                         href="/iptv-free-trial"
-                                        className="inline-flex items-center gap-2 text-xs font-extrabold text-primary hover:underline"
+                                        className="tap-target inline-flex items-center gap-2 text-xs font-extrabold text-primary hover:underline"
                                     >
                                         Looking for a trial? Request 24h access <ArrowRight className="h-3 w-3" />
                                     </Link>
@@ -111,7 +111,7 @@ export default async function ContactPage() {
                                 <CardHeader>
                                     <p className="eyebrow mb-1">Send a message</p>
                                     <CardTitle as="h2" className="font-headline text-2xl font-extrabold">Send Us a Message</CardTitle>
-                                    <CardDescription>
+                                    <CardDescription className="text-base sm:text-sm">
                                         Have a question or need support? Fill out the form below and we&apos;ll get back to you shortly.
                                     </CardDescription>
                                 </CardHeader>

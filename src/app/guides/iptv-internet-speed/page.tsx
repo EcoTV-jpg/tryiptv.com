@@ -199,7 +199,7 @@ export default function IptvInternetSpeedPage() {
                 While total download speed represents your connection&apos;s peak data-carrying capacity, uninterrupted IPTV
                 playback relies equally on <strong className="text-foreground font-semibold">continuous throughput stability</strong>.
                 For an architectural overview of how streams travel across internet networks, read our complete guide on{" "}
-                <Link href="/guides/how-does-iptv-work" className="text-primary hover:underline">
+                <Link href="/guides/how-does-iptv-work" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   how IPTV works from server to screen
                 </Link>
                 .
@@ -219,8 +219,8 @@ export default function IptvInternetSpeedPage() {
 
             {/* Bandwidth Planning Table */}
             <div className="my-8 overflow-hidden rounded-xl border border-white/[0.08] bg-[#070908] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs sm:text-sm">
+              <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="IPTV internet speed table">
+                <table className="w-full min-w-[36rem] text-left text-xs sm:text-sm">
                   <thead className="border-b border-white/[0.08] bg-white/[0.02] text-primary font-mono uppercase tracking-wider text-[11px]">
                     <tr>
                       <th className="p-3.5 sm:p-4">Resolution</th>
@@ -244,7 +244,7 @@ export default function IptvInternetSpeedPage() {
                   </tbody>
                 </table>
               </div>
-              <p className="p-3.5 text-center text-[11px] text-muted-foreground border-t border-white/[0.06]">
+              <p data-small-print className="p-3.5 text-center text-[11px] text-muted-foreground border-t border-white/[0.06]">
                 * Approximate planning ranges only. Official streaming services publish different recommended speeds because encoding, bitrate, codec, and playback behavior vary.
               </p>
             </div>
@@ -307,7 +307,7 @@ export default function IptvInternetSpeedPage() {
                   <div className="flex items-center gap-2 mb-2 text-primary font-bold text-sm">
                     <Network className="h-4 w-4" /> Wired Ethernet
                   </div>
-                  <ul className="text-xs sm:text-sm text-muted-foreground space-y-1.5 list-disc pl-4">
+                  <ul className="text-base sm:text-sm text-muted-foreground space-y-1.5 list-disc pl-4">
                     <li>Zero radio-frequency interference from nearby appliances</li>
                     <li>Impervious to wall, ceiling, and distance attenuation</li>
                     <li>Consistently near-zero packet loss and predictable latency</li>
@@ -318,7 +318,7 @@ export default function IptvInternetSpeedPage() {
                   <div className="flex items-center gap-2 mb-2 text-amber-400 font-bold text-sm">
                     <Wifi className="h-4 w-4" /> Wireless Wi-Fi
                   </div>
-                  <ul className="text-xs sm:text-sm text-muted-foreground space-y-1.5 list-disc pl-4">
+                  <ul className="text-base sm:text-sm text-muted-foreground space-y-1.5 list-disc pl-4">
                     <li>Convenient setup without cabling through living spaces</li>
                     <li>2.4 GHz band penetrates walls but suffers heavy congestion</li>
                     <li>5 GHz band offers higher speeds but drops rapidly through brick</li>
@@ -330,11 +330,11 @@ export default function IptvInternetSpeedPage() {
                 An Ethernet cable does not increase the speed purchased from your internet provider, but it eliminates the local wireless
                 bottlenecks that trigger video freezing. For hardware-specific setup instructions on configuring your streaming device,
                 visit our universal{" "}
-                <Link href="/setup" className="text-primary hover:underline">
+                <Link href="/setup" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   IPTV setup guide
                 </Link>{" "}
                 or explore our{" "}
-                <Link href="/devices" className="text-primary hover:underline">
+                <Link href="/devices" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   device guides directory
                 </Link>
                 .
@@ -355,7 +355,7 @@ export default function IptvInternetSpeedPage() {
               </ul>
               <p>
                 If you are troubleshooting active stuttering, spinning wheels, or audio desynchronization, follow our tested 8-step{" "}
-                <Link href="/help/iptv-buffering" className="text-primary hover:underline">
+                <Link href="/help/iptv-buffering" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   IPTV buffering diagnostic guide
                 </Link>{" "}
                 to isolate and fix the underlying issue.
@@ -397,7 +397,7 @@ export default function IptvInternetSpeedPage() {
                 </li>
                 <li>
                   <strong className="text-foreground font-semibold">Check multiple player apps:</strong> Test stream performance across different player applications (such as TiviMate or IPTV Smarters) to rule out player-specific decoder bottlenecks. Explore our{" "}
-                  <Link href="/players" className="text-primary hover:underline">
+                  <Link href="/players" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     IPTV player guides
                   </Link>{" "}
                   for app-specific buffer settings.
@@ -442,7 +442,7 @@ export default function IptvInternetSpeedPage() {
                 <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
                   Frequently Asked Questions
                 </h2>
-                <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                <p className="mt-2 text-base sm:text-sm text-muted-foreground leading-relaxed">
                   Clear, practical answers about internet speed requirements, multi-stream bandwidth, and connection stability.
                 </p>
               </div>
@@ -455,7 +455,7 @@ export default function IptvInternetSpeedPage() {
               <h2 className="font-headline text-xl sm:text-2xl font-extrabold text-foreground">
                 Test Your Connection with TryIPTV
               </h2>
-              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">
                 Verify real-world stream stability on your device with our full-access 24-hour evaluation trial ($0, no credit card required).
                 Every TryIPTV plan includes {PRODUCT_TRUTHS.connections} simultaneous connections across flat prepaid terms with no recurring contracts.
               </p>

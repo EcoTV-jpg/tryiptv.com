@@ -37,7 +37,7 @@ export function ArticleSummary({
       <h2 className="font-headline text-lg sm:text-xl font-bold text-foreground">
         {title}
       </h2>
-      <div className="mt-3.5 space-y-3.5 text-[15px] sm:text-base leading-relaxed text-muted-foreground [&_strong]:text-foreground [&_strong]:font-semibold [&_code]:font-mono [&_code]:text-xs sm:[&_code]:text-[13px] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:bg-white/[0.06] [&_code]:border [&_code]:border-white/[0.08] [&_code]:text-foreground">
+      <div className="mt-3.5 space-y-3.5 text-base leading-relaxed text-muted-foreground [&_strong]:text-foreground [&_strong]:font-semibold [&_code]:font-mono [&_code]:text-xs sm:[&_code]:text-[13px] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:bg-white/[0.06] [&_code]:border [&_code]:border-white/[0.08] [&_code]:text-foreground">
         {children}
       </div>
     </div>

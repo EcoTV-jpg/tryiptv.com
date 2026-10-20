@@ -31,7 +31,7 @@ export function GuideCta({
           <h2 className="font-headline text-xl sm:text-2xl font-extrabold text-foreground">
             Test TryIPTV on Your {primaryKeyword}
           </h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">
             {description || `Verify channel loading speed, electronic programme guide (EPG) stability, and remote navigation on your device with our full-access 24-hour trial.`}
           </p>
 

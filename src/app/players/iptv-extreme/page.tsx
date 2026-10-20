@@ -24,7 +24,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "IPTV Extreme", item: `${SITE_URL}${canonical}` },
 ]);
 const h2 = "font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl";
-const p = "mt-4 text-sm leading-7 text-muted-foreground sm:text-base";
+const p = "mt-4 text-base leading-7 text-muted-foreground";
 const a = "text-primary underline underline-offset-4 hover:text-primary/80";
 const cases = [
   ["App does not open", "App or device"],
@@ -70,7 +70,7 @@ export default function IptvExtremePage() {
       </section>
       <section><h2 className={h2}>How to Add an M3U Playlist to IPTV Extreme</h2>
         <p className={p}>The official portal&apos;s <strong className="text-foreground">Add Playlist</strong> form accepts a device MAC address, playlist name, and playlist link. A direct M3U URL is easiest to enter there. If your provider gave you a local file, use the app&apos;s playlist import option when available; the portal asks for a link. Labels inside the app may differ by version.</p>
-        <ol className="mt-4 list-decimal space-y-2 pl-6 text-sm leading-7 text-muted-foreground sm:text-base">
+        <ol className="mt-4 list-decimal space-y-2 pl-6 text-base leading-7 text-muted-foreground">
           <li>Copy the MAC address shown by IPTV Extreme and open the <a href="https://react.iptvextreme.eu/" target="_blank" rel="noopener noreferrer" className={a}>official IPTV Extreme portal</a>.</li>
           <li>Choose <strong className="text-foreground">Add Playlist</strong>, enter that device MAC, give the playlist a recognizable name, and paste the complete M3U link.</li>
           <li>Save the playlist, then return to the app and allow it to load or refresh its playlists. Confirm that channel groups and channels appear before testing playback.</li>
@@ -78,7 +78,7 @@ export default function IptvExtremePage() {
       </section>
       <section><h2 className={h2}>How to Add Xtream Codes to IPTV Extreme</h2>
         <p className={p}>IPTV Extreme&apos;s official portal offers an <strong className="text-foreground">Add Xtream Codes Playlist</strong> form for app version 107 and later. It asks for the IPTV Extreme device MAC, a playlist name, server URL, username, and password. These credentials are different from the MAC used to identify the device in the portal.</p>
-        <ol className="mt-4 list-decimal space-y-2 pl-6 text-sm leading-7 text-muted-foreground sm:text-base">
+        <ol className="mt-4 list-decimal space-y-2 pl-6 text-base leading-7 text-muted-foreground">
           <li>Open the official portal and choose <strong className="text-foreground">Add Xtream Codes Playlist</strong>.</li>
           <li>Enter the MAC displayed in IPTV Extreme, a playlist name, and the provider&apos;s server URL, username, and password.</li>
           <li>Save, then refresh or reopen the app and check whether channels load. If rejected, verify the provider type, server URL, account status, exact credentials, and accidental spaces.</li>
@@ -92,7 +92,7 @@ export default function IptvExtremePage() {
       </section>
       <section><h2 className={h2}>What IPTV Extreme Loads After You Add a Playlist</h2>
         <p className={p}>Saving a configuration is only the first check. The app must then download the playlist or authenticate with the provider, read any channel groups and channels, and load available on-demand and EPG data before you test a stream. A saved playlist with no channels points to a different stage than channels that appear but will not play. Working channels with an empty guide point to EPG data or matching instead.</p>
-        <p className="mt-4 rounded-xl border border-white/[0.08] bg-white/[0.02] p-4 text-sm leading-7 text-muted-foreground">Configuration → playlist download or authentication → channel groups → channels → on-demand content where supplied → EPG → playback test</p>
+        <p className="mt-4 rounded-xl border border-white/[0.08] bg-white/[0.02] p-4 text-base sm:text-sm leading-7 text-muted-foreground">Configuration → playlist download or authentication → channel groups → channels → on-demand content where supplied → EPG → playback test</p>
       </section>
       <section><h2 className={h2}>Advanced vs Light Player in IPTV Extreme</h2>
         <p className={p}>Google Play lists two integrated player modes, <strong className="text-foreground">Advanced</strong> and <strong className="text-foreground">Light</strong>. If a channel plays in one mode but not the other, that is useful evidence of playback compatibility. It does not prove a particular codec problem, and switching modes is not a universal cure for buffering. Compare the same channel in both modes before changing provider settings.</p>

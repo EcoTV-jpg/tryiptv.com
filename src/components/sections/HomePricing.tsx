@@ -120,7 +120,7 @@ export function HomePricing() {
                 <span className="text-sm font-medium text-muted-foreground">{plan.suffix}</span>
               </div>
 
-              <p className="mt-3 flex min-h-6 flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+              <p className="mt-3 flex min-h-6 flex-wrap items-center gap-x-2 gap-y-1 text-base sm:text-sm text-muted-foreground">
                 {plan.monthlyEquivalent ? (
                   <>
                     <span className="font-medium text-foreground">{plan.monthlyEquivalent}</span>
@@ -144,7 +144,7 @@ export function HomePricing() {
                 </Button>
               </div>
 
-              <ul className="mt-6 space-y-2.5 border-t border-white/[0.07] pt-6 text-sm text-muted-foreground">
+              <ul className="mt-6 space-y-2.5 border-t border-white/[0.07] pt-6 text-base text-muted-foreground sm:text-sm">
                 {INCLUDED_FEATURES.map((feature) => (
                   <li key={feature} className="flex items-start gap-2.5">
                     <CheckIcon className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
@@ -156,7 +156,7 @@ export function HomePricing() {
           ))}
         </div>
 
-        <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-6 text-muted-foreground">
+        <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
           Choosing a plan opens WhatsApp, where support sends payment instructions. Choose 1 month for short-term use, 3 months for a shorter commitment, 6 months for balanced value, or 12 months for the lowest monthly equivalent. See the{" "}
           <Link href="/refund-policy" className="font-medium text-foreground underline underline-offset-4 hover:text-primary">
             refund policy

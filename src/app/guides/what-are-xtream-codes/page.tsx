@@ -149,7 +149,7 @@ export default function WhatAreXtreamCodesPage() {
                 adopted across third-party IPTV software.
               </p>
               <p>
-                The main alternative is an <Link href="/guides/what-is-m3u" className="text-primary hover:underline">M3U playlist</Link>: M3U gives the player a list of stream URLs, while Xtream Codes gives it separate login fields and an API-style way to request organized data. The <Link href="/guides/m3u-vs-xtream-codes" className="text-primary hover:underline">M3U vs Xtream Codes guide</Link> compares the two methods without replacing this definition.
+                The main alternative is an <Link href="/guides/what-is-m3u" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">M3U playlist</Link>: M3U gives the player a list of stream URLs, while Xtream Codes gives it separate login fields and an API-style way to request organized data. The <Link href="/guides/m3u-vs-xtream-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">M3U vs Xtream Codes guide</Link> compares the two methods without replacing this definition.
               </p>
             </ArticleSummary>
 
@@ -193,7 +193,7 @@ export default function WhatAreXtreamCodesPage() {
                     Server URL
                   </h3>
                 </div>
-                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-3 text-base sm:text-sm leading-relaxed text-muted-foreground">
                   The base web address of the streaming server (e.g., <code>http://tv.example.com:8080</code>).
                   It points your player to the provider&apos;s API endpoint.
                 </p>
@@ -208,7 +208,7 @@ export default function WhatAreXtreamCodesPage() {
                     Username
                   </h3>
                 </div>
-                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-3 text-base sm:text-sm leading-relaxed text-muted-foreground">
                   Your unique account identifier assigned by your IPTV service provider to track your
                   subscription profile.
                 </p>
@@ -223,7 +223,7 @@ export default function WhatAreXtreamCodesPage() {
                     Password
                   </h3>
                 </div>
-                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-3 text-base sm:text-sm leading-relaxed text-muted-foreground">
                   The secret authentication token or passphrase associated with your account username.
                 </p>
               </div>
@@ -262,7 +262,7 @@ export default function WhatAreXtreamCodesPage() {
             />
 
             <ArticleProse>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base sm:text-sm text-muted-foreground">
                 <em>Note: The URL above is a sanitized illustrative example. Never share your active provider
                 credentials publicly.</em>
               </p>
@@ -421,7 +421,7 @@ export default function WhatAreXtreamCodesPage() {
               <h3 className="font-headline text-lg sm:text-xl font-bold text-foreground">
                 Connecting Your IPTV Service
               </h3>
-              <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-muted-foreground">
+              <p className="mt-2.5 text-base leading-relaxed text-muted-foreground">
                 Whether you prefer the structured navigation of an Xtream-compatible login or the simplicity of
                 an <Link href="/guides/m3u-vs-xtream-codes">M3U playlist</Link>, TryIPTV supports both connection methods. You can choose whichever format best
                 matches your preferred player application, operating system, and streaming hardware.

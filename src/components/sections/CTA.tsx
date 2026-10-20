@@ -44,7 +44,7 @@ export function CTA({
                 {eyebrow}
               </p>
             )}
-            <h2 className="font-headline text-[26px] font-bold leading-tight tracking-tight text-foreground sm:text-3xl lg:text-[34px]">
+            <h2 className="font-headline text-[length:clamp(1.625rem,1.336rem+1.233vw,2.125rem)] font-bold leading-tight tracking-tight text-foreground">
               {/* Keep hyphenated words like "24-Hour" on one line. */}
               {title.split(/(\S+-\S+)/).map((part, i) =>
                 i % 2 ? <span key={i} className="whitespace-nowrap">{part}</span> : part

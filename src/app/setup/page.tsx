@@ -339,7 +339,7 @@ export default function SetupPage() {
                 <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
                   What You Need Before Starting
                 </h2>
-                <p className="text-sm sm:text-base leading-relaxed text-muted-foreground mb-6">
+                <p className="text-base leading-relaxed text-muted-foreground mb-6">
                   Having everything prepared ensures a smooth, straightforward installation. Review this checklist before configuring your application.
                 </p>
                 <div className="rounded-xl border border-primary/20 bg-primary/[0.04] p-5 space-y-3">
@@ -347,7 +347,7 @@ export default function SetupPage() {
                     <ShieldCheck className="h-4 w-4" />
                     Security &amp; Account Protection
                   </div>
-                  <p className="text-xs leading-relaxed text-muted-foreground">
+                  <p className="text-base sm:text-xs leading-relaxed text-muted-foreground">
                     Never input your subscription credentials on public forums or unverified websites. Enter your details only into your chosen, trusted media player application on your local device.
                   </p>
                 </div>
@@ -441,7 +441,7 @@ export default function SetupPage() {
               <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
                 Choose Your Device
               </h2>
-              <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground max-w-xl">
+              <p className="mt-1.5 text-base sm:text-sm text-muted-foreground max-w-xl">
                 Select your streaming hardware below for a step-by-step installation walkthrough with device-specific menu navigation.
               </p>
             </div>
@@ -468,19 +468,19 @@ export default function SetupPage() {
                       </span>
                     </div>
                     <CardTitle as="h3" className="font-headline text-lg font-extrabold">
-                      <Link href={`/devices/${device.slug}`} className="hover:text-primary transition-colors">
+                      <Link href={`/devices/${device.slug}`} className="tap-target hover:text-primary transition-colors">
                         {device.name}
                       </Link>
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0 flex flex-col justify-between flex-1">
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-5">
+                    <p className="text-base sm:text-sm text-muted-foreground leading-relaxed mb-5">
                       {device.description}
                     </p>
                     <div className="pt-3 border-t border-white/[0.06] flex items-center justify-end">
                       <Link
                         href={`/devices/${device.slug}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
+                        className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
                       >
                         Read Setup Guide <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
@@ -502,7 +502,7 @@ export default function SetupPage() {
               <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
                 Choose an IPTV Player Application
               </h2>
-              <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground max-w-2xl">
+              <p className="mt-1.5 text-base sm:text-sm text-muted-foreground max-w-2xl">
                 TryIPTV supplies your stream access credentials. Independent media players decode and display the streams on your screen. You have complete freedom to choose the app that suits your preferences.
               </p>
             </div>
@@ -513,7 +513,7 @@ export default function SetupPage() {
             </Button>
           </div>
 
-          <div className="rounded-xl border border-white/[0.08] bg-[#0b0e0c] p-4 sm:p-5 mb-8 text-xs text-muted-foreground leading-relaxed">
+          <div className="rounded-xl border border-white/[0.08] bg-[#0b0e0c] p-4 sm:p-5 mb-8 text-base sm:text-xs text-muted-foreground leading-relaxed">
             <strong className="text-foreground font-semibold">Important Distinction:</strong> Third-party player applications (such as TiviMate, IPTV Smarters Pro, XCIPTV, and Televizo) are independent software tools built by external developers. TryIPTV does not own, develop, sell, or claim ownership over these applications. We provide configuration guides strictly as educational assistance.
           </div>
 
@@ -525,19 +525,19 @@ export default function SetupPage() {
                     {player.platforms}
                   </div>
                   <CardTitle as="h3" className="text-lg font-extrabold">
-                    <Link href={`/players/${player.slug}`} className="hover:text-primary transition-colors">
+                    <Link href={`/players/${player.slug}`} className="tap-target hover:text-primary transition-colors">
                       {player.name}
                     </Link>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-0 flex flex-col justify-between flex-1">
-                  <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                  <p className="text-base sm:text-xs text-muted-foreground leading-relaxed mb-4">
                     {player.description}
                   </p>
                   <div className="pt-2.5 border-t border-white/[0.06] flex items-center justify-end">
                     <Link
                       href={`/players/${player.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
+                      className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
                     >
                       Player Tutorial <ArrowRight className="h-3.5 w-3.5" />
                     </Link>
@@ -557,7 +557,7 @@ export default function SetupPage() {
             <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
               Xtream Codes vs. M3U Setup Explained
             </h2>
-            <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="mt-2 text-base sm:text-sm text-muted-foreground leading-relaxed">
               When activating an IPTV player, you will usually be prompted to choose between logging in with an Xtream Codes API or loading an M3U Playlist URL. Here is how they compare.
             </p>
           </div>
@@ -581,7 +581,7 @@ export default function SetupPage() {
                   <div><strong className="text-primary">Username:</strong> your_username</div>
                   <div><strong className="text-primary">Password:</strong> your_password</div>
                 </div>
-                <ul className="space-y-2 text-xs text-muted-foreground">
+                <ul className="space-y-2 text-base sm:text-xs text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                     <span>Faster initial playlist sync because data is queried on demand.</span>
@@ -596,7 +596,7 @@ export default function SetupPage() {
                   </li>
                 </ul>
                 <div className="pt-2 border-t border-white/[0.06]">
-                  <Link href="/guides/what-are-xtream-codes" className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                  <Link href="/guides/what-are-xtream-codes" className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
                     Read Xtream Codes Guide <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
@@ -619,7 +619,7 @@ export default function SetupPage() {
                 <div className="rounded-lg border border-white/[0.08] bg-[#101411] p-3 font-mono text-xs text-foreground/90 break-all">
                   <strong className="text-primary">M3U URL:</strong> https://domain/get.php?username=...&amp;password=...&amp;type=m3u_plus
                 </div>
-                <ul className="space-y-2 text-xs text-muted-foreground">
+                <ul className="space-y-2 text-base sm:text-xs text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                     <span>Universally supported by almost all media players (including VLC).</span>
@@ -634,7 +634,7 @@ export default function SetupPage() {
                   </li>
                 </ul>
                 <div className="pt-2 border-t border-white/[0.06]">
-                  <Link href="/guides/m3u-vs-xtream-codes" className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                  <Link href="/guides/m3u-vs-xtream-codes" className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
                     Compare M3U vs Xtream Codes <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
@@ -652,7 +652,7 @@ export default function SetupPage() {
             <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
               7-Step Universal Setup Walkthrough
             </h2>
-            <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="mt-2 text-base sm:text-sm text-muted-foreground leading-relaxed">
               While exact buttons and layout differ slightly between applications, this generic sequence applies to virtually all IPTV player software.
             </p>
           </div>
@@ -670,7 +670,7 @@ export default function SetupPage() {
                   <h3 className="font-headline text-base font-extrabold text-foreground mb-1">
                     {s.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-base sm:text-sm text-muted-foreground leading-relaxed">
                     {s.description}
                   </p>
                 </div>
@@ -697,7 +697,7 @@ export default function SetupPage() {
               <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
                 Having Setup or Playback Problems?
               </h2>
-              <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground max-w-xl">
+              <p className="mt-1.5 text-base sm:text-sm text-muted-foreground max-w-xl">
                 Most setup hurdles can be resolved by checking network stability, credential formatting, or decoder settings.
               </p>
             </div>
@@ -717,19 +717,19 @@ export default function SetupPage() {
                     Troubleshooting Guide
                   </div>
                   <CardTitle as="h3" className="text-base font-extrabold">
-                    <Link href={item.href} className="hover:text-primary transition-colors">
+                    <Link href={item.href} className="tap-target hover:text-primary transition-colors">
                       {item.problem}
                     </Link>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-0 flex flex-col justify-between flex-1">
-                  <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                  <p className="text-base sm:text-xs text-muted-foreground leading-relaxed mb-4">
                     {item.description}
                   </p>
                   <div className="pt-2.5 border-t border-white/[0.06] flex items-center justify-end">
                     <Link
                       href={item.href}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
+                      className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
                     >
                       Troubleshooting Steps <ArrowRight className="h-3.5 w-3.5" />
                     </Link>
@@ -749,13 +749,13 @@ export default function SetupPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-0 flex flex-col justify-between flex-1">
-                <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                <p className="text-base sm:text-xs text-muted-foreground leading-relaxed mb-4">
                   If you run into an issue that our self-help guides cannot resolve, contact our support desk via email or WhatsApp live chat.
                 </p>
                 <div className="pt-2.5 border-t border-white/[0.06] flex items-center justify-end">
                   <Link
                     href="/contact-us"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
+                    className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
                   >
                     Contact Support <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -775,7 +775,7 @@ export default function SetupPage() {
               <h2 className="font-headline text-xl sm:text-2xl font-extrabold text-foreground mb-3">
                 New to IPTV? Learn the Fundamentals
               </h2>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6">
+              <p className="text-base sm:text-sm text-muted-foreground leading-relaxed mb-6">
                 Understand how internet protocol television works under the hood. Our technical guides break down stream transmission, playlist formats, and API authentication in clear, accessible detail.
               </p>
             </div>
@@ -829,7 +829,7 @@ export default function SetupPage() {
               </Link>
             </div>
             <div className="mt-6 text-right">
-              <Link href="/guides" className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+              <Link href="/guides" className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
                 Explore All Educational Guides <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
@@ -859,7 +859,7 @@ export default function SetupPage() {
             <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
               Experience High-Definition IPTV Streaming
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-xs sm:text-sm leading-relaxed text-muted-foreground">
+            <p className="mx-auto mt-3 max-w-xl text-base sm:text-sm leading-relaxed text-muted-foreground">
               Test stream reliability, channel availability, and player compatibility with our 24-hour free trial (no credit card required), or explore transparent prepaid plans with 2 simultaneous connections.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">

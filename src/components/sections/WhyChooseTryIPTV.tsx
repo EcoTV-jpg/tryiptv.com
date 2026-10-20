@@ -62,7 +62,7 @@ export function WhyChooseTryIPTV() {
                   <h3 className="font-headline text-lg font-bold tracking-tight text-foreground sm:mt-5">
                     {benefit.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
                     {benefit.description}
                   </p>
                 </div>

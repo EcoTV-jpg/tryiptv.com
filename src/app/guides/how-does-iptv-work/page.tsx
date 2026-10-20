@@ -209,7 +209,7 @@ export default function HowDoesIptvWorkPage() {
                 dishes or cable company splitters), IPTV operates over the exact same broadband foundation that powers
                 websites, email, and video calls. For a broader conceptual overview of what IPTV offers, see our beginner guide
                 on{" "}
-                <Link href="/guides/what-is-iptv" className="text-primary hover:underline">
+                <Link href="/guides/what-is-iptv" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   what IPTV is
                 </Link>
                 . Below, we break down the end-to-end delivery pipeline.
@@ -258,7 +258,7 @@ export default function HowDoesIptvWorkPage() {
                   <span className="text-[10px] text-muted-foreground mt-0.5">Display Playback</span>
                 </div>
               </div>
-              <p className="mt-4 text-[11px] text-muted-foreground leading-relaxed text-center">
+              <p data-small-print className="mt-4 text-[11px] text-muted-foreground leading-relaxed text-center">
                 * Note: This diagram illustrates the generalized industry streaming pipeline. Exact network configurations differ by provider and player.
               </p>
             </div>
@@ -296,7 +296,7 @@ export default function HowDoesIptvWorkPage() {
                           {stage.title}
                         </h3>
                       </div>
-                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-base sm:text-sm text-muted-foreground leading-relaxed">
                         {stage.description}
                       </p>
                     </div>
@@ -326,11 +326,11 @@ export default function HowDoesIptvWorkPage() {
               <p>
                 TryIPTV does not own, develop, or sell third-party player applications. Instead, subscribers choose the player app
                 that best fits their hardware. You can explore our dedicated{" "}
-                <Link href="/players" className="text-primary hover:underline">
+                <Link href="/players" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   IPTV player directory
                 </Link>{" "}
                 or follow our step-by-step{" "}
-                <Link href="/setup" className="text-primary hover:underline">
+                <Link href="/setup" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   universal IPTV setup guide
                 </Link>{" "}
                 to connect them together.
@@ -352,7 +352,7 @@ export default function HowDoesIptvWorkPage() {
                 the service architecture, player, and stream format, the server verifies your account entitlement and active
                 connection limits, then returns categorized channel lists, on-demand libraries, and electronic program guide
                 data. For a deeper technical breakdown, read our guide on{" "}
-                <Link href="/guides/what-are-xtream-codes" className="text-primary hover:underline">
+                <Link href="/guides/what-are-xtream-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   what Xtream Codes are and how API logins operate
                 </Link>
                 .
@@ -369,11 +369,11 @@ export default function HowDoesIptvWorkPage() {
                 Because M3U is a universally recognized multimedia playlist standard dating back decades, it works on nearly every
                 media platform in existence, including lightweight players and desktop programs like VLC. To learn about header
                 directives and formatting standards, see our guide on{" "}
-                <Link href="/guides/what-is-m3u" className="text-primary hover:underline">
+                <Link href="/guides/what-is-m3u" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   what an M3U playlist is
                 </Link>
                 , or compare the trade-offs in our{" "}
-                <Link href="/guides/m3u-vs-xtream-codes" className="text-primary hover:underline">
+                <Link href="/guides/m3u-vs-xtream-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   M3U vs. Xtream Codes comparison
                 </Link>
                 .
@@ -432,7 +432,7 @@ export default function HowDoesIptvWorkPage() {
                 format, the player downloads schedule metadata separately—often using an XMLTV feed or Xtream-compatible API
                 endpoints—and correlates each channel with its program listings using identifiers such as a channel ID or{" "}
                 <code>tvg-id</code> tag. For step-by-step details on guide matching, explore our explainer on{" "}
-                <Link href="/guides/what-is-epg" className="text-primary hover:underline">
+                <Link href="/guides/what-is-epg" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   what an EPG is and how TV guides work
                 </Link>
                 .
@@ -464,7 +464,7 @@ export default function HowDoesIptvWorkPage() {
               </ul>
               <p>
                 If you encounter stream stuttering or freezing, work through our tested 8-step{" "}
-                <Link href="/help/iptv-buffering" className="text-primary hover:underline">
+                <Link href="/help/iptv-buffering" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   IPTV buffering troubleshooting checklist
                 </Link>
                 .
@@ -477,7 +477,7 @@ export default function HowDoesIptvWorkPage() {
               <ol>
                 <li>
                   <strong>A Stable Broadband Connection:</strong> While individual streams use 5–25 Mbps, we recommend plan speeds of at least 25 Mbps for 1080p Full HD and 50+ Mbps for 4K to leave ample headroom for household devices. For detailed bandwidth planning, see our complete guide on{" "}
-                  <Link href="/guides/iptv-internet-speed" className="text-primary hover:underline">
+                  <Link href="/guides/iptv-internet-speed" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     IPTV internet speed requirements
                   </Link>
                   . A wired Ethernet cable is often preferred over Wi-Fi when possible.
@@ -485,7 +485,7 @@ export default function HowDoesIptvWorkPage() {
                 <li>
                   <strong>A Compatible Device:</strong> Amazon Fire TV Stick, Android TV box, Smart TV (Samsung or LG), Apple TV, Windows PC,
                   Mac, or mobile device. Browse our{" "}
-                  <Link href="/devices" className="text-primary hover:underline">
+                  <Link href="/devices" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     device compatibility directory
                   </Link>{" "}
                   for platform tutorials.
@@ -507,7 +507,7 @@ export default function HowDoesIptvWorkPage() {
                 <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
                   Frequently Asked Questions
                 </h2>
-                <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                <p className="mt-2 text-base sm:text-sm text-muted-foreground leading-relaxed">
                   Clear answers to common questions about IPTV streaming architecture, hardware requirements, and playback methods.
                 </p>
               </div>
@@ -520,7 +520,7 @@ export default function HowDoesIptvWorkPage() {
               <h2 className="font-headline text-xl sm:text-2xl font-extrabold text-foreground">
                 Ready to Configure Your IPTV Setup?
               </h2>
-              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">
                 Now that you understand the underlying streaming pipeline, follow our universal setup guide to activate your
                 device. TryIPTV includes {PRODUCT_TRUTHS.connections} simultaneous connections across prepaid plans with no recurring
                 contracts, and offers a {PRODUCT_TRUTHS.trialDuration.toLowerCase()} free evaluation trial ($0, no credit card required).

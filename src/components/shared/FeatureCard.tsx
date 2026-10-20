@@ -38,7 +38,7 @@ export function FeatureCard({
       <h3 className="font-headline text-[18px] sm:text-[19px] font-semibold leading-snug text-foreground">
         {title}
       </h3>
-      <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+      <p className="mt-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
         {description}
       </p>
     </div>

@@ -148,7 +148,7 @@ export default function WhatIsM3uPage() {
                 IPTV applications.
               </p>
               <p>
-                M3U is a playlist format, while <Link href="/guides/what-are-xtream-codes" className="text-primary hover:underline">Xtream Codes</Link> is a structured login method that many IPTV players use to request channel and guide data. For the practical choice between them, see the <Link href="/guides/m3u-vs-xtream-codes" className="text-primary hover:underline">M3U vs Xtream Codes comparison</Link>.
+                M3U is a playlist format, while <Link href="/guides/what-are-xtream-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">Xtream Codes</Link> is a structured login method that many IPTV players use to request channel and guide data. For the practical choice between them, see the <Link href="/guides/m3u-vs-xtream-codes" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">M3U vs Xtream Codes comparison</Link>.
               </p>
             </ArticleSummary>
 
@@ -221,8 +221,8 @@ export default function WhatIsM3uPage() {
             </ArticleProse>
 
             {/* Standards vs IPTV Table */}
-            <div className="my-6 overflow-x-auto rounded-xl border border-white/[0.08] bg-[#07080a]">
-              <table className="w-full text-left text-sm">
+            <div className="my-6 overflow-x-auto rounded-xl border border-white/[0.08] bg-[#07080a]" tabIndex={0} role="region" aria-label="M3U standards table">
+              <table className="w-full min-w-[32rem] text-left text-sm">
                 <thead className="border-b border-white/[0.08] bg-white/[0.02] text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   <tr>
                     <th className="px-4 py-3">Directive / Field</th>
@@ -326,7 +326,7 @@ export default function WhatIsM3uPage() {
                     ↳ HLS .m3u8 playlist<br />
                     ↳ Media segments (.ts / .m4s)
                   </p>
-                  <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                  <p className="mt-3 text-base sm:text-xs leading-relaxed text-muted-foreground">
                     The playlist entry points to an HTTP Live Streaming manifest, which supplies segmented chunks for playback.
                   </p>
                 </div>
@@ -336,7 +336,7 @@ export default function WhatIsM3uPage() {
                     M3U channel directory<br />
                     ↳ Direct MPEG-TS stream URL
                   </p>
-                  <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                  <p className="mt-3 text-base sm:text-xs leading-relaxed text-muted-foreground">
                     The playlist entry points directly to a continuous MPEG Transport Stream connection without an intermediate segment manifest.
                   </p>
                 </div>
@@ -487,7 +487,7 @@ export default function WhatIsM3uPage() {
               <h3 className="font-headline text-lg sm:text-xl font-bold text-foreground">
                 Flexible Playlist Integration
               </h3>
-              <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-muted-foreground">
+              <p className="mt-2.5 text-base leading-relaxed text-muted-foreground">
                 TryIPTV provides both <Link href="/guides/m3u-vs-xtream-codes">Extended M3U playlist URLs and Xtream-compatible API logins</Link>.
                 Whether you are using a dedicated television app like TiviMate or a media player like VLC, you
                 can choose the connection format that best suits your player application and hardware setup.

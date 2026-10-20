@@ -234,11 +234,11 @@ export default function IptvVsCablePage() {
                 For decades, cable television was the undisputed standard for residential entertainment, providing high-reliability linear broadcasts
                 through dedicated municipal wiring. Over the last decade, high-speed broadband expansion has made packetized video delivery practical
                 for mainstream households. For an architectural explanation of foundational technologies, see our explainer on{" "}
-                <Link href="/guides/what-is-iptv" className="text-primary hover:underline">
+                <Link href="/guides/what-is-iptv" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   what IPTV is
                 </Link>{" "}
                 and our detailed walkthrough of{" "}
-                <Link href="/guides/how-does-iptv-work" className="text-primary hover:underline">
+                <Link href="/guides/how-does-iptv-work" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   how IPTV works from server to screen
                 </Link>
                 .
@@ -254,8 +254,8 @@ export default function IptvVsCablePage() {
 
             {/* Comparison Table */}
             <div className="my-8 overflow-hidden rounded-xl border border-white/[0.08] bg-[#070908] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs sm:text-sm">
+              <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="IPTV vs cable comparison table">
+                <table className="w-full min-w-[36rem] text-left text-xs sm:text-sm">
                   <thead className="border-b border-white/[0.08] bg-white/[0.02] text-primary font-mono uppercase tracking-wider text-[11px]">
                     <tr>
                       <th className="p-3.5 sm:p-4 w-[22%]">Feature</th>
@@ -284,7 +284,7 @@ export default function IptvVsCablePage() {
                   </tbody>
                 </table>
               </div>
-              <p className="p-3.5 text-center text-[11px] text-muted-foreground border-t border-white/[0.06]">
+              <p data-small-print className="p-3.5 text-center text-[11px] text-muted-foreground border-t border-white/[0.06]">
                 * Practical comparison guidelines. Specific features and terms vary across cable operators and independent IPTV providers.
               </p>
             </div>
@@ -323,7 +323,7 @@ export default function IptvVsCablePage() {
                   <strong className="text-foreground font-semibold">Bandwidth Requirements:</strong> While individual streams typically consume
                   4–15 Mbps depending on resolution and frame rate, household networks need surplus headroom to absorb background traffic and
                   Wi-Fi fluctuations. For detailed speed planning benchmarks across resolutions, explore our guide on{" "}
-                  <Link href="/guides/iptv-internet-speed" className="text-primary hover:underline">
+                  <Link href="/guides/iptv-internet-speed" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     IPTV internet speed requirements
                   </Link>
                   .
@@ -348,7 +348,7 @@ export default function IptvVsCablePage() {
                   <div className="flex items-center gap-2 mb-2 text-primary font-bold text-sm">
                     <Tv className="h-4 w-4" /> IPTV Hardware
                   </div>
-                  <ul className="text-xs sm:text-sm text-muted-foreground space-y-1.5 list-disc pl-4">
+                  <ul className="text-base sm:text-sm text-muted-foreground space-y-1.5 list-disc pl-4">
                     <li>Many independent services run on existing Smart TVs (Samsung, LG, Android TV)</li>
                     <li>Supports compact streaming sticks (Firestick, Apple TV, Chromecast)</li>
                     <li>Compatible with desktop PCs, Macs, tablets, and phones</li>
@@ -359,7 +359,7 @@ export default function IptvVsCablePage() {
                   <div className="flex items-center gap-2 mb-2 text-amber-400 font-bold text-sm">
                     <Cable className="h-4 w-4" /> Cable TV Hardware
                   </div>
-                  <ul className="text-xs sm:text-sm text-muted-foreground space-y-1.5 list-disc pl-4">
+                  <ul className="text-base sm:text-sm text-muted-foreground space-y-1.5 list-disc pl-4">
                     <li>Equipment requirements vary by operator (provider boxes, DVR units, or gateways)</li>
                     <li>Often utilizes physical coaxial cabling routed to primary televisions</li>
                     <li>Additional screens may require extra mini-boxes or supported smart TV apps</li>
@@ -369,11 +369,11 @@ export default function IptvVsCablePage() {
               </div>
               <p>
                 For instructions on configuring compatible hardware, review our{" "}
-                <Link href="/setup" className="text-primary hover:underline">
+                <Link href="/setup" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   universal IPTV setup hub
                 </Link>{" "}
                 or browse our platform-specific tutorials in the{" "}
-                <Link href="/devices" className="text-primary hover:underline">
+                <Link href="/devices" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   device guides directory
                 </Link>
                 .
@@ -396,7 +396,7 @@ export default function IptvVsCablePage() {
                   (monthly recurring plans, multi-month packages, or credit-based systems). TryIPTV specifically operates on flat prepaid terms with no
                   automatic renewal, no equipment rental fees, and no cancellation penalties, starting at $16 for 1 month and $90 prepaid for 12 months
                   (equivalent to $7.50/month). See details on our{" "}
-                  <Link href="/pricing" className="text-primary hover:underline">
+                  <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     prepaid plans page
                   </Link>
                   .
@@ -422,7 +422,7 @@ export default function IptvVsCablePage() {
                 Traditional cable systems multiplex channels across available network bandwidth, with compression varying by operator. IPTV services
                 can deliver high-bitrate Full HD and 4K streams, but real-world clarity and smoothness depend directly on continuous broadband stability
                 and device decoding performance. For bandwidth benchmarks across resolutions, consult our guide on{" "}
-                <Link href="/guides/iptv-internet-speed" className="text-primary hover:underline">
+                <Link href="/guides/iptv-internet-speed" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   IPTV internet speed requirements
                 </Link>
                 .
@@ -476,27 +476,27 @@ export default function IptvVsCablePage() {
                 To determine which television model best matches your household, evaluate these six practical criteria:
               </p>
               <div className="my-6 space-y-3">
-                <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-xs sm:text-sm">
+                <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-base sm:text-sm">
                   <div className="font-bold text-foreground mb-1">1. Internet Infrastructure</div>
                   <p className="text-muted-foreground">If your home broadband is reliable and offers 25+ Mbps, IPTV is technically viable. If your internet is slow, inconsistent, or capped, cable provides superior stability.</p>
                 </div>
-                <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-xs sm:text-sm">
+                <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-base sm:text-sm">
                   <div className="font-bold text-foreground mb-1">2. Hardware Preference</div>
                   <p className="text-muted-foreground">If you prefer using streaming sticks or Smart TVs on multiple screens without monthly hardware fees, IPTV excels. If you require traditional numeric remotes, cable is simpler.</p>
                 </div>
-                <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-xs sm:text-sm">
+                <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-base sm:text-sm">
                   <div className="font-bold text-foreground mb-1">3. Household Mobility</div>
                   <p className="text-muted-foreground">If family members want to watch on laptops, phones, or while traveling, internet-based services may provide greater flexibility, subject to provider rules and network quality.</p>
                 </div>
-                <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-xs sm:text-sm">
+                <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-base sm:text-sm">
                   <div className="font-bold text-foreground mb-1">4. Contract &amp; Billing Preference</div>
                   <p className="text-muted-foreground">If you prefer prepaid terms without auto-renewal, certain IPTV services fit that model. If you prefer consolidated billing from a local telecom, cable fits that model.</p>
                 </div>
-                <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-xs sm:text-sm">
+                <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-base sm:text-sm">
                   <div className="font-bold text-foreground mb-1">5. Setup Comfort Level</div>
                   <p className="text-muted-foreground">If you are comfortable installing apps and entering login credentials, software-based IPTV setup can often be completed without a technician. If you prefer plug-and-play hardware installed by a technician, cable is stress-free.</p>
                 </div>
-                <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-xs sm:text-sm">
+                <div className="rounded-lg border border-white/[0.08] bg-[#070908] p-4 text-base sm:text-sm">
                   <div className="font-bold text-foreground mb-1">6. Content &amp; Local Broadcasts</div>
                   <p className="text-muted-foreground">Confirm that your preferred sports channels and regional programming are supported by your prospective provider before making a transition.</p>
                 </div>
@@ -510,7 +510,7 @@ export default function IptvVsCablePage() {
                 <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
                   Frequently Asked Questions
                 </h2>
-                <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                <p className="mt-2 text-base sm:text-sm text-muted-foreground leading-relaxed">
                   Balanced answers to common questions about switching between IPTV and cable TV, equipment needs, and performance.
                 </p>
               </div>
@@ -523,7 +523,7 @@ export default function IptvVsCablePage() {
               <h2 className="font-headline text-xl sm:text-2xl font-extrabold text-foreground">
                 Experience IPTV on Your Devices
               </h2>
-              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">
                 Evaluate stream performance and device compatibility directly with our full-access 24-hour trial ($0, no credit card required).
                 Every TryIPTV plan includes {PRODUCT_TRUTHS.connections} simultaneous connections across flat prepaid terms with no recurring contracts.
               </p>
