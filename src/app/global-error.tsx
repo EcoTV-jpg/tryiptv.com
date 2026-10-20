@@ -9,8 +9,13 @@ export default function GlobalError({
   error: Error & { digest?: string };
 }) {
   useEffect(() => {
-    // Imported on demand so the Sentry SDK stays out of the initial client bundle.
-    import("@/lib/sentry-client").then((Sentry) => Sentry.captureException(error));
+    // Imported on demand so the Sentry SDK stays out of the initial client bundle. Sentry starts on
+    // first interaction or 10 s after load (instrumentation-client.ts); before that there is no
+    // client, so the error goes to the early-error buffer, which is replayed once Sentry starts.
+    import("@/lib/sentry-client").then((Sentry) => {
+      if (Sentry.getClient()) Sentry.captureException(error);
+      else window.dispatchEvent(new ErrorEvent("error", { error, message: error.message }));
+    });
   }, [error]);
 
   return (
