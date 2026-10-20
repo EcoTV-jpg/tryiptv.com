@@ -10,7 +10,7 @@ export default function GlobalError({
 }) {
   useEffect(() => {
     // Imported on demand so the Sentry SDK stays out of the initial client bundle.
-    import("@sentry/nextjs").then((Sentry) => Sentry.captureException(error));
+    import("@/lib/sentry-client").then((Sentry) => Sentry.captureException(error));
   }, [error]);
 
   return (

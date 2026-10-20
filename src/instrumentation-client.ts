@@ -15,7 +15,7 @@ window.addEventListener("error", onError);
 window.addEventListener("unhandledrejection", onRejection);
 
 function initSentry() {
-  import("@sentry/nextjs").then((Sentry) => {
+  import("@/lib/sentry-client").then((Sentry) => {
     Sentry.init({
       dsn: "https://2c6b3d1af5286155f96e3cc65959938f@o4512229364072448.ingest.us.sentry.io/4512229368266752",
 
