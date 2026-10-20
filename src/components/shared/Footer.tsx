@@ -92,9 +92,11 @@ export function Footer() {
       {/* Extra bottom padding on phones so the fixed chat button never covers the last footer row. */}
 
       <Container>
-        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 lg:gap-8">
+        {/* Touch phones (<640px): link lists sit two per row (the footer's own sm layout) so the
+            44px touch rows don't make the footer taller than the original; mouse layouts unchanged. */}
+        <div className="grid gap-8 pointer-coarse:max-sm:grid-cols-2 pointer-coarse:max-sm:gap-x-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 lg:gap-8">
           {/* Brand statement */}
-          <div className="sm:col-span-2 md:col-span-3 lg:col-span-4">
+          <div className="pointer-coarse:max-sm:col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-4">
             <Logo />
             <p className="mt-3.5 max-w-sm text-base leading-relaxed text-muted-foreground/90 sm:text-[13.5px]">
               Premium live TV and on-demand entertainment, built for the devices you already use. Prepaid access with 25,000+ live channels worldwide and 120,000+ movies and TV shows.
