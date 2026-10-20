@@ -10,9 +10,9 @@ import { GuideScreenshot } from "@/components/guide";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "TiviMate IPTV Player Setup Guide: Install, M3U & Xtream Codes";
+const title = "How to Install IPTV on TiviMate";
 const description =
-  "Install TiviMate on Android TV, Google TV, or Fire TV, then add Xtream Codes or an M3U playlist, set up the EPG, and fix common playback and login issues.";
+  "Step-by-step guide to install and set up IPTV on TiviMate for Android TV and Fire TV Stick using Xtream Codes or an M3U playlist, plus EPG setup and fixes.";
 const canonical = "/players/tivimate";
 // Shorter search-result title; `title` stays the article headline.
 const seoTitle = "TiviMate Setup Guide: M3U, Xtream Codes & EPG on Fire TV";
@@ -27,7 +27,7 @@ export function generateMetadata(): Metadata {
 const articleSchema = generateArticleSchema({
   headline: title,
   description,
-  dateModified: "2026-10-12",
+  dateModified: "2026-10-20",
   url: `${SITE_URL}${canonical}`,
 });
 
@@ -53,10 +53,13 @@ export default function TivimatePage() {
           <Breadcrumb items={[{ label: "Players", href: "/players" }, { label: "TiviMate" }]} />
           <div className="mt-8 max-w-3xl">
             <h1 className="font-headline text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              TiviMate IPTV Player Setup Guide: Install, M3U &amp; Xtream Codes
+              How to Install IPTV on TiviMate
             </h1>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              TiviMate is an IPTV media player, not a source of channels or subscriptions. You need your own compatible playlist or login details from an IPTV provider. Install TiviMate, add an Xtream Codes login or M3U playlist, then allow channels and any available EPG data to load.
+              Step-by-step guide to install and set up IPTV on TiviMate for Android TV and Fire TV Stick, using Xtream Codes or an M3U playlist.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              TiviMate is one of the most advanced and easiest IPTV players to use, with a smooth, modern interface built for big-screen Android devices, and a top choice among Android IPTV apps. It is a player, not a source of channels: you add the playlist or login details from your IPTV provider. Its focus is live TV; movies and series depend on your app version and your provider&apos;s playlist, so check them on your setup.
             </p>
             <GuideByline path="/players/tivimate" />
           </div>
@@ -73,6 +76,27 @@ export default function TivimatePage() {
               </p>
               <p className={textClass}>
                 The official app listing confirms support for M3U, Xtream Codes, and Stalker Portal. If you only have a provider website login, ask the provider which playlist method to use. <Link href="/guides/what-are-xtream-codes" className={linkClass}>Xtream Codes credentials</Link> are one common option.
+              </p>
+            </section>
+
+            <section>
+              <h2 className={headingClass}>TiviMate Key Features</h2>
+              <ul className="mt-4 list-disc space-y-2 pl-6 text-base leading-relaxed text-muted-foreground">
+                <li>Modern user interface built for large screens and remote control</li>
+                <li>Multiple playlist support</li>
+                <li>Scheduled TV guide (EPG) updates</li>
+                <li>Favorite channels</li>
+                <li>Catch-up support, where your provider offers it</li>
+                <li>Subtitles and audio track switching</li>
+                <li>Program recording</li>
+              </ul>
+              <p className={textClass}>Some of these, such as recording and multiple playlists, need TiviMate Premium (see below).</p>
+            </section>
+
+            <section>
+              <h2 className={headingClass}>TiviMate Download and Pricing</h2>
+              <p className={textClass}>
+                TiviMate is available for Android TV, Google TV, and Fire TV Stick devices. A free, limited version is in the Google Play Store, and Fire TV users install the official APK (steps below). TiviMate Premium is a paid upgrade, sold yearly or as a one-time lifetime purchase, that unlocks features such as recording and multiple playlists. Prices vary by region and change over time, so check the current price in TiviMate&apos;s own purchase flow before buying. Premium is paid to TiviMate&apos;s developer and is separate from your IPTV subscription.
               </p>
             </section>
 
@@ -101,6 +125,18 @@ export default function TivimatePage() {
                 <li>Open TiviMate and add the playlist details from your IPTV provider.</li>
               </ol>
               <p className={textClass}>See the <Link href="/devices/firestick-iptv" className={linkClass}>Firestick setup guide</Link> for device-specific preparation. Some newer Fire OS interfaces use different controls, so follow the settings shown on your device.</p>
+            </section>
+
+            <section>
+              <h2 className={headingClass}>How to Set Up TiviMate in 3 Steps</h2>
+              <ol className={listClass}>
+                <li><strong className="text-foreground">Add a playlist.</strong> Launch the app and select <strong className="text-foreground">Add Playlist</strong>. Choose a local M3U file, a remote playlist by URL, or log in with Xtream Codes.</li>
+                <li><strong className="text-foreground">Enter your connection details.</strong> Type the Xtream Codes server URL, username and password (or the M3U URL) from your IPTV provider and continue.</li>
+                <li><strong className="text-foreground">Name your playlist.</strong> TiviMate fills in the server domain as the playlist name; change it to anything you like, then finish setup.</li>
+              </ol>
+              <p className={textClass}>
+                Once added, you can browse the channel list, open the full program guide, switch audio tracks, turn on subtitles, and manage your channels. The sections below cover each login method in detail.
+              </p>
             </section>
 
             <section>

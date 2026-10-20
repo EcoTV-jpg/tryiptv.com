@@ -65,7 +65,7 @@ export const SITE_ROUTES: SiteRoute[] = [
   // ── Players hub + player pages ────────────────────────────────────────────
   { path: '/players',                section: 'players', indexable: true,  lastModified: '2026-10-04' },
   { path: '/players/iptv-smarters',  section: 'players', indexable: true,  lastModified: '2026-10-04' },
-  { path: '/players/tivimate',       section: 'players', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/players/tivimate',       section: 'players', indexable: true,  lastModified: '2026-10-20' },
   { path: '/players/xciptv',         section: 'players', indexable: true,  lastModified: '2026-10-04' },
   { path: '/players/televizo',       section: 'players', indexable: true,  lastModified: '2026-10-04' },
   { path: '/players/perfect-player', section: 'players', indexable: true,  lastModified: '2026-10-04' },
