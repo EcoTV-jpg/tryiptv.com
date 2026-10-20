@@ -380,16 +380,20 @@ Badge (ui/badge.tsx:7, unused live): `rounded-full border px-2.5 py-0.5 text-xs 
 
 These were approved by the owner during the design QA (see AUDIT_REPORT.md) and are part of the lock from now on.
 
-| Addition | Rule | Where |
-|---|---|---|
-| Mobile body text | Running body copy is `text-base` (16px) below 640px and returns to its original size from `sm:` up. Labels, eyebrows, badges, captions (marked `data-small-print`) and table cells keep their original sizes. | ~60 page/component files |
-| Inline links | Option A: `text-primary underline decoration-primary/40 underline-offset-4`, full-primary underline on hover. Class-less CMS links get the same treatment in globals.css. | guides, help, players, about, globals.css |
-| Touch targets | On `pointer: coarse`, interactive elements are at least 44×44px: isolated text links use the `tap-target` utility (invisible hit area); stacked/wrapping links become 44px rows with no gap; mouse/trackpad layouts are unchanged. | button.tsx, Footer, Breadcrumb, InternalLinks, players, pricing, free-trial |
-| Form fields | `text-base` (16px) on touch to prevent iOS zoom, `text-sm` with a fine pointer; 44px min height on touch. | ui/input.tsx, ui/textarea.tsx |
-| Error text | `text-red-400` for form error text (the `--destructive` token stays for backgrounds/borders). | ContactForm, ContactSheetForm |
-| Stacked table labels | Mobile stacked rows repeat the column header via `data-label` + `::before` (no HTML text); header row from `sm:` up. | guides/what-is-iptv, guides/m3u-vs-xtream-codes, help/iptv-not-working |
-| Browser theme color | `theme-color` is `#040506` (body background) for both OS color schemes. | layout.tsx viewport |
-| Viewport | `viewport-fit=cover`; Container side padding is `max(original padding, env(safe-area-inset-*))`. | layout.tsx, Container.tsx |
+| Addition | Rule | Where | Approved by |
+|---|---|---|---|
+| Mobile body text | Running body copy is `text-base` (16px) below 640px and returns to its original size from `sm:` up. Labels, eyebrows, badges, captions (marked `data-small-print`) and table cells keep their original sizes. Card titles are never smaller than their body. | ~60 page/component files | Owner decision "16px mobile body text: APPROVED"; consistency fixes R-06, R-07 |
+| Inline links | Option A: `text-primary underline decoration-primary/40 underline-offset-4`, full-primary underline on hover. Class-less CMS links get the same treatment in globals.css. | guides, help, players, about, globals.css | Owner decision "Link style: Option A"; unification R-11 |
+| Touch targets | On `pointer: coarse`, interactive elements are at least 44×44px: isolated text links use the `tap-target` utility (invisible hit area, dropped on focus); stacked/wrapping links become 44px rows with no gap; mouse/trackpad layouts are unchanged. | button.tsx, Footer, Breadcrumb, InternalLinks, players, pricing, free-trial, toast | Original brief rule 7; R-02 (via D2), R-05, R-08 (via D5), R-09, P-30 |
+| Form fields | `text-base` (16px) on touch to prevent iOS zoom, `text-sm` with a fine pointer; 44px min height on touch. | ui/input.tsx, ui/textarea.tsx | Original brief rule 11; first-pass edit kept under "Everything else: keep" (audited acceptable by Agent 1) |
+| Error text | `text-red-400` for form error text (the `--destructive` token stays for backgrounds/borders). | ContactForm, ContactSheetForm | P-01 |
+| Stacked table labels | Mobile stacked rows repeat the column header via `data-label` + `::before` (no HTML text); header row from `sm:` up. | guides/what-is-iptv, guides/m3u-vs-xtream-codes, help/iptv-not-working | Owner decision 1 (what-is-iptv labels via CSS); P-14 |
+| Browser theme color | `theme-color` is `#040506` (body background) for both OS color schemes. | layout.tsx viewport | P-25 (owner decision) |
+| Viewport and notch | `viewport-fit=cover`; Container side padding is `max(original padding, env(safe-area-inset-*))`. | layout.tsx, Container.tsx | Owner decision 2 (viewportFit); R-03 |
+| Focus clearance | `html { scroll-padding-top: 5.5rem }` keeps focused elements below the sticky header; non-interactive `#anchor` targets cancel it so anchor jumps land on the original pixel; explicit `scroll-mt-*` reduced by 5.5rem. | globals.css, 19 scroll-mt sites | P-04 (via D3) and owner follow-up "exact same pixel as the original" |
+| Reduced motion | Under `prefers-reduced-motion`, Radix `[data-state]` animations/transitions run in 1ms. | globals.css | P-20 |
+| Viewport height | `.min-h-viewport` = `100dvh` (the 100vh source fallback is dropped by Lightning CSS; all targets support dvh). | globals.css, layout.tsx | Original brief rule 8; R-12 (comment corrected) |
+| Status colours | `purple-400` and `cyan-400` (text, /20 border, /10 background) are part of the palette (they were in the original, missing from §1f). | §1f | P-13 |
 
 ## Identity summary
 1. Forced-dark, near-black green-tinted canvas (#040506 body, #07080a / bg-card #090c0a surfaces) with a faint top radial green wash.
