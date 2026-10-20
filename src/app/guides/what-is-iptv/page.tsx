@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "What Is IPTV? A Clear Beginner's Guide";
+const title = "What Is IPTV? A Clear Beginner's Guide to Internet TV";
 const description =
   "Learn what IPTV means, how internet-based TV differs from cable or satellite, and how playlists, players, EPG data, and devices fit together.";
 const canonical = "/guides/what-is-iptv";

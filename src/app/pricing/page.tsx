@@ -13,9 +13,9 @@ import { getPricingPageData } from "@/lib/data/pricing-page";
 import { plans } from "@/lib/site-data/pricing";
 
 export function generateMetadata(): Metadata {
-  const title = "TryIPTV Pricing: Prepaid IPTV Plans From $16";
+  const title = "IPTV Subscription Plans & Pricing From $16 | TryIPTV";
   const description =
-    "Compare TryIPTV prepaid plans from $16 to $90. Choose 1, 3, 6, or 12 months with 2 simultaneous connections, no automatic renewal, and a 24-hour free trial.";
+    "Compare TryIPTV prepaid plans from $16 to $90 for 1, 3, 6, or 12 months, with 2 connections and no auto-renewal. Start with a 24-hour free trial today.";
 
   return {
     ...generatePageMetadata({ title, description, canonical: "/pricing" }),
@@ -169,6 +169,19 @@ export default async function IPTVSubscription() {
                 <Check className="h-3.5 w-3.5 text-primary" /> {fact}
               </div>
             ))}
+          </div>
+          {/* Above-the-fold CTAs (same buttons as the homepage hero): the plan cards start below the fold. */}
+          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:justify-center">
+            <Button asChild>
+              <Link href="#pricing-plans">
+                Compare Plans <ArrowRight aria-hidden />
+              </Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/iptv-free-trial">
+                <CirclePlay aria-hidden /> Start Free Trial
+              </Link>
+            </Button>
           </div>
         </Container>
       </Section>

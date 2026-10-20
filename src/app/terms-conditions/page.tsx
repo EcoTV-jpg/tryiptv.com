@@ -10,8 +10,8 @@ import { PAGE_LAST_MODIFIED, formatLegalDate } from "@/lib/site-data/page-modifi
 
 export function generateMetadata(): Metadata {
   return generatePageMetadata({
-    title: "Terms & Conditions",
-    description: "Read the service terms and acceptable use guidelines governing your TryIPTV subscription and service usage.",
+    title: "Terms & Conditions: Subscriptions, Payments & Use",
+    description: "Read the TryIPTV terms on subscriptions, device connections, prepaid payments, and acceptable use. Review them before you start a trial or place an order.",
     canonical: "/terms-conditions",
   });
 }

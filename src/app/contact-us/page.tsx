@@ -18,11 +18,14 @@ import { generateMetadata as generatePageMetadata } from '@/lib/site-config';
 import { Mail, MessageCircle, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export function generateMetadata(): Metadata {
-    return generatePageMetadata({
-        title: "Contact Us",
-        description: "Get in touch with the TryIPTV team. Whether you have questions about device setup, channels, or subscriptions, our support desk is ready to help.",
-        canonical: "/contact-us",
-    });
+    return {
+      ...generatePageMetadata({
+          title: "Contact TryIPTV Support: WhatsApp, Email & Setup Help",
+          description: "Contact TryIPTV support on WhatsApp, by email, or with the form for help with setup, billing, the free trial, or your account. Send us your question today.",
+          canonical: "/contact-us",
+      }),
+      title: { absolute: "Contact TryIPTV Support: WhatsApp, Email & Setup Help" },
+    };
 }
 
 export default async function ContactPage() {

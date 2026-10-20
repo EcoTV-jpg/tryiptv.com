@@ -9,11 +9,14 @@ import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site
 import { PAGE_LAST_MODIFIED, formatLegalDate } from "@/lib/site-data/page-modifications";
 
 export function generateMetadata(): Metadata {
-  return generatePageMetadata({
-    title: "DMCA Notice & Copyright Policy",
-    description: "Submit copyright infringement notifications and review TryIPTV's DMCA takedown procedures and compliance contact.",
-    canonical: "/dmca-report",
-  });
+  return {
+    ...generatePageMetadata({
+      title: "DMCA Notice & Copyright Policy: Report Infringement",
+      description: "Read the TryIPTV DMCA and copyright policy: what a valid infringement notice must include, how takedown requests are handled, and where to send yours.",
+      canonical: "/dmca-report",
+    }),
+    title: { absolute: "DMCA Notice & Copyright Policy: Report Infringement" },
+  };
 }
 
 export default function DmcaReportPage() {

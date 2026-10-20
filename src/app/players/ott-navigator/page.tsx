@@ -9,7 +9,7 @@ import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-c
 
 const title = "OTT Navigator IPTV Setup Guide: M3U, Xtream Codes & Fixes";
 const description =
-  "Set up OTT Navigator with M3U or Xtream Codes, check EPG and connection limits, and diagnose 401, 403, playlist, and playback problems.";
+  "Set up OTT Navigator with an M3U playlist or Xtream Codes login, check EPG and connection limits, and diagnose 401, 403, playlist, and playback errors.";
 const canonical = "/players/ott-navigator";
 
 export function generateMetadata(): Metadata {

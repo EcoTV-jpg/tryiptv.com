@@ -10,10 +10,10 @@ import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-c
 
 const title = "TiviMate IPTV Player Setup Guide: Install, M3U & Xtream Codes";
 const description =
-  "Install and set up TiviMate on Android TV, Google TV or Fire TV. Add Xtream Codes or M3U, configure EPG, and troubleshoot common issues.";
+  "Install TiviMate on Android TV, Google TV, or Fire TV, then add Xtream Codes or an M3U playlist, set up the EPG, and fix common playback and login issues.";
 const canonical = "/players/tivimate";
 // Shorter search-result title; `title` stays the article headline.
-const seoTitle = "TiviMate IPTV Player Setup: M3U & Xtream Codes";
+const seoTitle = "TiviMate Setup Guide: M3U, Xtream Codes & EPG on Fire TV";
 
 export function generateMetadata(): Metadata {
   return {

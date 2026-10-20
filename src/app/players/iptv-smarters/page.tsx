@@ -7,7 +7,7 @@ import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "IPTV Smarters Pro & Lite: App Setup Guide";
+const title = "IPTV Smarters Pro Setup Guide: Xtream Codes & M3U Login";
 const description =
   "Learn how to set up IPTV Smarters Pro and Smarters Player Lite with Xtream Codes or M3U across Apple, Android, Fire TV, Windows, and supported TVs.";
 const canonical = "/players/iptv-smarters";

@@ -33,7 +33,7 @@ import {
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "What Is an EPG? How IPTV TV Guides Work";
+const title = "What Is an EPG? How IPTV TV Guides and XMLTV Data Work";
 const description =
   "A clear guide to Electronic Programme Guides (EPG) in IPTV: how TV guide data works, XMLTV and provider ingestion, channel matching, and time offsets.";
 const canonical = "/guides/what-is-epg";

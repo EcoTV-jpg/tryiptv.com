@@ -125,7 +125,7 @@ const DEVICE_SEO_OVERRIDES: Record<string, { seoTitle?: string; metaDescription?
   },
   'samsung-tv-iptv': {
     seoTitle: 'How to Install IPTV on Samsung Smart TV (Tizen)',
-    metaDescription: 'Set up IPTV on a Samsung Smart TV with Tizen OS: choose a Smart Hub app like IBO Player or Smart IPTV, add credentials via web portal, and handle audio formats.',
+    metaDescription: 'Set up IPTV on a Samsung Smart TV with Tizen OS: pick a Smart Hub app such as IBO Player, add your login via its web portal, and fix audio format issues.',
   },
   'lg-tv-iptv': {
     seoTitle: 'How to Install IPTV on LG Smart TV (webOS)',
@@ -149,10 +149,10 @@ const DEVICE_SEO_OVERRIDES: Record<string, { seoTitle?: string; metaDescription?
   },
   'windows-iptv': {
     seoTitle: 'IPTV on Windows: Players & PC Setup Guide',
-    metaDescription: 'Learn how to use IPTV on Windows, choose a compatible PC player, connect with Xtream Codes or M3U, and download apps from trusted sources.',
+    metaDescription: 'Learn how to use IPTV on a Windows 10 or 11 PC: choose a compatible player, connect with Xtream Codes or M3U, and download apps only from trusted sources.',
   },
   'mac-iptv': {
-    seoTitle: 'How to Set Up IPTV on Mac (macOS Guide)',
+    seoTitle: 'How to Set Up IPTV on a Mac (macOS Guide)',
     metaDescription: 'Stream IPTV on a MacBook, iMac, or Mac mini: choose a native player like UHF or IINA, handle macOS Gatekeeper permissions, and use Picture-in-Picture.',
   },
 };

@@ -8,7 +8,7 @@ import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
 const title = "IPTV Extreme Setup Guide: M3U, Xtream Codes & MAG/Stalker";
-const description = "Learn how to set up IPTV Extreme with M3U, Xtream Codes or MAG/Stalker, configure EPG, and diagnose playlist, login and playback problems.";
+const description = "Learn how to set up IPTV Extreme with M3U, Xtream Codes, or MAG/Stalker, configure EPG guide data, and diagnose playlist, login, and playback problems.";
 const canonical = "/players/iptv-extreme";
 
 export function generateMetadata(): Metadata {

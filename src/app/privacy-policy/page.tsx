@@ -9,11 +9,14 @@ import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site
 import { PAGE_LAST_MODIFIED, formatLegalDate } from "@/lib/site-data/page-modifications";
 
 export function generateMetadata(): Metadata {
-  return generatePageMetadata({
-    title: "Privacy Policy",
-    description: "Learn how TryIPTV protects your personal information, communication privacy, and transactional data.",
-    canonical: "/privacy-policy",
-  });
+  return {
+    ...generatePageMetadata({
+      title: "Privacy Policy: How TryIPTV Collects & Protects Data",
+      description: "Read how TryIPTV collects, uses, and protects your contact details and support messages, why payments run through external providers, and how to reach us.",
+      canonical: "/privacy-policy",
+    }),
+    title: { absolute: "Privacy Policy: How TryIPTV Collects & Protects Data" },
+  };
 }
 
 export default function PrivacyPolicyPage() {

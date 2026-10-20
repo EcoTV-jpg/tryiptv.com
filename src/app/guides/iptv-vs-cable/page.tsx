@@ -32,9 +32,9 @@ import { FaqList, type FaqItem } from "@/components/sections/FAQ";
 import { generateArticleSchema, generateBreadcrumbSchema, generateFAQPageSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "IPTV vs Cable: What's the Difference? | TryIPTV";
+const title = "IPTV vs Cable TV: Cost, Setup & Reliability | TryIPTV";
 const description =
-  "Compare IPTV and cable TV across cost, setup, devices, internet dependence, reliability, flexibility, and on-demand access to see which model fits you better.";
+  "Compare IPTV and cable TV on cost, setup, devices, internet dependence, reliability, and on-demand access. See which TV model fits your home better.";
 const canonical = "/guides/iptv-vs-cable";
 const modifiedDate = "2026-10-06";
 

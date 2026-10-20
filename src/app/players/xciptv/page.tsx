@@ -7,7 +7,7 @@ import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "XCIPTV Player: App Availability, Setup & Features";
+const title = "XCIPTV Player Guide: App Availability, Setup & Features";
 const description =
   "Learn where XCIPTV Player by OTTRUN is available, how to connect with Xtream Codes or M3U, and how its ExoPlayer and VLC playback engines work.";
 const canonical = "/players/xciptv";

@@ -9,7 +9,7 @@ import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-c
 
 const title = "Televizo IPTV Player Setup Guide: M3U & Xtream Codes";
 const description =
-  "Set up Televizo with an M3U playlist or Xtream Codes, add EPG, and troubleshoot playlist, login, and playback problems.";
+  "Set up Televizo on Android with an M3U playlist or Xtream Codes login, add EPG guide data, and troubleshoot playlist, login, and playback problems.";
 const canonical = "/players/televizo";
 
 export function generateMetadata(): Metadata {
