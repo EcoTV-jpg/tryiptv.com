@@ -42,7 +42,7 @@ export const PAGE_LAST_MODIFIED: Record<string, string> = {
   '/pricing': '2026-10-20',
   '/iptv-free-trial': '2026-10-20',
   '/devices': '2026-09-30',
-  '/faq': '2026-09-29',
+  '/faq': '2026-10-20',
   '/contact-us': '2026-10-20',
   '/privacy-policy': '2026-10-20',
   '/terms-conditions': '2026-10-20',

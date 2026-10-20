@@ -120,3 +120,11 @@ The supplied text came from iptvv.ca and described that company's product. Price
 Same source as the trial page. Replaced with TryIPTV facts: CAD prices and the 1–4 device tabs (TryIPTV has one price list with 2 connections), Interac e-Transfer and the order-number memo (now a crypto payment note), email login in 1–2 hours (now WhatsApp, 5–15 minutes). Left out: "High Performance Server", 99.9% uptime, 24/7 Canadian support, "taxes calculated by province".
 61. **Multi-connection plans:** iptvv.ca sells 1–4 device versions of each plan. Do you want to sell 3- or 4-connection plans? If yes, send the prices and the pricing page can get device tabs.
 62. **Taxes:** are sales taxes added to any order? If so, the pricing page and Terms should say so.
+
+## FAQ page (owner-supplied questions, added 2026-10-20)
+The owner's FAQ came from iptvv.ca as 72 questions in 11 topics without answers. Answers were written from PRODUCT_TRUTHS, COMPANY and the site's own guides. Canada-only wording was made general ("Is IPTV legal?", "at a second home" instead of "at the cottage"), and the Interac question became "Which payment methods does TryIPTV accept?". Please check these answers, which describe processes not written down anywhere yet:
+63. **Renewal:** does a renewal extend the same login, or does the customer get new details? The answer currently says "order a new plan the same way… say you are renewing".
+64. **Lost login:** can support resend login details to the customer's WhatsApp number or email? (The answer says it can.)
+65. **Travel:** does the service work from any country, or are some regions blocked? The answer says it works wherever the connection is fast enough.
+66. **International and local channels:** which languages and regions are actually covered (French, South Asian, Arabic, Filipino, Chinese; local channels)? The answers currently say "check during the trial".
+67. **Catch-up:** see question 59. The plan cards and the FAQ say catch-up is offered "on channels where it is available".

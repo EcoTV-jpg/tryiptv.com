@@ -93,7 +93,7 @@ export const SITE_ROUTES: SiteRoute[] = [
 
   // ── Utility ───────────────────────────────────────────────────────────────
   { path: '/about',      section: 'utility', indexable: true, lastModified: '2026-10-20' },
-  { path: '/faq',        section: 'utility', indexable: true, lastModified: '2026-10-04' },
+  { path: '/faq',        section: 'utility', indexable: true, lastModified: '2026-10-20' },
   { path: '/contact-us', section: 'utility', indexable: true, lastModified: '2026-10-20' },
   { path: '/blog',       section: 'utility', indexable: false },
 
