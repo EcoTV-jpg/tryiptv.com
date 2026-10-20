@@ -51,7 +51,7 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 25. **Privacy:** how long do you keep support messages, order records and trial requests before deleting them?
 26. **Privacy:** are the processors listed correct and complete? Listed: Vercel, Cloudflare (CDN and Turnstile), Resend, WhatsApp, Google Analytics and Sentry. Do you also use a CRM, a billing panel or an email provider for credentials?
 27. **DMCA:** name and postal address of your designated agent, and is that agent registered with the U.S. Copyright Office? Safe-harbour protection under 17 U.S.C. 512 requires registration. → `dmcaAgent`
-28. **Refund:** how long does an approved refund take to reach the customer, and is it paid back to the original payment method?
+28. **Refund:** how long does an approved refund take to reach the customer, and is it paid back to the original payment method? (The refund page says requests are answered within 24–48 hours, but not how long the payout takes.)
 29. **Payment methods:** the registry says "cryptocurrency, PayPal and Stripe" (recorded 2026-10-09). Is that still current? → `paymentMethods` (currently filled in)
 
 ## Authors (`AUTHORS` and `GUIDE_AUTHORS` in authors.ts)
@@ -99,8 +99,7 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 51. **"Provide personalized content":** the site has no personalisation. Keep it or remove it?
 
 ## Terms & Conditions (owner-supplied text, added 2026-10-20)
-52. **Refunds:** the supplied §6 said "All subscription payments … are final and non-refundable". That contradicts the Refund Policy, FAQ and About page, which describe a possible refund or credit when support can't fix a critical defect within 7 days. §6 now points to the Refund Policy. **Which is true?**
-    - If TryIPTV really is "no refunds", say so, and the Refund Policy, FAQ, About page and `PRODUCT_TRUTHS.refund` must all change together. Otherwise the site contradicts itself, which Bing says can cost citations.
+52. ✅ **Answered 2026-10-20** with the owner's refund policy text: once a subscription is activated and account details are delivered, all sales are final; a refund is issued only if a working subscription can't be provided. The refund page, `PRODUCT_TRUTHS.refund`, FAQ, pricing FAQ, pricing page, About page, Terms §6 and llms-full.txt all now say this. The old 7-day technical resolution window is removed everywhere, and `check:facts` now flags any stated refund window.
 53. **Connections:** the supplied §11 said "Only one active stream is permitted at a time". That contradicts "2 simultaneous connections on every plan" (pricing, home, FAQ, schema). §3 and §11 now state 2 connections from `PRODUCT_TRUTHS`. Confirm 2 is correct.
 54. **Trademarks:** the supplied §15 said "registered trademarks". Is "TryIPTV" (or the logo) actually a registered trademark, and if so where and under which number? Until then the page says "trademarks and property of TryIPTV". Claiming a registration you don't hold is unlawful in some countries.
 55. **"Click-to-purchase" third-party vendors (§4):** does TryIPTV link to any third-party vendors? If not, this clause is harmless but can be removed.

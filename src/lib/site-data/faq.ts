@@ -36,7 +36,7 @@ export const faqs = [
     },
     {
         question: "What is the TryIPTV refund policy?",
-        answer: `${PRODUCT_TRUTHS.refund.summary} Change of mind after credentials are used, home network problems, and unsupported devices are not refundable. Test first with the free 24-hour trial; the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> has the full conditions.`
+        answer: `${PRODUCT_TRUTHS.refund.summary} ${PRODUCT_TRUTHS.refund.exclusions} Test first with the free 24-hour trial; the <a href="/refund-policy" class="text-primary hover:underline">refund policy</a> has the full conditions.`
     },
     {
         question: "Does TryIPTV automatically renew?",

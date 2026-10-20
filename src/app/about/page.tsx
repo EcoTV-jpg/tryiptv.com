@@ -13,6 +13,7 @@ import { publicBrandSocialLinks } from "@/lib/site-data/socials";
 import { COMPANY, LICENSING_CONFIRMED, SHOW_CONFIRM_MARKERS } from "@/lib/site-data/company";
 import { Confirm } from "@/components/shared/Confirm";
 import { BRAND } from "@/lib/site-data/brand";
+import { PRODUCT_TRUTHS } from "@/lib/site-config";
 
 const LAST_UPDATED = "2026-10-20";
 
@@ -63,8 +64,8 @@ const faqs: { question: string; answer: React.ReactNode; text: string }[] = [
   },
   {
     question: "Can I get a refund?",
-    answer: <>Technical problems that support cannot resolve within 7 days of purchase may qualify for a refund. See our <Link href="/refund-policy" className={link}>refund policy</Link> for the full conditions.</>,
-    text: "Technical problems that support cannot resolve within 7 days of purchase may qualify for a refund. See our refund policy for the full conditions.",
+    answer: <>Only if we can&apos;t provide a working subscription, for example if your account isn&apos;t delivered or the service doesn&apos;t start at all. Once your account is activated and delivered, all sales are final. See our <Link href="/refund-policy" className={link}>refund policy</Link>.</>,
+    text: "Only if we can't provide a working subscription, for example if your account isn't delivered or the service doesn't start at all. Once your account is activated and delivered, all sales are final. See our refund policy.",
   },
   {
     question: "How do I contact support?",
@@ -255,7 +256,7 @@ export default function AboutPage() {
 
             <section className="space-y-3">
               <h2 className={h2}>Refunds and policies</h2>
-              <p>Technical problems that support cannot resolve within 7 days of purchase may qualify for a refund. The exact conditions are in our <Link href="/refund-policy" className={link}>refund policy</Link>.</p>
+              <p>{PRODUCT_TRUTHS.refund.summary} {PRODUCT_TRUTHS.refund.exclusions} The exact conditions are in our <Link href="/refund-policy" className={link}>refund policy</Link>.</p>
               <p>
                 Please also read our <Link href="/terms-conditions" className={link}>terms and conditions</Link>,{" "}
                 <Link href="/privacy-policy" className={link}>privacy policy</Link> and <Link href="/disclaimer" className={link}>disclaimer</Link>.

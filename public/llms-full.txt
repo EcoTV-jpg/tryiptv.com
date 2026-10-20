@@ -33,7 +33,7 @@ The website currently lists these prepaid plans:
 
 The [free trial page](https://www.tryiptv.com/iptv-free-trial) describes a 24-hour trial that costs $0 and requires no credit card. The trial's connection limit is confirmed when trial credentials are issued; paid plans include two simultaneous connections. That page holds the current request process and trial conditions.
 
-The [refund policy](https://www.tryiptv.com/refund-policy) describes a seven-day technical resolution window: a full or partial refund may be available when qualifying critical technical defects cannot be resolved by support. It also lists exclusions and the request process. The refund policy is not an unconditional seven-day money-back guarantee; that page holds the exact current eligibility.
+The [refund policy](https://www.tryiptv.com/refund-policy) states that once a subscription is activated and account details are delivered, all sales are final. A refund is only issued when TryIPTV cannot provide a working subscription (for example, the account is not delivered or the service does not start at all). Refunds are not given for internet issues, device or player incompatibility, or channel changes. Refund requests are answered within 24–48 hours.
 
 The [terms and conditions](https://www.tryiptv.com/terms-conditions), [privacy policy](https://www.tryiptv.com/privacy-policy), and [disclaimer](https://www.tryiptv.com/disclaimer) provide further policy detail.
 

@@ -63,8 +63,9 @@ const RULES = [
   },
   {
     name: 'refund window',
-    re: /\b(\d+)[-\s]day\s+(?:refund|technical resolution|money[-\s]back)/gi,
-    ok: (m) => Number(m[1]) === T.refund.windowDays,
+    re: /\b(\d+)[-\s]day\s+(?:refund|technical resolution|money[-\s]back)|within\s+(\d+)\s+days\s+of\s+purchase/gi,
+    // windowDays is null when the policy has no refund window: then any stated window is a contradiction.
+    ok: (m) => T.refund.windowDays != null && Number(m[1] ?? m[2]) === T.refund.windowDays,
   },
   {
     name: 'unconditional refund wording',

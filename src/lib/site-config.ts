@@ -19,11 +19,13 @@ export const PRODUCT_TRUTHS = {
   trialConnections: "Confirmed when trial credentials are issued",
   activationTime: "5–15 minutes",
   billing: "Prepaid plans, no automatic renewal",
-  /** Mirrors /refund-policy §2–4. Not an unconditional money-back guarantee. */
+  /** Mirrors /refund-policy (owner-supplied 2026-10-20). Not an unconditional money-back guarantee. */
   refund: {
-    windowDays: 7,
+    /** No fixed refund window: refunds only when a working subscription can't be provided. */
+    windowDays: null as number | null,
     summary:
-      "If support cannot resolve a critical technical defect within 7 days of purchase, you may be eligible for a full or partial refund or service credit.",
+      "Once your subscription is activated and your account details are delivered, all sales are final. A refund is only issued if TryIPTV cannot provide a working subscription, for example if your account is not delivered or the service does not start at all.",
+    exclusions: "Refunds are not given for internet issues, device or player incompatibility, or channel changes.",
   },
   support: {
     email: "support@tryiptv.com",

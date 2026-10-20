@@ -54,7 +54,7 @@ export const pricingPageFaqs: { question: string; answer: string; link?: { href:
   {
     question: "Is there a refund policy?",
     answer:
-      `Yes, with conditions. ${PRODUCT_TRUTHS.refund.summary} The refund policy page lists the exclusions and how to make a request.`,
+      `Only in limited cases. ${PRODUCT_TRUTHS.refund.summary} ${PRODUCT_TRUTHS.refund.exclusions} The refund policy page explains how to make a request.`,
   },
   {
     question: "Why does the TV guide show \"No Information\"?",

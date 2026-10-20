@@ -406,7 +406,7 @@ export default async function IPTVSubscription() {
                 Test Before Choosing a Plan
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-muted-foreground lg:mx-0">
-                Not ready to choose a prepaid term? Use the 24-hour free trial to test TryIPTV on your own compatible setup before purchasing. The trial costs $0, requires no credit card, and does not automatically renew. Technical issues support can&apos;t resolve within 7 days of purchase may qualify under the{" "}
+                Not ready to choose a prepaid term? Use the 24-hour free trial to test TryIPTV on your own compatible setup before purchasing. The trial costs $0, requires no credit card, and does not automatically renew. A refund is only possible if we can&apos;t provide a working subscription; see the{" "}
                 <Link href="/refund-policy" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">refund policy</Link>.
               </p>
             </div>
