@@ -40,7 +40,7 @@ export type StaticRoute = (typeof STATIC_ROUTES)[number];
 export const PAGE_LAST_MODIFIED: Record<string, string> = {
   '/': '2026-09-30',
   '/pricing': '2026-09-30',
-  '/iptv-free-trial': '2026-09-30',
+  '/iptv-free-trial': '2026-10-20',
   '/devices': '2026-09-30',
   '/faq': '2026-09-29',
   '/contact-us': '2026-10-20',
