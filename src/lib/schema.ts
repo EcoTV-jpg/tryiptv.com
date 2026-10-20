@@ -136,7 +136,10 @@ export function generateArticleSchema(props: ArticleSchemaProps): WithContext<Ar
         '@type': 'Article',
         headline: props.headline,
         description: props.description,
-        image: props.image,
+        // Recommended Article property. Without a page-specific image, use the site's own OG image
+        // endpoint (1200x630 PNG, crawlable via robots.txt) rendered with this article's headline.
+        // datePublished is intentionally omitted: no verified publication dates exist.
+        image: props.image ?? `${siteConfig.url}${siteConfig.ogImage}?title=${encodeURIComponent(props.headline)}`,
         dateModified: props.dateModified,
         author: organizationReference,
         publisher: defaultPublisher,
