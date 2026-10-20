@@ -71,7 +71,7 @@ export default function DmcaReportPage() {
               <p>Please send all infringement notifications to our designated copyright response team at:</p>
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: `<!--email_off--><p>Email: <a href="mailto:dmca@tryiptv.com" class="text-primary underline">dmca@tryiptv.com</a></p><p>Secondary: <a href="mailto:${siteConfig.links.email}" class="text-primary underline">${siteConfig.links.email}</a></p><!--/email_off-->`,
+                    __html: `<!--email_off--><p>Email: <a href="mailto:dmca@tryiptv.com" class="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">dmca@tryiptv.com</a></p><p>Secondary: <a href="mailto:${siteConfig.links.email}" class="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">${siteConfig.links.email}</a></p><!--/email_off-->`,
                   }}
                 />
             </div>

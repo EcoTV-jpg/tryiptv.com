@@ -55,7 +55,7 @@ export function GuideTroubleshooting() {
     <div id="troubleshooting" className="scroll-mt-2 my-10">
       <div className="mb-6">
         <p className="eyebrow mb-1">Diagnostic Interface</p>
-        <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
+        <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
           Troubleshooting: IPTV Not Working on Firestick
         </h2>
         <p className="mt-2 text-base leading-relaxed text-muted-foreground max-w-2xl">

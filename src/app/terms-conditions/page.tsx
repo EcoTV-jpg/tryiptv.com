@@ -93,7 +93,7 @@ export default function TermsConditionsPage() {
               <h2 className="font-headline text-xl sm:text-2xl font-bold text-foreground">6. Modifications and Contact</h2>
               <p>
                 TryIPTV reserves the right to modify these terms as needed to reflect operational or regulatory changes. Continued use of the service constitutes agreement to updated terms. For questions, contact{" "}
-                <a href={`mailto:${siteConfig.links.email}`} className="text-primary underline decoration-primary/40 hover:decoration-primary">
+                <a href={`mailto:${siteConfig.links.email}`} className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                   {siteConfig.links.email}
                 </a>.
               </p>

@@ -1021,7 +1021,7 @@ export default async function HowToPage({ params }: Props) {
                   <div id="faq" className="scroll-mt-6 pt-8 border-t border-white/[0.08]">
                     <div className="mb-6">
                       <p className="eyebrow mb-1">Direct Answers</p>
-                      <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
+                      <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
                         Frequently Asked Questions
                       </h2>
                       <p className="mt-2 text-base leading-relaxed text-muted-foreground">

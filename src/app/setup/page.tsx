@@ -336,7 +336,7 @@ export default function SetupPage() {
             <div className="lg:col-span-5">
               <div className="sticky top-24">
                 <span className="eyebrow mb-1">Prerequisites</span>
-                <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
+                <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-4">
                   What You Need Before Starting
                 </h2>
                 <p className="text-base leading-relaxed text-muted-foreground mb-6">
@@ -678,7 +678,7 @@ export default function SetupPage() {
             ))}
           </div>
 
-          <div className="mt-8 text-center text-xs text-muted-foreground">
+          <div className="mt-8 text-center text-base sm:text-xs text-muted-foreground">
             Looking for device-specific instructions with step-by-step screenshots? Visit our{" "}
             <Link href="/devices" className="text-primary font-semibold hover:underline">
               All Devices Directory

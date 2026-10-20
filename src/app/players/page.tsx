@@ -202,16 +202,16 @@ export default function PlayersHubPage() {
               </p>
               <ul className="list-disc pl-5 space-y-1.5 text-base sm:text-sm">
                 <li>
-                  <strong className="text-foreground font-semibold">Amazon Firestick, Android TV &amp; Google TV:</strong> Choose <Link href="/players/tivimate" className="text-primary underline decoration-primary/40 hover:decoration-primary">TiviMate</Link> for television EPG navigation, or <Link href="/players/xciptv" className="text-primary underline decoration-primary/40 hover:decoration-primary">XCIPTV Player (OTR Player)</Link> for dual ExoPlayer and VLC playback engines.
+                  <strong className="text-foreground font-semibold">Amazon Firestick, Android TV &amp; Google TV:</strong> Choose <Link href="/players/tivimate" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">TiviMate</Link> for television EPG navigation, or <Link href="/players/xciptv" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">XCIPTV Player (OTR Player)</Link> for dual ExoPlayer and VLC playback engines.
                 </li>
                 <li>
-                  <strong className="text-foreground font-semibold">Apple Devices (iPhone, iPad, Apple TV):</strong> Choose <Link href="/players/iptv-smarters" className="text-primary underline decoration-primary/40 hover:decoration-primary">IPTV Smarters Pro</Link> (Smarters Player Lite) for native iOS and tvOS App Store availability.
+                  <strong className="text-foreground font-semibold">Apple Devices (iPhone, iPad, Apple TV):</strong> Choose <Link href="/players/iptv-smarters" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV Smarters Pro</Link> (Smarters Player Lite) for native iOS and tvOS App Store availability.
                 </li>
                 <li>
-                  <strong className="text-foreground font-semibold">Smart TVs (Samsung Tizen &amp; LG webOS):</strong> Choose <Link href="/players/iptv-smarters" className="text-primary underline decoration-primary/40 hover:decoration-primary">IPTV Smarters Pro</Link> via your TV&apos;s native app store.
+                  <strong className="text-foreground font-semibold">Smart TVs (Samsung Tizen &amp; LG webOS):</strong> Choose <Link href="/players/iptv-smarters" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV Smarters Pro</Link> via your TV&apos;s native app store.
                 </li>
                 <li>
-                  <strong className="text-foreground font-semibold">Windows PC &amp; Mac:</strong> Choose <Link href="/players/iptv-smarters" className="text-primary underline decoration-primary/40 hover:decoration-primary">IPTV Smarters Pro</Link> or standard desktop media players such as VLC.
+                  <strong className="text-foreground font-semibold">Windows PC &amp; Mac:</strong> Choose <Link href="/players/iptv-smarters" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV Smarters Pro</Link> or standard desktop media players such as VLC.
                 </li>
               </ul>
             </ArticleSummary>
@@ -346,35 +346,35 @@ export default function PlayersHubPage() {
                   <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
                     <h3 className="font-semibold text-foreground text-base">If You Have an Amazon Firestick or Android TV:</h3>
                     <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
-                      Choose <Link href="/players/tivimate" className="text-primary underline decoration-primary/40 hover:decoration-primary">TiviMate</Link> if you want a dedicated television EPG grid layout with SMB network recording. Choose <Link href="/players/xciptv" className="text-primary underline decoration-primary/40 hover:decoration-primary">XCIPTV Player (OTR Player)</Link> if you want multi-screen sports viewing or selectable playback engines, or <Link href="/players/televizo" className="text-primary underline decoration-primary/40 hover:decoration-primary">Televizo</Link> for an uncluttered interface with a functional free tier. (See our step-by-step <Link href="/devices/firestick-iptv" className="text-primary underline decoration-primary/40 hover:decoration-primary">Firestick setup</Link> and <Link href="/devices/android-tv-iptv" className="text-primary underline decoration-primary/40 hover:decoration-primary">Android TV setup</Link> guides.)
+                      Choose <Link href="/players/tivimate" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">TiviMate</Link> if you want a dedicated television EPG grid layout with SMB network recording. Choose <Link href="/players/xciptv" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">XCIPTV Player (OTR Player)</Link> if you want multi-screen sports viewing or selectable playback engines, or <Link href="/players/televizo" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">Televizo</Link> for an uncluttered interface with a functional free tier. (See our step-by-step <Link href="/devices/firestick-iptv" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">Firestick setup</Link> and <Link href="/devices/android-tv-iptv" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">Android TV setup</Link> guides.)
                     </p>
                   </div>
 
                   <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
                     <h3 className="font-semibold text-foreground text-base">If You Stream on Apple Devices, Samsung, or LG Smart TVs:</h3>
                     <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
-                      Choose <Link href="/players/iptv-smarters" className="text-primary underline decoration-primary/40 hover:decoration-primary">IPTV Smarters Pro</Link>. It is natively available in the Apple App Store, Samsung Smart Hub (Tizen), and LG Content Store (webOS). For device-specific setup, consult our walkthroughs for <Link href="/devices/apple-tv-iptv" className="text-primary underline decoration-primary/40 hover:decoration-primary">Apple TV</Link>, <Link href="/devices/samsung-tv-iptv" className="text-primary underline decoration-primary/40 hover:decoration-primary">Samsung Smart TV</Link>, or <Link href="/devices/lg-tv-iptv" className="text-primary underline decoration-primary/40 hover:decoration-primary">LG Smart TV</Link>.
+                      Choose <Link href="/players/iptv-smarters" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV Smarters Pro</Link>. It is natively available in the Apple App Store, Samsung Smart Hub (Tizen), and LG Content Store (webOS). For device-specific setup, consult our walkthroughs for <Link href="/devices/apple-tv-iptv" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">Apple TV</Link>, <Link href="/devices/samsung-tv-iptv" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">Samsung Smart TV</Link>, or <Link href="/devices/lg-tv-iptv" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">LG Smart TV</Link>.
                     </p>
                   </div>
 
                   <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
                     <h3 className="font-semibold text-foreground text-base">If You Watch High-Framerate 50fps Sports on a 4K OLED TV:</h3>
                     <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
-                      Choose <Link href="/players/ott-navigator" className="text-primary underline decoration-primary/40 hover:decoration-primary">OTT Navigator</Link>. Its native Auto Frame Rate (AFR) switching synchronizes HDMI refresh rates to reduce frame-rate pacing stutter, and its MPV engine provides hardware deinterlacing for 1080i sports feeds.
+                      Choose <Link href="/players/ott-navigator" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">OTT Navigator</Link>. Its native Auto Frame Rate (AFR) switching synchronizes HDMI refresh rates to reduce frame-rate pacing stutter, and its MPV engine provides hardware deinterlacing for 1080i sports feeds.
                     </p>
                   </div>
 
                   <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
                     <h3 className="font-semibold text-foreground text-base">If You Prefer Web-Portal Setup or Scheduled DVR Recording:</h3>
                     <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
-                      Consider <Link href="/players/iptv-extreme" className="text-primary underline decoration-primary/40 hover:decoration-primary">IPTV Extreme</Link>. It allows uploading playlists remotely via its web portal and includes granular manual stream buffer configuration for Android devices.
+                      Consider <Link href="/players/iptv-extreme" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV Extreme</Link>. It allows uploading playlists remotely via its web portal and includes granular manual stream buffer configuration for Android devices.
                     </p>
                   </div>
 
                   <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
                     <h3 className="font-semibold text-foreground text-base">If You Are Using Older Legacy Hardware:</h3>
                     <p className="mt-1 text-base sm:text-sm text-muted-foreground leading-relaxed">
-                      Consult our <Link href="/players/perfect-player" className="text-primary underline decoration-primary/40 hover:decoration-primary">Perfect Player guide</Link>. Although Perfect Player is a legacy application no longer actively maintained on Google Play, its low memory footprint suits older Android set-top boxes.
+                      Consult our <Link href="/players/perfect-player" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">Perfect Player guide</Link>. Although Perfect Player is a legacy application no longer actively maintained on Google Play, its low memory footprint suits older Android set-top boxes.
                     </p>
                   </div>
                 </div>

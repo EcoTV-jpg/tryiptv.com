@@ -273,12 +273,15 @@
   .prose a {
     color: hsl(var(--primary));
     text-decoration: underline;
+    /* Option A: 40% primary underline at rest, full primary on hover (see DESIGN_LOCK §13). */
+    text-decoration-color: hsl(var(--primary) / 0.4);
     text-underline-offset: 4px;
     transition: color 150ms ease;
   }
 
   .prose a:hover {
     color: hsl(var(--accent));
+    text-decoration-color: hsl(var(--primary));
   }
 
   /* Blockquotes */

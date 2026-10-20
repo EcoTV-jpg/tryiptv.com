@@ -24,7 +24,7 @@ export function GuideStepList({
     <div id="setup-steps" className={`scroll-mt-6 my-10 ${className || ""}`}>
       <div className="mb-8">
         <p className="eyebrow mb-1.5">Step-by-Step Walkthrough</p>
-        <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+        <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
           Step-by-Step Installation Guide for {primaryKeyword}
         </h2>
         <p className="mt-2 text-base leading-relaxed text-muted-foreground max-w-2xl">
