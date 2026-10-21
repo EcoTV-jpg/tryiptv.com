@@ -4,7 +4,7 @@ import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
@@ -33,8 +33,7 @@ const a = "text-primary underline decoration-primary/40 underline-offset-4 hover
 
 export default function PerfectPlayerPage() {
   return <>
-    <Schema id="article" schema={articleSchema} />
-    <Schema id="breadcrumb" schema={breadcrumbSchema} />
+    <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
     <Section className="border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20"><Container>
       <Breadcrumb items={[{ label: "Players", href: "/players" }, { label: "Perfect Player" }]} />
       <div className="mt-8 max-w-4xl">

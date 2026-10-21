@@ -125,9 +125,9 @@ export function Footer() {
 
           {/* Explore */}
           <div className="lg:col-span-2">
-            <h3 className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
               Explore
-            </h3>
+            </p>
             <ul className="space-y-0.5">
               {footerLinks.quickLinks.map((link) => (
                 <li key={link.name}>
@@ -144,9 +144,9 @@ export function Footer() {
 
           {/* Device Guides */}
           <div className="lg:col-span-2">
-            <h3 className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
               Device Guides
-            </h3>
+            </p>
             <ul className="space-y-0.5">
               {footerLinks.supportedLinks.map((link) => (
                 <li key={link.name}>
@@ -163,9 +163,9 @@ export function Footer() {
 
           {/* Legal & Trust */}
           <div className="lg:col-span-2">
-            <h3 className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
               Legal &amp; Trust
-            </h3>
+            </p>
             <ul className="space-y-0.5">
               {footerLinks.legalLinks.map((link) => (
                 <li key={link.name}>
@@ -182,9 +182,9 @@ export function Footer() {
 
           {/* Support & Social */}
           <div className="lg:col-span-2">
-            <h3 className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
               Social
-            </h3>
+            </p>
             <ul className="flex flex-wrap gap-1.5" aria-label="TryIPTV social links">
               {socialFooterLinks.map((link) => (
                 <li key={link.name}>

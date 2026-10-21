@@ -22,12 +22,12 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { COMPANY } from "@/lib/site-data/company";
 
@@ -110,7 +110,19 @@ export default function HelpPage() {
 
   return (
     <>
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema
+        path="/help"
+        name={title}
+        description={description}
+        type="CollectionPage"
+        nodes={[
+          breadcrumbSchema,
+          generateItemListSchema("IPTV troubleshooting guides", [
+            { name: "IPTV Not Working? Start With This Troubleshooting Checklist", path: "/help/iptv-not-working" },
+            ...specialistGuides.map((g) => ({ name: g.title, path: g.href })),
+          ]),
+        ]}
+      />
 
       {/* Hero Header */}
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">

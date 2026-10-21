@@ -4,7 +4,7 @@ import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
@@ -42,8 +42,7 @@ const linkClass = "text-primary underline decoration-primary/40 underline-offset
 export default function XciptvPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       <Section className="border-b border-white/[0.07] py-12 sm:py-16">
         <Container>

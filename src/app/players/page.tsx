@@ -3,12 +3,12 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Tv, Smartphone, Layers, Sliders, Globe, Clock, ShieldCheck, HelpCircle, HardDrive, History, Radio, Cast } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { ArticleSummary } from "@/components/guide";
-import { generateBreadcrumbSchema, generateFAQPageSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
 const title = "Best IPTV Players for 2026: Comparison & Setup Guides";
@@ -153,7 +153,7 @@ const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "Top IPTV Players and Applications",
-  description: "Comprehensive technical guides and reviews for the leading IPTV media players.",
+  description: "Setup guides for the leading IPTV player apps.",
   itemListElement: playersList.map((player, index) => ({
     "@type": "ListItem",
     position: index + 1,
@@ -162,14 +162,11 @@ const itemListSchema = {
   })),
 };
 
-const faqSchema = generateFAQPageSchema(faqs);
 
 export default function PlayersHubPage() {
   return (
     <>
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="itemlist" schema={itemListSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <PageSchema path="/players" name={title} description={description} type="CollectionPage" nodes={[breadcrumbSchema, itemListSchema]} />
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />
@@ -268,7 +265,7 @@ export default function PlayersHubPage() {
                     <td className="p-4 text-xs">
                       <Button asChild size="sm" variant="ghost" className="h-8 text-primary hover:text-primary">
                         <Link href={`/players/${player.slug}`}>
-                          Read Guide <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                          {player.name} guide <ArrowRight className="ml-1 h-3.5 w-3.5" />
                         </Link>
                       </Button>
                     </td>
@@ -321,7 +318,7 @@ export default function PlayersHubPage() {
                     </span>
                     <Button asChild size="sm" variant="ghost" className="h-8 text-primary hover:text-primary group p-0">
                       <Link href={`/players/${player.slug}`} className="flex items-center gap-1 text-xs">
-                        Setup Guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                        {player.name} setup guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                       </Link>
                     </Button>
                   </div>
@@ -468,7 +465,7 @@ export default function PlayersHubPage() {
                       </Link>
                     </Button>
                     <p data-small-print className="mt-2 text-center text-[11px] text-muted-foreground">
-                      Setup credentials typically delivered by email within 5–15 minutes
+                      Trial login details usually arrive on WhatsApp within {PRODUCT_TRUTHS.activationTime}
                     </p>
                   </div>
                 </CardContent>

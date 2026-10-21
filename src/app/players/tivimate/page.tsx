@@ -4,7 +4,7 @@ import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { GuideScreenshot } from "@/components/guide";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
@@ -47,8 +47,7 @@ const linkClass = "text-primary underline decoration-primary/40 underline-offset
 export default function TivimatePage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       <Section className="border-b border-white/[0.07] py-12 sm:py-16">
         <Container>
@@ -95,7 +94,7 @@ export default function TivimatePage() {
               <p className={textClass}>Some of these, such as recording and multiple playlists, need TiviMate Premium (see below).</p>
               <GuideScreenshot
                 src="/images/tivimate/tivimate-player-menu-recording-multiview.webp"
-                alt="TiviMate playback menu over a live channel with Channels list, Search, Recordings, Multi-view, audio track, audio delay and subtitle controls"
+                alt="TiviMate playback menu over a live channel: channels, search, recordings, multi-view, audio and subtitles"
                 caption="TiviMate's playback menu: channel list, search, recordings, multi-view, audio, audio delay and subtitles."
                 width={1280}
                 height={720}
