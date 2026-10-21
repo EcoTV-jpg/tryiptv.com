@@ -1,5 +1,5 @@
-import { FACT_TEXT, PRODUCT_TRUTHS } from "@/lib/site-config";
-import { COMPANY } from "@/lib/site-data/company";
+import { FACT_TEXT, PRODUCT_TRUTHS } from "../site-config.ts";
+import { COMPANY } from "./company.ts";
 
 const T = PRODUCT_TRUTHS;
 
