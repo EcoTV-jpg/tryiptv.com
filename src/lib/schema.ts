@@ -1,4 +1,4 @@
-import { getAuthorForPath } from '@/lib/site-data/authors';
+import { AUTHORS, getAuthorForPath, getReviewerForPath, personId } from '@/lib/site-data/authors';
 import { COMPANY } from '@/lib/site-data/company';
 import { BRAND } from '@/lib/site-data/brand';
 import type {
@@ -72,7 +72,20 @@ export function organizationFacts() {
       ? { identifier: { '@type': 'PropertyValue' as const, propertyID: COMPANY.registry ?? 'Company registration number', value: COMPANY.registrationNumber } }
       : {}),
     ...(COMPANY.team.length
-      ? { founder: COMPANY.team.filter((m) => /founder/i.test(m.role)).map((m) => ({ '@type': 'Person' as const, name: m.name, jobTitle: m.role })) }
+      ? {
+          founder: COMPANY.team
+            .filter((m) => /founder/i.test(m.role))
+            .map((m) => {
+              // Link the founder to their profile (same @id as Article reviewedBy/author and the ProfilePage).
+              const profile = AUTHORS.find((a) => a.name === m.name);
+              return {
+                '@type': 'Person' as const,
+                name: m.name,
+                jobTitle: m.role,
+                ...(profile ? { '@id': personId(siteConfig.url, profile.slug), url: `${siteConfig.url}/authors/${profile.slug}` } : {}),
+              };
+            }),
+        }
       : {}),
     ...(COMPANY.address
       ? { address: { '@type': 'PostalAddress' as const, streetAddress: COMPANY.address.street, addressLocality: COMPANY.address.locality, postalCode: COMPANY.address.postalCode, addressCountry: COMPANY.address.country } }
@@ -184,11 +197,16 @@ interface ArticleSchemaProps {
     path?: string;
 }
 
+const personRef = (p: { slug: string; name: string }) => ({
+    '@type': 'Person' as const,
+    '@id': personId(siteConfig.url, p.slug),
+    name: p.name,
+    url: `${siteConfig.url}/authors/${p.slug}`,
+});
+
 function authorFor(path: string) {
     const person = getAuthorForPath(path);
-    return person
-        ? { '@type': 'Person' as const, name: person.name, url: `${siteConfig.url}/authors/${person.slug}` }
-        : organizationReference;
+    return person ? personRef(person) : organizationReference;
 }
 
 export function generateArticleSchema(props: ArticleSchemaProps): WithContext<Article> {
@@ -208,8 +226,14 @@ export function generateArticleSchema(props: ArticleSchemaProps): WithContext<Ar
         mainEntityOfPage: {
             '@type': 'WebPage',
             '@id': props.url,
+            // schema.org puts reviewedBy on WebPage (not Article): a confirmed reviewer, if one is assigned.
+            ...(reviewerOf(props) ? { reviewedBy: personRef(reviewerOf(props)!) } : {}),
         },
     };
+}
+
+function reviewerOf(props: ArticleSchemaProps) {
+    return getReviewerForPath(props.path ?? props.url.replace(siteConfig.url, ""));
 }
 
 interface HowToSchemaProps {

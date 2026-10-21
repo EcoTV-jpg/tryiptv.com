@@ -8,7 +8,7 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Schema } from "@/components/shared/Schema";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
-import { AUTHORS, GUIDE_AUTHORS } from "@/lib/site-data/authors";
+import { AUTHORS, GUIDE_AUTHORS, GUIDE_REVIEWERS, personId } from "@/lib/site-data/authors";
 
 // Only confirmed, real authors get a profile page (see src/lib/site-data/authors.ts).
 export const dynamicParams = false;
@@ -36,6 +36,7 @@ export default async function AuthorPage({ params }: Props) {
   const base = siteConfig.url;
   const url = `${base}/authors/${author.slug}`;
   const guides = Object.entries(GUIDE_AUTHORS).filter(([, s]) => s === author.slug).map(([path]) => path);
+  const reviewed = Object.entries(GUIDE_REVIEWERS).filter(([, s]) => s === author.slug).map(([path]) => path);
 
   const profileSchema = {
     "@context": "https://schema.org",
@@ -44,11 +45,12 @@ export default async function AuthorPage({ params }: Props) {
     dateModified: author.updated,
     mainEntity: {
       "@type": "Person",
+      "@id": personId(base, author.slug),
       name: author.name,
       url,
       jobTitle: author.role,
       description: author.bio,
-      knowsAbout: author.expertise,
+      ...(author.expertise.length ? { knowsAbout: author.expertise } : {}),
       worksFor: { "@id": `${base}/#organization` },
       ...(author.image ? { image: `${base}${author.image}` } : {}),
       ...(author.sameAs?.length ? { sameAs: author.sameAs } : {}),
@@ -80,6 +82,14 @@ export default async function AuthorPage({ params }: Props) {
                 <h2 className="font-headline text-xl font-bold text-foreground">Guides by {author.name}</h2>
                 <ul className="mt-3 list-disc space-y-1 pl-6">
                   {guides.map((g) => <li key={g}><Link href={g} className={link}>{g}</Link></li>)}
+                </ul>
+              </div>
+            )}
+            {reviewed.length > 0 && (
+              <div>
+                <h2 className="font-headline text-xl font-bold text-foreground">Guides reviewed by {author.name}</h2>
+                <ul className="mt-3 list-disc space-y-1 pl-6">
+                  {reviewed.map((g) => <li key={g}><Link href={g} className={link}>{g}</Link></li>)}
                 </ul>
               </div>
             )}

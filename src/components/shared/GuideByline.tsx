@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAuthorForPath } from "@/lib/site-data/authors";
+import { getAuthorForPath, getReviewerForPath } from "@/lib/site-data/authors";
 import { Confirm } from "@/components/shared/Confirm";
 
 const link = "font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:decoration-primary";
@@ -10,6 +10,7 @@ const link = "font-semibold text-foreground underline decoration-primary/40 unde
  */
 export function GuideByline({ path }: { path: string }) {
   const author = getAuthorForPath(path);
+  const reviewer = getReviewerForPath(path);
   return (
     <p className="mt-4 text-sm leading-6 text-muted-foreground">
       {author ? (
@@ -17,7 +18,10 @@ export function GuideByline({ path }: { path: string }) {
       ) : (
         <>By the <Link href="/about" className={link}>TryIPTV team</Link></>
       )}
-      {!author && (
+      {reviewer && (
+        <> · Reviewed by <Link href={`/authors/${reviewer.slug}`} className={link}>{reviewer.name}</Link>, {reviewer.role}</>
+      )}
+      {!author && !reviewer && (
         <>
           {" "}
           <Confirm value={null} question={`Which real person writes or reviews ${path}? Add them to src/lib/site-data/authors.ts.`} />
