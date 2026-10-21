@@ -153,7 +153,7 @@ const DEVICE_SEO_OVERRIDES: Record<string, { seoTitle?: string; metaDescription?
     metaDescription: 'Learn how to use IPTV on a Windows 10 or 11 PC: choose a compatible player, connect with Xtream Codes or M3U, and download apps only from trusted sources.',
   },
   'iphone-iptv': {
-    seoTitle: 'How to Watch IPTV on iPhone & iPad (App Store Guide)',
+    seoTitle: 'IPTV on iPhone & iPad: App Store Setup Guide',
     metaDescription: 'Set up IPTV on iPhone or iPad: install a player from the App Store, add Xtream Codes or M3U, load the TV guide, and send streams to your TV with AirPlay.',
   },
   'mac-iptv': {

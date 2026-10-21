@@ -75,6 +75,41 @@ export const GUIDE_REVIEWERS: Record<string, string> = {
   "/help/epg-not-working": "simo-alaoui",
 };
 
+/** Link text for guides listed on author pages: each page's own title, without the brand suffix. */
+export const GUIDE_TITLES: Record<string, string> = {
+  "/devices/firestick-iptv": "How to Install IPTV on Firestick (2026 Guide)",
+  "/devices/android-tv-iptv": "IPTV on Android TV: Apps & Setup Guide (2026)",
+  "/devices/samsung-tv-iptv": "How to Install IPTV on Samsung Smart TV (Tizen)",
+  "/devices/lg-tv-iptv": "How to Install IPTV on LG Smart TV (webOS)",
+  "/devices/apple-tv-iptv": "How to Set Up IPTV on Apple TV (tvOS Guide)",
+  "/devices/chromecast-iptv": "How to Watch IPTV on Chromecast & Google TV",
+  "/devices/mag-box-iptv": "MAG Box IPTV Setup: Stalker Portal Guide",
+  "/devices/roku-iptv": "How to Watch IPTV on Roku: AirPlay & Mirroring",
+  "/devices/windows-iptv": "IPTV on Windows: Players & PC Setup Guide",
+  "/devices/iphone-iptv": "IPTV on iPhone & iPad: App Store Setup Guide",
+  "/devices/mac-iptv": "How to Set Up IPTV on a Mac (macOS Guide)",
+  "/players/iptv-smarters": "IPTV Smarters Pro Setup Guide: Xtream Codes & M3U Login",
+  "/players/tivimate": "TiviMate Setup Guide: M3U, Xtream Codes & EPG on Fire TV",
+  "/players/xciptv": "XCIPTV Player Guide: App Availability, Setup & Features",
+  "/players/televizo": "Televizo IPTV Player Setup Guide: M3U & Xtream Codes",
+  "/players/perfect-player": "Perfect Player IPTV: Legacy Setup, EPG & Migration",
+  "/players/ott-navigator": "OTT Navigator IPTV Setup Guide: M3U, Xtream Codes & Fixes",
+  "/players/iptv-extreme": "IPTV Extreme Setup Guide: M3U, Xtream Codes & MAG/Stalker",
+  "/guides/what-is-iptv": "What Is IPTV? A Beginner's Guide to Internet TV",
+  "/guides/how-does-iptv-work": "How Does IPTV Work? From Server to Screen",
+  "/guides/what-is-m3u": "What Is an M3U Playlist? Structure, Syntax, and IPTV Usage",
+  "/guides/what-are-xtream-codes": "What Are Xtream Codes? The IPTV API Login Format Explained",
+  "/guides/m3u-vs-xtream-codes": "M3U vs Xtream Codes: What's the Difference for IPTV?",
+  "/guides/what-is-epg": "What Is an EPG? How IPTV TV Guides and XMLTV Data Work",
+  "/guides/iptv-internet-speed": "IPTV Internet Speed: How Much Bandwidth Do You Need?",
+  "/guides/iptv-vs-cable": "IPTV vs Cable TV: Cost, Setup & Reliability",
+  "/help/iptv-not-working": "IPTV Not Working? Start With This Troubleshooting Checklist",
+  "/help/iptv-buffering": "How to Fix IPTV Buffering: A Practical Diagnostic Guide",
+  "/help/iptv-login-not-working": "IPTV Login Not Working? Diagnose Authentication Errors",
+  "/help/m3u-not-loading": "M3U Playlist Not Loading? How to Diagnose and Fix It",
+  "/help/epg-not-working": "EPG Not Working? Fix Missing or Wrong IPTV Guide Data",
+};
+
 /** Stable schema.org @id for a person, so Article, Organization and ProfilePage point to one entity. */
 export const personId = (baseUrl: string, slug: string) => `${baseUrl}/authors/${slug}#person`;
 

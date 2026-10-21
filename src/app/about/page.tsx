@@ -9,12 +9,10 @@ import { Schema } from "@/components/shared/Schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { formatLegalDate } from "@/lib/site-data/page-modifications";
 import { plans } from "@/lib/site-data/pricing";
-import { publicBrandSocialLinks } from "@/lib/site-data/socials";
 import { COMPANY, LICENSING_CONFIRMED, SHOW_CONFIRM_MARKERS } from "@/lib/site-data/company";
 import { Confirm } from "@/components/shared/Confirm";
 import { BRAND } from "@/lib/site-data/brand";
 import { PRODUCT_TRUTHS } from "@/lib/site-config";
-import { organizationFacts, pressContactPoint, supportContactPoint } from "@/lib/schema";
 
 const LAST_UPDATED = "2026-10-21";
 
@@ -103,21 +101,7 @@ const schema = {
       about: { "@id": `${base}/#organization` },
       breadcrumb: { "@id": `${base}/about#breadcrumb` },
     },
-    {
-      "@type": "OnlineBusiness",
-      "@id": `${base}/#organization`,
-      name: siteConfig.name,
-      url: `${base}/`,
-      logo: `${base}${BRAND.logos.primary}`,
-      alternateName: [...BRAND.alternateNames],
-      description: BRAND.description,
-      slogan: BRAND.tagline,
-      email: siteConfig.links.email,
-      contactPoint: [supportContactPoint(), ...pressContactPoint()],
-      sameAs: [...publicBrandSocialLinks],
-      // Only confirmed facts are added (Google: Organization properties must be true; QRG §4.5.3).
-      ...organizationFacts(),
-    },
+    // The OnlineBusiness node itself comes from the root layout on every page; AboutPage.about references its @id.
     {
       "@type": "BreadcrumbList",
       "@id": `${base}/about#breadcrumb`,
