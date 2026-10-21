@@ -37,7 +37,7 @@ export const GUIDE_AUTHORS: Record<string, string> = {};
 
 /** Who REVIEWED each guide (did not necessarily write it). Shown as "Reviewed by …"; schema `reviewedBy`. */
 export const GUIDE_REVIEWERS: Record<string, string> = {
-  // Owner-confirmed 2026-10-21: Simo Alaoui reviewed every device, player and IPTV guide (hub pages excluded).
+  // Owner-confirmed 2026-10-21: Simo Alaoui reviewed every device, player, IPTV and troubleshooting guide (hub pages excluded).
   // Device setup guides
   "/devices/firestick-iptv": "simo-alaoui",
   "/devices/android-tv-iptv": "simo-alaoui",
@@ -67,6 +67,12 @@ export const GUIDE_REVIEWERS: Record<string, string> = {
   "/guides/what-is-epg": "simo-alaoui",
   "/guides/iptv-internet-speed": "simo-alaoui",
   "/guides/iptv-vs-cable": "simo-alaoui",
+  // Troubleshooting guides (added 2026-10-21 at the owner's request)
+  "/help/iptv-not-working": "simo-alaoui",
+  "/help/iptv-buffering": "simo-alaoui",
+  "/help/iptv-login-not-working": "simo-alaoui",
+  "/help/m3u-not-loading": "simo-alaoui",
+  "/help/epg-not-working": "simo-alaoui",
 };
 
 /** Stable schema.org @id for a person, so Article, Organization and ProfilePage point to one entity. */
