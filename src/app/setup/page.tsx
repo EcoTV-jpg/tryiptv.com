@@ -421,7 +421,7 @@ export default function SetupPage() {
                     </div>
                     <div>
                       <CardTitle as="h3" className="text-base font-extrabold">4. Your Active Subscription Credentials</CardTitle>
-                      <CardDescription className="text-xs">Delivered via email upon order confirmation</CardDescription>
+                      <CardDescription className="text-xs">Delivered on WhatsApp within {PRODUCT_TRUTHS.activationTime} of payment confirmation</CardDescription>
                     </div>
                   </div>
                 </CardHeader>

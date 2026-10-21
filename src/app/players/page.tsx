@@ -468,7 +468,7 @@ export default function PlayersHubPage() {
                       </Link>
                     </Button>
                     <p data-small-print className="mt-2 text-center text-[11px] text-muted-foreground">
-                      Setup credentials typically delivered by email within 5–15 minutes
+                      Trial login details usually arrive on WhatsApp within {PRODUCT_TRUTHS.activationTime}
                     </p>
                   </div>
                 </CardContent>
