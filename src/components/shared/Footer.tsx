@@ -3,6 +3,8 @@ import { ArrowUpRight, MessageCircle } from "lucide-react";
 
 import { Container } from "./Container";
 import { Logo } from "./Logo";
+import { BRAND } from "@/lib/site-data/brand";
+import { COMPANY } from "@/lib/site-data/company";
 import { footerLinks } from "@/lib/site-data/footer";
 import { socialLinks } from "@/lib/site-data/socials";
 
@@ -99,7 +101,7 @@ export function Footer() {
           <div className="pointer-coarse:max-sm:col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-4">
             <Logo />
             <p className="mt-3.5 max-w-sm text-base leading-relaxed text-muted-foreground/90 sm:text-[13.5px]">
-              Premium live TV and on-demand entertainment, built for the devices you already use. Prepaid access with 25,000+ live channels worldwide and 120,000+ movies and TV shows.
+              {BRAND.description}
             </p>
             <div className="mt-4 flex flex-col items-start text-sm">
               <span
@@ -204,7 +206,10 @@ export function Footer() {
 
         {/* Bottom copyright and legal bar */}
         <div className="mt-10 flex flex-col-reverse gap-4 border-t border-white/[0.06] pt-6 text-xs text-muted-foreground/80 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} TryIPTV. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} TryIPTV. All rights reserved.
+            {COMPANY.legalName ? ` TryIPTV is operated by ${COMPANY.legalName}${COMPANY.location ? `, ${COMPANY.location.replace("United States", "USA")}` : ""}.` : ""}
+          </p>
         </div>
       </Container>
     </footer>

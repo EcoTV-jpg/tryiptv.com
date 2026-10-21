@@ -19,6 +19,7 @@ import {
   HardDrive,
 } from "lucide-react";
 import InternalLinks from "@/components/shared/InternalLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import { Schema } from "@/components/shared/Schema";
 import { generateArticleSchema, generateHowToSchema, generateFAQPageSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
@@ -125,7 +126,7 @@ const DEVICE_SEO_OVERRIDES: Record<string, { seoTitle?: string; metaDescription?
   },
   'samsung-tv-iptv': {
     seoTitle: 'How to Install IPTV on Samsung Smart TV (Tizen)',
-    metaDescription: 'Set up IPTV on a Samsung Smart TV with Tizen OS: choose a Smart Hub app like IBO Player or Smart IPTV, add credentials via web portal, and handle audio formats.',
+    metaDescription: 'Set up IPTV on a Samsung Smart TV with Tizen OS: pick a Smart Hub app such as IBO Player, add your login via its web portal, and fix audio format issues.',
   },
   'lg-tv-iptv': {
     seoTitle: 'How to Install IPTV on LG Smart TV (webOS)',
@@ -149,10 +150,14 @@ const DEVICE_SEO_OVERRIDES: Record<string, { seoTitle?: string; metaDescription?
   },
   'windows-iptv': {
     seoTitle: 'IPTV on Windows: Players & PC Setup Guide',
-    metaDescription: 'Learn how to use IPTV on Windows, choose a compatible PC player, connect with Xtream Codes or M3U, and download apps from trusted sources.',
+    metaDescription: 'Learn how to use IPTV on a Windows 10 or 11 PC: choose a compatible player, connect with Xtream Codes or M3U, and download apps only from trusted sources.',
+  },
+  'iphone-iptv': {
+    seoTitle: 'How to Watch IPTV on iPhone & iPad (App Store Guide)',
+    metaDescription: 'Set up IPTV on iPhone or iPad: install a player from the App Store, add Xtream Codes or M3U, load the TV guide, and send streams to your TV with AirPlay.',
   },
   'mac-iptv': {
-    seoTitle: 'How to Set Up IPTV on Mac (macOS Guide)',
+    seoTitle: 'How to Set Up IPTV on a Mac (macOS Guide)',
     metaDescription: 'Stream IPTV on a MacBook, iMac, or Mac mini: choose a native player like UHF or IINA, handle macOS Gatekeeper permissions, and use Picture-in-Picture.',
   },
 };
@@ -209,6 +214,11 @@ const DEVICE_QUICK_SPECS: Record<string, DeviceQuickSpecs> = {
     loginFormat: 'Xtream Codes or M3U',
     difficulty: 'Simple Guided Setup',
   },
+  'iphone-iptv': {
+    setupMethod: 'App Store Player',
+    loginFormat: 'Xtream Codes or M3U',
+    difficulty: 'Simple Guided Setup',
+  },
   'mac-iptv': {
     setupMethod: 'macOS App or IINA / VLC',
     loginFormat: 'Xtream Codes or M3U',
@@ -220,7 +230,7 @@ type SetupLink = { href: string; label: string };
 
 const DEVICE_QUICK_ANSWERS: Record<string, string> = {
   "firestick-iptv":
-    "Install Downloader from the Amazon Appstore, sideload a dedicated IPTV player like IPTV Smarters Pro or TiviMate, enter your Xtream Codes API credentials, and optimize Fire TV remote navigation and buffer settings.",
+    "Install the Downloader app from the Amazon Appstore, allow it to install unknown apps under Settings > My Fire TV > Developer Options, sideload an IPTV player such as TiviMate or IPTV Smarters Pro from its developer's official download link, then sign in with your Xtream Codes or M3U details.",
   "android-tv-iptv":
     "To use IPTV on Android TV or Google TV: (1) install a compatible TV player from Google Play; (2) open the player and choose Xtream Codes or M3U; (3) enter the credentials supplied by your IPTV provider and load your playlist.",
   "samsung-tv-iptv":
@@ -237,6 +247,8 @@ const DEVICE_QUICK_ANSWERS: Record<string, string> = {
     "Because Roku OS does not support Android APK sideloading or native uncertified IPTV player apps, stream using Apple AirPlay 2 (on supported models) or screen mirror via Miracast/Smart View from a mobile device or PC over a stable local Wi-Fi connection.",
   "windows-iptv":
     "To use IPTV on a Windows PC: (1) install a compatible player from the Microsoft Store or the player's verified developer website; (2) open the player and enter your provider's Xtream Codes credentials or M3U playlist URL; (3) allow the playlist and EPG to load, then test a channel.",
+  "iphone-iptv":
+    "To watch IPTV on iPhone or iPad: (1) install an IPTV player such as Smarters Player Lite or UHF from the App Store; (2) choose Xtream Codes or M3U and paste your login details; (3) let channels and the TV guide load, then play a channel or AirPlay it to your TV.",
   "mac-iptv":
     "Download a native client like UHF from the Mac App Store or install players like IPTV Smarters/IINA (authorizing Gatekeeper only if installing standalone DMG packages), and use Picture-in-Picture for flexible desktop multitasking.",
 };
@@ -476,6 +488,32 @@ const DEVICE_REQUIREMENTS: Record<string, RequirementItem[]> = {
       tag: "Service",
     },
   ],
+  "iphone-iptv": [
+    {
+      title: "iPhone or iPad",
+      desc: "An iPhone or iPad updated to a recent iOS or iPadOS version so current App Store players install.",
+      icon: Smartphone,
+      tag: "Hardware",
+    },
+    {
+      title: "Wi-Fi or 5G/4G",
+      desc: "Wi-Fi for setup and long viewing; mobile data works but uses about 3–7 GB per hour at 1080p.",
+      icon: Wifi,
+      tag: "Network",
+    },
+    {
+      title: "App Store IPTV Player",
+      desc: "A player with Xtream Codes support, such as Smarters Player Lite or UHF - IPTV Client.",
+      icon: Layers,
+      tag: "Application",
+    },
+    {
+      title: "TryIPTV Xtream or M3U Details",
+      desc: "Server URL, username and password, or an M3U playlist link, copied from your login message.",
+      icon: KeyRound,
+      tag: "Service",
+    },
+  ],
   "mac-iptv": [
     {
       title: "Apple Mac (macOS)",
@@ -504,6 +542,12 @@ const DEVICE_REQUIREMENTS: Record<string, RequirementItem[]> = {
   ],
 };
 
+// Step-list intros for devices whose "steps" are alternative methods, not one sequence.
+const DEVICE_STEP_INTROS: Record<string, string> = {
+  "roku-iptv":
+    "Roku cannot install IPTV player apps, so you watch IPTV on Roku by sending video from another device: AirPlay 2 from an iPhone, iPad or Mac, screen mirroring (Smart View or Miracast) from Android or Windows, or a web-video caster app. Check that your Roku model supports the method you choose.",
+};
+
 const DEVICE_CTA_DESCRIPTIONS: Record<string, string> = {
   "firestick-iptv":
     "Verify channel loading speed, Fire TV remote navigation, Downloader setup, and EPG guide behavior during the stated 24-hour evaluation period.",
@@ -523,6 +567,8 @@ const DEVICE_CTA_DESCRIPTIONS: Record<string, string> = {
     "Test AirPlay 2 or screen mirroring playback stability, audio synchronization, and wireless connection performance on your Roku TV with our 24-hour evaluation pass.",
   "windows-iptv":
     "Test multi-monitor playback, GPU hardware acceleration, and channel switching on your Windows PC with our full-access trial.",
+  "iphone-iptv":
+    "Test your App Store player, AirPlay to your TV, and mobile playback on iPhone or iPad with our 24-hour evaluation pass.",
   "mac-iptv":
     "Test native macOS player performance, Picture-in-Picture multitasking, and Apple Silicon efficiency with our 24-hour evaluation pass.",
 };
@@ -581,6 +627,12 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/guides/what-is-m3u", label: "Load M3U streams in VLC" },
     { href: "/help/m3u-not-loading", label: "Fix M3U playlist loading errors" },
     { href: "/iptv-free-trial", label: "Test on Windows with a free trial" },
+  ],
+  "iphone-iptv": [
+    { href: "/players/iptv-smarters", label: "Smarters Player Lite on iPhone" },
+    { href: "/guides/iptv-internet-speed", label: "Mobile data and speed planning" },
+    { href: "/help/iptv-login-not-working", label: "Fix iPhone player login errors" },
+    { href: "/iptv-free-trial", label: "Test on iPhone with a free trial" },
   ],
   "mac-iptv": [
     { href: "/players/iptv-smarters", label: "IPTV Smarters for macOS" },
@@ -710,6 +762,7 @@ export default async function HowToPage({ params }: Props) {
                   </time>
                 </span>
               </div>
+              <GuideByline path={`/devices/${id}`} />
 
               {/* Mobile Table of Contents */}
               <GuideToc items={tocItems} variant="mobile" />
@@ -746,7 +799,7 @@ export default async function HowToPage({ params }: Props) {
                 <GuideRequirements primaryKeyword={primaryKeyword} items={deviceRequirements} />
 
                 {/* Step-by-Step Sequence */}
-                <GuideStepList steps={steps} primaryKeyword={primaryKeyword} />
+                <GuideStepList steps={steps} primaryKeyword={primaryKeyword} intro={DEVICE_STEP_INTROS[id]} />
 
                 {/* Stream Isolation Callout right after steps */}
                 {isFirestick && (

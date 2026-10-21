@@ -32,7 +32,7 @@ import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-c
 
 const title = "IPTV Help & Troubleshooting Directory — TryIPTV Support";
 const description =
-  "Systematic troubleshooting guides for IPTV problems: fix buffering, resolve login failures, diagnose playlists that will not load, and correct TV guide errors.";
+  "Troubleshooting guides for IPTV problems: fix buffering, resolve login failures, diagnose playlists that will not load, and correct TV guide errors fast.";
 const canonical = "/help";
 
 export function generateMetadata(): Metadata {

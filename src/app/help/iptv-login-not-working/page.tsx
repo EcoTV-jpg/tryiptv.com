@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   AlertTriangle,
@@ -125,10 +127,12 @@ export default function IptvLoginNotWorkingPage() {
               IPTV Login Not Working? How to Diagnose Authentication Errors
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              Authentication errors can stem from typographical mistakes, server reachability issues,
-              middleware status codes, or account limits. Follow this systematic sequence to identify the
-              exact cause and restore access safely.
+              An IPTV login usually fails for one of four reasons: a typing mistake in the server URL,
+              username, or password; a server that cannot be reached; an expired or suspended account; or too
+              many devices streaming at once. Re-copy your details exactly, then follow the six checks below
+              in order.
             </p>
+            <GuideByline path="/help/iptv-login-not-working" />
           </div>
         </Container>
       </Section>
@@ -448,6 +452,7 @@ export default function IptvLoginNotWorkingPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/help/iptv-login-not-working" />
     </>
   );
 }

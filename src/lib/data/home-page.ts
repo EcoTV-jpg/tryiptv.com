@@ -6,7 +6,7 @@ import { plans } from '@/lib/site-data/pricing';
 export function getHomePageData() {
   const productSchema: Product = generateProductSchema({
     name: `${siteConfig.name} IPTV Subscription`,
-    description: "Prepaid IPTV subscription featuring 25,000+ live channels worldwide, 120,000+ movies and TV shows, 4K Ultra HD streaming, and 2 simultaneous connections across compatible devices.",
+    description: "Prepaid IPTV subscription featuring 25,000+ live channels worldwide, 120,000+ movies and TV shows, HD and 4K streams where available, and 2 simultaneous connections across compatible devices.",
     image: `${siteConfig.url}/api/og`,
     sku: "tryiptv-subscription",
     mpn: "tryiptv-subscription",
@@ -26,7 +26,7 @@ export function getHomePageData() {
         priceCurrency: "USD",
         availability: "https://schema.org/InStock",
         url: plan.checkoutUrl,
-        description: `${plan.name} prepaid IPTV subscription including 2 simultaneous device connections, 25,000+ live channels worldwide, and 4K Ultra HD streaming.`,
+        description: `${plan.name} prepaid IPTV subscription including 2 simultaneous device connections, 25,000+ live channels worldwide, and HD and 4K streams where available.`,
       }))
     }
   });

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   AlertCircle,
@@ -130,6 +132,7 @@ export default function M3uNotLoadingPage() {
               defects, network reachability, server response codes, or memory constraints during parsing.
               Use this guide to pinpoint the exact failure layer.
             </p>
+            <GuideByline path="/help/m3u-not-loading" />
           </div>
         </Container>
       </Section>
@@ -405,6 +408,7 @@ export default function M3uNotLoadingPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/help/m3u-not-loading" />
     </>
   );
 }

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
@@ -8,12 +10,12 @@ import { GuideScreenshot } from "@/components/guide";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "TiviMate IPTV Player Setup Guide: Install, M3U & Xtream Codes";
+const title = "How to Install IPTV on TiviMate";
 const description =
-  "Install and set up TiviMate on Android TV, Google TV or Fire TV. Add Xtream Codes or M3U, configure EPG, and troubleshoot common issues.";
+  "Step-by-step guide to install and set up IPTV on TiviMate for Android TV and Fire TV Stick using Xtream Codes or an M3U playlist, plus EPG setup and fixes.";
 const canonical = "/players/tivimate";
 // Shorter search-result title; `title` stays the article headline.
-const seoTitle = "TiviMate IPTV Player Setup: M3U & Xtream Codes";
+const seoTitle = "TiviMate Setup Guide: M3U, Xtream Codes & EPG on Fire TV";
 
 export function generateMetadata(): Metadata {
   return {
@@ -25,8 +27,10 @@ export function generateMetadata(): Metadata {
 const articleSchema = generateArticleSchema({
   headline: title,
   description,
-  dateModified: "2026-10-12",
+  dateModified: "2026-10-20",
   url: `${SITE_URL}${canonical}`,
+  // Real app screenshot (1280x718) so image results and AI answers show the TiviMate login screen.
+  image: `${SITE_URL}/images/tivimate/tivimate-xtream-codes-login.webp`,
 });
 
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -51,11 +55,15 @@ export default function TivimatePage() {
           <Breadcrumb items={[{ label: "Players", href: "/players" }, { label: "TiviMate" }]} />
           <div className="mt-8 max-w-3xl">
             <h1 className="font-headline text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              TiviMate IPTV Player Setup Guide: Install, M3U &amp; Xtream Codes
+              How to Install IPTV on TiviMate
             </h1>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              TiviMate is an IPTV media player, not a source of channels or subscriptions. You need your own compatible playlist or login details from an IPTV provider. Install TiviMate, add an Xtream Codes login or M3U playlist, then allow channels and any available EPG data to load.
+              Step-by-step guide to install and set up IPTV on TiviMate for Android TV and Fire TV Stick, using Xtream Codes or an M3U playlist.
             </p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              TiviMate is one of the most advanced and easiest IPTV players to use, with a smooth, modern interface built for big-screen Android devices, and a top choice among Android IPTV apps. It is a player, not a source of channels: you add the playlist or login details from your IPTV provider. Its focus is live TV; movies and series depend on your app version and your provider&apos;s playlist, so check them on your setup.
+            </p>
+            <GuideByline path="/players/tivimate" />
           </div>
         </Container>
       </Section>
@@ -70,6 +78,35 @@ export default function TivimatePage() {
               </p>
               <p className={textClass}>
                 The official app listing confirms support for M3U, Xtream Codes, and Stalker Portal. If you only have a provider website login, ask the provider which playlist method to use. <Link href="/guides/what-are-xtream-codes" className={linkClass}>Xtream Codes credentials</Link> are one common option.
+              </p>
+            </section>
+
+            <section>
+              <h2 className={headingClass}>TiviMate Key Features</h2>
+              <ul className="mt-4 list-disc space-y-2 pl-6 text-base leading-relaxed text-muted-foreground">
+                <li>Modern user interface built for large screens and remote control</li>
+                <li>Multiple playlist support</li>
+                <li>Scheduled TV guide (EPG) updates</li>
+                <li>Favorite channels</li>
+                <li>Catch-up support, where your provider offers it</li>
+                <li>Subtitles and audio track switching</li>
+                <li>Program recording</li>
+              </ul>
+              <p className={textClass}>Some of these, such as recording and multiple playlists, need TiviMate Premium (see below).</p>
+              <GuideScreenshot
+                src="/images/tivimate/tivimate-player-menu-recording-multiview.webp"
+                alt="TiviMate playback menu over a live channel with Channels list, Search, Recordings, Multi-view, audio track, audio delay and subtitle controls"
+                caption="TiviMate's playback menu: channel list, search, recordings, multi-view, audio, audio delay and subtitles."
+                width={1280}
+                height={720}
+                sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
+              />
+            </section>
+
+            <section>
+              <h2 className={headingClass}>TiviMate Download and Pricing</h2>
+              <p className={textClass}>
+                TiviMate is available for Android TV, Google TV, and Fire TV Stick devices. A free, limited version is in the Google Play Store, and Fire TV users install the official APK (steps below). TiviMate Premium is a paid upgrade, sold yearly or as a one-time lifetime purchase, that unlocks features such as recording and multiple playlists. Prices vary by region and change over time, so check the current price in TiviMate&apos;s own purchase flow before buying. Premium is paid to TiviMate&apos;s developer and is separate from your IPTV subscription.
               </p>
             </section>
 
@@ -101,6 +138,35 @@ export default function TivimatePage() {
             </section>
 
             <section>
+              <h2 className={headingClass}>How to Set Up TiviMate in 3 Steps</h2>
+              <ol className={listClass}>
+                <li><strong className="text-foreground">Add a playlist.</strong> Launch the app and select <strong className="text-foreground">Add Playlist</strong>. Choose a local M3U file, a remote playlist by URL, or log in with Xtream Codes.</li>
+                <li><strong className="text-foreground">Enter your connection details.</strong> Type the Xtream Codes server URL, username and password (or the M3U URL) from your IPTV provider and continue.</li>
+                <li><strong className="text-foreground">Name your playlist.</strong> TiviMate fills in the server domain as the playlist name; change it to anything you like, then finish setup.</li>
+              </ol>
+              <GuideScreenshot
+                src="/images/tivimate/tivimate-add-playlist-options.webp"
+                alt="TiviMate Add Playlist screen with Enter URL, Paste from clipboard, Select local playlist and Xtream Codes login options"
+                caption="Step 1: choose how to add your playlist: M3U URL, local file, or Xtream Codes login."
+                width={1280}
+                height={720}
+                sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
+              />
+              <GuideScreenshot
+                src="/images/tivimate/tivimate-playlist-name.webp"
+                alt="TiviMate Playlist is processed screen with the playlist name field filled in from the server address"
+                caption="Step 3: TiviMate suggests the server domain as the playlist name; edit it, then select Done."
+                note="Server details replaced with placeholders."
+                width={1280}
+                height={647}
+                sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
+              />
+              <p className={textClass}>
+                Once added, you can browse the channel list, open the full program guide, switch audio tracks, turn on subtitles, and manage your channels. The sections below cover each login method in detail.
+              </p>
+            </section>
+
+            <section>
               <h2 className={headingClass}>How to Set Up TiviMate with Xtream Codes</h2>
               <p className={textClass}>
                 To connect TiviMate with Xtream Codes, select Add Playlist and choose Xtream Codes. Enter the server URL, username, and password supplied by your IPTV provider, then save the playlist and wait for channels to load. The server URL identifies the service endpoint; the username and password identify your IPTV account. TiviMate does not issue those credentials.
@@ -112,12 +178,13 @@ export default function TivimatePage() {
                 <li>Continue, name the playlist, save it, and allow the channel list to load.</li>
               </ol>
               <GuideScreenshot
-                src="/images/tivimate/xtream-codes-login.jpeg"
-                alt="TiviMate Xtream Codes login screen with separate server address, username, and password fields"
-                caption="TiviMate's Xtream Codes login form. Enter provider-issued values only in the app."
-                note="The supplied capture shows empty credential fields; no account data is displayed."
-                width={687}
-                height={390}
+                src="/images/tivimate/tivimate-xtream-codes-login.webp"
+                alt="TiviMate Xtream Codes login screen with server address, username and password fields and the Include VOD option"
+                caption="Step 2: enter the server address, username and password from your IPTV provider. Keep Include VOD ticked to load movies and series."
+                note="Example values are placeholders, not real account details."
+                width={1280}
+                height={718}
+                sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
               />
               <p className={textClass}>A provider website password may differ from the IPTV password. If the details work in one player but fail here, compare the exact server address and port used in both apps.</p>
             </section>
@@ -156,12 +223,12 @@ export default function TivimatePage() {
                 Check the URL, source assignment, update status, and channel IDs before changing playback settings. Channels can work while EPG data fails independently. See the <Link href="/help/epg-not-working" className={linkClass}>EPG troubleshooting guide</Link> for missing or stale schedules.
               </p>
               <GuideScreenshot
-                src="/images/tivimate/epg-tv-guide.webp"
-                alt="TiviMate electronic programme guide grid showing channel rows and schedule time slots"
-                caption="TiviMate's EPG grid view."
-                note="This supplied capture visibly shows several ‘No information’ entries, so it demonstrates the guide layout rather than verified schedule completeness."
-                width={640}
-                height={480}
+                src="/images/tivimate/tivimate-epg-tv-guide-grid.webp"
+                alt="TiviMate TV guide (EPG) grid with channel groups on the left, a live preview, and programme time slots for each channel"
+                caption="TiviMate's EPG grid: channel groups, live preview and programme schedule. Channels without guide data show “No information”."
+                width={1280}
+                height={715}
+                sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
               />
             </section>
 
@@ -198,6 +265,14 @@ export default function TivimatePage() {
               <p className={textClass}>
                 You normally do not install channels individually in TiviMate. Channels arrive through the M3U, Xtream Codes, or Stalker Portal playlist supplied by your IPTV provider. Refresh the playlist when the provider changes its lineup; if a channel is still absent, ask the provider whether it belongs to your account. TiviMate can help you navigate the channels it receives with favorites and playlist organization.
               </p>
+              <GuideScreenshot
+                src="/images/tivimate/tivimate-channel-list-programme-schedule.webp"
+                alt="TiviMate channel list grouped by country with the selected channel's programme schedule and episode details"
+                caption="Browsing a channel group in TiviMate, with the selected channel's schedule and programme details."
+                width={1280}
+                height={723}
+                sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
+              />
             </section>
 
             <section>
@@ -238,6 +313,7 @@ export default function TivimatePage() {
           </article>
         </Container>
       </Section>
+      <TopicClusterLinks path="/players/tivimate" />
     </>
   );
 }

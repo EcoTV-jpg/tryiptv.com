@@ -1,3 +1,6 @@
+import { AUTHORS, getAuthorForPath, getReviewerForPath, personId } from '@/lib/site-data/authors';
+import { COMPANY } from '@/lib/site-data/company';
+import { BRAND } from '@/lib/site-data/brand';
 import type {
   Product,
   WebSite,
@@ -30,29 +33,98 @@ export function generateWebSiteSchema(): WithContext<WebSite> {
     '@type': 'WebSite',
     '@id': websiteId,
     'url': `${siteConfig.url}/`,
-    'name': siteConfig.name,
-    'alternateName': 'Try IPTV',
+    // Same name and alternateName as the Organization (Google: site names and Organization docs).
+    'name': BRAND.name,
+    'alternateName': [...BRAND.alternateNames],
     'publisher': organizationReference,
+  };
+}
+
+/** Customer-support ContactPoint, with hours once confirmed (company.ts `support.hoursSpec`). */
+export function supportContactPoint() {
+  const h = COMPANY.support.hoursSpec;
+  return {
+    '@type': 'ContactPoint' as const,
+    contactType: 'customer support',
+    email: COMPANY.support.email,
+    url: COMPANY.support.whatsappUrl,
+    ...(COMPANY.support.languages ? { availableLanguage: COMPANY.support.languages } : {}),
+    ...(h
+      ? {
+          hoursAvailable: {
+            '@type': 'OpeningHoursSpecification' as const,
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            opens: h.opens,
+            closes: h.closes,
+          },
+        }
+      : {}),
+  };
+}
+
+/** Press ContactPoint, once a monitored press inbox is confirmed (company.ts `support.pressEmail`). */
+export function pressContactPoint() {
+  return COMPANY.support.pressEmail
+    ? [{ '@type': 'ContactPoint' as const, contactType: 'press', email: COMPANY.support.pressEmail }]
+    : [];
+}
+
+/** Owner-confirmed organisation facts (company.ts). Each is added only once confirmed; never guessed. */
+export function organizationFacts() {
+  return {
+    ...(COMPANY.legalName ? { legalName: COMPANY.legalName } : {}),
+    ...(COMPANY.foundingYear ? { foundingDate: COMPANY.foundingYear } : {}),
+    ...(COMPANY.vatOrTaxId ? { vatID: COMPANY.vatOrTaxId } : {}),
+    ...(COMPANY.registrationNumber
+      ? { identifier: { '@type': 'PropertyValue' as const, propertyID: COMPANY.registry ?? 'Company registration number', value: COMPANY.registrationNumber } }
+      : {}),
+    ...(COMPANY.team.length
+      ? {
+          founder: COMPANY.team
+            .filter((m) => /founder/i.test(m.role))
+            .map((m) => {
+              // Link the founder to their profile (same @id as Article reviewedBy/author and the ProfilePage).
+              const profile = AUTHORS.find((a) => a.name === m.name);
+              return {
+                '@type': 'Person' as const,
+                name: m.name,
+                jobTitle: m.role,
+                ...(profile ? { '@id': personId(siteConfig.url, profile.slug), url: `${siteConfig.url}/authors/${profile.slug}` } : {}),
+              };
+            }),
+        }
+      : {}),
+    ...(COMPANY.address
+      ? { address: { '@type': 'PostalAddress' as const, streetAddress: COMPANY.address.street, addressLocality: COMPANY.address.locality, postalCode: COMPANY.address.postalCode, addressCountry: COMPANY.address.country } }
+      : COMPANY.area
+        ? { address: { '@type': 'PostalAddress' as const, addressRegion: COMPANY.area.region, addressCountry: COMPANY.area.country } }
+        : {}),
   };
 }
 
 export function generateOrganizationSchema(): WithContext<Organization> {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    // Most specific subtype (Google Organization doc): an online-only service.
+    '@type': 'OnlineBusiness' as 'Organization',
     '@id': organizationId,
-    'name': siteConfig.name,
-    'alternateName': 'Try IPTV',
+    'name': BRAND.name,
+    'alternateName': [...BRAND.alternateNames],
     'url': `${siteConfig.url}/`,
+    'description': BRAND.description,
+    'slogan': BRAND.tagline,
     'logo': {
       '@type': 'ImageObject',
-      'url': `${siteConfig.url}/logo.png`,
-      'contentUrl': `${siteConfig.url}/logo.png`,
+      'url': `${siteConfig.url}${BRAND.logos.primary}`,
+      'contentUrl': `${siteConfig.url}${BRAND.logos.primary}`,
       'width': 1024 as any,
       'height': 1024 as any,
     },
     'sameAs': [...publicBrandSocialLinks],
-  };
+    'email': COMPANY.support.email,
+    'contactPoint': [supportContactPoint(), ...pressContactPoint()],
+    ...organizationFacts(),
+  } as WithContext<Organization>;
 }
 
 interface ProductSchemaProps {
@@ -128,6 +200,20 @@ interface ArticleSchemaProps {
     authorName?: string;
     publisherName?: string;
     url: string;
+    /** Path of the page, used to look up a confirmed author (src/lib/site-data/authors.ts). */
+    path?: string;
+}
+
+const personRef = (p: { slug: string; name: string }) => ({
+    '@type': 'Person' as const,
+    '@id': personId(siteConfig.url, p.slug),
+    name: p.name,
+    url: `${siteConfig.url}/authors/${p.slug}`,
+});
+
+function authorFor(path: string) {
+    const person = getAuthorForPath(path);
+    return person ? personRef(person) : organizationReference;
 }
 
 export function generateArticleSchema(props: ArticleSchemaProps): WithContext<Article> {
@@ -136,15 +222,25 @@ export function generateArticleSchema(props: ArticleSchemaProps): WithContext<Ar
         '@type': 'Article',
         headline: props.headline,
         description: props.description,
-        image: props.image,
+        // Recommended Article property. Without a page-specific image, use the site's own OG image
+        // endpoint (1200x630 PNG, crawlable via robots.txt) rendered with this article's headline.
+        // datePublished is intentionally omitted: no verified publication dates exist.
+        image: props.image ?? `${siteConfig.url}${siteConfig.ogImage}?title=${encodeURIComponent(props.headline)}`,
         dateModified: props.dateModified,
-        author: organizationReference,
+        // A confirmed person if one is assigned to this page; otherwise the organisation (never invented people).
+        author: authorFor(props.path ?? props.url.replace(siteConfig.url, "")),
         publisher: defaultPublisher,
         mainEntityOfPage: {
             '@type': 'WebPage',
             '@id': props.url,
+            // schema.org puts reviewedBy on WebPage (not Article): a confirmed reviewer, if one is assigned.
+            ...(reviewerOf(props) ? { reviewedBy: personRef(reviewerOf(props)!) } : {}),
         },
     };
+}
+
+function reviewerOf(props: ArticleSchemaProps) {
+    return getReviewerForPath(props.path ?? props.url.replace(siteConfig.url, ""));
 }
 
 interface HowToSchemaProps {
@@ -198,6 +294,8 @@ interface ServiceSchemaProps {
     name: string;
     description: string;
     offers?: Offer | AggregateOffer;
+    /** Absolute URL of an image that represents the service. */
+    image?: string;
 }
 
 export function generateServiceSchema(props: ServiceSchemaProps): WithContext<Service> {
@@ -209,6 +307,7 @@ export function generateServiceSchema(props: ServiceSchemaProps): WithContext<Se
         ...(props.areaServed ? { areaServed: props.areaServed } : {}),
         name: props.name,
         description: props.description,
+        ...(props.image ? { image: props.image } : {}),
         offers: props.offers
     }
 }

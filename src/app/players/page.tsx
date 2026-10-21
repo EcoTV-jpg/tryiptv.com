@@ -13,7 +13,7 @@ import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } fr
 
 const title = "Best IPTV Players for 2026: Comparison & Setup Guides";
 const description =
-  "Compare IPTV players by device, M3U and Xtream Codes support, and EPG features. Find the right app for Fire TV, Android TV, Apple, Smart TV, Windows, and Mac.";
+  "Compare IPTV players by device, M3U and Xtream Codes support, and EPG features. Find the right app for Fire TV, Android TV, Apple, Smart TVs, and PC.";
 const canonical = "/players";
 
 export function generateMetadata(): Metadata {
@@ -214,6 +214,9 @@ export default function PlayersHubPage() {
                   <strong className="text-foreground font-semibold">Windows PC &amp; Mac:</strong> Choose <Link href="/players/iptv-smarters" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV Smarters Pro</Link> or standard desktop media players such as VLC.
                 </li>
               </ul>
+              <p>
+                Once you&apos;ve picked a player, compare <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV subscription pricing</Link> across the 1, 3, 6 and 12-month plans.
+              </p>
             </ArticleSummary>
           </div>
         </Container>

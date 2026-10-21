@@ -21,7 +21,7 @@ export const getFaqPageData = cache(
       breadcrumbSchema
     };
   },
-  ['faq-page-data'], // Unique cache key
+  ['faq-page-data-v4'], // Unique cache key
   {
     revalidate: 3600, // Revalidate every hour
     tags: ['pages', 'faq-page'], // Tag for on-demand revalidation

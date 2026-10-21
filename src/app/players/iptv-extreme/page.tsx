@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
@@ -8,7 +10,7 @@ import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
 const title = "IPTV Extreme Setup Guide: M3U, Xtream Codes & MAG/Stalker";
-const description = "Learn how to set up IPTV Extreme with M3U, Xtream Codes or MAG/Stalker, configure EPG, and diagnose playlist, login and playback problems.";
+const description = "Learn how to set up IPTV Extreme with M3U, Xtream Codes, or MAG/Stalker, configure EPG guide data, and diagnose playlist, login, and playback problems.";
 const canonical = "/players/iptv-extreme";
 
 export function generateMetadata(): Metadata {
@@ -46,7 +48,8 @@ export default function IptvExtremePage() {
       <div className="mt-8 max-w-4xl">
         <span className="font-mono text-xs font-semibold uppercase tracking-wider text-primary">IPTV Extreme guide</span>
         <h1 className="mt-3 font-headline text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">IPTV Extreme Setup Guide: M3U, Xtream Codes &amp; MAG/Stalker</h1>
-        <p className="mt-4 text-base leading-8 text-muted-foreground sm:text-lg">IPTV Extreme is a playlist player; it does not include channels or a subscription. Add your own compatible M3U playlist or, on supported versions, an Xtream Codes or MAG/Stalker configuration. The app can then load the channels, on-demand items, and EPG data available from that source. Check each stage separately if setup stops working.</p>
+        <p className="mt-4 text-base leading-8 text-muted-foreground sm:text-lg">IPTV Extreme is a playlist player; it does not include channels or a subscription. Add your own compatible M3U playlist or, on supported versions, an Xtream Codes or MAG/Stalker configuration. The app can then load the channels, on-demand items, and EPG data available from that source. Check each stage separately if setup stops working. IPTV Extreme is free to install; what you pay for is the subscription, and our <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV plans with no auto-renewal</Link> start at $16.</p>
+        <GuideByline path="/players/iptv-extreme" />
       </div>
     </Container></Section>
     <Section className="py-12 sm:py-16"><Container><article className="mx-auto max-w-4xl space-y-12">
@@ -124,5 +127,6 @@ export default function IptvExtremePage() {
         <div className="mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-base sm:text-sm text-muted-foreground">Need IPTV credentials for IPTV Extreme? <Link href="/iptv-free-trial" className={a}>Start with a 24-hour IPTV trial</Link>. TryIPTV is independent of IPTV Extreme and Paolo Turatti.</div>
       </section>
     </article></Container></Section>
+    <TopicClusterLinks path="/players/iptv-extreme" />
   </>;
 }

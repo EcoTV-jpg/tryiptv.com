@@ -4,6 +4,7 @@ import { CheckCircle, Package, Tv } from "lucide-react";
 import { Container } from "../shared/Container";
 import { SectionHeader } from "../shared/SectionHeader";
 import { Section } from "../shared/Section";
+import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
 
 interface Step {
   icon: typeof Package;
@@ -48,7 +49,7 @@ export function HowItWorks() {
         <SectionHeader
           align="left"
           title="How Do I Start With TryIPTV?"
-          subtitle="Use your TryIPTV access details with a compatible IPTV player, then follow the setup guide for your device."
+          subtitle={`To start with TryIPTV, choose a plan or request the free ${FACT_TEXT.trialHours}-hour trial on WhatsApp. Support sends your Xtream Codes or M3U login details, usually within ${PRODUCT_TRUTHS.activationTime}. Install a compatible IPTV player such as TiviMate or IPTV Smarters on your device, enter those details, and your channel list loads in the player.`}
           eyebrow="Setup Process"
         />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-5">

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -177,9 +179,12 @@ export default function HowDoesIptvWorkPage() {
               How Does IPTV Work?
             </h1>
             <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-              A clear, practical explanation of how television broadcasts travel from media servers across
-              broadband networks to your streaming player, screen, and sound system.
+              IPTV works by sending TV channels and on-demand video as data over the internet. The provider&apos;s
+              servers turn each channel into a stream, an M3U playlist or Xtream Codes login tells your player
+              where those streams are, and the player on your TV, stick, phone, or computer downloads and plays
+              them, with EPG data adding the schedule.
             </p>
+            <GuideByline path="/guides/how-does-iptv-work" />
           </div>
         </Container>
       </Section>
@@ -476,7 +481,7 @@ export default function HowDoesIptvWorkPage() {
               </p>
               <ol>
                 <li>
-                  <strong>A Stable Broadband Connection:</strong> While individual streams use 5–25 Mbps, we recommend plan speeds of at least 25 Mbps for 1080p Full HD and 50+ Mbps for 4K to leave ample headroom for household devices. For detailed bandwidth planning, see our complete guide on{" "}
+                  <strong>A Stable Broadband Connection:</strong> While individual streams typically use about 3–35 Mbps depending on resolution, we recommend plan speeds of at least 25 Mbps for 1080p Full HD and 50+ Mbps for 4K to leave ample headroom for household devices. For detailed bandwidth planning, see our complete guide on{" "}
                   <Link href="/guides/iptv-internet-speed" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     IPTV internet speed requirements
                   </Link>
@@ -543,6 +548,7 @@ export default function HowDoesIptvWorkPage() {
           </article>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/how-does-iptv-work" />
     </>
   );
 }

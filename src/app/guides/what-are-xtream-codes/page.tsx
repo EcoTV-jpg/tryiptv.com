@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -119,10 +121,12 @@ export default function WhatAreXtreamCodesPage() {
               What Are Xtream Codes? The IPTV API Login Format Explained
             </h1>
             <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-              Xtream Codes is a widely used API-style login format supported by many IPTV applications.
-              Learn how it communicates with streaming servers, what information you enter, and how it
-              organizes content.
+              Xtream Codes is an API-style IPTV login format: you enter a server URL, a username, and a
+              password, and the player downloads the provider's live channels, movies, series, and TV guide
+              already sorted into categories. It is a login method supported by most IPTV players, not a
+              service or an app.
             </p>
+            <GuideByline path="/guides/what-are-xtream-codes" />
           </div>
         </Container>
       </Section>
@@ -382,7 +386,9 @@ export default function WhatAreXtreamCodesPage() {
               <p>
                 Having an Xtream-compatible player does not provide any video content on its own. You must have
                 an active subscription with an IPTV service provider to supply valid server, username, and
-                password details.
+                password details. If you&apos;re weighing up providers, see{" "}
+                <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">how much an IPTV subscription costs</Link>{" "}
+                on our pricing page before you buy credentials.
               </p>
 
               <h2>Summary: What Xtream Codes Is and Is Not</h2>
@@ -455,6 +461,7 @@ export default function WhatAreXtreamCodesPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/what-are-xtream-codes" />
     </>
   );
 }
