@@ -6,6 +6,14 @@ TryIPTV is a prepaid IPTV subscription service at https://www.tryiptv.com/. Bran
 
 The website separates five intents: commercial pages describe the service and terms; device pages explain platform setup; player pages explain specific apps; guides explain IPTV concepts; help pages diagnose symptoms. Each question is answered most fully on the most specific page.
 
+## Company
+
+- Operated by: Simo Alaoui LLC, New York, United States
+- Company registration number: 8683949
+- Founder / Operations: Simo Alaoui, who oversees TryIPTV's operations, customer experience and service development
+- Support: WhatsApp +1 (520) 564-8298 and support@tryiptv.com, 9:00 AM–10:00 PM ET, every day
+- About page: https://www.tryiptv.com/about
+
 ## Service facts
 
 - Service model: fixed-term prepaid plans with no automatic renewal.

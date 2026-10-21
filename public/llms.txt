@@ -4,6 +4,10 @@
 
 The linked website pages hold the current facts. Pricing, trial terms, and refund conditions are governed by their respective pages. Device pages cover platform setup; player pages cover app configuration; guides explain concepts; help pages diagnose problems.
 
+## Company
+
+- [About TryIPTV](https://www.tryiptv.com/about): Operated by Simo Alaoui LLC (New York, United States; company registration number 8683949). Founder / Operations: Simo Alaoui. Support on WhatsApp and email, 9:00 AM–10:00 PM ET, every day.
+
 ## Service
 
 - [TryIPTV](https://www.tryiptv.com/): Service overview.

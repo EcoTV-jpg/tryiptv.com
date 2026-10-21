@@ -192,6 +192,9 @@ export default function DmcaReportPage() {
 
             <section className="space-y-3">
               <h2 id="contact" className={h2}>Submit Your DMCA Notice</h2>
+              {COMPANY.legalName && (
+                <p>TryIPTV is operated by {COMPANY.legalName}{COMPANY.location ? `, ${COMPANY.location}` : ""}.</p>
+              )}
               <p>Send your copyright infringement complaint to our designated contact email:</p>
               <div
                 dangerouslySetInnerHTML={{

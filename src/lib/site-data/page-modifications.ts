@@ -44,11 +44,11 @@ export const PAGE_LAST_MODIFIED: Record<string, string> = {
   '/devices': '2026-09-30',
   '/faq': '2026-10-20',
   '/contact-us': '2026-10-20',
-  '/privacy-policy': '2026-10-20',
-  '/terms-conditions': '2026-10-20',
+  '/privacy-policy': '2026-10-21',
+  '/terms-conditions': '2026-10-21',
   '/refund-policy': '2026-10-20',
   '/disclaimer': '2026-10-20',
-  '/dmca-report': '2026-10-20',
+  '/dmca-report': '2026-10-21',
 };
 
 /**

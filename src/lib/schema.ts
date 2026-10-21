@@ -40,6 +40,48 @@ export function generateWebSiteSchema(): WithContext<WebSite> {
   };
 }
 
+/** Customer-support ContactPoint, with hours once confirmed (company.ts `support.hoursSpec`). */
+export function supportContactPoint() {
+  const h = COMPANY.support.hoursSpec;
+  return {
+    '@type': 'ContactPoint' as const,
+    contactType: 'customer support',
+    email: COMPANY.support.email,
+    url: COMPANY.support.whatsappUrl,
+    ...(COMPANY.support.languages ? { availableLanguage: COMPANY.support.languages } : {}),
+    ...(h
+      ? {
+          hoursAvailable: {
+            '@type': 'OpeningHoursSpecification' as const,
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            opens: h.opens,
+            closes: h.closes,
+          },
+        }
+      : {}),
+  };
+}
+
+/** Owner-confirmed organisation facts (company.ts). Each is added only once confirmed; never guessed. */
+export function organizationFacts() {
+  return {
+    ...(COMPANY.legalName ? { legalName: COMPANY.legalName } : {}),
+    ...(COMPANY.foundingYear ? { foundingDate: COMPANY.foundingYear } : {}),
+    ...(COMPANY.vatOrTaxId ? { vatID: COMPANY.vatOrTaxId } : {}),
+    ...(COMPANY.registrationNumber
+      ? { identifier: { '@type': 'PropertyValue' as const, propertyID: COMPANY.registry ?? 'Company registration number', value: COMPANY.registrationNumber } }
+      : {}),
+    ...(COMPANY.team.length
+      ? { founder: COMPANY.team.filter((m) => /founder/i.test(m.role)).map((m) => ({ '@type': 'Person' as const, name: m.name, jobTitle: m.role })) }
+      : {}),
+    ...(COMPANY.address
+      ? { address: { '@type': 'PostalAddress' as const, streetAddress: COMPANY.address.street, addressLocality: COMPANY.address.locality, postalCode: COMPANY.address.postalCode, addressCountry: COMPANY.address.country } }
+      : COMPANY.area
+        ? { address: { '@type': 'PostalAddress' as const, addressRegion: COMPANY.area.region, addressCountry: COMPANY.area.country } }
+        : {}),
+  };
+}
+
 export function generateOrganizationSchema(): WithContext<Organization> {
   return {
     '@context': 'https://schema.org',
@@ -60,20 +102,8 @@ export function generateOrganizationSchema(): WithContext<Organization> {
     },
     'sameAs': [...publicBrandSocialLinks],
     'email': COMPANY.support.email,
-    'contactPoint': {
-      '@type': 'ContactPoint',
-      'contactType': 'customer support',
-      'email': COMPANY.support.email,
-      'url': COMPANY.support.whatsappUrl,
-      ...(COMPANY.support.languages ? { 'availableLanguage': COMPANY.support.languages } : {}),
-    },
-    // Added only once confirmed by the owner (src/lib/site-data/company.ts); never guessed.
-    ...(COMPANY.legalName ? { 'legalName': COMPANY.legalName } : {}),
-    ...(COMPANY.foundingYear ? { 'foundingDate': COMPANY.foundingYear } : {}),
-    ...(COMPANY.vatOrTaxId ? { 'vatID': COMPANY.vatOrTaxId } : {}),
-    ...(COMPANY.address
-      ? { 'address': { '@type': 'PostalAddress', 'streetAddress': COMPANY.address.street, 'addressLocality': COMPANY.address.locality, 'postalCode': COMPANY.address.postalCode, 'addressCountry': COMPANY.address.country } }
-      : {}),
+    'contactPoint': supportContactPoint(),
+    ...organizationFacts(),
   } as WithContext<Organization>;
 }
 

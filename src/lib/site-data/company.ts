@@ -16,27 +16,46 @@ export const SHOW_CONFIRM_MARKERS = process.env.VERCEL_ENV !== "production";
 export const COMPANY = {
   /** Brand name, as used everywhere (Bing §16: one consistent entity name). */
   brand: "TryIPTV",
-  legalName: null as string | null,
-  registrationNumber: null as string | null,
+  /** Confirmed by the owner 2026-10-21. */
+  legalName: "Simo Alaoui LLC" as string | null,
+  /** Confirmed 2026-10-21. Shown on /about and /press; the registry is not yet confirmed (`registry`). */
+  registrationNumber: "8683949" as string | null,
+  /** Registry the number is filed with, e.g. "New York Department of State". Not confirmed: don't guess. */
+  registry: null as string | null,
   vatOrTaxId: null as string | null,
   /** Only if the owner wants a postal/registered address published. Never a virtual or invented one. */
   address: null as { street: string; locality: string; postalCode: string; country: string } | null,
   /** Country/city to state in prose, e.g. "Toronto, Canada". */
-  location: null as string | null,
+  location: "New York, United States" as string | null,
+  /** Region-level location for schema PostalAddress (no street address is published). */
+  area: { region: "New York", country: "US" } as { region: string; country: string } | null,
   /** ISO year the service started, e.g. "2021". */
   foundingYear: null as string | null,
   /** 2–4 sentence company story in the owner's words. */
-  story: null as string | null,
+  /** Owner-approved 2026-10-21. */
+  story:
+    "TryIPTV started with a simple goal: make IPTV easier to set up and easier to understand, for people tired of confusing instructions and service they couldn't rely on. We built it around simple prepaid plans, wide device compatibility, step-by-step setup guides and support you can actually reach. We keep refining the experience, so that getting started, and managing a subscription afterwards, takes as little effort as possible." as string | null,
+  /** Owner-approved short "About TryIPTV" (homepage FAQ, footer). Keep in sync with PRODUCT_TRUTHS. */
+  summary:
+    "TryIPTV is an IPTV subscription service operated by Simo Alaoui LLC, based in New York, United States. You watch on your own devices through a compatible IPTV player app." as string | null,
   /** People who may be named publicly. Only real people who agreed to be listed. */
-  team: [] as { name: string; role: string; bio?: string }[],
+  team: [
+    {
+      name: "Simo Alaoui",
+      role: "Founder / Operations",
+      bio: "Simo Alaoui oversees TryIPTV's operations, customer experience and service development.",
+    },
+  ] as { name: string; role: string; bio?: string }[],
   support: {
     email: "support@tryiptv.com",
     whatsappDisplay: "+1 (520) 564-8298",
     whatsappUrl: "https://wa.me/15205648298",
     /** Owner-supplied 2026-10-20 (DMCA page text); confirm the inbox exists (eeat-confirm Q13). */
     dmcaEmail: "care@tryiptv.com",
-    /** e.g. "Every day, 9:00–23:00 UTC". */
-    hours: null as string | null,
+    /** Confirmed 2026-10-21: same hours for WhatsApp and email. */
+    hours: "9:00 AM–10:00 PM ET, every day" as string | null,
+    /** Machine-readable form of `hours` for schema ContactPoint.hoursAvailable. */
+    hoursSpec: { opens: "09:00", closes: "22:00", timeZone: "America/New_York" } as { opens: string; closes: string; timeZone: string } | null,
     /** e.g. "Most WhatsApp messages are answered within 1 hour; email within 24 hours." */
     responseTime: null as string | null,
     languages: null as string | null,

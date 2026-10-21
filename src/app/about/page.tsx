@@ -14,8 +14,9 @@ import { COMPANY, LICENSING_CONFIRMED, SHOW_CONFIRM_MARKERS } from "@/lib/site-d
 import { Confirm } from "@/components/shared/Confirm";
 import { BRAND } from "@/lib/site-data/brand";
 import { PRODUCT_TRUTHS } from "@/lib/site-config";
+import { organizationFacts, supportContactPoint } from "@/lib/schema";
 
-const LAST_UPDATED = "2026-10-20";
+const LAST_UPDATED = "2026-10-21";
 
 // Company facts live in src/lib/site-data/company.ts. An unconfirmed fact is not rendered in
 // production; Preview/dev builds show a [CONFIRM] marker in its place (see <Confirm>).
@@ -43,6 +44,20 @@ const runBy = [
   OPERATOR.since && `running since ${OPERATOR.since}`,
 ].filter(Boolean);
 
+// Company Information table: confirmed facts only (an unconfirmed row is simply left out).
+const companyRows: [string, React.ReactNode][] = [
+  ["Brand", BRAND.name],
+  ["Website", siteConfig.url.replace("https://", "")],
+  ...(COMPANY.legalName ? [["Operated by", COMPANY.legalName] as [string, React.ReactNode]] : []),
+  ...(COMPANY.location ? [["Location", COMPANY.location] as [string, React.ReactNode]] : []),
+  ...(COMPANY.registrationNumber
+    ? [["Company registration number", COMPANY.registry ? `${COMPANY.registrationNumber} (${COMPANY.registry})` : COMPANY.registrationNumber] as [string, React.ReactNode]]
+    : []),
+  ...(COMPANY.foundingYear ? [["Operating since", COMPANY.foundingYear] as [string, React.ReactNode]] : []),
+  ["Customer support", `${COMPANY.support.email} · WhatsApp ${COMPANY.support.whatsappDisplay}`],
+  ["Copyright notices", COMPANY.support.dmcaEmail],
+];
+
 // FAQ answers are rendered visibly and reused verbatim (as plain text) in the FAQPage schema.
 const faqs: { question: string; answer: React.ReactNode; text: string }[] = [
   ...(OPERATOR.name
@@ -69,8 +84,8 @@ const faqs: { question: string; answer: React.ReactNode; text: string }[] = [
   },
   {
     question: "How do I contact support?",
-    answer: <>Email {siteConfig.links.email} or use the <Link href="/contact-us" className={link}>contact page</Link>.{SUPPORT_HOURS ? ` WhatsApp support hours: ${SUPPORT_HOURS}.` : ""}</>,
-    text: `Email ${siteConfig.links.email} or use the contact page.${SUPPORT_HOURS ? ` WhatsApp support hours: ${SUPPORT_HOURS}.` : ""}`,
+    answer: <>Email {siteConfig.links.email} or use the <Link href="/contact-us" className={link}>contact page</Link>.{SUPPORT_HOURS ? ` WhatsApp and email support hours: ${SUPPORT_HOURS}.` : ""}</>,
+    text: `Email ${siteConfig.links.email} or use the contact page.${SUPPORT_HOURS ? ` WhatsApp and email support hours: ${SUPPORT_HOURS}.` : ""}`,
   },
 ];
 
@@ -98,15 +113,10 @@ const schema = {
       description: BRAND.description,
       slogan: BRAND.tagline,
       email: siteConfig.links.email,
-      contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: siteConfig.links.email, url: COMPANY.support.whatsappUrl },
+      contactPoint: supportContactPoint(),
       sameAs: [...publicBrandSocialLinks],
       // Only confirmed facts are added (Google: Organization properties must be true; QRG §4.5.3).
-      ...(COMPANY.legalName ? { legalName: COMPANY.legalName } : {}),
-      ...(COMPANY.foundingYear ? { foundingDate: COMPANY.foundingYear } : {}),
-      ...(COMPANY.vatOrTaxId ? { vatID: COMPANY.vatOrTaxId } : {}),
-      ...(COMPANY.address
-        ? { address: { "@type": "PostalAddress", streetAddress: COMPANY.address.street, addressLocality: COMPANY.address.locality, postalCode: COMPANY.address.postalCode, addressCountry: COMPANY.address.country } }
-        : {}),
+      ...organizationFacts(),
     },
     {
       "@type": "BreadcrumbList",
@@ -149,37 +159,66 @@ export default function AboutPage() {
 
             <section className="space-y-3">
               <h2 className={h2}>Who we are</h2>
-              <p>TryIPTV is an IPTV service provider. We supply streaming access to live TV and on-demand content that you watch on your own devices through a compatible IPTV player app.</p>
-              <p>TryIPTV is not a player app. We don&apos;t make or sell the software you watch with. You bring a device and a player; we provide the service and the login details that player needs.</p>
               <Confirm value={COMPANY.story} question="Company story: how and why TryIPTV started, in 2–4 sentences.">
                 <p>{COMPANY.story}</p>
+              </Confirm>
+              <p>
+                TryIPTV is an IPTV subscription service operated by {COMPANY.legalName ?? "TryIPTV"}
+                {COMPANY.location ? `, based in ${COMPANY.location}` : ""}. You watch on your own devices through a compatible
+                IPTV player app. Plans are prepaid for 1, 3, 6 or 12 months, with {PRODUCT_TRUTHS.connections} simultaneous
+                connections and no automatic renewal, and you can test the service first with a free 24-hour trial.
+                {SUPPORT_HOURS ? ` Support is available on WhatsApp and email, ${SUPPORT_HOURS}.` : ""}
+              </p>
+              <p>TryIPTV is not a player app. We don&apos;t make or sell the software you watch with. You bring a device and a player; we provide the subscription and the login details that player needs.</p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className={h2}>Company information</h2>
+              <dl className="divide-y divide-white/[0.06] overflow-hidden rounded-xl border border-white/[0.07] bg-card text-sm">
+                {companyRows.map(([label, value]) => (
+                  <div key={label} className="grid grid-cols-1 gap-1 px-5 py-3 sm:grid-cols-[13rem_1fr] sm:gap-4">
+                    <dt className="font-semibold text-foreground">{label}</dt>
+                    <dd className="break-words">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="space-y-1">
+                <div><Confirm value={COMPANY.registry} question="Which registry is company number 8683949 filed with (e.g. New York Department of State)?" /></div>
+                <div><Confirm value={COMPANY.foundingYear} question="Year TryIPTV started operating." /></div>
+              </div>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className={h2}>Meet the team</h2>
+              <Confirm value={COMPANY.team} question="Team members who agree to be named publicly (name, role, short bio).">
+                <ul className="space-y-3">
+                  {COMPANY.team.map((m) => (
+                    <li key={m.name} className="rounded-xl border border-white/[0.07] bg-card px-5 py-4">
+                      <p className="font-headline text-lg font-bold text-foreground">{m.name}</p>
+                      <p className="text-sm font-semibold text-primary">{m.role}</p>
+                      {m.bio && <p className="mt-2">{m.bio}</p>}
+                    </li>
+                  ))}
+                </ul>
               </Confirm>
             </section>
 
             <section className="space-y-3">
-              <h2 className={h2}>Who runs TryIPTV</h2>
-              {runBy.length > 0 && <p>TryIPTV is {runBy.join(", ")}.</p>}
-              <div className="space-y-1">
-                <div><Confirm value={COMPANY.legalName} question="Legal name of the company or person that operates TryIPTV." /></div>
-                <div><Confirm value={COMPANY.location} question="Where is TryIPTV based (country, city), if you want it published?" /></div>
-                <div><Confirm value={COMPANY.foundingYear} question="Year TryIPTV started operating." /></div>
-                <div><Confirm value={COMPANY.registrationNumber} question="Company registration number and registry, if registered." /></div>
-              </div>
-              <Confirm value={COMPANY.team} question="Team members who agree to be named publicly (name, role, short bio).">
-                <ul className="list-disc space-y-1 pl-6">
-                  {COMPANY.team.map((m) => (
-                    <li key={m.name}><strong className="text-foreground">{m.name}</strong>, {m.role}{m.bio ? `: ${m.bio}` : ""}</li>
-                  ))}
-                </ul>
-              </Confirm>
-              <p>The quickest ways to reach us:</p>
+              <h2 className={h2}>Support availability</h2>
               <ul className="list-disc space-y-1 pl-6">
-                <li>Email: <a href={`mailto:${siteConfig.links.email}`} className={link}>{siteConfig.links.email}</a></li>
-                <li>WhatsApp: <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={link}>message support</a>{SUPPORT_HOURS ? ` (${SUPPORT_HOURS})` : ""}</li>
+                <li>
+                  WhatsApp: <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={link}>{COMPANY.support.whatsappDisplay}</a>
+                  {SUPPORT_HOURS ? `, ${SUPPORT_HOURS}` : ""}
+                </li>
+                <li>
+                  Email: <a href={`mailto:${siteConfig.links.email}`} className={link}>{siteConfig.links.email}</a>
+                  {SUPPORT_HOURS ? `, ${SUPPORT_HOURS}` : ""}
+                </li>
                 {LANGUAGES && <li>Languages: {LANGUAGES}</li>}
                 {COMPANY.support.responseTime && <li>Response time: {COMPANY.support.responseTime}</li>}
               </ul>
               <Confirm value={SUPPORT_HOURS} question="Support hours (with time zone) for WhatsApp and email." />
+              <Confirm value={COMPANY.support.responseTime} question="Typical response time for WhatsApp and for email, and how messages sent outside support hours are handled." />
             </section>
 
             <section className="space-y-3">
@@ -249,7 +288,7 @@ export default function AboutPage() {
               <h2 className={h2}>Support</h2>
               <p>
                 Contact us by email at <a href={`mailto:${siteConfig.links.email}`} className={link}>{siteConfig.links.email}</a> or through our{" "}
-                <Link href="/contact-us" className={link}>contact page</Link>.{SUPPORT_HOURS ? ` WhatsApp support hours: ${SUPPORT_HOURS}.` : ""}
+                <Link href="/contact-us" className={link}>contact page</Link>.{SUPPORT_HOURS ? ` WhatsApp and email support hours: ${SUPPORT_HOURS}.` : ""}
               </p>
               <p>Many common problems, such as buffering, login errors or a missing TV guide, have step-by-step fixes in our <Link href="/help" className={link}>IPTV troubleshooting guides</Link>.</p>
             </section>

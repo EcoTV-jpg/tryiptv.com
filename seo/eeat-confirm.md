@@ -13,17 +13,17 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 - An invented address, author or licence is rated "Lowest" by Google's rater guidelines (§4.5.3). It is worse than leaving the fact out.
 
 ## Company and About page (`COMPANY` in company.ts)
-1. **Legal name** of the company or person that operates TryIPTV. → `legalName`
-2. **Registration number** and the registry it is filed with, if registered. → `registrationNumber`
+1. ✅ **Answered 2026-10-21:** Simo Alaoui LLC. → `legalName`
+2. ◐ **Registration number answered 2026-10-21:** 8683949. **Still open: which registry** (e.g. New York Department of State)? Until then the number is shown without a registry. → `registry`
 3. **VAT or tax ID**, if you want it published. Google lists vatID as a trust signal. → `vatOrTaxId`
 4. **Registered or postal address**, if it should be published. It must be real; never a virtual or invented address. → `address`
-5. **Location** to state in prose, for example "Toronto, Canada". → `location`
+5. ✅ **Answered 2026-10-21:** New York, United States (schema uses region level only, no street address). → `location`, `area`
 6. **Year TryIPTV started operating.** → `foundingYear`
-7. **Company story**: how and why it started, in 2–4 sentences, in your own words. → `story`
-8. **Team members** who agree to be named, with name, role and a short bio. Real people only. → `team`
+7. ✅ **Answered 2026-10-21** (approved copy on /about). → `story`
+8. ✅ **Answered 2026-10-21:** Simo Alaoui, Founder / Operations. → `team`
 
 ## Contact and support (`COMPANY.support`)
-9. **Support hours**, with time zone, for WhatsApp and email. → `support.hours`
+9. ✅ **Answered 2026-10-21:** 9:00 AM–10:00 PM ET, every day, for both WhatsApp and email. → `support.hours`, `support.hoursSpec`
 10. **Typical response time** for WhatsApp and for email. It should be measured, not hoped for. → `support.responseTime`
 11. **Support languages.** → `support.languages`
 12. **Contact form email delivery.** The form sends through Resend from `onboarding@resend.dev`, Resend's test sender. Resend generally only delivers mail from that address to the Resend account owner's own inbox. Should it send from a verified `@tryiptv.com` address instead? That needs DNS records in Resend and Cloudflare. *Not changed.*
@@ -45,9 +45,9 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 21. **4K:** which channels or titles are actually 4K? The site now says "HD and 4K streams where available". Confirm that this is accurate.
 
 ## Policies
-22. **Terms:** which legal entity enters the agreement, and its registered address? → `legalName`, `address`
+22. ◐ **Entity answered 2026-10-21:** Simo Alaoui LLC (Terms §17 now names it). Still open: registered address, if it should be published. → `address`
 23. **Terms:** which country's or state's law governs the terms, and where are disputes resolved? → `governingLaw`
-24. **Privacy:** who is the data controller (legal name and address)?
+24. ◐ **Answered in part 2026-10-21:** the policy now names Simo Alaoui LLC (New York, United States) as responsible for the data. Still open: postal address for privacy requests, if required.
 25. **Privacy:** how long do you keep support messages, order records and trial requests before deleting them?
 26. **Privacy:** are the processors listed correct and complete? Listed: Vercel, Cloudflare (CDN and Turnstile), Resend, WhatsApp, Google Analytics and Sentry. Do you also use a CRM, a billing panel or an email provider for credentials?
 27. **DMCA:** name and postal address of your designated agent, and is that agent registered with the U.S. Copyright Office? Safe-harbour protection under 17 U.S.C. 512 requires registration. → `dmcaAgent`
@@ -128,3 +128,9 @@ The owner's FAQ came from iptvv.ca as 72 questions in 11 topics without answers.
 65. **Travel:** does the service work from any country, or are some regions blocked? The answer says it works wherever the connection is fast enough.
 66. **International and local channels:** which languages and regions are actually covered (French, South Asian, Arabic, Filipino, Chinese; local channels)? The answers currently say "check during the trial".
 67. **Catch-up:** see question 59. The plan cards and the FAQ say catch-up is offered "on channels where it is available".
+
+## Company information (owner-approved copy, added 2026-10-21)
+68. **Delivery time vs support hours (most important).** The site promises login details "within 5–15 minutes" (trial and paid) everywhere, but support runs 9:00 AM–10:00 PM ET. Is delivery automated around the clock? If not, every "5–15 minutes" should say "during support hours". → `PRODUCT_TRUTHS.activationTime`
+69. **Messages outside support hours:** are they answered when support reopens? Do the daily hours include public holidays? → `support.responseTime`
+70. **Simo Alaoui:** confirm consent to be named publicly; optionally a photo and a real profile link (e.g. LinkedIn). Does Simo write or review the guides? Only then should guide bylines and an author page credit Simo. → `team`, `authors.ts`
+71. **Operator vs older wording to fix:** with a New York LLC as operator, the DMCA counter-notice "consent to the jurisdiction of Canadian courts" (question 13) and the empty governing law in the Terms are now the most visible inconsistencies. The privacy policy's "may be stored in the United Kingdom" (question 47) also needs checking.

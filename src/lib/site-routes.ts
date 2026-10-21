@@ -92,17 +92,17 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/help/epg-not-working',        section: 'help', indexable: true,  lastModified: '2026-10-05' },
 
   // ── Utility ───────────────────────────────────────────────────────────────
-  { path: '/about',      section: 'utility', indexable: true, lastModified: '2026-10-20' },
+  { path: '/about',      section: 'utility', indexable: true, lastModified: '2026-10-21' },
   { path: '/faq',        section: 'utility', indexable: true, lastModified: '2026-10-20' },
   { path: '/contact-us', section: 'utility', indexable: true, lastModified: '2026-10-20' },
   { path: '/blog',       section: 'utility', indexable: false },
 
   // ── Legal ─────────────────────────────────────────────────────────────────
-  { path: '/privacy-policy',  section: 'legal', indexable: true, lastModified: '2026-10-20' },
-  { path: '/terms-conditions',section: 'legal', indexable: true, lastModified: '2026-10-20' },
+  { path: '/privacy-policy',  section: 'legal', indexable: true, lastModified: '2026-10-21' },
+  { path: '/terms-conditions',section: 'legal', indexable: true, lastModified: '2026-10-21' },
   { path: '/refund-policy',   section: 'legal', indexable: true, lastModified: '2026-10-20' },
   { path: '/disclaimer',      section: 'legal', indexable: true, lastModified: '2026-10-20' },
-  { path: '/dmca-report',     section: 'legal', indexable: true, lastModified: '2026-10-20' },
+  { path: '/dmca-report',     section: 'legal', indexable: true, lastModified: '2026-10-21' },
   { path: '/press', section: 'utility', indexable: true, lastModified: '2026-10-20' },
   // Owner-confirmed trust pages: indexable (and in the sitemap) only once a statement is confirmed.
   { path: '/content-licensing', section: 'legal', indexable: LICENSING_CONFIRMED, lastModified: '2026-10-20' },

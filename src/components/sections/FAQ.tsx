@@ -18,6 +18,7 @@ import { Container } from "../shared/Container";
 import { Section } from "../shared/Section";
 import { SectionHeader } from "../shared/SectionHeader";
 import { cn } from "@/lib/utils";
+import { COMPANY } from "@/lib/site-data/company";
 
 export interface FaqItem {
   question: string;
@@ -57,7 +58,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "What is TryIPTV?",
     answer:
-      'TryIPTV is an IPTV service provider. It supplies streaming access for compatible devices and IPTV player apps; it is not a player app itself. New to IPTV? <a href="/guides/what-is-iptv" class="text-primary hover:underline">Read what IPTV is</a>, or read <a href="/about" class="text-primary hover:underline">more about TryIPTV</a>, including how ordering, the free trial and refunds work.',
+      `${COMPANY.summary ?? "TryIPTV is an IPTV subscription service."} TryIPTV is not a player app itself. New to IPTV? <a href="/guides/what-is-iptv" class="text-primary hover:underline">Read what IPTV is</a>, or read <a href="/about" class="text-primary hover:underline">more about TryIPTV</a>, including how ordering, the free trial and refunds work.`,
   },
   {
     question: "Does TryIPTV offer a free trial?",

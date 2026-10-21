@@ -90,6 +90,12 @@ export default function PrivacyPolicyPage() {
                 Welcome to TryIPTV&apos;s Privacy Policy, where we prioritize the protection of your personal data. This policy outlines how we
                 collect, use, store, and protect your information when you access our IPTV streaming services.
               </p>
+              {COMPANY.legalName && (
+                <p>
+                  TryIPTV is operated by {COMPANY.legalName}{COMPANY.location ? ` (${COMPANY.location})` : ""}, which is responsible for the
+                  personal data described in this policy.
+                </p>
+              )}
               <p>
                 By using TryIPTV, you agree to our privacy practices as outlined below. If you have any concerns, feel free to contact us. For
                 more details, visit our <Link href="/terms-conditions" className={link}>Terms and Conditions</Link>.

@@ -4,6 +4,7 @@ import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { BRAND } from "@/lib/site-data/brand";
+import { COMPANY } from "@/lib/site-data/company";
 import { footerLinks } from "@/lib/site-data/footer";
 import { socialLinks } from "@/lib/site-data/socials";
 
@@ -205,7 +206,10 @@ export function Footer() {
 
         {/* Bottom copyright and legal bar */}
         <div className="mt-10 flex flex-col-reverse gap-4 border-t border-white/[0.06] pt-6 text-xs text-muted-foreground/80 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} TryIPTV. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} TryIPTV. All rights reserved.
+            {COMPANY.legalName ? ` TryIPTV is operated by ${COMPANY.legalName}${COMPANY.location ? `, ${COMPANY.location.replace("United States", "USA")}` : ""}.` : ""}
+          </p>
         </div>
       </Container>
     </footer>
