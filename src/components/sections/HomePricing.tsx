@@ -73,7 +73,7 @@ const INCLUDED_FEATURES = [
   "120,000+ Movies & TV Shows",
   "PPV Events Included",
   "VOD Access",
-  "Smart EPG & Catch-Up TV",
+  "Smart EPG (TV Guide) & Catch-Up TV",
   "Customer Support",
   "Multi-Device Compatibility",
 ] as const;

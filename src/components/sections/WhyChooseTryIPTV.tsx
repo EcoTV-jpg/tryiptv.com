@@ -48,7 +48,7 @@ export function WhyChooseTryIPTV() {
           align="left"
           eyebrow="Why TryIPTV"
           title="What Do You Get With TryIPTV?"
-          subtitle={`TryIPTV is a prepaid IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, delivered as Xtream Codes or M3U login details for the IPTV player you already use. Every plan includes ${PRODUCT_TRUTHS.connections} simultaneous connections, login details usually arrive within ${PRODUCT_TRUTHS.activationTime}, and no plan renews automatically.`}
+          subtitle={`TryIPTV is a prepaid IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows. You get login details for the IPTV player you already use: an Xtream Codes login (a server address, username and password) or an M3U link (a single playlist web address). Every plan includes ${PRODUCT_TRUTHS.connections} simultaneous connections, login details usually arrive within ${PRODUCT_TRUTHS.activationTime}, and no plan renews automatically.`}
         />
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
