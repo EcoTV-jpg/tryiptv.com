@@ -42,7 +42,7 @@ const benefits: { icon: typeof Zap; title: string; description: React.ReactNode 
 
 export function WhyChooseTryIPTV() {
   return (
-    <Section id="why-tryiptv">
+    <Section id="why-tryiptv" variant="alt">
       <Container>
         <SectionHeader
           align="left"

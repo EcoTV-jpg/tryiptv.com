@@ -89,7 +89,7 @@ const criteria: Criterion[] = [
 
 export function ChooseIPTVService() {
   return (
-    <Section id="choose-iptv-service" variant="alt">
+    <Section id="choose-iptv-service">
       <Container>
         <SectionHeader
           align="left"

@@ -50,9 +50,9 @@ export default function Home() {
     <>
       <PageSchema path="/" name={title} description={description} nodes={[]} />
       <Hero />
+      <HomePricing />
       <WhyChooseTryIPTV />
       <ChooseIPTVService />
-      <HomePricing />
       <HowItWorks />
       <Devices />
       <CustomerFeedback />
