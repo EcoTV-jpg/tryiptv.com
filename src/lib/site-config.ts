@@ -15,8 +15,8 @@ export const PRODUCT_TRUTHS = {
   connections: 2,
   trialDuration: "24 Hours",
   trialCost: "$0 (Free, no credit card required)",
-  /** The trial page states the trial's connection limit is confirmed when credentials are issued. */
-  trialConnections: "Confirmed when trial credentials are issued",
+  /** The trial includes the same connections as a paid plan (owner-confirmed 2026-10-21). */
+  trialConnections: "2 simultaneous connections, same as paid plans",
   activationTime: "5–15 minutes",
   billing: "Prepaid plans, no automatic renewal",
   /** Mirrors /refund-policy (owner-supplied 2026-10-20). Not an unconditional money-back guarantee. */

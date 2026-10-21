@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import Link from "next/link";
 import { ArrowRight, Check, Film, LayoutList, MessageCircle, MonitorSmartphone, MonitorPlay, Tv } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
@@ -13,9 +15,74 @@ import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-c
 import { GuideScreenshot } from "@/components/guide";
 import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
 import { COMPANY } from "@/lib/site-data/company";
+import { trialFaqs as faqSchemaSource } from "@/lib/data/iptv-free-trial-page";
+import type { FAQPage, WithContext } from "schema-dts";
+
+// Rendered as a raw script: the shared <Schema> component drops FAQPage nodes site-wide.
+// Built from the same data as the visible FAQ so the two can't drift.
+const freeTrialFaqJsonLd: WithContext<FAQPage> = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${SITE_URL}/iptv-free-trial#faq`,
+  mainEntity: faqSchemaSource.map((faq) => ({
+    "@type": "Question" as const,
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer" as const, text: faq.answer },
+  })),
+};
 
 const freeTrialWhatsAppUrl =
   "https://wa.me/15205648298?text=Hello%20TryIPTV%2C%20I%20would%20like%20to%20start%20my%20free%20IPTV%20trial.";
+
+const trialLengths = [
+  {
+    title: "What our 24-hour trial includes",
+    text: "TryIPTV gives you a full 24-hour trial: the same channel list, the same 120,000+ movies and series, and the same 2 simultaneous connections as a paid plan. No credit card, no auto-renewal, no shortened channel list. You send a message on WhatsApp, receive your Xtream Codes or M3U credentials in 5 to 15 minutes, and the clock starts when your login is activated.",
+  },
+  {
+    title: "What a 48-hour IPTV trial adds",
+    text: "A 48-hour trial buys you one extra evening. In practice that means you can watch a second night of prime-time sport, or test a second device on a different evening. It does not reveal anything a 24-hour trial cannot, because the things that break IPTV break at peak hours, and peak hours happen every night. If a provider offers 48 hours, use the second day to test the second TV, not to delay the decision.",
+  },
+  {
+    title: "What a 72-hour IPTV trial adds",
+    text: "A 72-hour trial covers a weekend, which is genuinely useful if you only watch live sport on Saturdays and Sundays. It is also the duration most often used as a marketing number: three days sounds generous, but the extra 48 hours rarely change the verdict. If you need a weekend to judge, ask for the trial on a Thursday or Friday and the 24 hours will land on the days you actually watch.",
+  },
+  {
+    title: "Why 24 hours is enough to test IPTV",
+    text: "One evening is enough to answer every question that decides a purchase: does my player accept the login, do my channels exist, does the stream hold at 8pm, and does support answer when something goes wrong. A longer trial mostly tests your patience, not the service. What a trial cannot fix is a provider that disappears in month two, and no duration of free trial protects you from that.",
+  },
+] as const;
+
+const trialLengthRows = [
+  ["24 hours", "Player setup, channel list, one full prime-time evening, support response time", "A second weekend of sport", "TryIPTV: 24 hours, no credit card"],
+  ["48 hours", "The above plus a second evening or a second device", "Anything a 24-hour trial missed", "Offered by some providers"],
+  ["72 hours", "The above plus a full weekend of live sport", "Whether the service lasts past month two", 'Advertised by some providers as a "3 day" trial'],
+] as const;
+
+// Placeholders until the original screenshots are added to /public; each renders only once its file exists.
+const proofScreens = [
+  {
+    // TODO: replace with original screenshot of the trial account in the panel, no customer data visible
+    src: "/images/iptv-free-trial/panel-trial-account.webp",
+    alt: "Reseller panel showing an active 24-hour IPTV trial account with its expiry date and connection limit",
+    caption: "The trial account as it appears in our panel: 24-hour expiry, 2 connections, full channel list.",
+  },
+  {
+    // TODO: replace with original screenshot of the player with EPG loaded, no customer data visible
+    src: "/images/iptv-free-trial/player-epg-loaded.webp",
+    alt: "IPTV player on a TV showing the channel list and a loaded EPG guide during a free trial",
+    caption: "The same login in a player, with the EPG loaded and the channel groups we were asked for.",
+  },
+].filter((screen) => existsSync(path.join(process.cwd(), "public", screen.src)));
+
+const preSendChecklist = [
+  "I open the account in the panel and confirm the expiry is set to 24 hours, not 24 hours from activation plus a buffer.",
+  "I check that the connection limit reads 2, so the trial matches what a paid plan gives you.",
+  "I load the login in one player myself and confirm the channel list and the EPG actually populate.",
+  "I check that the channel groups you asked for on WhatsApp are present before I reply.",
+  "I confirm the credentials are Xtream Codes and M3U, so they work in your own player and not only in ours.",
+  "I note the time I sent them, so support knows exactly when your 24 hours end.",
+] as const;
 
 const link = "font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary";
 const T = PRODUCT_TRUTHS;
@@ -86,7 +153,7 @@ const quickFacts = [
       </Link>
     </>,
   ],
-  ["Simultaneous connections", `Confirmed when trial credentials are issued (paid plans include ${T.connections} simultaneous connections)`],
+  ["Simultaneous connections", `${T.connections}, the same as paid plans`],
   ["After the trial", "Access expires automatically. The trial does not automatically renew or convert into a paid subscription."],
   [
     "Trials per household",
@@ -211,6 +278,10 @@ export default async function IptvFreeTrialPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(freeTrialFaqJsonLd).replace(/</g, "\\u003c") }}
+      />
       <Schema id="breadcrumb" schema={breadcrumbSchema} />
       <Schema id="service" schema={serviceSchema} />
 
@@ -250,7 +321,7 @@ export default async function IptvFreeTrialPage() {
             <SectionHeader
               eyebrow="What's Included"
               title="What Do You Get With the IPTV Free Trial?"
-              subtitle={`The TryIPTV free trial gives you ${FACT_TEXT.trialHours} hours to test the ${T.channels} live channels, the ${T.vod}-title on-demand library, HD and 4K streams where available, and the TV guide, for $0 and without a card. Its connection limit is confirmed when your login is issued; paid plans include ${T.connections}.`}
+              subtitle={`The TryIPTV free trial gives you ${FACT_TEXT.trialHours} hours to test the ${T.channels} live channels, the ${T.vod}-title on-demand library, HD and 4K streams where available, and the TV guide, for $0 and without a card. It includes ${T.connections} simultaneous connections, the same as a paid plan.`}
             />
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -389,6 +460,60 @@ export default async function IptvFreeTrialPage() {
                 buffering guide
               </Link>{" "}
               if streams stutter during your test.
+            </p>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Trial length */}
+      <Section className="border-b border-white/[0.06] py-10 sm:py-14">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <SectionHeader
+              title="24 hours, 48 hours or 72 hours: how long an IPTV free trial should be"
+              subtitle="Most IPTV free trials are advertised as 24 hours, 48 hours or 72 hours. The length matters less than what you can actually finish inside it. Here is what each duration really gives you, and why our trial is 24 hours."
+            />
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              {trialLengths.map((t) => (
+                <div key={t.title} className="rounded-lg border border-white/[0.09] bg-card p-5">
+                  <h3 className="font-headline text-lg font-extrabold text-foreground">{t.title}</h3>
+                  <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">{t.text}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 overflow-hidden rounded-lg border border-white/[0.09] bg-card">
+              <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Free trial length comparison table">
+                <table className="w-full min-w-[640px] text-left text-sm">
+                  <caption className="sr-only">What a 24-hour, 48-hour and 72-hour IPTV free trial lets you test</caption>
+                  <thead className="border-b border-white/[0.09] bg-white/[0.02] text-xs font-extrabold uppercase tracking-wider text-muted-foreground">
+                    <tr>
+                      <th scope="col" className="px-5 py-3 text-primary">Trial length</th>
+                      <th scope="col" className="px-5 py-3">What it lets you test</th>
+                      <th scope="col" className="px-5 py-3">What it does not tell you</th>
+                      <th scope="col" className="px-5 py-3">Typical offer</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/[0.06]">
+                    {trialLengthRows.map(([length, tests, misses, offer]) => (
+                      <tr key={length} className="transition-colors hover:bg-white/[0.02]">
+                        <th scope="row" className="whitespace-nowrap px-5 py-3.5 font-semibold text-foreground align-top">
+                          {length}
+                        </th>
+                        <td className="px-5 py-3.5 text-muted-foreground align-top">{tests}</td>
+                        <td className="px-5 py-3.5 text-muted-foreground align-top">{misses}</td>
+                        <td className="px-5 py-3.5 text-muted-foreground align-top">{offer}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <p className="mt-6 text-base leading-7 text-muted-foreground">
+              If you want the longest possible trial, ask for it. If you want to know whether this service works in your house, 24 hours
+              is enough, and you can start yours now.
             </p>
           </div>
         </Container>
@@ -564,6 +689,50 @@ export default async function IptvFreeTrialPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* What we test before you pay */}
+      <Section className="border-b border-white/[0.06] py-10 sm:py-14">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <SectionHeader
+              title="What we test before you pay"
+              subtitle="Every trial request goes through the same check on our side before we send credentials. These are the two screens we look at, and the list we run through. It takes a few minutes and it is the reason most trials work on the first login."
+            />
+
+            {proofScreens.length > 0 && (
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                {proofScreens.map((screen) => (
+                  <GuideScreenshot
+                    key={screen.src}
+                    src={screen.src}
+                    alt={screen.alt}
+                    caption={screen.caption}
+                    // TODO: set the screenshots' intrinsic dimensions once the files are added.
+                    width={1600}
+                    height={900}
+                    sizes="(max-width: 768px) calc(100vw - 2rem), 440px"
+                    className="my-0"
+                  />
+                ))}
+              </div>
+            )}
+
+            <h3 className="mt-8 mb-4 font-headline text-xl font-extrabold text-foreground">The checklist we run before sending credentials</h3>
+            <ul className="space-y-2.5 text-base sm:text-sm leading-6 text-muted-foreground">
+              {preSendChecklist.map((item) => (
+                <li key={item} className="flex items-start gap-2.5">
+                  <Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-6 text-base leading-7 text-muted-foreground">
+              If something fails this list, you hear it from us before you hear it from your TV. That is the whole point of a trial.
+            </p>
           </div>
         </Container>
       </Section>

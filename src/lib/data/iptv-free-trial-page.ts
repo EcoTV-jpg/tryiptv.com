@@ -27,7 +27,7 @@ export const trialFaqs = [
   },
   {
     question: "Is the free trial the same as a paid plan?",
-    answer: `The trial is for judging streams, picture quality, and TV guide data on your own setup before you pay. One difference is known: paid plans include ${T.connections} simultaneous connections, while the trial's connection limit is confirmed when its login details are issued.`,
+    answer: `The trial is for judging streams, picture quality, and TV guide data on your own setup before you pay. It includes the same ${T.connections} simultaneous connections as a paid plan, so you can test two screens at once.`,
   },
   {
     question: "What happens when the 24 hours end?",
@@ -91,7 +91,7 @@ export const getIptvFreeTrialPageData = cache(
     };
   },
   // Bump the version when the static data above changes: the data cache outlives rebuilds.
-  ['iptv-free-trial-page-data-v5'],
+  ['iptv-free-trial-page-data-v6'],
   {
     revalidate: 3600,
     tags: ['pages', 'iptv-free-trial-page'],
