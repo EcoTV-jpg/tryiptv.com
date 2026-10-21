@@ -27,11 +27,11 @@ export function Hero() {
           <div className="lg:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-primary">
               <span aria-hidden className="size-1.5 rounded-full bg-primary" />
-              Prepaid IPTV Service
+              Best IPTV Service
             </p>
 
             <h1 className="mt-5 font-headline text-[32px] font-bold leading-[1.1] tracking-tight text-foreground sm:text-[42px] lg:text-[46px] xl:text-[48px]">
-              TryIPTV — <span className="text-primary">Prepaid IPTV Service</span> for the USA, UK &amp; More
+              TryIPTV — <span className="text-primary">Best IPTV Service</span> for the USA, UK &amp; More
             </h1>
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-[17px]">

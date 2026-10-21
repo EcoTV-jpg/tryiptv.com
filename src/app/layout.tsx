@@ -31,7 +31,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${siteConfig.name} — Prepaid IPTV Service for the USA, UK & More`,
+    default: `${siteConfig.name} — Best IPTV Service for the USA, UK & More`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -62,20 +62,20 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: `${SITE_URL}/`,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Prepaid IPTV Service for the USA, UK & More`,
+    title: `${siteConfig.name} — Best IPTV Service for the USA, UK & More`,
     description: siteConfig.description,
     images: [
       {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} - Prepaid IPTV Service`,
+        alt: `${siteConfig.name} - Best IPTV Service`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteConfig.name} — Prepaid IPTV Service for the USA, UK & More`,
+    title: `${siteConfig.name} — Best IPTV Service for the USA, UK & More`,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
