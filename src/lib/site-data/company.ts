@@ -55,11 +55,15 @@ export const COMPANY = {
     dmcaEmail: "care@tryiptv.com",
     /** Confirmed 2026-10-21: same hours for WhatsApp and email. */
     hours: "9:00 AM–10:00 PM ET, every day" as string | null,
+    /** Confirmed 2026-10-21. Stated once next to the hours, not repeated in every mention. */
+    coverage: "Support is open every day, including weekends and public holidays." as string | null,
     /** Machine-readable form of `hours` for schema ContactPoint.hoursAvailable. */
     hoursSpec: { opens: "09:00", closes: "22:00", timeZone: "America/New_York" } as { opens: string; closes: string; timeZone: string } | null,
     /** e.g. "Most WhatsApp messages are answered within 1 hour; email within 24 hours." */
     /** Confirmed 2026-10-21 (15 minutes). How out-of-hours messages are handled is still open (eeat-confirm Q69). */
     responseTime: "Typically within 15 minutes on WhatsApp and email, during support hours" as string | null,
+    /** Confirmed 2026-10-21. */
+    outOfHours: "Messages received outside support hours are queued and answered when support reopens." as string | null,
     languages: null as string | null,
     /** Media contact for /press, e.g. "press@tryiptv.com" — must be a real, monitored inbox. */
     pressEmail: null as string | null,

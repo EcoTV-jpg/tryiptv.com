@@ -307,6 +307,8 @@ export default async function ContactPage() {
                                         <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                                         <span>
                                             {COMPANY.support.responseTime ?? "We reply to every message from the same channel you used."}
+                                            {COMPANY.support.outOfHours ? `. ${COMPANY.support.outOfHours}` : ""}
+                                            {COMPANY.support.coverage ? ` ${COMPANY.support.coverage}` : ""}
                                             <Confirm value={COMPANY.support.responseTime} question="Typical response time for WhatsApp and for email (measured, not hoped)." />
                                         </span>
                                     </div>

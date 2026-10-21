@@ -131,6 +131,6 @@ The owner's FAQ came from iptvv.ca as 72 questions in 11 topics without answers.
 
 ## Company information (owner-approved copy, added 2026-10-21)
 68. **Delivery time vs support hours (most important).** The site promises login details "within 5–15 minutes" (trial and paid) everywhere, but support runs 9:00 AM–10:00 PM ET. Is delivery automated around the clock? If not, every "5–15 minutes" should say "during support hours". → `PRODUCT_TRUTHS.activationTime`
-69. **Messages outside support hours (still open):** the 15-minute response time is published as applying during support hours. Are out-of-hours messages answered when support reopens? Do the daily hours include public holidays?
+69. ✅ **Answered 2026-10-21:** messages received outside support hours are queued and answered when support reopens; support runs every day, including weekends and public holidays, 9:00 AM–10:00 PM ET. → `support.outOfHours`, `support.hours`
 70. **Simo Alaoui:** confirm consent to be named publicly; optionally a photo and a real profile link (e.g. LinkedIn). Does Simo write or review the guides? Only then should guide bylines and an author page credit Simo. → `team`, `authors.ts`
 71. **Operator vs older wording to fix:** with a New York LLC as operator, the DMCA counter-notice "consent to the jurisdiction of Canadian courts" (question 13) and the empty governing law in the Terms are now the most visible inconsistencies. The privacy policy's "may be stored in the United Kingdom" (question 47) also needs checking.

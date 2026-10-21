@@ -217,8 +217,10 @@ export default function AboutPage() {
                 {LANGUAGES && <li>Languages: {LANGUAGES}</li>}
                 {COMPANY.support.responseTime && <li>Response time: {COMPANY.support.responseTime}</li>}
               </ul>
+              {(COMPANY.support.coverage || COMPANY.support.outOfHours) && (
+                <p>{[COMPANY.support.coverage, COMPANY.support.outOfHours].filter(Boolean).join(" ")}</p>
+              )}
               <Confirm value={SUPPORT_HOURS} question="Support hours (with time zone) for WhatsApp and email." />
-              <Confirm value={null} question="How are messages sent outside support hours handled (answered when support reopens?), and do the daily hours include public holidays?" />
             </section>
 
             <section className="space-y-3">
