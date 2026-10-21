@@ -578,12 +578,15 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/players/iptv-smarters", label: "IPTV Smarters Pro for Fire TV" },
     { href: "/guides/m3u-vs-xtream-codes", label: "Choose M3U or Xtream Codes" },
     { href: "/help/iptv-buffering", label: "Troubleshoot Firestick buffering" },
+    { href: "/players/xciptv", label: "XCIPTV availability on Fire TV" },
     { href: "/iptv-free-trial", label: "Start 24-hour Fire TV trial" },
   ],
   "android-tv-iptv": [
     { href: "/players/tivimate", label: "TiviMate setup on Android TV" },
     { href: "/guides/what-are-xtream-codes", label: "Enter Xtream Codes credentials" },
     { href: "/help/iptv-login-not-working", label: "Troubleshoot login errors" },
+    { href: "/players/iptv-extreme", label: "IPTV Extreme for Android TV" },
+    { href: "/players/perfect-player", label: "Perfect Player (legacy) setup and migration" },
     { href: "/iptv-free-trial", label: "Test Android TV with a free trial" },
   ],
   "samsung-tv-iptv": [
@@ -602,6 +605,7 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/players/iptv-smarters", label: "Smarters Player Lite on tvOS" },
     { href: "/guides/m3u-vs-xtream-codes", label: "Choose M3U or Xtream Codes" },
     { href: "/help/iptv-login-not-working", label: "Troubleshoot Apple TV login errors" },
+    { href: "/devices/iphone-iptv", label: "Set up the same player on iPhone and iPad" },
     { href: "/iptv-free-trial", label: "Test Apple TV with 24-hour trial" },
   ],
   "chromecast-iptv": [
@@ -638,6 +642,7 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/players/iptv-smarters", label: "IPTV Smarters for macOS" },
     { href: "/guides/m3u-vs-xtream-codes", label: "Choose M3U or Xtream Codes" },
     { href: "/help/iptv-login-not-working", label: "Resolve macOS player login errors" },
+    { href: "/devices/iphone-iptv", label: "IPTV on iPhone and iPad" },
     { href: "/iptv-free-trial", label: "Test on Mac with a free trial" },
   ],
 };

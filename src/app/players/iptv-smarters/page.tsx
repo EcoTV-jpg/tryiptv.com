@@ -109,7 +109,7 @@ export default function IptvSmartersPage() {
               </ol>
               <GuideScreenshot
                 src="/images/iptv-smarters/iptv-smarters-login-with-xtream-codes-api.webp"
-                alt="IPTV Smarters Pro start screen with Load Your Playlist Or File/URL, Load Your Data From Device, Login with Xtream Codes API and Play Single Stream options"
+                alt="IPTV Smarters Pro start screen with playlist, device-data, Xtream Codes API login and single-stream options"
                 caption="Step 1: choose Login with Xtream Codes API (or Load Your Playlist Or File/URL for an M3U link)."
                 width={1280}
                 height={692}
@@ -117,7 +117,7 @@ export default function IptvSmartersPage() {
               />
               <GuideScreenshot
                 src="/images/iptv-smarters/iptv-smarters-xtream-codes-login-form.webp"
-                alt="IPTV Smarters Pro Enter Your Login Details form with playlist name, username, password and server URL fields and the Add User button"
+                alt="IPTV Smarters Pro login form with playlist name, username, password and server URL fields"
                 caption="Step 2: enter any playlist name, then your username, password and server URL, and press Add User."
                 note="Example values are placeholders, not real account details."
                 width={1280}
@@ -175,7 +175,7 @@ export default function IptvSmartersPage() {
               <p className={textClass}>
                 On iPhone, iPad, and Apple TV, WHMCS SMARTERS currently distributes the app through Apple&apos;s App Store as <a href="https://apps.apple.com/us/app/smarters-player-lite/id1628995509" target="_blank" rel="noopener noreferrer" className={linkClass}>Smarters Player Lite</a>. Smarters Player Lite is the Apple App Store listing published by WHMCS SMARTERS for iPhone, iPad, and Apple TV. Install it through the App Store on your device, then use the playlist or login option that appears in that app version. Its interface and navigation may differ from Android releases, so do not assume every screen or setting is identical.
               </p>
-              <p className={textClass}>The <Link href="/devices/apple-tv-iptv" className={linkClass}>Apple TV IPTV guide</Link> covers remote-based setup.</p>
+              <p className={textClass}>The <Link href="/devices/apple-tv-iptv" className={linkClass}>Apple TV IPTV guide</Link> covers remote-based setup, and the guide to <Link href="/devices/iphone-iptv" className={linkClass}>IPTV Smarters on iPhone and iPad</Link> covers the App Store setup on mobile.</p>
             </section>
 
             <section>

@@ -85,7 +85,7 @@ export default function DevicesPage() {
                         href={`/devices/${getDeviceSlug(article.id)}`}
                         className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary group-hover:underline"
                       >
-                        Read Guide <ArrowRight className="h-3.5 w-3.5" />
+                        {article.primaryKeyword} setup guide <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </div>
                   </CardContent>

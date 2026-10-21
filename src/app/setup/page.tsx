@@ -489,7 +489,7 @@ export default function SetupPage() {
                         href={`/devices/${device.slug}`}
                         className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
                       >
-                        Read Setup Guide <ArrowRight className="h-3.5 w-3.5" />
+                        {device.name} setup guide <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </div>
                   </CardContent>
@@ -546,7 +546,7 @@ export default function SetupPage() {
                       href={`/players/${player.slug}`}
                       className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
                     >
-                      Player Tutorial <ArrowRight className="h-3.5 w-3.5" />
+                      {player.name} setup guide <ArrowRight className="h-3.5 w-3.5" />
                     </Link>
                   </div>
                 </CardContent>

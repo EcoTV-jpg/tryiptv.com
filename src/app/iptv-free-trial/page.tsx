@@ -384,7 +384,7 @@ export default async function IptvFreeTrialPage() {
 
             <GuideScreenshot
               src="/images/free-trial/how-to-get-iptv-free-trial-3-steps.webp"
-              alt="How to get the TryIPTV 24-hour free trial in 3 steps: message us on WhatsApp with no payment details, get your Xtream Codes or M3U login in 5–15 minutes, then watch for 24 hours with no auto-renew"
+              alt="TryIPTV free trial in 3 steps: message on WhatsApp, get your login in 5–15 minutes, watch for 24 hours"
               caption="The free trial in 3 steps: request on WhatsApp, get your login, watch for 24 hours."
               width={1280}
               height={740}

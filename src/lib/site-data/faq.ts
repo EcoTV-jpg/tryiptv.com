@@ -248,7 +248,7 @@ export const faqTopics: FaqTopic[] = [
     items: [
       {
         question: "Which IPTV player app should I use?",
-        answer: `TiviMate is the most popular choice on Android TV and Firestick; IPTV Smarters works on almost every platform; Televizo, OTT Navigator and XCIPTV are good alternatives. All of them accept Xtream Codes logins. ${a("/players", "Compare IPTV players")}.`,
+        answer: `TiviMate is the most popular choice on Android TV and Firestick; IPTV Smarters works on almost every platform; Televizo, OTT Navigator and XCIPTV are good alternatives. Perfect Player is a legacy option that is no longer listed on Google Play; see the ${a("/players/perfect-player", "Perfect Player setup and migration guide")}. All of them accept Xtream Codes logins. ${a("/players", "Compare IPTV players")}.`,
       },
       {
         question: "Can I use IPTV on a smart TV without a box or stick?",

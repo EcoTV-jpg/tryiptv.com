@@ -558,6 +558,10 @@ export default async function IPTVSubscription() {
             <p className={prose}>
               Run the annual line: the 12-month plan at $90 sits $1,470–$1,950 below a real cable bill and $761.64 below the three-app stack.
             </p>
+            <p className={`mt-3 ${prose}`}>
+              For setup, reliability and channel differences beyond price, see the{" "}
+              <Link href="/guides/iptv-vs-cable" className={link}>full IPTV vs cable TV comparison</Link>.
+            </p>
             <h3 className="mt-6 font-headline text-lg font-extrabold text-foreground">Honest caveats</h3>
             <ul className={`mt-3 space-y-2.5 ${prose}`}>
               {costCaveats.map((caveat) => (

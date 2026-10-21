@@ -46,80 +46,35 @@ export default function robots(): MetadataRoute.Robots {
   
   return {
     rules: [
+      // One group with every crawler named, so the policy stays explicit without repeating the rules.
+      // Perplexity-User generally ignores robots.txt; Applebot powers Siri/Spotlight search.
       {
-        userAgent: '*',
+        userAgent: [
+          '*',
+          'Googlebot',
+          'Googlebot-Image',
+          'Bingbot',
+          'OAI-SearchBot',
+          'ChatGPT-User',
+          'Google-Extended',
+          'ClaudeBot',
+          'Claude-User',
+          'Claude-SearchBot',
+          'PerplexityBot',
+          'Perplexity-User',
+          'Applebot',
+        ],
         allow: publicAllow,
         disallow: standardDisallow,
       },
-      {
-        userAgent: 'Googlebot',
-        allow: publicAllow,
-        disallow: standardDisallow,
-      },
-      {
-        userAgent: 'Googlebot-Image',
-        allow: publicAllow,
-        disallow: standardDisallow,
-      },
-      {
-        userAgent: 'Bingbot',
-        allow: publicAllow,
-        disallow: standardDisallow,
-      },
-      {
-        userAgent: 'OAI-SearchBot',
-        allow: publicAllow,
-        disallow: standardDisallow,
-      },
+      // Model training: only the AI discovery files.
       {
         userAgent: 'GPTBot',
         allow: aiDiscoveryAllow,
         disallow: ['/'],
       },
-      {
-        userAgent: 'ChatGPT-User',
-        allow: publicAllow,
-        disallow: standardDisallow,
-      },
-      {
-        userAgent: 'Google-Extended',
-        allow: publicAllow,
-        disallow: standardDisallow,
-      },
-      {
-        userAgent: 'ClaudeBot',
-        allow: publicAllow,
-        disallow: standardDisallow,
-      },
-      {
-        userAgent: 'Claude-User',
-        allow: publicAllow,
-        disallow: standardDisallow,
-      },
-      {
-        userAgent: 'Claude-SearchBot',
-        allow: publicAllow,
-        disallow: standardDisallow,
-      },
-      {
-        userAgent: 'PerplexityBot',
-        allow: publicAllow,
-        disallow: standardDisallow,
-      },
-      // Search/citation bots also covered by '*', listed so the policy is explicit.
-      // Perplexity-User generally ignores robots.txt; Applebot powers Siri/Spotlight search.
-      {
-        userAgent: 'Perplexity-User',
-        allow: publicAllow,
-        disallow: standardDisallow,
-      },
-      {
-        userAgent: 'Applebot',
-        allow: publicAllow,
-        disallow: standardDisallow,
-      },
     ],
+    // No `host`: the Host directive is Yandex-only; Google and Bing ignore it.
     sitemap: `${siteUrl}/sitemap.xml`,
-    host: new URL(siteUrl).host,
   };
 }

@@ -268,7 +268,7 @@ export default function PlayersHubPage() {
                     <td className="p-4 text-xs">
                       <Button asChild size="sm" variant="ghost" className="h-8 text-primary hover:text-primary">
                         <Link href={`/players/${player.slug}`}>
-                          Read Guide <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                          {player.name} guide <ArrowRight className="ml-1 h-3.5 w-3.5" />
                         </Link>
                       </Button>
                     </td>
@@ -321,7 +321,7 @@ export default function PlayersHubPage() {
                     </span>
                     <Button asChild size="sm" variant="ghost" className="h-8 text-primary hover:text-primary group p-0">
                       <Link href={`/players/${player.slug}`} className="flex items-center gap-1 text-xs">
-                        Setup Guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                        {player.name} setup guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                       </Link>
                     </Button>
                   </div>
