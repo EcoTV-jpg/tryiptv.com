@@ -8,7 +8,8 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Schema } from "@/components/shared/Schema";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
-import { AUTHORS, GUIDE_AUTHORS, GUIDE_REVIEWERS, personId } from "@/lib/site-data/authors";
+import { AUTHORS, GUIDE_AUTHORS, GUIDE_REVIEWERS, GUIDE_TITLES, personId } from "@/lib/site-data/authors";
+import { COMPANY } from "@/lib/site-data/company";
 
 // Only confirmed, real authors get a profile page (see src/lib/site-data/authors.ts).
 export const dynamicParams = false;
@@ -24,8 +25,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const author = AUTHORS.find((a) => a.slug === slug);
   if (!author) return {};
   const title = `${author.name}, ${author.role} | TryIPTV`;
-  return generatePageMetadata({ title, description: author.bio.slice(0, 155), canonical: `/authors/${slug}` });
+  const reviewedCount = Object.values(GUIDE_REVIEWERS).filter((s) => s === slug).length;
+  const description = reviewedCount
+    ? `${author.name}, ${author.role} at TryIPTV, has reviewed ${reviewedCount} device, player, IPTV and troubleshooting guides. See the full list of reviewed guides.`
+    : author.bio.slice(0, 155);
+  return {
+    ...generatePageMetadata({ title, description, canonical: `/authors/${slug}` }),
+    // The layout's title template would append "| TryIPTV" a second time.
+    title: { absolute: title },
+  };
 }
+
+// Groups on the profile page, in the order the site's sections appear.
+const guideSections = [
+  { prefix: "/devices/", label: "Device setup guides" },
+  { prefix: "/players/", label: "IPTV player guides" },
+  { prefix: "/guides/", label: "IPTV guides" },
+  { prefix: "/help/", label: "Troubleshooting guides" },
+] as const;
 
 const link = "font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary";
 
@@ -75,22 +92,47 @@ export default async function AuthorPage({ params }: Props) {
       <Section className="py-12 sm:py-16">
         <Container className="max-w-3xl">
           <div className="space-y-6 text-base leading-7 text-muted-foreground">
+            {author.role.startsWith("Founder") && COMPANY.legalName && (
+              <p>
+                {author.name} founded TryIPTV, which is operated by {COMPANY.legalName}
+                {COMPANY.registry && COMPANY.registrationNumber
+                  ? ` (${COMPANY.registry}, registration number ${COMPANY.registrationNumber})`
+                  : ""}
+                {COMPANY.foundingYear ? ` and has run since ${COMPANY.foundingYear}` : ""}. See{" "}
+                <Link href="/about" className={link}>About TryIPTV</Link> for the company details.
+              </p>
+            )}
+            {reviewed.length > 0 && (
+              <p>
+                {author.name} has reviewed {reviewed.length} TryIPTV guides, listed below. Each one names the reviewer under its
+                headline.
+              </p>
+            )}
             {author.since && <p>Writing and reviewing TryIPTV guides since {author.since}.</p>}
             {author.expertise.length > 0 && <p>Areas covered: {author.expertise.join(", ")}.</p>}
             {guides.length > 0 && (
               <div>
                 <h2 className="font-headline text-xl font-bold text-foreground">Guides by {author.name}</h2>
                 <ul className="mt-3 list-disc space-y-1 pl-6">
-                  {guides.map((g) => <li key={g}><Link href={g} className={link}>{g}</Link></li>)}
+                  {guides.map((g) => <li key={g}><Link href={g} className={link}>{GUIDE_TITLES[g] ?? g}</Link></li>)}
                 </ul>
               </div>
             )}
             {reviewed.length > 0 && (
               <div>
                 <h2 className="font-headline text-xl font-bold text-foreground">Guides reviewed by {author.name}</h2>
-                <ul className="mt-3 list-disc space-y-1 pl-6">
-                  {reviewed.map((g) => <li key={g}><Link href={g} className={link}>{g}</Link></li>)}
-                </ul>
+                {guideSections.map(({ prefix, label }) => {
+                  const items = reviewed.filter((g) => g.startsWith(prefix));
+                  if (!items.length) return null;
+                  return (
+                    <div key={prefix} className="mt-5">
+                      <h3 className="font-headline text-base font-bold text-foreground">{label}</h3>
+                      <ul className="mt-2 list-disc space-y-1 pl-6">
+                        {items.map((g) => <li key={g}><Link href={g} className={link}>{GUIDE_TITLES[g] ?? g}</Link></li>)}
+                      </ul>
+                    </div>
+                  );
+                })}
               </div>
             )}
             {author.sameAs?.length ? (

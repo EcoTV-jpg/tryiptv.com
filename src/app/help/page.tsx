@@ -28,7 +28,8 @@ import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { generateBreadcrumbSchema } from "@/lib/schema";
-import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { COMPANY } from "@/lib/site-data/company";
 
 const title = "IPTV Help & Troubleshooting Directory — TryIPTV Support";
 const description =
@@ -89,6 +90,16 @@ const specialistGuides = [
     icon: Calendar,
     badgeColor: "text-emerald-400 border-emerald-400/20 bg-emerald-400/10",
   },
+];
+
+// Speeds match /guides/iptv-internet-speed (about 25 Mbps for HD, 50 Mbps for 4K).
+const quickChecks = [
+  "Restart the device and your router, then reopen the player app.",
+  "Try a second channel and a second device: if only one channel fails, the problem is that channel, not your setup.",
+  "Check your login details for typos or spaces, and check that your plan or trial has not expired.",
+  "Run a speed test on the same device: about 25 Mbps is enough for one HD stream and 50 Mbps for 4K.",
+  "Use Ethernet or move closer to the router if streams stutter only on Wi-Fi.",
+  `Close the stream on other screens: every plan allows ${PRODUCT_TRUTHS.connections} simultaneous connections.`,
 ];
 
 export default function HelpPage() {
@@ -201,6 +212,61 @@ export default function HelpPage() {
                 </Card>
               );
             })}
+          </div>
+
+          {/* Quick checks and support */}
+          <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="rounded-2xl border border-white/[0.08] bg-[#07080a] p-6 sm:p-8">
+              <h2 className="font-headline text-xl font-bold text-foreground sm:text-2xl">Quick Checks Before You Troubleshoot</h2>
+              <p className="mt-2 text-base leading-relaxed text-muted-foreground sm:text-sm">
+                Most IPTV problems clear up with one of these. Try them in order, then open the guide for your symptom if the problem stays.
+              </p>
+              <ul className="mt-4 space-y-2.5 text-base leading-relaxed text-muted-foreground sm:text-sm">
+                {quickChecks.map((check) => (
+                  <li key={check} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                    <span>{check}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-base text-muted-foreground sm:text-sm">
+                Setting up a new device instead? Start with the{" "}
+                <Link href="/devices" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                  device setup guides
+                </Link>{" "}
+                or the{" "}
+                <Link href="/players" className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                  IPTV player guides
+                </Link>
+                .
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/[0.08] bg-[#07080a] p-6 sm:p-8">
+              <h2 className="font-headline text-xl font-bold text-foreground sm:text-2xl">Still Stuck? Contact Support</h2>
+              <p className="mt-2 text-base leading-relaxed text-muted-foreground sm:text-sm">
+                Message support on WhatsApp ({COMPANY.support.whatsappDisplay}) or email, {COMPANY.support.hours}.
+                {COMPANY.support.responseTime ? ` Replies arrive ${COMPANY.support.responseTime.charAt(0).toLowerCase()}${COMPANY.support.responseTime.slice(1)}.` : ""}
+                {COMPANY.support.outOfHours ? ` ${COMPANY.support.outOfHours}` : ""}
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-sm">To get a fix faster, include:</p>
+              <ul className="mt-2 list-disc space-y-1.5 pl-5 text-base leading-relaxed text-muted-foreground sm:text-sm">
+                <li>your device and the IPTV player app you use;</li>
+                <li>the exact error message, or a photo of the screen;</li>
+                <li>which channels or menus are affected, and since when;</li>
+                <li>which of the quick checks you already tried.</li>
+              </ul>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Button asChild size="sm">
+                  <a href={COMPANY.support.whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    Message Support on WhatsApp
+                  </a>
+                </Button>
+                <Button asChild size="sm" variant="outline">
+                  <Link href="/contact-us">All Contact Options</Link>
+                </Button>
+              </div>
+            </div>
           </div>
 
           {/* Cross-Directory Navigation Banner */}
