@@ -30,6 +30,8 @@ const pricingJsonLd: Graph = {
       description:
         "Prepaid IPTV subscription with 25,000+ live channels, 120,000+ movies and series, 2 simultaneous connections and no automatic renewal. Credentials delivered by WhatsApp in 5 to 15 minutes.",
       brand: { "@type": "Brand", name: "TryIPTV" },
+      // The site's OG image endpoint (1200x630 PNG), as Article markup uses when a page has no image of its own.
+      image: `https://www.tryiptv.com/api/og?title=${encodeURIComponent("TryIPTV Prepaid IPTV Subscription")}`,
       url: PRICING_URL,
       offers: plans.map((plan) => ({
         "@type": "Offer" as const,

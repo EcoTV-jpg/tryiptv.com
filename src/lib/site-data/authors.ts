@@ -86,7 +86,7 @@ export const GUIDE_TITLES: Record<string, string> = {
   "/devices/mag-box-iptv": "MAG Box IPTV Setup: Stalker Portal Guide",
   "/devices/roku-iptv": "How to Watch IPTV on Roku: AirPlay & Mirroring",
   "/devices/windows-iptv": "IPTV on Windows: Players & PC Setup Guide",
-  "/devices/iphone-iptv": "How to Watch IPTV on iPhone & iPad (App Store Guide)",
+  "/devices/iphone-iptv": "IPTV on iPhone & iPad: App Store Setup Guide",
   "/devices/mac-iptv": "How to Set Up IPTV on a Mac (macOS Guide)",
   "/players/iptv-smarters": "IPTV Smarters Pro Setup Guide: Xtream Codes & M3U Login",
   "/players/tivimate": "TiviMate Setup Guide: M3U, Xtream Codes & EPG on Fire TV",

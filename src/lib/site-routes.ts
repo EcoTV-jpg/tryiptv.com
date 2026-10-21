@@ -43,9 +43,9 @@ export interface SiteRoute {
 
 export const SITE_ROUTES: SiteRoute[] = [
   // ── Commercial ───────────────────────────────────────────────────────────────
-  { path: '/',                  section: 'commercial', indexable: true,  lastModified: '2026-10-04' },
-  { path: '/pricing',           section: 'commercial', indexable: true,  lastModified: '2026-10-20' },
-  { path: '/iptv-free-trial',   section: 'commercial', indexable: true,  lastModified: '2026-10-20' },
+  { path: '/',                  section: 'commercial', indexable: true,  lastModified: '2026-10-21' },
+  { path: '/pricing',           section: 'commercial', indexable: true,  lastModified: '2026-10-21' },
+  { path: '/iptv-free-trial',   section: 'commercial', indexable: true,  lastModified: '2026-10-21' },
   { path: '/setup',             section: 'commercial', indexable: true,  lastModified: '2026-10-06' },
 
   // ── Devices hub + device pages ────────────────────────────────────────────
@@ -73,7 +73,7 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/players/iptv-extreme',   section: 'players', indexable: true,  lastModified: '2026-10-04' },
 
   // ── Guides hub + guide pages ──────────────────────────────────────────────
-  { path: '/guides',                     section: 'guides', indexable: true,  lastModified: '2026-10-05' },
+  { path: '/guides',                     section: 'guides', indexable: true,  lastModified: '2026-10-21' },
   { path: '/guides/what-is-iptv',        section: 'guides', indexable: true,  lastModified: '2026-10-20' },
   { path: '/guides/how-does-iptv-work',  section: 'guides', indexable: true,  lastModified: '2026-10-06' },
   { path: '/guides/what-is-m3u',         section: 'guides', indexable: true,  lastModified: '2026-10-05' },
@@ -84,7 +84,7 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/guides/iptv-vs-cable',       section: 'guides', indexable: true,  lastModified: '2026-10-06' },
 
   // ── Help hub + help pages ─────────────────────────────────────────────────
-  { path: '/help',                        section: 'help', indexable: true,  lastModified: '2026-10-05' },
+  { path: '/help',                        section: 'help', indexable: true,  lastModified: '2026-10-21' },
   { path: '/help/iptv-buffering',         section: 'help', indexable: true,  lastModified: '2026-10-05' },
   { path: '/help/iptv-not-working',       section: 'help', indexable: true,  lastModified: '2026-10-05' },
   { path: '/help/iptv-login-not-working', section: 'help', indexable: true,  lastModified: '2026-10-05' },

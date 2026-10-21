@@ -16,7 +16,7 @@ import { publicBrandSocialLinks } from "@/lib/site-data/socials";
 
 const title = "TryIPTV Press Kit: Fact Sheet, Logos & Media Contact";
 const description =
-  "TryIPTV press kit: company boilerplate, key facts, plans and pricing, official logos and colours, real setup screenshots, and the media contact for press enquiries.";
+  "TryIPTV press kit: company boilerplate, key facts, plans and pricing, official logos, real setup screenshots and the media contact for press enquiries.";
 const canonical = "/press";
 
 export function generateMetadata(): Metadata {
