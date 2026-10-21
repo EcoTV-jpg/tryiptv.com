@@ -37,8 +37,36 @@ export const GUIDE_AUTHORS: Record<string, string> = {};
 
 /** Who REVIEWED each guide (did not necessarily write it). Shown as "Reviewed by …"; schema `reviewedBy`. */
 export const GUIDE_REVIEWERS: Record<string, string> = {
-  // Owner-confirmed 2026-10-21: Simo Alaoui reviewed this guide.
+  // Owner-confirmed 2026-10-21: Simo Alaoui reviewed every device, player and IPTV guide (hub pages excluded).
+  // Device setup guides
   "/devices/firestick-iptv": "simo-alaoui",
+  "/devices/android-tv-iptv": "simo-alaoui",
+  "/devices/samsung-tv-iptv": "simo-alaoui",
+  "/devices/lg-tv-iptv": "simo-alaoui",
+  "/devices/apple-tv-iptv": "simo-alaoui",
+  "/devices/chromecast-iptv": "simo-alaoui",
+  "/devices/mag-box-iptv": "simo-alaoui",
+  "/devices/roku-iptv": "simo-alaoui",
+  "/devices/windows-iptv": "simo-alaoui",
+  "/devices/iphone-iptv": "simo-alaoui",
+  "/devices/mac-iptv": "simo-alaoui",
+  // Player guides
+  "/players/iptv-smarters": "simo-alaoui",
+  "/players/tivimate": "simo-alaoui",
+  "/players/xciptv": "simo-alaoui",
+  "/players/televizo": "simo-alaoui",
+  "/players/perfect-player": "simo-alaoui",
+  "/players/ott-navigator": "simo-alaoui",
+  "/players/iptv-extreme": "simo-alaoui",
+  // IPTV guides
+  "/guides/what-is-iptv": "simo-alaoui",
+  "/guides/how-does-iptv-work": "simo-alaoui",
+  "/guides/what-is-m3u": "simo-alaoui",
+  "/guides/what-are-xtream-codes": "simo-alaoui",
+  "/guides/m3u-vs-xtream-codes": "simo-alaoui",
+  "/guides/what-is-epg": "simo-alaoui",
+  "/guides/iptv-internet-speed": "simo-alaoui",
+  "/guides/iptv-vs-cable": "simo-alaoui",
 };
 
 /** Stable schema.org @id for a person, so Article, Organization and ProfilePage point to one entity. */
