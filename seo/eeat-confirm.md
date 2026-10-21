@@ -14,17 +14,17 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 
 ## Company and About page (`COMPANY` in company.ts)
 1. ✅ **Answered 2026-10-21:** Simo Alaoui LLC. → `legalName`
-2. ◐ **Registration number answered 2026-10-21:** 8683949. **Still open: which registry** (e.g. New York Department of State)? Until then the number is shown without a registry. → `registry`
+2. ✅ **Answered 2026-10-21:** 8683949, New York Department of State. (The registry's Albany address is not TryIPTV's address and is not published as one.) → `registrationNumber`, `registry`
 3. **VAT or tax ID**, if you want it published. Google lists vatID as a trust signal. → `vatOrTaxId`
 4. **Registered or postal address**, if it should be published. It must be real; never a virtual or invented address. → `address`
 5. ✅ **Answered 2026-10-21:** New York, United States (schema uses region level only, no street address). → `location`, `area`
-6. **Year TryIPTV started operating.** → `foundingYear`
+6. ✅ **Answered 2026-10-21:** 2021. → `foundingYear`
 7. ✅ **Answered 2026-10-21** (approved copy on /about). → `story`
 8. ✅ **Answered 2026-10-21:** Simo Alaoui, Founder / Operations. → `team`
 
 ## Contact and support (`COMPANY.support`)
 9. ✅ **Answered 2026-10-21:** 9:00 AM–10:00 PM ET, every day, for both WhatsApp and email. → `support.hours`, `support.hoursSpec`
-10. **Typical response time** for WhatsApp and for email. It should be measured, not hoped for. → `support.responseTime`
+10. ✅ **Answered 2026-10-21:** typically within 15 minutes on WhatsApp and email, during support hours. → `support.responseTime`
 11. **Support languages.** → `support.languages`
 12. **Contact form email delivery.** The form sends through Resend from `onboarding@resend.dev`, Resend's test sender. Resend generally only delivers mail from that address to the Resend account owner's own inbox. Should it send from a verified `@tryiptv.com` address instead? That needs DNS records in Resend and Cloudflare. *Not changed.*
 13. **Does `care@tryiptv.com` exist and get read?** Since 2026-10-20 it is the DMCA address on `/dmca-report` and `/about` (it replaced `dmca@tryiptv.com`, using the owner-supplied DMCA text).
@@ -131,6 +131,6 @@ The owner's FAQ came from iptvv.ca as 72 questions in 11 topics without answers.
 
 ## Company information (owner-approved copy, added 2026-10-21)
 68. **Delivery time vs support hours (most important).** The site promises login details "within 5–15 minutes" (trial and paid) everywhere, but support runs 9:00 AM–10:00 PM ET. Is delivery automated around the clock? If not, every "5–15 minutes" should say "during support hours". → `PRODUCT_TRUTHS.activationTime`
-69. **Messages outside support hours:** are they answered when support reopens? Do the daily hours include public holidays? → `support.responseTime`
+69. **Messages outside support hours (still open):** the 15-minute response time is published as applying during support hours. Are out-of-hours messages answered when support reopens? Do the daily hours include public holidays?
 70. **Simo Alaoui:** confirm consent to be named publicly; optionally a photo and a real profile link (e.g. LinkedIn). Does Simo write or review the guides? Only then should guide bylines and an author page credit Simo. → `team`, `authors.ts`
 71. **Operator vs older wording to fix:** with a New York LLC as operator, the DMCA counter-notice "consent to the jurisdiction of Canadian courts" (question 13) and the empty governing law in the Terms are now the most visible inconsistencies. The privacy policy's "may be stored in the United Kingdom" (question 47) also needs checking.

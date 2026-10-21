@@ -20,8 +20,8 @@ export const COMPANY = {
   legalName: "Simo Alaoui LLC" as string | null,
   /** Confirmed 2026-10-21. Shown on /about and /press; the registry is not yet confirmed (`registry`). */
   registrationNumber: "8683949" as string | null,
-  /** Registry the number is filed with, e.g. "New York Department of State". Not confirmed: don't guess. */
-  registry: null as string | null,
+  /** Confirmed 2026-10-21. (Its Albany address is the registry's own office, not TryIPTV's: never use it as `address`.) */
+  registry: "New York Department of State" as string | null,
   vatOrTaxId: null as string | null,
   /** Only if the owner wants a postal/registered address published. Never a virtual or invented one. */
   address: null as { street: string; locality: string; postalCode: string; country: string } | null,
@@ -30,7 +30,8 @@ export const COMPANY = {
   /** Region-level location for schema PostalAddress (no street address is published). */
   area: { region: "New York", country: "US" } as { region: string; country: string } | null,
   /** ISO year the service started, e.g. "2021". */
-  foundingYear: null as string | null,
+  /** Confirmed 2026-10-21. */
+  foundingYear: "2021" as string | null,
   /** 2–4 sentence company story in the owner's words. */
   /** Owner-approved 2026-10-21. */
   story:
@@ -57,7 +58,8 @@ export const COMPANY = {
     /** Machine-readable form of `hours` for schema ContactPoint.hoursAvailable. */
     hoursSpec: { opens: "09:00", closes: "22:00", timeZone: "America/New_York" } as { opens: string; closes: string; timeZone: string } | null,
     /** e.g. "Most WhatsApp messages are answered within 1 hour; email within 24 hours." */
-    responseTime: null as string | null,
+    /** Confirmed 2026-10-21 (15 minutes). How out-of-hours messages are handled is still open (eeat-confirm Q69). */
+    responseTime: "Typically within 15 minutes on WhatsApp and email, during support hours" as string | null,
     languages: null as string | null,
     /** Media contact for /press, e.g. "press@tryiptv.com" — must be a real, monitored inbox. */
     pressEmail: null as string | null,

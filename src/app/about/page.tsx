@@ -218,7 +218,7 @@ export default function AboutPage() {
                 {COMPANY.support.responseTime && <li>Response time: {COMPANY.support.responseTime}</li>}
               </ul>
               <Confirm value={SUPPORT_HOURS} question="Support hours (with time zone) for WhatsApp and email." />
-              <Confirm value={COMPANY.support.responseTime} question="Typical response time for WhatsApp and for email, and how messages sent outside support hours are handled." />
+              <Confirm value={null} question="How are messages sent outside support hours handled (answered when support reopens?), and do the daily hours include public holidays?" />
             </section>
 
             <section className="space-y-3">
