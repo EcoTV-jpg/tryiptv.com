@@ -262,10 +262,6 @@ export default async function IPTVSubscription() {
           </div>
 
           <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
-            Choosing a plan opens WhatsApp, where support sends payment instructions. Credentials typically arrive within <span className="whitespace-nowrap">5–15 minutes</span> after payment confirmation.
-          </p>
-
-          <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
             Choosing a plan opens WhatsApp, where support sends payment instructions. Credentials typically arrive within <span className="whitespace-nowrap">{T.activationTime}</span> after payment confirmation.
           </p>
         </Container>
