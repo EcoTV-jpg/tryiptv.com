@@ -18,7 +18,7 @@ import type { Graph } from "schema-dts";
 
 const PRICING_URL = "https://www.tryiptv.com/pricing";
 
-// Rendered as a raw script: the shared <Schema> component drops Product and FAQPage nodes site-wide.
+// Opts in to Product and FAQPage, which the shared <Schema> component drops by default.
 // Questions and answers come from the same data as the visible FAQ so the two can't drift.
 const pricingJsonLd: Graph = {
   "@context": "https://schema.org",
@@ -264,10 +264,7 @@ export default async function IPTVSubscription() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd).replace(/</g, "\\u003c") }}
-      />
+      <Schema id="pricing" schema={pricingJsonLd} keep={["Product", "FAQPage"]} />
       <Schema id="product" schema={productSchema} />
       <Schema id="breadcrumb" schema={breadcrumbSchema} />
 
@@ -280,7 +277,7 @@ export default async function IPTVSubscription() {
             as="h1"
             eyebrow="Most Popular IPTV Subscription Plans"
             title={`Choose Your IPTV Plan, From ${FACT_TEXT.fromPrice}/Month`}
-            subtitle={`TryIPTV prepaid plans cost ${FACT_TEXT.priceList}. Every plan includes ${T.connections} simultaneous connections and does not renew automatically. Longer terms lower the monthly equivalent, from ${FACT_TEXT.fromPrice} down to ${FACT_TEXT.lowestMonthly} a month on the 12-month plan.`}
+            subtitle={`Prepaid plans for 1, 3, 6 or 12 months, with ${T.connections} simultaneous connections and no automatic renewal.`}
           />
           <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-semibold sm:mt-6 sm:text-sm">
             {quickFacts.map((fact) => (
@@ -297,7 +294,16 @@ export default async function IPTVSubscription() {
 
       <Section id="pricing-plans" className="scroll-mt-2 bg-[#050706] py-10 sm:py-14">
         <Container>
-          <h2 className="sr-only">Compare TryIPTV Plans</h2>
+          {/* Answer-first block for "how much does an IPTV subscription cost" queries; keep it 40-60 words. */}
+          <div className="mx-auto mb-8 max-w-3xl text-center">
+            <h2 className="font-headline text-xl font-bold text-foreground sm:text-2xl">How much does an IPTV subscription cost?</h2>
+            <p className="mt-2 text-base leading-7 text-muted-foreground">
+              TryIPTV prepaid IPTV plans cost {FACT_TEXT.priceList}, which is{" "}
+              {T.plans.map((p) => formatUsd(p.monthlyEquivalent)).join(", ").replace(/, ([^,]*)$/, " and $1")} a month. Every plan
+              includes {T.channels} live channels, {T.vod} movies and shows and {T.connections} simultaneous connections, with no
+              automatic renewal.
+            </p>
+          </div>
           <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {plans.map((plan, index) => {
               const savingsText = planSavingsExact[plan.id];
@@ -416,7 +422,7 @@ export default async function IPTVSubscription() {
         <Container>
           <SectionHeader
             eyebrow="Plans Compared"
-            title="Stream Smarter With TryIPTV"
+            title="What do all TryIPTV plans include?"
             subtitle={`TryIPTV plans start at ${FACT_TEXT.fromPrice} for one month and drop to ${FACT_TEXT.lowestMonthly} a month on the annual term. Every plan includes ${T.channels} live channels, ${T.vod} movies and series, the TV guide, ${T.connections} simultaneous connections and support on WhatsApp and email.`}
           />
 
@@ -523,7 +529,7 @@ export default async function IPTVSubscription() {
       <Section variant="alt" className="border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
         <Container>
           <SectionHeader
-            title="TryIPTV vs cable TV vs a streaming stack: the real cost"
+            title="Is IPTV cheaper than cable TV or a streaming stack?"
             subtitle="Streaming figures are published US list prices for ad-free tiers, checked October 21, 2026; sources are under the table. Cable figures are our estimates: an advertised rate, and a typical bill once the fees are added."
           />
 
@@ -596,7 +602,7 @@ export default async function IPTVSubscription() {
       <Section className="border-t border-white/[0.06] py-10 sm:py-14">
         <Container>
           <SectionHeader
-            title="Plan math: what each IPTV subscription costs per week and per day"
+            title="How much does an IPTV subscription cost per week and per day?"
             subtitle="The monthly equivalent is the useful number, but it hides how small the daily cost gets. Here's the arithmetic, nothing rounded up."
           />
 
@@ -647,7 +653,7 @@ export default async function IPTVSubscription() {
       {/* Which plan fits whom */}
       <Section variant="alt" className="border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
         <Container>
-          <SectionHeader title="Which IPTV subscription fits whom" />
+          <SectionHeader title="Which IPTV subscription plan should I choose?" />
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {planFits.map((fit) => (
@@ -663,7 +669,7 @@ export default async function IPTVSubscription() {
       {/* Fair price in 2026 */}
       <Section className="border-t border-white/[0.06] py-10 sm:py-14">
         <Container>
-          <SectionHeader title="What a fair IPTV subscription price looks like in 2026" />
+          <SectionHeader title="What is a fair IPTV subscription price in 2026?" />
 
           <div className="mx-auto max-w-3xl space-y-4">
             <p className={prose}>
@@ -702,7 +708,7 @@ export default async function IPTVSubscription() {
       {/* Lifetime subscriptions */}
       <Section variant="alt" className="border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
         <Container>
-          <SectionHeader title="Lifetime IPTV subscriptions: why a prepaid 12-month term is the safer equivalent" />
+          <SectionHeader title="Is a lifetime IPTV subscription worth it?" />
 
           <div className="mx-auto max-w-3xl space-y-4">
             <p className={prose}>
@@ -747,7 +753,7 @@ export default async function IPTVSubscription() {
                 className="group border-b border-white/[0.07] px-6 last:border-b-0 sm:px-8"
               >
                 <summary className="flex min-h-[64px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left text-[16px] font-semibold leading-snug text-foreground/90 [&::-webkit-details-marker]:hidden">
-                  <span>{faq.question}</span>
+                  <h3 className="text-[16px] font-semibold leading-snug">{faq.question}</h3>
                   <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180" />
                 </summary>
                 <div className="pb-5 pr-4 text-base sm:text-[15px] leading-relaxed text-muted-foreground sm:pr-8">

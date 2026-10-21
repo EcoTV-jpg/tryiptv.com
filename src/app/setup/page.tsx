@@ -309,12 +309,15 @@ export default function SetupPage() {
           <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.06] px-3.5 py-1 text-xs font-semibold text-primary mb-4">
               <Sparkles className="h-3.5 w-3.5" />
-              Quick Answer: How IPTV Setup Works
+              Quick Answer
             </div>
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-3">How do I set up IPTV?</h2>
             <p className="text-base sm:text-lg leading-relaxed text-foreground font-medium mb-6">
-              Setting up an IPTV subscription delivers live TV, sports, and on-demand entertainment to your screen over standard internet protocol. Across every operating system, the configuration process follows five core steps:
+              Choose your device, install a compatible IPTV player app, enter your TryIPTV login (Xtream Codes or an M3U link), wait
+              for the channels and TV guide to load, then start watching on up to {PRODUCT_TRUTHS.connections} screens at once. It
+              takes the same five steps on every device:
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 text-left">
+            <ol className="grid grid-cols-1 sm:grid-cols-5 gap-3 text-left">
               {[
                 { num: "1", label: "Choose device", desc: "TV, stick, PC, or phone" },
                 { num: "2", label: "Install player", desc: "From official app store" },
@@ -322,16 +325,16 @@ export default function SetupPage() {
                 { num: "4", label: "Sync content", desc: "Channels and TV guide" },
                 { num: "5", label: "Start watching", desc: "Stream across 2 connections" },
               ].map((item) => (
-                <div
+                <li
                   key={item.num}
                   className="rounded-lg border border-white/[0.08] bg-[#0c100d] p-3.5 transition-colors hover:border-primary/30"
                 >
-                  <div className="text-xs font-mono font-bold text-primary mb-1">0{item.num}</div>
+                  <div className="text-xs font-mono font-bold text-primary mb-1" aria-hidden="true">0{item.num}</div>
                   <div className="text-xs font-extrabold text-foreground">{item.label}</div>
                   <div className="text-[11px] text-muted-foreground mt-0.5">{item.desc}</div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </Container>
       </Section>
@@ -344,10 +347,11 @@ export default function SetupPage() {
               <div className="sticky top-24">
                 <span className="eyebrow mb-1">Prerequisites</span>
                 <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-4">
-                  What You Need Before Starting
+                  What do I need to set up IPTV?
                 </h2>
                 <p className="text-base leading-relaxed text-muted-foreground mb-6">
-                  Having everything prepared ensures a smooth, straightforward installation. Review this checklist before configuring your application.
+                  You need an internet connection (about 25 Mbps for HD, 50 Mbps for 4K), a compatible device, an IPTV player app and
+                  your TryIPTV login details.
                 </p>
                 <div className="rounded-xl border border-primary/20 bg-primary/[0.04] p-5 space-y-3">
                   <div className="flex items-center gap-2 text-base sm:text-xs font-bold text-primary">
@@ -657,10 +661,11 @@ export default function SetupPage() {
           <div className="mx-auto max-w-3xl text-center mb-12">
             <span className="eyebrow mb-1">Standard Workflow</span>
             <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
-              7-Step Universal Setup Walkthrough
+              How do I set up IPTV step by step?
             </h2>
             <p className="mt-2 text-base sm:text-sm text-muted-foreground leading-relaxed">
-              While exact buttons and layout differ slightly between applications, this generic sequence applies to virtually all IPTV player software.
+              The five steps above, broken down into seven. Exact buttons differ between player apps, but this sequence works in almost
+              every one.
             </p>
           </div>
 

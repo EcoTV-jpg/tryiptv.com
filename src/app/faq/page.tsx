@@ -27,7 +27,7 @@ export default async function FaqPage() {
 
   return (
     <>
-      <Schema id="faq" schema={faqSchema} />
+      <Schema id="faq" schema={faqSchema} keep={["FAQPage"]} />
       <Schema id="breadcrumb" schema={breadcrumbSchema} />
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">

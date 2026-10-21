@@ -177,7 +177,8 @@ export function generateFAQPageSchema(mainEntity: { question: string; answer: st
       name: question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: answer,
+        // Answers may hold inline links; the markup carries the visible text only.
+        text: stripHtml(answer),
       },
     })),
   };

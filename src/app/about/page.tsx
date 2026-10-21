@@ -121,7 +121,7 @@ const schema = {
 export default function AboutPage() {
   return (
     <>
-      <Schema id="about" schema={schema} />
+      <Schema id="about" schema={schema} keep={["FAQPage"]} />
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <Container className="relative text-center">

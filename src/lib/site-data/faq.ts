@@ -132,7 +132,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "I lost my IPTV login details. What do I do?",
-        answer: `Message support on WhatsApp or email ${T.support.email} from the number or address you ordered with, and support can resend your details. Never share your login publicly. ${a("/help/iptv-login-not-working", "Login not working? See the fix guide")}.`,
+        answer: `Message support on WhatsApp or email ${T.support.email} from the number or address you ordered with, and support can resend your details. Support answers ${COMPANY.support.hours}. Never share your login publicly. ${a("/help/iptv-login-not-working", "Login not working? See the fix guide")}.`,
       },
       {
         question: "How do I cancel my IPTV subscription, and is there a refund?",
@@ -310,7 +310,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "Is TryIPTV down?",
-        answer: `First check whether other apps and websites work, then try a second device. If your internet is fine but no TryIPTV channel plays, message support on WhatsApp or email ${T.support.email} and they will check the service.`,
+        answer: `First check whether other apps and websites work, then try a second device. If your internet is fine but no TryIPTV channel plays, message support on WhatsApp or email ${T.support.email} and they will check the service. Support answers ${COMPANY.support.hours}; messages sent outside those hours are answered when support reopens.`,
       },
       {
         question: "How do I reset or reinstall my IPTV app?",

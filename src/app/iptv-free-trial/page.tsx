@@ -18,7 +18,7 @@ import { COMPANY } from "@/lib/site-data/company";
 import { trialFaqs as faqSchemaSource } from "@/lib/data/iptv-free-trial-page";
 import type { FAQPage, WithContext } from "schema-dts";
 
-// Rendered as a raw script: the shared <Schema> component drops FAQPage nodes site-wide.
+// Opts in to FAQPage, which the shared <Schema> component drops by default.
 // Built from the same data as the visible FAQ so the two can't drift.
 const freeTrialFaqJsonLd: WithContext<FAQPage> = {
   "@context": "https://schema.org",
@@ -33,25 +33,6 @@ const freeTrialFaqJsonLd: WithContext<FAQPage> = {
 
 const freeTrialWhatsAppUrl =
   "https://wa.me/15205648298?text=Hello%20TryIPTV%2C%20I%20would%20like%20to%20start%20my%20free%20IPTV%20trial.";
-
-const trialLengths = [
-  {
-    title: "What our 24-hour trial includes",
-    text: "TryIPTV gives you a full 24-hour trial: the same channel list, the same 120,000+ movies and series, and the same 2 simultaneous connections as a paid plan. No credit card, no auto-renewal, no shortened channel list. You send a message on WhatsApp, receive your Xtream Codes or M3U credentials in 5 to 15 minutes, and the clock starts when your login is activated.",
-  },
-  {
-    title: "What a 48-hour IPTV trial adds",
-    text: "A 48-hour trial buys you one extra evening. In practice that means you can watch a second night of prime-time sport, or test a second device on a different evening. It does not reveal anything a 24-hour trial cannot, because the things that break IPTV break at peak hours, and peak hours happen every night. If a provider offers 48 hours, use the second day to test the second TV, not to delay the decision.",
-  },
-  {
-    title: "What a 72-hour IPTV trial adds",
-    text: "A 72-hour trial covers a weekend, which is genuinely useful if you only watch live sport on Saturdays and Sundays. It is also the duration most often used as a marketing number: three days sounds generous, but the extra 48 hours rarely change the verdict. If you need a weekend to judge, ask for the trial on a Thursday or Friday and the 24 hours will land on the days you actually watch.",
-  },
-  {
-    title: "Why 24 hours is enough to test IPTV",
-    text: "One evening is enough to answer every question that decides a purchase: does my player accept the login, do my channels exist, does the stream hold at 8pm, and does support answer when something goes wrong. A longer trial mostly tests your patience, not the service. What a trial cannot fix is a provider that disappears in month two, and no duration of free trial protects you from that.",
-  },
-] as const;
 
 const trialLengthRows = [
   ["24 hours", "Player setup, channel list, one full prime-time evening, support response time", "A second weekend of sport", "TryIPTV: 24 hours, no credit card"],
@@ -278,10 +259,7 @@ export default async function IptvFreeTrialPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(freeTrialFaqJsonLd).replace(/</g, "\\u003c") }}
-      />
+      <Schema id="faq" schema={freeTrialFaqJsonLd} keep={["FAQPage"]} />
       <Schema id="breadcrumb" schema={breadcrumbSchema} />
       <Schema id="service" schema={serviceSchema} />
 
@@ -295,9 +273,9 @@ export default async function IptvFreeTrialPage() {
               IPTV Free Trial: 24 Hours Free, No Credit Card Needed
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-              Try TryIPTV on your own TV before you pay anything. For {FACT_TEXT.trialHours} hours you can test live channels, the
-              on-demand library, picture quality and the TV guide on your own devices and internet connection. No credit card, no
-              auto-renew, and your login arrives on WhatsApp, usually within {T.activationTime}.
+              TryIPTV offers a {FACT_TEXT.trialHours}-hour IPTV free trial for $0, with no credit card and no auto-renewal. Tap Start
+              My Free Trial to message support on WhatsApp, and your Xtream Codes or M3U login usually arrives within{" "}
+              {T.activationTime}. One trial per household; when the {FACT_TEXT.trialHours} hours end, access simply stops.
             </p>
             <div className="mt-7">
               <TrialButtons />
@@ -471,19 +449,10 @@ export default async function IptvFreeTrialPage() {
           <div className="mx-auto max-w-4xl">
             <SectionHeader
               title="24 hours, 48 hours or 72 hours: how long an IPTV free trial should be"
-              subtitle="Most IPTV free trials are advertised as 24 hours, 48 hours or 72 hours. The length matters less than what you can actually finish inside it. Here is what each duration really gives you, and why our trial is 24 hours."
+              subtitle={`Most IPTV free trials are advertised as 24, 48 or 72 hours. Ours is a 24-hour test of the full service, with the same ${T.connections} connections as a paid plan, and one evening answers what decides a purchase: your player takes the login, your channels are there, streams hold at peak time and support replies. A 48-hour trial adds a second evening; a 72-hour or 3-day trial adds a weekend of live sport.`}
             />
 
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              {trialLengths.map((t) => (
-                <div key={t.title} className="rounded-lg border border-white/[0.09] bg-card p-5">
-                  <h3 className="font-headline text-lg font-extrabold text-foreground">{t.title}</h3>
-                  <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">{t.text}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 overflow-hidden rounded-lg border border-white/[0.09] bg-card">
+            <div className="overflow-hidden rounded-lg border border-white/[0.09] bg-card">
               <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Free trial length comparison table">
                 <table className="w-full min-w-[640px] text-left text-sm">
                   <caption className="sr-only">What a 24-hour, 48-hour and 72-hour IPTV free trial lets you test</caption>
@@ -512,8 +481,8 @@ export default async function IptvFreeTrialPage() {
             </div>
 
             <p className="mt-6 text-base leading-7 text-muted-foreground">
-              If you want the longest possible trial, ask for it. If you want to know whether this service works in your house, 24 hours
-              is enough, and you can start yours now.
+              If you only watch live sport at weekends, request the trial on a Thursday or Friday so the 24 hours land on the days you
+              watch.
             </p>
           </div>
         </Container>
@@ -751,7 +720,7 @@ export default async function IptvFreeTrialPage() {
               {trialFaqs.map((faq) => (
                 <details key={faq.question} className="group border-b border-white/[0.07] px-5 last:border-b-0 sm:px-7">
                   <summary className="flex min-h-[60px] cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-base font-semibold text-foreground [&::-webkit-details-marker]:hidden">
-                    {faq.question}
+                    <h3 className="text-base font-semibold">{faq.question}</h3>
                     <span aria-hidden="true" className="text-primary transition-transform group-open:rotate-45">+</span>
                   </summary>
                   <p className="pb-5 pr-6 text-base sm:text-sm leading-6 text-muted-foreground">{faq.answer}</p>
