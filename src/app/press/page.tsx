@@ -55,7 +55,7 @@ export default function PressPage() {
     ["Tagline", BRAND.tagline],
     ["Website", <a key="w" href={base} className={link}>www.tryiptv.com</a>],
     ["What it is", "A prepaid IPTV service: live TV and on-demand video, watched on the customer's own devices through compatible IPTV player apps. TryIPTV does not make the player apps."],
-    ["Catalogue", `${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, as listed by the service`],
+    ["Catalogue", `${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows (${PRODUCT_TRUTHS.catalogueBasis})`],
     ["Plans", `${FACT_TEXT.priceList}; prepaid, no automatic renewal`],
     ["Connections", `${PRODUCT_TRUTHS.connections} simultaneous streams on every plan`],
     ["Free trial", `${FACT_TEXT.trialHours} hours, $0, no credit card`],

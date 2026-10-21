@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { PAGE_LAST_MODIFIED, formatLegalDate } from "@/lib/site-data/page-modifications";
+import { COMPANY } from "@/lib/site-data/company";
 
 export function generateMetadata(): Metadata {
   return generatePageMetadata({
@@ -81,8 +82,7 @@ export default function DisclaimerPage() {
                 streaming services.
               </p>
               <p>
-                We do not host, stream, or rebroadcast television channels, movies, or shows on our own servers. We provide access credentials to
-                third-party IPTV service providers, allowing users to access services made available through those providers.
+                We do not host, stream, or rebroadcast television channels, movies, or shows on our own servers. {COMPANY.businessModel}
               </p>
               <p className={callout}>
                 <strong className="text-foreground">Important:</strong> Use of any IPTV service must always comply with the laws and regulations

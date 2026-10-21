@@ -1,12 +1,12 @@
 # TryIPTV
 
-> TryIPTV is a prepaid IPTV service with 25,000+ live channels and 120,000+ movies and TV shows, watched on your own devices through compatible IPTV player apps. Plans start at $16 with 2 connections, no automatic renewal and a 24-hour free trial.
+> TryIPTV is a prepaid IPTV service with 25,000+ live channels and 120,000+ movies and TV shows (counted from our channel and on-demand lists, October 2026), watched on your own devices through compatible IPTV player apps. Plans start at $16 with 2 connections, no automatic renewal and a 24-hour free trial.
 
 The linked website pages hold the current facts. Pricing, trial terms, and refund conditions are governed by their respective pages. Device pages cover platform setup; player pages cover app configuration; guides explain concepts; help pages diagnose problems.
 
 ## Company
 
-- [About TryIPTV](https://www.tryiptv.com/about): Operated by Simo Alaoui LLC (New York, United States; company registration number 8683949, New York Department of State; operating since 2021). Founder / Operations: Simo Alaoui. Support on WhatsApp and email, 9:00 AM–10:00 PM ET, every day including weekends and public holidays; replies typically within 15 minutes during those hours, and messages sent outside them are answered when support reopens.
+- [About TryIPTV](https://www.tryiptv.com/about): TryIPTV sells its own subscriptions and issues the login details itself; you watch through a compatible IPTV player app. Operated by Simo Alaoui LLC (New York, United States; company registration number 8683949, New York Department of State; operating since 2021). Founder / Operations: Simo Alaoui. Support on WhatsApp and email, 9:00 AM–10:00 PM ET, every day including weekends and public holidays; replies typically within 15 minutes during those hours, and messages sent outside them are answered when support reopens.
 
 ## Service
 

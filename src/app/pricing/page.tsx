@@ -190,15 +190,21 @@ const streamFeatures = [
   },
 ] as const;
 
-// Third-party figures are published US list prices collected in October 2026; update them together.
+// Streaming figures are US list prices checked 2026-10-21 (sources in costSources); cable figures are TryIPTV estimates.
+// Update the rows, the annual-gap sentence and costSources together.
 const costComparisonRows = [
   { option: "TryIPTV, 12 months", perMonth: "$7.50", perYear: "$90", autoRenews: "No", payingFor: "25,000+ channels, 120,000+ VOD, 2 connections", isTryIptv: true },
   { option: "TryIPTV, 1 month", perMonth: "$16.00", perYear: "$192 if bought monthly", autoRenews: "No", payingFor: "Same service, shorter term", isTryIptv: true },
-  { option: "Cable TV, advertised rate", perMonth: "$100–$120", perYear: "$1,200–$1,440", autoRenews: "Usually, at promo pricing", payingFor: "~140 channels, locals, box, DVR" },
-  { option: "Cable TV, real bill with fees", perMonth: "$130–$170", perYear: "$1,560–$2,040", autoRenews: "Yes", payingFor: "Above, plus broadcast fee, RSN surcharge, extra boxes" },
-  { option: "Streaming stack, 3 ad-free apps", perMonth: "$70.97", perYear: "$851.64", autoRenews: "Yes, each service separately", payingFor: "Netflix Standard $19.99, Disney+ $18.99, ESPN Unlimited $31.99" },
-  { option: "Streaming stack, 8 ad-free services", perMonth: "$139.41", perYear: "$1,672.92", autoRenews: "Yes", payingFor: "Eight-service total, no live channels" },
-  { option: "Same 8 services on ad tiers", perMonth: "$89.92", perYear: "$1,079.04", autoRenews: "Yes", payingFor: "Same libraries, ads on every one" },
+  { option: "Cable TV, advertised rate (estimate)", perMonth: "$100–$120", perYear: "$1,200–$1,440", autoRenews: "Usually, at promo pricing", payingFor: "~140 channels, locals, box, DVR" },
+  { option: "Cable TV, bill with fees (estimate)", perMonth: "$130–$170", perYear: "$1,560–$2,040", autoRenews: "Yes", payingFor: "Above, plus broadcast fee, RSN surcharge, extra boxes" },
+  { option: "Streaming stack, 3 ad-free apps", perMonth: "$73.47", perYear: "$881.64", autoRenews: "Yes, each service separately", payingFor: "Netflix Standard $19.99, Disney+ Premium $21.49, ESPN Unlimited $31.99" },
+] as const;
+
+const costSources = [
+  { label: "Netflix Standard, $19.99/month", source: "Netflix plans and pricing", href: "https://help.netflix.com/en/node/24926" },
+  { label: "Disney+ Premium, $21.49/month", source: "Disney+ plans", href: "https://www.disneyplus.com/welcome/plans" },
+  { label: "ESPN Unlimited, $31.99/month from September 17, 2026", source: "NewscastStudio, ESPN price announcement", href: "https://www.newscaststudio.com/2026/08/24/espn-dtc-streaming-price-hike-826/" },
+  { label: "Cable fees: broadcast TV fee $4–$11, box rental $7–$13 a month, about $37 a month in TV fees on average", source: "Consumer Reports, 2019", href: "https://www.consumerreports.org/fees-billing/cable-company-fees-add-to-tv-bill" },
 ] as const;
 
 const costCaveats = [
@@ -518,7 +524,7 @@ export default async function IPTVSubscription() {
         <Container>
           <SectionHeader
             title="TryIPTV vs cable TV vs a streaming stack: the real cost"
-            subtitle="Figures below are published US list prices collected in October 2026. Cable numbers reflect a real bill with fees, not the advertised rate; streaming numbers are list prices for ad-free tiers."
+            subtitle="Streaming figures are published US list prices for ad-free tiers, checked October 21, 2026; sources are under the table. Cable figures are our estimates: an advertised rate, and a typical bill once the fees are added."
           />
 
           <div className="rounded-xl border border-white/[0.08] bg-card">
@@ -556,8 +562,19 @@ export default async function IPTVSubscription() {
 
           <div className="mx-auto mt-8 max-w-3xl">
             <p className={prose}>
-              Run the annual line: the 12-month plan at $90 sits $1,470–$1,950 below a real cable bill and $761.64 below the three-app stack.
+              Run the annual line: the 12-month plan at $90 sits an estimated $1,470–$1,950 below a cable bill with fees and $791.64 below the three-app stack.
             </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">Sources (US list prices, checked October 21, 2026):</p>
+            <ul className="mt-1.5 list-disc space-y-1 pl-5 text-sm leading-6 text-muted-foreground">
+              {costSources.map((s) => (
+                <li key={s.href}>
+                  {s.label}:{" "}
+                  <a href={s.href} target="_blank" rel="noopener noreferrer" className={link}>
+                    {s.source}
+                  </a>
+                </li>
+              ))}
+            </ul>
             <p className={`mt-3 ${prose}`}>
               For setup, reliability and channel differences beyond price, see the{" "}
               <Link href="/guides/iptv-vs-cable" className={link}>full IPTV vs cable TV comparison</Link>.

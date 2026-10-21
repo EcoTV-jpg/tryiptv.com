@@ -29,6 +29,12 @@ export const COMPANY = {
   location: "New York, United States" as string | null,
   /** Region-level location for schema PostalAddress (no street address is published). */
   area: { region: "New York", country: "US" } as { region: string; country: string } | null,
+  /**
+   * What TryIPTV is, in one sentence used everywhere the business model is described
+   * (/disclaimer, llms.txt, llms-full.txt). Owner-confirmed 2026-10-21: TryIPTV sells its own
+   * subscriptions and issues the logins itself; it is not a player app.
+   */
+  businessModel: "We sell TryIPTV subscriptions and issue the login details ourselves; you watch through a compatible IPTV player app.",
   /** ISO year the service started, e.g. "2021". */
   /** Confirmed 2026-10-21. */
   foundingYear: "2021" as string | null,

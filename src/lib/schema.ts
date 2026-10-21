@@ -15,7 +15,7 @@ import type {
   AggregateOffer,
   WithContext,
 } from 'schema-dts';
-import { siteConfig } from '@/lib/site-config';
+import { PRODUCT_TRUTHS, siteConfig } from '@/lib/site-config';
 import { publicBrandSocialLinks } from '@/lib/site-data/socials';
 
 export const organizationId = `${siteConfig.url}/#organization`;
@@ -111,7 +111,11 @@ export function generateOrganizationSchema(): WithContext<Organization> {
     'name': BRAND.name,
     'alternateName': [...BRAND.alternateNames],
     'url': `${siteConfig.url}/`,
-    'description': BRAND.description,
+    // The counts carry their basis here, where AI systems and knowledge panels read the brand facts.
+    'description': BRAND.description.replace(
+      `${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows`,
+      `$& (${PRODUCT_TRUTHS.catalogueBasis})`,
+    ),
     'slogan': BRAND.tagline,
     'logo': {
       '@type': 'ImageObject',

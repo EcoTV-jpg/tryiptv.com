@@ -47,7 +47,7 @@ export const PAGE_LAST_MODIFIED: Record<string, string> = {
   '/privacy-policy': '2026-10-21',
   '/terms-conditions': '2026-10-21',
   '/refund-policy': '2026-10-20',
-  '/disclaimer': '2026-10-20',
+  '/disclaimer': '2026-10-21',
   '/dmca-report': '2026-10-21',
 };
 
