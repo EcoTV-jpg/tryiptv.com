@@ -120,7 +120,7 @@ const faqs = [
   {
     question: "What is the difference between an IPTV player and an IPTV provider?",
     answer:
-      "An IPTV player (such as TiviMate, IPTV Smarters Pro, or XCIPTV Player (OTR Player)) is software that renders video streams, organizes playlists into categories, and displays Electronic Program Guides (EPG). IPTV players do not provide or host any television content on their own. TryIPTV is the service provider that delivers live channel streams, VOD movies, series, and server infrastructure. You log into the player application using your TryIPTV credentials (Xtream Codes API or M3U link).",
+      "An IPTV player is the app that plays your channels, such as TiviMate, IPTV Smarters Pro or XCIPTV Player (OTR Player). It sorts channels into categories and shows the EPG, the on-screen TV guide. A player has no channels of its own: TryIPTV is the service that supplies the live channels, movies and series. To connect the two, enter your TryIPTV login in the player, either an Xtream Codes username and password or an M3U playlist link.",
   },
   {
     question: "Which IPTV player is best for Firestick and Android TV?",
@@ -185,7 +185,7 @@ export default function PlayersHubPage() {
               Best IPTV Players for 2026: Technical Guides &amp; Comparison
             </h1>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              An IPTV player is the software interface that turns raw stream URLs into an organized television viewing experience. From grid-based EPG guides on Android TV to apps across Apple, Samsung, and LG ecosystems, compare seven major IPTV players compatible with TryIPTV.
+              An IPTV player is the app that turns your TryIPTV login into a channel list, an on-screen TV guide (EPG) and on-demand menus. Compare seven players that work with TryIPTV, from TV-guide-first apps on Android TV to apps for Apple, Samsung and LG TVs.
             </p>
           </div>
 
@@ -282,7 +282,7 @@ export default function PlayersHubPage() {
         <Container>
           <div className="max-w-3xl">
             <h2 className="font-headline text-2xl font-bold text-foreground sm:text-3xl">
-              Independent Player Reviews &amp; Setup Walkthroughs
+              Player Setup Walkthroughs
             </h2>
             <p className="mt-2 text-base sm:text-sm text-muted-foreground">
               Select an IPTV player below for in-depth setup instructions, buffer tuning, EPG integration, and troubleshooting guides:

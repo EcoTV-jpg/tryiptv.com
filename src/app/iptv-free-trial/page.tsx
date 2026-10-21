@@ -196,7 +196,7 @@ const planComparisonRows = [
   ["Cost", "$0", `From ${FACT_TEXT.fromPrice} (1 Month) to $90 (12 Months)`],
   ["Duration", "24 consecutive hours", "1, 3, 6, or 12 months prepaid"],
   ["Payment", "None", COMPANY.paymentMethods ? `Prepaid by ${COMPANY.paymentMethods}` : "Prepaid; payment instructions provided when ordering"],
-  ["Simultaneous connections", "Confirmed at issue", `${T.connections} simultaneous connections included on all plans`],
+  ["Simultaneous connections", `${T.connections}, the same as paid plans`, `${T.connections} simultaneous connections included on all plans`],
   ["Automatic renewal", "No", "No (prepaid plans do not auto-renew)"],
   ["Access format", "Xtream Codes / M3U", "Xtream Codes / M3U"],
   ["When access ends", "Service stops automatically", "Access expires at the end of the prepaid period"],
@@ -376,12 +376,14 @@ export default async function IptvFreeTrialPage() {
             />
 
             <p className="mt-6 rounded-lg border border-white/[0.08] bg-card/60 p-4 text-base sm:text-sm leading-6 text-muted-foreground">
-              Login details are usually quick, but not always instant. If nothing has arrived after {T.activationTime}, reply in the same
-              WhatsApp chat, then follow the{" "}
+              Login details are usually quick, but not always instant. Trials are sent during support hours,{" "}
+              {COMPANY.support.hours}; a request sent outside them is answered when support reopens. If nothing has arrived{" "}
+              {T.activationTime} after your request, reply in the same WhatsApp chat, then follow the{" "}
               <Link href="/setup" className={link}>
                 setup guide
               </Link>{" "}
-              for your device.
+              for your device. TryIPTV is run by {COMPANY.legalName} ({COMPANY.location}, operating since{" "}
+              {COMPANY.foundingYear}), which sells its own subscriptions and issues the logins itself.
             </p>
           </div>
         </Container>
@@ -452,8 +454,21 @@ export default async function IptvFreeTrialPage() {
           <div className="mx-auto max-w-4xl">
             <SectionHeader
               title="24 hours, 48 hours or 72 hours: how long an IPTV free trial should be"
-              subtitle={`Most IPTV free trials are advertised as 24, 48 or 72 hours. Ours is a 24-hour test of the full service, with the same ${T.connections} connections as a paid plan, and one evening answers what decides a purchase: your player takes the login, your channels are there, streams hold at peak time and support replies. A 48-hour trial adds a second evening; a 72-hour or 3-day trial adds a weekend of live sport.`}
+              subtitle={`Most IPTV free trials are advertised as 24h, 48h or 72h. Ours is a 24-hour IPTV test of the full service, with the same ${T.connections} connections as a paid plan.`}
             />
+
+            <ul className="mb-6 space-y-2 text-base leading-7 text-muted-foreground">
+              {[
+                "One evening answers what decides a purchase: your player takes the login, your channels are there, streams hold at peak time and support replies.",
+                "A 48-hour trial adds a second evening.",
+                "A 72-hour IPTV trial, sometimes sold as a 3-day IPTV free trial, adds a weekend of live sport.",
+              ].map((point) => (
+                <li key={point} className="flex items-start gap-2.5">
+                  <Check className="mt-1.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
 
             <div className="overflow-hidden rounded-lg border border-white/[0.09] bg-card">
               <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Free trial length comparison table">
@@ -486,6 +501,11 @@ export default async function IptvFreeTrialPage() {
             <p className="mt-6 text-base leading-7 text-muted-foreground">
               If you only watch live sport at weekends, request the trial on a Thursday or Friday so the 24 hours land on the days you
               watch.
+            </p>
+            <p className="mt-3 text-base leading-7 text-muted-foreground">
+              Need longer than 24 hours to decide? The <Link href="/pricing" className={link}>1-month plan</Link> is{" "}
+              {FACT_TEXT.fromPrice} and does not renew. Read the <Link href="/refund-policy" className={link}>refund policy</Link>{" "}
+              first: refunds apply only when TryIPTV cannot provide a working subscription.
             </p>
           </div>
         </Container>

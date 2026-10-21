@@ -133,7 +133,7 @@ const featuredPlayers = [
     name: "TiviMate IPTV Player",
     slug: "tivimate",
     platforms: "Android TV, Google TV, Fire TV",
-    description: "Broadcast-grade television interface with dynamic timeline EPG, multi-view, and fast channel switching.",
+    description: "A TV-style app with a timeline TV guide (EPG), multi-view and fast channel switching.",
   },
   {
     name: "IPTV Smarters Pro",
@@ -310,9 +310,10 @@ export default function SetupPage() {
             </div>
             <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-3">How do I set up IPTV?</h2>
             <p className="text-base sm:text-lg leading-relaxed text-foreground font-medium mb-6">
-              Choose your device, install a compatible IPTV player app, enter your TryIPTV login (Xtream Codes or an M3U link), wait
-              for the channels and TV guide to load, then start watching on up to {PRODUCT_TRUTHS.connections} screens at once. It
-              takes the same five steps on every device:
+              Setting up IPTV takes the same five steps on every device. Pick your device and install an IPTV player app. Then
+              enter your TryIPTV login, which is either an <strong>Xtream Codes</strong> login (a server address, username and password) or an{" "}
+              <strong>M3U link</strong> (a playlist web address). Once the channels and the TV guide load, you can watch on up to{" "}
+              {PRODUCT_TRUTHS.connections} screens at once:
             </p>
             <ol className="grid grid-cols-1 sm:grid-cols-5 gap-3 text-left">
               {[

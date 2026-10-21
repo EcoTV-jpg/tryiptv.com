@@ -71,7 +71,7 @@ const T = PRODUCT_TRUTHS;
 export function generateMetadata(): Metadata {
   const title = "IPTV Subscription Pricing: $16/Month, $90/Year, No Auto-Renew";
   const description =
-    "TryIPTV prepaid IPTV plans: 1 month $16, 3 months $39, 6 months $60, 12 months $90. 25,000+ channels, 120,000+ movies, 2 connections, no auto-renewal.";
+    "IPTV subscription pricing: TryIPTV prepaid plans are $16 for 1 month, $39 for 3, $60 for 6 or $90 for 12. 25,000+ channels, 2 connections, no auto-renewal.";
 
   return {
     ...generatePageMetadata({ title, description, canonical: "/pricing" }),
@@ -119,7 +119,7 @@ const planCardFeatures = [
   "120,000+ Movies & TV Shows",
   "PPV Events Included",
   "VOD Access",
-  "Smart EPG & Catch-Up TV",
+  "Smart EPG (TV Guide) & Catch-Up TV",
   "Customer Support",
   "Multi-Device Compatibility",
 ] as const;
@@ -241,7 +241,7 @@ const planFits = [
   },
   {
     title: "6 Months - $60: nightly viewers who dislike annual prepay",
-    body: "This is the plan for a household that watches most evenings and wants the $10/month rate without locking a whole year of cash into something they just discovered. $60 is the point where the savings get real ($36 against monthly) while the risk stays small.",
+    body: "This is the plan for a household that watches most evenings. It gets the $10/month rate without locking a whole year of cash into something it just discovered. $60 is the point where the savings get real ($36 against monthly) while the risk stays small.",
   },
   {
     title: "12 Months - $90: the long game, if the house is happy",
@@ -289,7 +289,7 @@ export default async function IPTVSubscription() {
             as="h1"
             eyebrow="Most Popular IPTV Subscription Plans"
             title={`Choose Your IPTV Plan, From ${FACT_TEXT.fromPrice}/Month`}
-            subtitle={`Prepaid plans for 1, 3, 6 or 12 months, with ${T.connections} simultaneous connections and no automatic renewal.`}
+            subtitle={`IPTV subscription pricing at a glance: prepaid plans for 1, 3, 6 or 12 months, with ${T.connections} simultaneous connections and no automatic renewal.`}
           />
           <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-semibold sm:mt-6 sm:text-sm">
             {quickFacts.map((fact) => (
@@ -396,6 +396,12 @@ export default async function IPTVSubscription() {
 
           <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
             Choosing a plan opens WhatsApp, where support sends payment instructions. Credentials typically arrive within <span className="whitespace-nowrap">{T.activationTime}</span> after payment confirmation.
+            {COMPANY.support.hours ? ` Support answers ${COMPANY.support.hours}.` : ""}
+            {COMPANY.support.outOfHours ? ` ${COMPANY.support.outOfHours}` : ""}
+          </p>
+          <p className="mx-auto mt-2 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
+            TryIPTV is run by {COMPANY.legalName} ({COMPANY.location}, operating since {COMPANY.foundingYear}), which sells its own
+            subscriptions and issues the logins itself. <Link href="/about" className={link}>About TryIPTV</Link>.
           </p>
         </Container>
       </Section>

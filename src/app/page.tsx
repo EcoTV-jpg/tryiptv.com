@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/Hero";
 import { WhyChooseTryIPTV } from "@/components/sections/WhyChooseTryIPTV";
+import { ChooseIPTVService } from "@/components/sections/ChooseIPTVService";
 import { HomePricing } from "@/components/sections/HomePricing";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Devices } from "@/components/sections/Devices";
@@ -50,6 +51,7 @@ export default function Home() {
       <PageSchema path="/" name={title} description={description} nodes={[]} />
       <Hero />
       <WhyChooseTryIPTV />
+      <ChooseIPTVService />
       <HomePricing />
       <HowItWorks />
       <Devices />
