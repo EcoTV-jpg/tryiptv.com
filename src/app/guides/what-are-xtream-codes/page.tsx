@@ -386,7 +386,9 @@ export default function WhatAreXtreamCodesPage() {
               <p>
                 Having an Xtream-compatible player does not provide any video content on its own. You must have
                 an active subscription with an IPTV service provider to supply valid server, username, and
-                password details.
+                password details. If you&apos;re weighing up providers, see{" "}
+                <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">how much an IPTV subscription costs</Link>{" "}
+                on our pricing page before you buy credentials.
               </p>
 
               <h2>Summary: What Xtream Codes Is and Is Not</h2>

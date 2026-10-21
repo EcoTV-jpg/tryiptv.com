@@ -214,6 +214,9 @@ export default function PlayersHubPage() {
                   <strong className="text-foreground font-semibold">Windows PC &amp; Mac:</strong> Choose <Link href="/players/iptv-smarters" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV Smarters Pro</Link> or standard desktop media players such as VLC.
                 </li>
               </ul>
+              <p>
+                Once you&apos;ve picked a player, compare <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">IPTV subscription pricing</Link> across the 1, 3, 6 and 12-month plans.
+              </p>
             </ArticleSummary>
           </div>
         </Container>
