@@ -16,7 +16,7 @@ import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
 export function generateMetadata(): Metadata {
   const baseMetadata = generatePageMetadata({
     title: "TryIPTV — Best IPTV Service for the USA, UK & More",
-    description: "Prepaid IPTV service with 25,000+ live channels, sports, and 120,000+ movies and TV shows. 2 connections included. Plans from $16 and a free 24h trial.",
+    description: "Best IPTV service with 25,000+ live channels, sports, and 120,000+ movies and TV shows. 2 connections included. Plans from $16 and a free 24h trial.",
     canonical: "/",
     image: "https://www.tryiptv.com/images/best-iptv-service.png",
   });
