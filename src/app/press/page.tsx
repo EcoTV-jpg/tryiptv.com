@@ -7,6 +7,7 @@ import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Schema } from "@/components/shared/Schema";
 import { Confirm } from "@/components/shared/Confirm";
+import { AUTHORS } from "@/lib/site-data/authors";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, FACT_TEXT, siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { BRAND } from "@/lib/site-data/brand";
@@ -42,6 +43,8 @@ const logos = [
 export default function PressPage() {
   const base = siteConfig.url;
   const mediaEmail = COMPANY.support.pressEmail ?? COMPANY.support.email;
+  const mediaPerson = COMPANY.team.find((m) => m.name === COMPANY.support.mediaContact);
+  const mediaProfile = AUTHORS.find((a) => a.name === COMPANY.support.mediaContact);
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Home", item: `${base}/` },
     { name: "Press", item: `${base}${canonical}` },
@@ -151,8 +154,25 @@ export default function PressPage() {
             <section className="space-y-3">
               <h2 className={h2}>Media contact</h2>
               <p>
-                Press enquiries: <a href={`mailto:${mediaEmail}`} className={link}>{mediaEmail}</a>.
+                For press and media enquiries, contact{" "}
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: `<!--email_off--><a href="mailto:${mediaEmail}" class="${link}">${mediaEmail}</a><!--/email_off-->`,
+                  }}
+                />
+                .
               </p>
+              {mediaPerson && (
+                <p>
+                  Media contact:{" "}
+                  {mediaProfile ? (
+                    <Link href={`/authors/${mediaProfile.slug}`} className={link}>{mediaPerson.name}</Link>
+                  ) : (
+                    mediaPerson.name
+                  )}
+                  , {mediaPerson.role} at TryIPTV.
+                </p>
+              )}
               <Confirm value={COMPANY.support.pressEmail} question="A real, monitored press inbox (e.g. press@tryiptv.com) and the name of a media contact who can be quoted." />
               {publicBrandSocialLinks.length > 0 && (
                 <p>

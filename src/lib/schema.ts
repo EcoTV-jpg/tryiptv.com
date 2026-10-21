@@ -62,6 +62,13 @@ export function supportContactPoint() {
   };
 }
 
+/** Press ContactPoint, once a monitored press inbox is confirmed (company.ts `support.pressEmail`). */
+export function pressContactPoint() {
+  return COMPANY.support.pressEmail
+    ? [{ '@type': 'ContactPoint' as const, contactType: 'press', email: COMPANY.support.pressEmail }]
+    : [];
+}
+
 /** Owner-confirmed organisation facts (company.ts). Each is added only once confirmed; never guessed. */
 export function organizationFacts() {
   return {
@@ -115,7 +122,7 @@ export function generateOrganizationSchema(): WithContext<Organization> {
     },
     'sameAs': [...publicBrandSocialLinks],
     'email': COMPANY.support.email,
-    'contactPoint': supportContactPoint(),
+    'contactPoint': [supportContactPoint(), ...pressContactPoint()],
     ...organizationFacts(),
   } as WithContext<Organization>;
 }

@@ -14,7 +14,7 @@ import { COMPANY, LICENSING_CONFIRMED, SHOW_CONFIRM_MARKERS } from "@/lib/site-d
 import { Confirm } from "@/components/shared/Confirm";
 import { BRAND } from "@/lib/site-data/brand";
 import { PRODUCT_TRUTHS } from "@/lib/site-config";
-import { organizationFacts, supportContactPoint } from "@/lib/schema";
+import { organizationFacts, pressContactPoint, supportContactPoint } from "@/lib/schema";
 
 const LAST_UPDATED = "2026-10-21";
 
@@ -113,7 +113,7 @@ const schema = {
       description: BRAND.description,
       slogan: BRAND.tagline,
       email: siteConfig.links.email,
-      contactPoint: supportContactPoint(),
+      contactPoint: [supportContactPoint(), ...pressContactPoint()],
       sameAs: [...publicBrandSocialLinks],
       // Only confirmed facts are added (Google: Organization properties must be true; QRG §4.5.3).
       ...organizationFacts(),

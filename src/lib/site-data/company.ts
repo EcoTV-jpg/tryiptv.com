@@ -66,7 +66,10 @@ export const COMPANY = {
     outOfHours: "Messages received outside support hours are queued and answered when support reopens." as string | null,
     languages: null as string | null,
     /** Media contact for /press, e.g. "press@tryiptv.com" — must be a real, monitored inbox. */
-    pressEmail: null as string | null,
+    /** Confirmed 2026-10-21. */
+    pressEmail: "press@tryiptv.com" as string | null,
+    /** Media contact who can be quoted: a confirmed person in `team` (and in authors.ts for the profile link). */
+    mediaContact: "Simo Alaoui" as string | null,
   },
   /** Confirmed: "User business specification: Cryptocurrency, PayPal, Stripe (2026-10-09)" (content-quality registry). */
   paymentMethods: "cryptocurrency, PayPal and Stripe" as string | null,
