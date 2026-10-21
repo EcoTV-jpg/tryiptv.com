@@ -251,7 +251,7 @@ export default function TermsPage() {
             <section className="space-y-3">
               <h2 className={h2}>17. Who Provides the Service &amp; Contact</h2>
               {COMPANY.legalName && <p>The service is provided by {COMPANY.legalName}{COMPANY.location ? `, ${COMPANY.location}` : ""}{COMPANY.registrationNumber ? ` (company registration number ${COMPANY.registrationNumber})` : ""}.</p>}
-              {COMPANY.governingLaw && <p>These terms are governed by {COMPANY.governingLaw}.</p>}
+              {COMPANY.governingLaw && <p>{COMPANY.governingLaw}</p>}
               <Confirm value={COMPANY.legalName} question="Legal name (and registered address) of the entity that provides the service and enters this agreement." />
               <Confirm value={COMPANY.governingLaw} question="Which country's or state's law governs these terms, and where are disputes resolved?" />
               <p>

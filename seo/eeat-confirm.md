@@ -46,7 +46,7 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 
 ## Policies
 22. ◐ **Entity answered 2026-10-21:** Simo Alaoui LLC (Terms §17 now names it). Still open: registered address, if it should be published. → `address`
-23. **Terms:** which country's or state's law governs the terms, and where are disputes resolved? → `governingLaw`
+23. ✅ **Answered 2026-10-21:** laws of the State of New York, without regard to conflict-of-law principles; exclusive jurisdiction of the state and federal courts located in New York. Shown verbatim in Terms §17. → `governingLaw`
 24. ◐ **Answered in part 2026-10-21:** the policy now names Simo Alaoui LLC (New York, United States) as responsible for the data. Still open: postal address for privacy requests, if required.
 25. **Privacy:** how long do you keep support messages, order records and trial requests before deleting them?
 26. **Privacy:** are the processors listed correct and complete? Listed: Vercel, Cloudflare (CDN and Turnstile), Resend, WhatsApp, Google Analytics and Sentry. Do you also use a CRM, a billing panel or an email provider for credentials?

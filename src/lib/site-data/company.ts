@@ -71,7 +71,9 @@ export const COMPANY = {
   /** Confirmed: "User business specification: Cryptocurrency, PayPal, Stripe (2026-10-09)" (content-quality registry). */
   paymentMethods: "cryptocurrency, PayPal and Stripe" as string | null,
   /** Governing law for the Terms, e.g. "the laws of Ontario, Canada". */
-  governingLaw: null as string | null,
+  /** Owner-supplied 2026-10-21 (exact wording, shown in Terms §17). */
+  governingLaw:
+    "These Terms are governed by the laws of the State of New York, United States, without regard to conflict-of-law principles. Any dispute arising out of or relating to these Terms or the use of TryIPTV will be subject to the exclusive jurisdiction of the state and federal courts located in New York, United States." as string | null,
   /** Name and postal address of the DMCA designated agent, and whether it is registered with the US Copyright Office. */
   dmcaAgent: null as { name: string; address: string; registeredWithUSCO: boolean } | null,
   /** Confirmed by the owner on 2026-10-20 (exact wording). Shown on /dmca-report. */
