@@ -7,7 +7,7 @@ import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getPricingPageData } from "@/lib/data/pricing-page";
 import { plans } from "@/lib/site-data/pricing";
@@ -29,7 +29,8 @@ const pricingJsonLd: Graph = {
       name: "TryIPTV Prepaid IPTV Subscription",
       description:
         "Prepaid IPTV subscription with 25,000+ live channels, 120,000+ movies and series, 2 simultaneous connections and no automatic renewal. Credentials delivered by WhatsApp in 5 to 15 minutes.",
-      brand: { "@type": "Brand", name: "TryIPTV" },
+      // The brand and the seller are the site-wide Organization node.
+      brand: { "@id": "https://www.tryiptv.com/#organization" },
       // The site's OG image endpoint (1200x630 PNG), as Article markup uses when a page has no image of its own.
       image: `https://www.tryiptv.com/api/og?title=${encodeURIComponent("TryIPTV Prepaid IPTV Subscription")}`,
       url: PRICING_URL,
@@ -39,9 +40,17 @@ const pricingJsonLd: Graph = {
         price: plan.price.toFixed(2),
         priceCurrency: "USD",
         url: PRICING_URL,
+        sku: `tryiptv-${plan.id}`,
         availability: "https://schema.org/InStock" as const,
-        itemCondition: "https://schema.org/NewCondition" as const,
-        eligibleQuantity: { "@type": "QuantitativeValue" as const, value: parseInt(plan.id, 10), unitCode: "MON" },
+        seller: { "@id": "https://www.tryiptv.com/#organization" },
+        // The plan length is a billing period, not an order quantity: billingDuration in months (unitCode MON).
+        priceSpecification: {
+          "@type": "UnitPriceSpecification" as const,
+          price: plan.price.toFixed(2),
+          priceCurrency: "USD",
+          billingDuration: parseInt(plan.id, 10),
+          unitCode: "MON",
+        },
       })),
     },
     {
@@ -260,13 +269,16 @@ const th = "px-5 py-3 font-semibold";
 const td = "px-5 py-3.5";
 
 export default async function IPTVSubscription() {
-  const { productSchema, breadcrumbSchema, pricingPageFaqs } = await getPricingPageData();
+  const { breadcrumbSchema, pricingPageFaqs } = await getPricingPageData();
 
   return (
     <>
-      <Schema id="pricing" schema={pricingJsonLd} keep={["Product", "FAQPage"]} />
-      <Schema id="product" schema={productSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema
+        path="/pricing"
+        name="IPTV Subscription Pricing: $16/Month, $90/Year, No Auto-Renew"
+        nodes={[pricingJsonLd, breadcrumbSchema]}
+        keep={["Product", "FAQPage"]}
+      />
 
       {/* Hero + plans */}
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-8 pb-10 sm:pt-12 sm:pb-14">

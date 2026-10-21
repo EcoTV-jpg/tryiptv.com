@@ -15,7 +15,7 @@ import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ContactForm } from '@/components/shared/ContactForm';
 import { FaqList } from '@/components/sections/FAQ';
 import { getContactPageData } from '@/lib/data/contact-page';
-import { Schema } from '@/components/shared/Schema';
+import { PageSchema } from '@/components/shared/Schema';
 import { PRODUCT_TRUTHS, generateMetadata as generatePageMetadata } from '@/lib/site-config';
 import { AppWindow, ArrowRight, Check, Clock, KeyRound, LifeBuoy, MessageCircle, ShieldCheck, Wrench, X } from 'lucide-react';
 import { SiWhatsapp } from 'react-icons/si';
@@ -124,7 +124,7 @@ export default async function ContactPage() {
 
     return (
         <>
-            <Schema id="breadcrumb" schema={breadcrumbSchema} />
+            <PageSchema path="/contact-us" name="Contact TryIPTV Support: WhatsApp, Email & Setup Help" type="ContactPage" nodes={[breadcrumbSchema]} />
 
             {/* Hero */}
             <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">

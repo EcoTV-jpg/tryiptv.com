@@ -5,7 +5,7 @@ import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { formatLegalDate } from "@/lib/site-data/page-modifications";
 import { plans } from "@/lib/site-data/pricing";
@@ -121,7 +121,7 @@ const schema = {
 export default function AboutPage() {
   return (
     <>
-      <Schema id="about" schema={schema} keep={["FAQPage"]} />
+      <PageSchema path="/about" nodes={[schema]} keep={["FAQPage"]} />
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <Container className="relative text-center">

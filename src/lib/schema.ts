@@ -37,6 +37,7 @@ export function generateWebSiteSchema(): WithContext<WebSite> {
     'name': BRAND.name,
     'alternateName': [...BRAND.alternateNames],
     'publisher': organizationReference,
+    'inLanguage': 'en-US',
   };
 }
 
@@ -184,6 +185,21 @@ export function generateFAQPageSchema(mainEntity: { question: string; answer: st
   };
 }
 
+/** The list of guides or pages a hub shows, in on-page order (CollectionPage mainEntity). */
+export function generateItemListSchema(name: string, items: { name: string; path: string }[]) {
+  return {
+    '@type': 'ItemList' as const,
+    name,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem' as const,
+      position: index + 1,
+      name: item.name,
+      url: `${siteConfig.url}${item.path}`,
+    })),
+  };
+}
+
 export function generateBreadcrumbSchema(itemListElement: { name: string; item: string }[]): WithContext<BreadcrumbList> {
   return {
     '@context': 'https://schema.org',
@@ -301,6 +317,8 @@ interface ServiceSchemaProps {
     offers?: Offer | AggregateOffer;
     /** Absolute URL of an image that represents the service. */
     image?: string;
+    /** Absolute URL of the page that describes the service. */
+    url?: string;
 }
 
 export function generateServiceSchema(props: ServiceSchemaProps): WithContext<Service> {
@@ -313,6 +331,7 @@ export function generateServiceSchema(props: ServiceSchemaProps): WithContext<Se
         name: props.name,
         description: props.description,
         ...(props.image ? { image: props.image } : {}),
+        ...(props.url ? { url: props.url } : {}),
         offers: props.offers
     }
 }

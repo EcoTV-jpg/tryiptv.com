@@ -6,8 +6,8 @@ import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Schema } from "@/components/shared/Schema";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { PageSchema } from "@/components/shared/Schema";
+import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { howToArticles, getDeviceSlug } from "@/lib/how-to";
 import { ArrowRight, Clock, Tv, CheckCircle2 } from "lucide-react";
@@ -30,7 +30,19 @@ export default function DevicesPage() {
 
   return (
     <>
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema
+        path="/devices"
+        name="IPTV Setup Guides for All Compatible Devices"
+        description="Step-by-step setup guides to install and configure TryIPTV on Amazon Fire TV Stick, Android TV, Apple TV, Smart TVs, Windows, macOS, and MAG boxes."
+        type="CollectionPage"
+        nodes={[
+          breadcrumbSchema,
+          generateItemListSchema(
+            "IPTV device setup guides",
+            howToArticles.map((a) => ({ name: a.title, path: `/devices/${getDeviceSlug(a.id)}` })),
+          ),
+        ]}
+      />
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />

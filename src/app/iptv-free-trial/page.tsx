@@ -9,7 +9,7 @@ import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { getIptvFreeTrialPageData } from "@/lib/data/iptv-free-trial-page";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { GuideScreenshot } from "@/components/guide";
@@ -259,9 +259,12 @@ export default async function IptvFreeTrialPage() {
 
   return (
     <>
-      <Schema id="faq" schema={freeTrialFaqJsonLd} keep={["FAQPage"]} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="service" schema={serviceSchema} />
+      <PageSchema
+        path="/iptv-free-trial"
+        name="IPTV Free Trial: 24 Hours Free, No Credit Card Needed"
+        nodes={[serviceSchema, freeTrialFaqJsonLd, breadcrumbSchema]}
+        keep={["FAQPage"]}
+      />
 
       {/* Hero */}
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
