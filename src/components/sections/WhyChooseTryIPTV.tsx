@@ -4,6 +4,7 @@ import { KeyRound, Zap, Smartphone, CalendarCheck } from "lucide-react";
 import { Container } from "../shared/Container";
 import { Section } from "../shared/Section";
 import { SectionHeader } from "../shared/SectionHeader";
+import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
 
 const benefits: { icon: typeof Zap; title: string; description: React.ReactNode }[] = [
   {
@@ -46,8 +47,8 @@ export function WhyChooseTryIPTV() {
         <SectionHeader
           align="left"
           eyebrow="Why TryIPTV"
-          title="Why Viewers Choose TryIPTV"
-          subtitle="An IPTV service built around extensive channel coverage, standard player formats, fast activation, and transparent prepaid plans."
+          title="What Do You Get With TryIPTV?"
+          subtitle={`TryIPTV is a prepaid IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, delivered as Xtream Codes or M3U login details for the IPTV player you already use. Every plan includes ${PRODUCT_TRUTHS.connections} simultaneous connections, login details usually arrive within ${PRODUCT_TRUTHS.activationTime}, and no plan renews automatically.`}
         />
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">

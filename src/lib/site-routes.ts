@@ -1,3 +1,5 @@
+import { LICENSING_CONFIRMED } from './site-data/company.ts';
+import { AUTHORS } from './site-data/authors.ts';
 /**
  * @file site-routes.ts
  * @description Single source of truth for TryIPTV's approved SEO URL architecture.
@@ -41,14 +43,14 @@ export interface SiteRoute {
 
 export const SITE_ROUTES: SiteRoute[] = [
   // ── Commercial ───────────────────────────────────────────────────────────────
-  { path: '/',                  section: 'commercial', indexable: true,  lastModified: '2026-10-04' },
-  { path: '/pricing',           section: 'commercial', indexable: true,  lastModified: '2026-10-04' },
-  { path: '/iptv-free-trial',   section: 'commercial', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/',                  section: 'commercial', indexable: true,  lastModified: '2026-10-21' },
+  { path: '/pricing',           section: 'commercial', indexable: true,  lastModified: '2026-10-21' },
+  { path: '/iptv-free-trial',   section: 'commercial', indexable: true,  lastModified: '2026-10-21' },
   { path: '/setup',             section: 'commercial', indexable: true,  lastModified: '2026-10-06' },
 
   // ── Devices hub + device pages ────────────────────────────────────────────
   { path: '/devices',                section: 'devices', indexable: true,  lastModified: '2026-10-04' },
-  { path: '/devices/firestick-iptv',  section: 'devices', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/devices/firestick-iptv',  section: 'devices', indexable: true,  lastModified: '2026-10-20' },
   { path: '/devices/android-tv-iptv', section: 'devices', indexable: true,  lastModified: '2026-10-04' },
   { path: '/devices/samsung-tv-iptv', section: 'devices', indexable: true,  lastModified: '2026-10-04' },
   { path: '/devices/lg-tv-iptv',      section: 'devices', indexable: true,  lastModified: '2026-10-04' },
@@ -57,12 +59,13 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/devices/mag-box-iptv',    section: 'devices', indexable: true,  lastModified: '2026-10-04' },
   { path: '/devices/roku-iptv',       section: 'devices', indexable: true,  lastModified: '2026-10-04' },
   { path: '/devices/windows-iptv',    section: 'devices', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/devices/iphone-iptv',     section: 'devices', indexable: true,  lastModified: '2026-10-20' },
   { path: '/devices/mac-iptv',        section: 'devices', indexable: true,  lastModified: '2026-10-04' },
 
   // ── Players hub + player pages ────────────────────────────────────────────
   { path: '/players',                section: 'players', indexable: true,  lastModified: '2026-10-04' },
-  { path: '/players/iptv-smarters',  section: 'players', indexable: true,  lastModified: '2026-10-04' },
-  { path: '/players/tivimate',       section: 'players', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/players/iptv-smarters',  section: 'players', indexable: true,  lastModified: '2026-10-20' },
+  { path: '/players/tivimate',       section: 'players', indexable: true,  lastModified: '2026-10-20' },
   { path: '/players/xciptv',         section: 'players', indexable: true,  lastModified: '2026-10-04' },
   { path: '/players/televizo',       section: 'players', indexable: true,  lastModified: '2026-10-04' },
   { path: '/players/perfect-player', section: 'players', indexable: true,  lastModified: '2026-10-04' },
@@ -70,8 +73,8 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/players/iptv-extreme',   section: 'players', indexable: true,  lastModified: '2026-10-04' },
 
   // ── Guides hub + guide pages ──────────────────────────────────────────────
-  { path: '/guides',                     section: 'guides', indexable: true,  lastModified: '2026-10-05' },
-  { path: '/guides/what-is-iptv',        section: 'guides', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/guides',                     section: 'guides', indexable: true,  lastModified: '2026-10-21' },
+  { path: '/guides/what-is-iptv',        section: 'guides', indexable: true,  lastModified: '2026-10-20' },
   { path: '/guides/how-does-iptv-work',  section: 'guides', indexable: true,  lastModified: '2026-10-06' },
   { path: '/guides/what-is-m3u',         section: 'guides', indexable: true,  lastModified: '2026-10-05' },
   { path: '/guides/what-are-xtream-codes',section: 'guides', indexable: true,  lastModified: '2026-10-05' },
@@ -81,7 +84,7 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/guides/iptv-vs-cable',       section: 'guides', indexable: true,  lastModified: '2026-10-06' },
 
   // ── Help hub + help pages ─────────────────────────────────────────────────
-  { path: '/help',                        section: 'help', indexable: true,  lastModified: '2026-10-05' },
+  { path: '/help',                        section: 'help', indexable: true,  lastModified: '2026-10-21' },
   { path: '/help/iptv-buffering',         section: 'help', indexable: true,  lastModified: '2026-10-05' },
   { path: '/help/iptv-not-working',       section: 'help', indexable: true,  lastModified: '2026-10-05' },
   { path: '/help/iptv-login-not-working', section: 'help', indexable: true,  lastModified: '2026-10-05' },
@@ -89,17 +92,22 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/help/epg-not-working',        section: 'help', indexable: true,  lastModified: '2026-10-05' },
 
   // ── Utility ───────────────────────────────────────────────────────────────
-  { path: '/about',      section: 'utility', indexable: true, lastModified: '2026-10-19' },
-  { path: '/faq',        section: 'utility', indexable: true, lastModified: '2026-10-04' },
-  { path: '/contact-us', section: 'utility', indexable: true, lastModified: '2026-10-04' },
+  { path: '/about',      section: 'utility', indexable: true, lastModified: '2026-10-21' },
+  { path: '/faq',        section: 'utility', indexable: true, lastModified: '2026-10-20' },
+  { path: '/contact-us', section: 'utility', indexable: true, lastModified: '2026-10-20' },
   { path: '/blog',       section: 'utility', indexable: false },
 
   // ── Legal ─────────────────────────────────────────────────────────────────
-  { path: '/privacy-policy',  section: 'legal', indexable: true, lastModified: '2026-03-01' },
-  { path: '/terms-conditions',section: 'legal', indexable: true, lastModified: '2026-03-01' },
-  { path: '/refund-policy',   section: 'legal', indexable: true, lastModified: '2026-03-01' },
-  { path: '/disclaimer',      section: 'legal', indexable: true, lastModified: '2026-03-01' },
-  { path: '/dmca-report',     section: 'legal', indexable: true, lastModified: '2026-03-01' },
+  { path: '/privacy-policy',  section: 'legal', indexable: true, lastModified: '2026-10-21' },
+  { path: '/terms-conditions',section: 'legal', indexable: true, lastModified: '2026-10-21' },
+  { path: '/refund-policy',   section: 'legal', indexable: true, lastModified: '2026-10-20' },
+  { path: '/disclaimer',      section: 'legal', indexable: true, lastModified: '2026-10-20' },
+  { path: '/dmca-report',     section: 'legal', indexable: true, lastModified: '2026-10-21' },
+  { path: '/press', section: 'utility', indexable: true, lastModified: '2026-10-20' },
+  // Owner-confirmed trust pages: indexable (and in the sitemap) only once a statement is confirmed.
+  { path: '/content-licensing', section: 'legal', indexable: LICENSING_CONFIRMED, lastModified: '2026-10-20' },
+  // Author profiles exist only for confirmed authors (src/lib/site-data/authors.ts).
+  ...AUTHORS.map((a) => ({ path: `/authors/${a.slug}`, section: 'utility' as const, indexable: true, lastModified: a.updated })),
 ];
 
 /** All indexable routes that should appear in sitemap.xml */

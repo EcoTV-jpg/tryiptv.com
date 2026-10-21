@@ -18,6 +18,7 @@ import { Container } from "../shared/Container";
 import { Section } from "../shared/Section";
 import { SectionHeader } from "../shared/SectionHeader";
 import { cn } from "@/lib/utils";
+import { COMPANY } from "@/lib/site-data/company";
 
 export interface FaqItem {
   question: string;
@@ -57,7 +58,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "What is TryIPTV?",
     answer:
-      'TryIPTV is an IPTV service provider. It supplies streaming access for compatible devices and IPTV player apps; it is not a player app itself. New to IPTV? <a href="/guides/what-is-iptv" class="text-primary hover:underline">Read what IPTV is</a>, or read <a href="/about" class="text-primary hover:underline">more about TryIPTV</a>, including how ordering, the free trial and refunds work.',
+      `${COMPANY.summary ?? "TryIPTV is an IPTV subscription service."} TryIPTV is not a player app itself. New to IPTV? <a href="/guides/what-is-iptv" class="text-primary hover:underline">Read what IPTV is</a>, or read <a href="/about" class="text-primary hover:underline">more about TryIPTV</a>, including how ordering, the free trial and refunds work.`,
   },
   {
     question: "Does TryIPTV offer a free trial?",
@@ -103,12 +104,14 @@ export function FaqList({ items, className }: FaqListProps) {
         <AccordionItem
           key={i}
           value={`item-${i}`}
-          className="border-b border-white/[0.07] px-6 sm:px-8 last:border-b-0"
+          className="border-b border-white/[0.07] px-6 sm:px-8 last:border-b-0 [&>[role=region][data-state=closed]]:hidden"
         >
           <AccordionTrigger className="min-h-[68px] py-5 sm:py-6 text-left text-[16px] font-semibold leading-snug text-foreground/90 hover:no-underline hover:text-foreground transition-colors sm:text-[17px]">
             {faq.question}
           </AccordionTrigger>
-          <AccordionContent className="pb-6 sm:pb-8 pr-4 sm:pr-8 text-[15px] sm:text-[16px] leading-relaxed text-muted-foreground">
+          {/* forceMount keeps closed answers in the server HTML (hidden until opened): crawlers that
+              don't run JavaScript (ChatGPT, Claude, Perplexity) otherwise see questions with no answers. */}
+          <AccordionContent forceMount className={`pb-6 sm:pb-8 pr-4 sm:pr-8 text-base leading-relaxed text-muted-foreground [&_a]:underline [&_a]:decoration-primary/40 [&_a]:underline-offset-4 [&_a:hover]:decoration-primary`}>
             <span
               dangerouslySetInnerHTML={{
                 __html: faq.answer.includes("support@tryiptv.com")
@@ -213,7 +216,7 @@ export function FAQ() {
                     </span>
                   </AccordionTrigger>
                   {/* forceMount keeps closed answers in the HTML (hidden until opened) so they are crawlable. */}
-                  <AccordionContent forceMount className="pr-3 pb-4.5 pl-7 sm:pl-10 text-base sm:text-[15px] leading-relaxed text-muted-foreground/95">
+                  <AccordionContent forceMount className="pr-3 pb-4.5 pl-7 sm:pl-10 text-base sm:text-[15px] leading-relaxed text-muted-foreground/95 [&_a]:underline [&_a]:decoration-primary/40 [&_a]:underline-offset-4 [&_a:hover]:decoration-primary">
                     <span
                       dangerouslySetInnerHTML={{
                         __html: faq.answer.includes("support@tryiptv.com")

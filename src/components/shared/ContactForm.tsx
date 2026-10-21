@@ -52,7 +52,7 @@ export function ContactForm() {
           {state.message}
         </div>
       )}
-      {/* Error text uses red-400 (7.2:1 on the dark card); --destructive (#7f1d1d) is only 2:1 as text. */}
+      {/* Error text uses red-400 (~6.9:1 on the dark card); --destructive (#7f1d1d) is only 2:1 as text. */}
       {state.errors?.form && (
         <div role="alert" className="rounded-lg border border-destructive/20 bg-destructive/10 p-3 text-sm text-red-400">
           {state.errors.form[0]}

@@ -3,9 +3,9 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 //
 // Performance: the SDK is ~400 KB and was evaluated before hydration on every page, costing
-// ~1.3 s of main-thread time on mid-range phones. It is now imported dynamically once the
-// browser is idle. Errors raised before that are buffered below and replayed into Sentry
-// after init, so early crashes are still reported.
+// ~1.3 s of main-thread time on mid-range phones. It is now imported dynamically on the first
+// interaction or 10 s after load. Errors raised before that are buffered below and replayed
+// into Sentry after init, so early crashes are still reported.
 
 type EarlyError = { error: unknown };
 const earlyErrors: EarlyError[] = [];
@@ -41,11 +41,22 @@ function initSentry() {
   });
 }
 
-// Safari has no requestIdleCallback; fall back to a short timeout after the load event.
-if (typeof window.requestIdleCallback === "function") {
-  window.requestIdleCallback(initSentry, { timeout: 4000 });
-} else {
-  const later = () => setTimeout(initSentry, 2000);
-  if (document.readyState === "complete") later();
-  else window.addEventListener("load", later, { once: true });
+// Start on the first user interaction, or 10 s after the load event, whichever comes first, so
+// the SDK download/evaluation stays out of the page's initial interactivity window.
+// "scroll" is only listened to after load: scroll restoration / #hash landings fire it during load.
+const INTERACTIONS = ["pointerdown", "keydown", "touchstart"] as const;
+let started = false;
+function start() {
+  if (started) return;
+  started = true;
+  for (const type of INTERACTIONS) window.removeEventListener(type, start);
+  window.removeEventListener("scroll", start);
+  initSentry();
 }
+for (const type of INTERACTIONS) window.addEventListener(type, start, { once: true, passive: true });
+const afterLoad = () => {
+  window.addEventListener("scroll", start, { once: true, passive: true });
+  setTimeout(start, 10000);
+};
+if (document.readyState === "complete") afterLoad();
+else window.addEventListener("load", afterLoad, { once: true });

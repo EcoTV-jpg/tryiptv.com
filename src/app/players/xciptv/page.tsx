@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
@@ -7,7 +9,7 @@ import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "XCIPTV Player: App Availability, Setup & Features";
+const title = "XCIPTV Player Guide: App Availability, Setup & Features";
 const description =
   "Learn where XCIPTV Player by OTTRUN is available, how to connect with Xtream Codes or M3U, and how its ExoPlayer and VLC playback engines work.";
 const canonical = "/players/xciptv";
@@ -53,6 +55,7 @@ export default function XciptvPage() {
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               XCIPTV is an IPTV media player and does not include channels or subscriptions. You need an M3U playlist URL or compatible login details from your IPTV provider. Install XCIPTV, enter those details, allow the available channels and EPG data to load, then test playback on several channels.
             </p>
+            <GuideByline path="/players/xciptv" />
           </div>
         </Container>
       </Section>
@@ -139,7 +142,7 @@ export default function XciptvPage() {
             <section>
               <h2 className={headingClass}>How to Set Up XCIPTV with Xtream Codes</h2>
               <p className={textClass}>
-                To set up XCIPTV with Xtream Codes, enter the server or portal address, username, and password supplied by your IPTV provider. OTTRUN&apos;s documentation confirms these login fields for compatible server connections. A profile label may appear in some versions, but it is only a name for the entry. XCIPTV does not issue the IPTV credentials or control the provider account.
+                To set up XCIPTV with Xtream Codes, enter the server or portal address, username, and password supplied by your IPTV provider. OTTRUN&apos;s documentation confirms these login fields for compatible server connections. A profile label may appear in some versions, but it is only a name for the entry. XCIPTV does not issue the IPTV credentials or control the provider account. XCIPTV works with any Xtream Codes login, including our <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">prepaid IPTV plans from $16</Link> a month.
               </p>
               <ol className={listClass}>
                 <li>Choose the Xtream Codes or compatible API login in your XCIPTV version.</li>
@@ -282,6 +285,7 @@ export default function XciptvPage() {
           </article>
         </Container>
       </Section>
+      <TopicClusterLinks path="/players/xciptv" />
     </>
   );
 }

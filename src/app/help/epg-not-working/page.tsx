@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   AlertCircle,
@@ -38,7 +40,7 @@ import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-c
 
 const title = "EPG Not Working? How to Fix Missing or Incorrect IPTV Guide Data";
 const description =
-  "A systematic diagnostic guide to resolve IPTV EPG errors: missing guide data, 'No Information' messages, wrong broadcast times, and channel mapping mismatches.";
+  "Fix IPTV EPG errors step by step: missing guide data, 'No Information' messages, wrong broadcast times, and channel mapping mismatches in your player.";
 const canonical = "/help/epg-not-working";
 // Shorter search-result title; `title` stays the article headline.
 const seoTitle = "EPG Not Working? Fix Missing or Wrong IPTV Guide Data";
@@ -137,6 +139,7 @@ export default function EpgNotWorkingPage() {
               hours, or drops channels entirely, use this structured diagnostic sequence to isolate the
               metadata failure and restore accurate schedules.
             </p>
+            <GuideByline path="/help/epg-not-working" />
           </div>
         </Container>
       </Section>
@@ -491,6 +494,7 @@ export default function EpgNotWorkingPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/help/epg-not-working" />
     </>
   );
 }

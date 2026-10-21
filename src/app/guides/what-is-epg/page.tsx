@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TopicClusterLinks } from "@/components/shared/TopicClusterLinks";
+import { GuideByline } from "@/components/shared/GuideByline";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -33,7 +35,7 @@ import {
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "What Is an EPG? How IPTV TV Guides Work";
+const title = "What Is an EPG? How IPTV TV Guides and XMLTV Data Work";
 const description =
   "A clear guide to Electronic Programme Guides (EPG) in IPTV: how TV guide data works, XMLTV and provider ingestion, channel matching, and time offsets.";
 const canonical = "/guides/what-is-epg";
@@ -133,10 +135,12 @@ export default function WhatIsEpgPage() {
               What Is an EPG? How IPTV TV Guides Work
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              An Electronic Programme Guide transforms a raw list of live video streams into a familiar,
-              navigable television guide. Understand how guide data is structured, how IPTV players ingest
-              schedules, and how streams and metadata interact.
+              An EPG (Electronic Programme Guide) is the on-screen TV guide in an IPTV player: schedule
+              data that shows what is airing now and next on each channel. It is usually supplied as an
+              XMLTV file and matched to the playlist's channels by ID. This guide explains how that data
+              is structured, loaded, and kept in sync.
             </p>
+            <GuideByline path="/guides/what-is-epg" />
           </div>
         </Container>
       </Section>
@@ -497,6 +501,7 @@ export default function WhatIsEpgPage() {
           </div>
         </Container>
       </Section>
+      <TopicClusterLinks path="/guides/what-is-epg" />
     </>
   );
 }

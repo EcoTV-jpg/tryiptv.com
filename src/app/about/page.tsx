@@ -9,22 +9,21 @@ import { Schema } from "@/components/shared/Schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { formatLegalDate } from "@/lib/site-data/page-modifications";
 import { plans } from "@/lib/site-data/pricing";
-import { publicBrandSocialLinks } from "@/lib/site-data/socials";
+import { COMPANY, LICENSING_CONFIRMED, SHOW_CONFIRM_MARKERS } from "@/lib/site-data/company";
+import { Confirm } from "@/components/shared/Confirm";
+import { BRAND } from "@/lib/site-data/brand";
+import { PRODUCT_TRUTHS } from "@/lib/site-config";
 
-const LAST_UPDATED = "2026-10-19";
+const LAST_UPDATED = "2026-10-21";
 
-// Facts still to be confirmed by the owner. Each line on the page that needs one is only
-// rendered once it is filled in, so the page never shows guesses or placeholders.
-const OPERATOR: { name: string | null; location: string | null; since: string | null } = {
-  name: null, // legal entity or owner name
-  location: null, // country, city (only if the owner wants it published)
-  since: null, // year started
-};
-const PAYMENT_METHODS: string | null = null; // e.g. "…" — accepted payment methods
-const SUPPORT_HOURS: string | null = null; // WhatsApp hours, time zone, typical response time
-const LANGUAGES: string | null = null;
+// Company facts live in src/lib/site-data/company.ts. An unconfirmed fact is not rendered in
+// production; Preview/dev builds show a [CONFIRM] marker in its place (see <Confirm>).
+const OPERATOR = { name: COMPANY.legalName, location: COMPANY.location, since: COMPANY.foundingYear };
+const PAYMENT_METHODS = COMPANY.paymentMethods;
+const SUPPORT_HOURS = COMPANY.support.hours;
+const LANGUAGES = COMPANY.support.languages;
 
-const title = "About Us: Prepaid IPTV Service, Trial & Support | TryIPTV";
+const title = "About Us: Best IPTV Service, Trial & Support | TryIPTV";
 const description =
   "Learn who runs TryIPTV, how the prepaid IPTV service works, what plans and the 24-hour free trial include, and how to reach support or request a refund.";
 const canonical = "/about";
@@ -42,6 +41,20 @@ const runBy = [
   OPERATOR.location && `based in ${OPERATOR.location}`,
   OPERATOR.since && `running since ${OPERATOR.since}`,
 ].filter(Boolean);
+
+// Company Information table: confirmed facts only (an unconfirmed row is simply left out).
+const companyRows: [string, React.ReactNode][] = [
+  ["Brand", BRAND.name],
+  ["Website", siteConfig.url.replace("https://", "")],
+  ...(COMPANY.legalName ? [["Operated by", COMPANY.legalName] as [string, React.ReactNode]] : []),
+  ...(COMPANY.location ? [["Location", COMPANY.location] as [string, React.ReactNode]] : []),
+  ...(COMPANY.registrationNumber
+    ? [["Company registration number", COMPANY.registry ? `${COMPANY.registrationNumber} (${COMPANY.registry})` : COMPANY.registrationNumber] as [string, React.ReactNode]]
+    : []),
+  ...(COMPANY.foundingYear ? [["Operating since", COMPANY.foundingYear] as [string, React.ReactNode]] : []),
+  ["Customer support", `${COMPANY.support.email} · WhatsApp ${COMPANY.support.whatsappDisplay}`],
+  ["Copyright notices", COMPANY.support.dmcaEmail],
+];
 
 // FAQ answers are rendered visibly and reused verbatim (as plain text) in the FAQPage schema.
 const faqs: { question: string; answer: React.ReactNode; text: string }[] = [
@@ -64,13 +77,13 @@ const faqs: { question: string; answer: React.ReactNode; text: string }[] = [
   },
   {
     question: "Can I get a refund?",
-    answer: <>Technical problems that support cannot resolve within 7 days of purchase may qualify for a refund. See our <Link href="/refund-policy" className={link}>refund policy</Link> for the full conditions.</>,
-    text: "Technical problems that support cannot resolve within 7 days of purchase may qualify for a refund. See our refund policy for the full conditions.",
+    answer: <>Only if we can&apos;t provide a working subscription, for example if your account isn&apos;t delivered or the service doesn&apos;t start at all. Once your account is activated and delivered, all sales are final. See our <Link href="/refund-policy" className={link}>refund policy</Link>.</>,
+    text: "Only if we can't provide a working subscription, for example if your account isn't delivered or the service doesn't start at all. Once your account is activated and delivered, all sales are final. See our refund policy.",
   },
   {
     question: "How do I contact support?",
-    answer: <>Email {siteConfig.links.email} or use the <Link href="/contact-us" className={link}>contact page</Link>.{SUPPORT_HOURS ? ` WhatsApp support hours: ${SUPPORT_HOURS}.` : ""}</>,
-    text: `Email ${siteConfig.links.email} or use the contact page.${SUPPORT_HOURS ? ` WhatsApp support hours: ${SUPPORT_HOURS}.` : ""}`,
+    answer: <>Email {siteConfig.links.email} or use the <Link href="/contact-us" className={link}>contact page</Link>.{SUPPORT_HOURS ? ` WhatsApp and email support hours: ${SUPPORT_HOURS}.` : ""}</>,
+    text: `Email ${siteConfig.links.email} or use the contact page.${SUPPORT_HOURS ? ` WhatsApp and email support hours: ${SUPPORT_HOURS}.` : ""}`,
   },
 ];
 
@@ -88,16 +101,7 @@ const schema = {
       about: { "@id": `${base}/#organization` },
       breadcrumb: { "@id": `${base}/about#breadcrumb` },
     },
-    {
-      "@type": "Organization",
-      "@id": `${base}/#organization`,
-      name: siteConfig.name,
-      url: `${base}/`,
-      logo: `${base}/brand-logo-square.png`,
-      email: siteConfig.links.email,
-      contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: siteConfig.links.email },
-      sameAs: [...publicBrandSocialLinks],
-    },
+    // The OnlineBusiness node itself comes from the root layout on every page; AboutPage.about references its @id.
     {
       "@type": "BreadcrumbList",
       "@id": `${base}/about#breadcrumb`,
@@ -139,19 +143,68 @@ export default function AboutPage() {
 
             <section className="space-y-3">
               <h2 className={h2}>Who we are</h2>
-              <p>TryIPTV is an IPTV service provider. We supply streaming access to live TV and on-demand content that you watch on your own devices through a compatible IPTV player app.</p>
-              <p>TryIPTV is not a player app. We don&apos;t make or sell the software you watch with. You bring a device and a player; we provide the service and the login details that player needs.</p>
+              <Confirm value={COMPANY.story} question="Company story: how and why TryIPTV started, in 2–4 sentences.">
+                <p>{COMPANY.story}</p>
+              </Confirm>
+              <p>
+                TryIPTV is an IPTV subscription service operated by {COMPANY.legalName ?? "TryIPTV"}
+                {COMPANY.location ? `, based in ${COMPANY.location}` : ""}. You watch on your own devices through a compatible
+                IPTV player app. Plans are prepaid for 1, 3, 6 or 12 months, with {PRODUCT_TRUTHS.connections} simultaneous
+                connections and no automatic renewal, and you can test the service first with a free 24-hour trial.
+                {SUPPORT_HOURS ? ` Support is available on WhatsApp and email, ${SUPPORT_HOURS}.` : ""}
+              </p>
+              <p>TryIPTV is not a player app. We don&apos;t make or sell the software you watch with. You bring a device and a player; we provide the subscription and the login details that player needs.</p>
             </section>
 
             <section className="space-y-3">
-              <h2 className={h2}>Who runs TryIPTV</h2>
-              {runBy.length > 0 && <p>TryIPTV is {runBy.join(", ")}.</p>}
-              <p>The quickest ways to reach us:</p>
+              <h2 className={h2}>Company information</h2>
+              <dl className="divide-y divide-white/[0.06] overflow-hidden rounded-xl border border-white/[0.07] bg-card text-sm">
+                {companyRows.map(([label, value]) => (
+                  <div key={label} className="grid grid-cols-1 gap-1 px-5 py-3 sm:grid-cols-[13rem_1fr] sm:gap-4">
+                    <dt className="font-semibold text-foreground">{label}</dt>
+                    <dd className="break-words">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="space-y-1">
+                <div><Confirm value={COMPANY.registry} question="Which registry is company number 8683949 filed with (e.g. New York Department of State)?" /></div>
+                <div><Confirm value={COMPANY.foundingYear} question="Year TryIPTV started operating." /></div>
+              </div>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className={h2}>Meet the team</h2>
+              <Confirm value={COMPANY.team} question="Team members who agree to be named publicly (name, role, short bio).">
+                <ul className="space-y-3">
+                  {COMPANY.team.map((m) => (
+                    <li key={m.name} className="rounded-xl border border-white/[0.07] bg-card px-5 py-4">
+                      <p className="font-headline text-lg font-bold text-foreground">{m.name}</p>
+                      <p className="text-sm font-semibold text-primary">{m.role}</p>
+                      {m.bio && <p className="mt-2">{m.bio}</p>}
+                    </li>
+                  ))}
+                </ul>
+              </Confirm>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className={h2}>Support availability</h2>
               <ul className="list-disc space-y-1 pl-6">
-                <li>Email: <a href={`mailto:${siteConfig.links.email}`} className={link}>{siteConfig.links.email}</a></li>
-                <li>WhatsApp: <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={link}>message support</a>{SUPPORT_HOURS ? ` (${SUPPORT_HOURS})` : ""}</li>
+                <li>
+                  WhatsApp: <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={link}>{COMPANY.support.whatsappDisplay}</a>
+                  {SUPPORT_HOURS ? `, ${SUPPORT_HOURS}` : ""}
+                </li>
+                <li>
+                  Email: <a href={`mailto:${siteConfig.links.email}`} className={link}>{siteConfig.links.email}</a>
+                  {SUPPORT_HOURS ? `, ${SUPPORT_HOURS}` : ""}
+                </li>
                 {LANGUAGES && <li>Languages: {LANGUAGES}</li>}
+                {COMPANY.support.responseTime && <li>Response time: {COMPANY.support.responseTime}</li>}
               </ul>
+              {(COMPANY.support.coverage || COMPANY.support.outOfHours) && (
+                <p>{[COMPANY.support.coverage, COMPANY.support.outOfHours].filter(Boolean).join(" ")}</p>
+              )}
+              <Confirm value={SUPPORT_HOURS} question="Support hours (with time zone) for WhatsApp and email." />
             </section>
 
             <section className="space-y-3">
@@ -221,14 +274,14 @@ export default function AboutPage() {
               <h2 className={h2}>Support</h2>
               <p>
                 Contact us by email at <a href={`mailto:${siteConfig.links.email}`} className={link}>{siteConfig.links.email}</a> or through our{" "}
-                <Link href="/contact-us" className={link}>contact page</Link>.{SUPPORT_HOURS ? ` WhatsApp support hours: ${SUPPORT_HOURS}.` : ""}
+                <Link href="/contact-us" className={link}>contact page</Link>.{SUPPORT_HOURS ? ` WhatsApp and email support hours: ${SUPPORT_HOURS}.` : ""}
               </p>
               <p>Many common problems, such as buffering, login errors or a missing TV guide, have step-by-step fixes in our <Link href="/help" className={link}>IPTV troubleshooting guides</Link>.</p>
             </section>
 
             <section className="space-y-3">
               <h2 className={h2}>Refunds and policies</h2>
-              <p>Technical problems that support cannot resolve within 7 days of purchase may qualify for a refund. The exact conditions are in our <Link href="/refund-policy" className={link}>refund policy</Link>.</p>
+              <p>{PRODUCT_TRUTHS.refund.summary} {PRODUCT_TRUTHS.refund.exclusions} The exact conditions are in our <Link href="/refund-policy" className={link}>refund policy</Link>.</p>
               <p>
                 Please also read our <Link href="/terms-conditions" className={link}>terms and conditions</Link>,{" "}
                 <Link href="/privacy-policy" className={link}>privacy policy</Link> and <Link href="/disclaimer" className={link}>disclaimer</Link>.
@@ -237,10 +290,16 @@ export default function AboutPage() {
 
             <section className="space-y-3">
               <h2 className={h2}>Content and copyright</h2>
-              {/* Content-source / licensing statement: add only the owner-approved wording here. */}
+              {/* Content-source / licensing statement: only owner-confirmed wording, from company.ts. */}
+              {(LICENSING_CONFIRMED || SHOW_CONFIRM_MARKERS) && (
+                <p>
+                  How TryIPTV is licensed to distribute its channels is explained on our{" "}
+                  <Link href="/content-licensing" className={link}>content licensing page</Link>.
+                </p>
+              )}
               <p>
                 If you believe content accessible through TryIPTV infringes your copyright, email{" "}
-                <a href="mailto:dmca@tryiptv.com" className={link}>dmca@tryiptv.com</a> or use our{" "}
+                <a href={`mailto:${COMPANY.support.dmcaEmail}`} className={link}>{COMPANY.support.dmcaEmail}</a> or use our{" "}
                 <Link href="/dmca-report" className={link}>copyright (DMCA) report page</Link>.
               </p>
             </section>

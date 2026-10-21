@@ -33,7 +33,7 @@ export default function InternalLinks({ currentId }: InternalLinksProps) {
                 title={guide.title}
                 className="group flex min-h-11 items-center justify-between text-sm text-muted-foreground transition-colors hover:text-foreground pointer-fine:min-h-0"
               >
-                <span className="line-clamp-2 group-hover:text-primary">{guide.title}</span>
+                <span className="line-clamp-3 group-hover:text-primary">{guide.title}</span>
                 <ArrowRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-primary" />
               </Link>
             </li>

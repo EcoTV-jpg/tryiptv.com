@@ -32,7 +32,7 @@ export function GuideQuickInfo({
       {items.map((item, index) => {
         const Icon = item.icon;
         return (
-          <div key={index} className="flex flex-col justify-between py-0.5">
+          <div key={index} className="flex flex-col justify-start py-0.5">
             <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-primary/80 mb-1">
               <Icon className="h-3 w-3 shrink-0 text-primary" aria-hidden="true" />
               {item.label}

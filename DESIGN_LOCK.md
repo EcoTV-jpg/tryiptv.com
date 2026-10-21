@@ -393,6 +393,10 @@ These were approved by the owner during the design QA (see AUDIT_REPORT.md) and 
 | Focus clearance | `html { scroll-padding-top: 5.5rem }` keeps focused elements below the sticky header; non-interactive `#anchor` targets cancel it so anchor jumps land on the original pixel; explicit `scroll-mt-*` reduced by 5.5rem. | globals.css, 19 scroll-mt sites | P-04 (via D3) and owner follow-up "exact same pixel as the original" |
 | Reduced motion | Under `prefers-reduced-motion`, Radix `[data-state]` animations/transitions run in 1ms. | globals.css | P-20 |
 | Viewport height | `.min-h-viewport` = `100dvh` (the 100vh source fallback is dropped by Lightning CSS; all targets support dvh). | globals.css, layout.tsx | Original brief rule 8; R-12 (comment corrected) |
+| Narrow-screen CTA wrap | Three guide CTAs may wrap below 360px (`max-[359px]:h-auto max-[359px]:whitespace-normal max-[359px]:text-center`) instead of overflowing; this is the only `max-*` variant in use. | guides/how-does-iptv-work, iptv-internet-speed, iptv-vs-cable | P-26 (recorded per V1-005) |
+| Title line-height restore | `sm:leading-[calc(1.25/0.875)]` reproduces the original `text-sm` line-height where a title is `text-base` on mobile with an arbitrary `sm:` size. | GuideRequirements, GuideBufferingChecklist | R-06 follow-up (recorded per V1-005) |
+| New-tab links | Links in `main` that open a new tab get visually hidden " (opens in a new tab)" generated content unless they already carry an sr-only note or aria-label; no visible change. | globals.css | P-31, V4-003 |
+| Mobile comparison cards | `GuideComparisonTable` stacked mobile cards are table data and keep their original size (table-cell exemption of the 16px rule). | GuideComparisonTable.tsx | Owner decision on 16px (table cells exempt); noted per A1-005/V1 |
 | Status colours | `purple-400` and `cyan-400` (text, /20 border, /10 background) are part of the palette (they were in the original, missing from §1f). | §1f | P-13 |
 
 ## Identity summary

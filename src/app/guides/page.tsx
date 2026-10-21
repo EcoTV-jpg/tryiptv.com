@@ -121,6 +121,43 @@ const comparisonGuides = [
   },
 ];
 
+const readingPaths = [
+  {
+    title: "New to IPTV",
+    text: "What IPTV is, how a stream reaches your screen, and whether your connection is fast enough.",
+    steps: [
+      { label: "What is IPTV?", href: "/guides/what-is-iptv" },
+      { label: "How IPTV works", href: "/guides/how-does-iptv-work" },
+      { label: "Internet speed for IPTV", href: "/guides/iptv-internet-speed" },
+    ],
+  },
+  {
+    title: "You have login details",
+    text: "Understand the two login formats providers send, then pick the one your player handles best.",
+    steps: [
+      { label: "What is an M3U playlist?", href: "/guides/what-is-m3u" },
+      { label: "What are Xtream Codes?", href: "/guides/what-are-xtream-codes" },
+      { label: "M3U vs Xtream Codes", href: "/guides/m3u-vs-xtream-codes" },
+    ],
+  },
+  {
+    title: "The TV guide looks wrong",
+    text: "How EPG data is matched to channels, and what to do when the guide is empty or shifted.",
+    steps: [
+      { label: "What is an EPG?", href: "/guides/what-is-epg" },
+      { label: "EPG not working", href: "/help/epg-not-working" },
+    ],
+  },
+  {
+    title: "Deciding whether to switch",
+    text: "Compare IPTV with cable on cost, setup and reliability, then check what plans cost.",
+    steps: [
+      { label: "IPTV vs cable TV", href: "/guides/iptv-vs-cable" },
+      { label: "IPTV subscription pricing", href: "/pricing" },
+    ],
+  },
+];
+
 export default function GuidesPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Home", item: `${SITE_URL}/` },
@@ -249,6 +286,34 @@ export default function GuidesPage() {
                 </Card>
               );
             })}
+          </div>
+
+          {/* Reading paths */}
+          <div className="mt-16">
+            <p className="eyebrow mb-2">Where to Start</p>
+            <h2 className="font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+              Pick a Reading Path
+            </h2>
+            <p className="mt-2 max-w-3xl text-base text-muted-foreground">
+              The guides build on each other. Start from the question you have now and follow the links in order.
+            </p>
+            <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+              {readingPaths.map((path) => (
+                <div key={path.title} className="rounded-xl border border-white/[0.08] bg-[#07080a] p-5">
+                  <h3 className="font-headline text-lg font-bold text-foreground">{path.title}</h3>
+                  <p className="mt-1.5 text-base leading-relaxed text-muted-foreground sm:text-sm">{path.text}</p>
+                  <ol className="mt-3 list-decimal space-y-1 pl-5 text-base sm:text-sm">
+                    {path.steps.map((step) => (
+                      <li key={step.href}>
+                        <Link href={step.href} className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                          {step.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Cross-Directory Navigation Banner */}

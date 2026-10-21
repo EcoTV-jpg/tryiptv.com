@@ -106,6 +106,18 @@ export default function robots(): MetadataRoute.Robots {
         allow: publicAllow,
         disallow: standardDisallow,
       },
+      // Search/citation bots also covered by '*', listed so the policy is explicit.
+      // Perplexity-User generally ignores robots.txt; Applebot powers Siri/Spotlight search.
+      {
+        userAgent: 'Perplexity-User',
+        allow: publicAllow,
+        disallow: standardDisallow,
+      },
+      {
+        userAgent: 'Applebot',
+        allow: publicAllow,
+        disallow: standardDisallow,
+      },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
     host: new URL(siteUrl).host,

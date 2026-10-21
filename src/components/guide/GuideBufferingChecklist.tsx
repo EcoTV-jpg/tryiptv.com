@@ -55,7 +55,7 @@ export function GuideBufferingChecklist() {
     <div id="buffering" className="scroll-mt-2 my-10">
       <div className="mb-6">
         <p className="eyebrow mb-1">Performance Tuning</p>
-        <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-foreground">
+        <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground">
           How to Reduce IPTV Buffering on Firestick
         </h2>
         <p className="mt-2 text-base leading-relaxed text-muted-foreground max-w-2xl">
@@ -73,7 +73,7 @@ export function GuideBufferingChecklist() {
               {item.step}
             </span>
             <div className="min-w-0 flex-1">
-              <h3 className="font-headline font-bold text-foreground text-base sm:text-[15px] mb-1">
+              <h3 className="font-headline font-bold text-foreground text-base sm:text-[15px] sm:leading-[calc(1.25/0.875)] mb-1">
                 {item.title}
               </h3>
               <p className="text-base sm:text-[13px] leading-relaxed text-muted-foreground">

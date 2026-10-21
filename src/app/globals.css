@@ -93,6 +93,17 @@
       text-decoration-color: hsl(var(--primary));
     }
   }
+  /* Links that open a new tab say so to assistive tech (WCAG G201) without touching page/CMS text:
+     visually hidden generated content, skipped where an sr-only note or aria-label already exists. */
+  main a[target="_blank"]:not([aria-label]):not(:has(.sr-only))::after {
+    content: " (opens in a new tab)";
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
   /* Long URLs / query strings in inline code wrap instead of causing horizontal scroll.
      word-break is the fallback for engines without overflow-wrap:anywhere. */
   :where(p, li, td, dd, blockquote) code {
@@ -262,12 +273,15 @@
   .prose a {
     color: hsl(var(--primary));
     text-decoration: underline;
+    /* Option A: 40% primary underline at rest, full primary on hover (see DESIGN_LOCK §13). */
+    text-decoration-color: hsl(var(--primary) / 0.4);
     text-underline-offset: 4px;
     transition: color 150ms ease;
   }
 
   .prose a:hover {
     color: hsl(var(--accent));
+    text-decoration-color: hsl(var(--primary));
   }
 
   /* Blockquotes */
