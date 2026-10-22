@@ -127,6 +127,35 @@ const nextConfig = {
           },
         ],
       },
+
+      // ── X-Robots-Tag ───────────────────────────────────────────────────────
+      // Pages set indexing with <meta name="robots">; files have no <head>, so they need the header.
+      // noindex keeps them out of search results without blocking the fetch (robots.txt still allows them).
+      ...[
+        '/:key([0-9a-f]{32}).txt', // IndexNow key files
+        '/llms.txt',
+        '/llms-full.txt',
+        '/ai.txt',
+        '/sitemap.xml',
+        '/manifest.json',
+        '/site.webmanifest',
+        '/api/:path*', // includes /api/og share images
+      ].map((source) => ({
+        source,
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
+      })),
+      // Noindex pages: same directive as their meta robots tag, also visible to header-only checks.
+      ...['/thank-you', '/blog'].map((source) => ({
+        source,
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }],
+      })),
+      // Vercel deployment URLs (previews and the project's *.vercel.app alias) duplicate the site.
+      // Listed last so it overrides the rules above on those hosts.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: '(?<subdomain>.+)\\.vercel\\.app' }],
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
     ]
   },
   async redirects() {
