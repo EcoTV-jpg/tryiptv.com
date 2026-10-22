@@ -13,7 +13,7 @@ const FAQ = dynamic(() => import("@/components/sections/FAQ").then((mod) => mod.
 import { PageSchema } from "@/components/shared/Schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "TryIPTV — Best IPTV Service for the USA, UK & More";
+const title = "Best IPTV Service 2026: 25,000+ Channels, No Auto-Renew | TryIPTV";
 const description =
   "Best IPTV service with 25,000+ live channels, sports, and 120,000+ movies and TV shows. 2 connections included. Plans from $15.82 and a free 24h trial.";
 
@@ -27,6 +27,7 @@ export function generateMetadata(): Metadata {
 
   return {
     ...baseMetadata,
+    title: { absolute: title },
     openGraph: {
       ...baseMetadata.openGraph,
       images: [
