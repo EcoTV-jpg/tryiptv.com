@@ -70,6 +70,7 @@ const nextConfig = {
   trailingSlash: false,
   experimental: {
     optimizePackageImports: ['lucide-react', 'react-icons', 'framer-motion'],
+    agentUpgrade: 'security',
   },
   async headers() {
     const cspReportOnlyHeader = [
