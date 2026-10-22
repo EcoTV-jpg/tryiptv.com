@@ -15,7 +15,7 @@ import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
 const title = "Best IPTV Service 2026: 25,000+ Channels, No Auto-Renew | TryIPTV";
 const description =
-  "Best IPTV service with 25,000+ live channels, sports, and 120,000+ movies and TV shows. 2 connections included. Plans from $15.82 and a free 24h trial.";
+  "Best IPTV with 25,000+ live channels and 120,000+ movies: pay once from $15.82, no auto-renewal, 2 connections, 24-hour free trial.";
 
 export function generateMetadata(): Metadata {
   const baseMetadata = generatePageMetadata({
