@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { blurProps } from "@/lib/image-blur";
 import Link from "next/link";
 import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
@@ -143,7 +144,7 @@ export default function PressPage() {
                 {screenshots.map((s) => (
                   <li key={s.src}>
                     <a href={s.src} download className="block overflow-hidden rounded-lg border border-white/[0.07]">
-                      <Image src={s.src} alt={s.alt} width={640} height={360} className="h-auto w-full" sizes="(min-width: 640px) 352px, 100vw" />
+                      <Image src={s.src} alt={s.alt} width={640} height={360} className="h-auto w-full" sizes="(min-width: 640px) 352px, 100vw" {...blurProps(s.src)} />
                     </a>
                     <p className="mt-2 text-sm">{s.caption}</p>
                   </li>

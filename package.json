@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev -p 9002",
+    "prebuild": "node scripts/generate-image-blur.mjs",
     "build": "next build",
+    "images:blur": "node scripts/generate-image-blur.mjs",
     "start": "next start -p 9002",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",

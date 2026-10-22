@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 
+import { blurProps } from "@/lib/image-blur";
+
 interface GuideScreenshotProps {
   src?: string | null;
   alt?: string;
@@ -46,6 +48,7 @@ export function GuideScreenshot({
           height={height}
           priority={priority}
           sizes={sizes}
+          {...blurProps(src)}
           className="w-full h-auto object-contain rounded-md"
         />
       </div>

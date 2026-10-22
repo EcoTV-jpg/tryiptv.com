@@ -5,38 +5,44 @@ import { Section } from "../shared/Section";
 import { MessageSquareCheck } from "lucide-react";
 import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
 
+import feedback1 from "../../../public/images/feedback/customer-feedback-1.jpg";
+import feedback2 from "../../../public/images/feedback/customer-feedback-2.jpg";
+import feedback3 from "../../../public/images/feedback/customer-feedback-3.jpg";
+import feedback4 from "../../../public/images/feedback/customer-feedback-4.jpg";
+import feedback5 from "../../../public/images/feedback/customer-feedback-5.jpg";
+
 export const customerFeedbackItems = [
   {
     id: "feedback-1",
-    src: "/images/feedback/customer-feedback-1.jpg",
+    src: feedback1,
     alt: "TryIPTV customer WhatsApp chat showing Xtream Codes API setup assistance on IPTV Smarters Pro",
     title: "IPTV Smarters Pro Setup",
     highlight: "Xtream Codes API • Setup Completed",
   },
   {
     id: "feedback-2",
-    src: "/images/feedback/customer-feedback-2.jpg",
+    src: feedback2,
     alt: "TryIPTV customer support conversation on WhatsApp assisting with Smart TV OTT player playlist activation",
     title: "Smart TV OTT Player",
     highlight: "Live TV Setup • Support Assisted",
   },
   {
     id: "feedback-3",
-    src: "/images/feedback/customer-feedback-3.jpg",
+    src: feedback3,
     alt: "TryIPTV subscriber WhatsApp conversation showing M3U playlist and Xtream Codes delivery",
     title: "M3U & Xtream Delivery",
     highlight: "M3U & Xtream Delivery",
   },
   {
     id: "feedback-4",
-    src: "/images/feedback/customer-feedback-4.jpg",
+    src: feedback4,
     alt: "TryIPTV 12-month prepaid subscription feedback on WhatsApp confirming Smart IPTV app MAC address activation",
     title: "12-Month Smart IPTV Activation",
     highlight: "Annual Subscription • MAC Address Loaded",
   },
   {
     id: "feedback-5",
-    src: "/images/feedback/customer-feedback-5.jpg",
+    src: feedback5,
     alt: "TryIPTV customer WhatsApp conversation about streaming setup and playback",
     title: "Streaming Setup Feedback",
     highlight: "Stream Setup Feedback",
@@ -69,8 +75,7 @@ export function CustomerFeedback() {
                     <Image
                       src={item.src}
                       alt={item.alt}
-                      width={525}
-                      height={1024}
+                      placeholder="blur"
                       className="h-full w-full object-cover"
                       sizes="260px"
                       loading="lazy"
