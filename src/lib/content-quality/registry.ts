@@ -438,7 +438,7 @@ const editorialOverrides: Record<string, Partial<Omit<ContentQualityEntry, 'url'
       applicable: true,
       passed: true,
       verifiedFacts: [
-        'Four prepaid plan durations: 1 Month ($16), 3 Months ($39), 6 Months ($60), and 12 Months ($90)',
+        'Four prepaid plan durations: 1 Month ($15.82), 3 Months ($38.30), 6 Months ($59.15), and 12 Months ($88.23)',
         '2 simultaneous connections across all prepaid plans',
         'Prepaid billing with zero automatic renewal or hidden recurring charges',
         'Evaluation trial alternative: 24 hours at $0',
@@ -514,7 +514,7 @@ const editorialOverrides: Record<string, Partial<Omit<ContentQualityEntry, 'url'
         id: 'pricing-plans-product-truth',
         type: 'product-source-of-truth',
         title: 'Prepaid plan prices, durations, and checkout links',
-        description: 'PRODUCT_TRUTHS.plans and pricing data define the 4 prepaid durations ($16, $39, $60, $90), monthly equivalents, prepaid non-recurring billing, and FlujiPay checkout URLs.',
+        description: 'PRODUCT_TRUTHS.plans and pricing data define the 4 prepaid durations ($15.82, $38.30, $59.15, $88.23), monthly equivalents, prepaid non-recurring billing, and FlujiPay checkout URLs.',
         recordedAt: '2026-10-09',
         source: 'src/lib/site-config.ts:19-24, src/lib/site-data/pricing.ts:2-83',
         relatedClaims: ['Prepaid plan prices, durations, and checkout links'],
@@ -739,7 +739,7 @@ const editorialOverrides: Record<string, Partial<Omit<ContentQualityEntry, 'url'
       passed: true,
       verifiedFacts: [
         'Four prepaid plan durations: 1 Month, 3 Months, 6 Months, and 12 Months',
-        'Upfront prices ($16, $39, $60, $90) and effective monthly equivalents ($16.00, $13.00, $10.00, $7.50)',
+        'Upfront prices ($15.82, $38.30, $59.15, $88.23) and effective monthly equivalents ($15.82, $12.77, $9.86, $7.35)',
         '2 simultaneous connections across all 4 plans',
         'Accepted payment methods: Cryptocurrency, PayPal, Stripe',
         'Prepaid billing with zero automatic renewal',
@@ -794,7 +794,7 @@ const editorialOverrides: Record<string, Partial<Omit<ContentQualityEntry, 'url'
     trust: { passed: true, issues: [] },
     satisfaction: { passed: true, unansweredQuestions: [] },
     evidenceLog: [
-      { id: 'pricing-plans-product-truth', type: 'product-source-of-truth', title: 'Prepaid plan prices, durations, and checkout links', description: 'PRODUCT_TRUTHS.plans and pricing data define the 4 prepaid durations ($16, $39, $60, $90), monthly equivalents, prepaid non-recurring billing, and FlujiPay checkout URLs.', recordedAt: '2026-10-09', source: 'src/lib/site-config.ts:19-24, src/lib/site-data/pricing.ts:2-83', relatedClaims: ['Prepaid plan prices, durations, and checkout links'], verified: true },
+      { id: 'pricing-plans-product-truth', type: 'product-source-of-truth', title: 'Prepaid plan prices, durations, and checkout links', description: 'PRODUCT_TRUTHS.plans and pricing data define the 4 prepaid durations ($15.82, $38.30, $59.15, $88.23), monthly equivalents, prepaid non-recurring billing, and FlujiPay checkout URLs.', recordedAt: '2026-10-09', source: 'src/lib/site-config.ts:19-24, src/lib/site-data/pricing.ts:2-83', relatedClaims: ['Prepaid plan prices, durations, and checkout links'], verified: true },
       { id: 'pricing-payment-methods-user-truth', type: 'product-source-of-truth', title: 'Accepted payment methods', description: 'User verified accepted payment methods as Cryptocurrency, PayPal, and Stripe on 2026-10-09, updating earlier crypto-only assumption.', recordedAt: '2026-10-09', source: 'User business specification', relatedClaims: ['Payment methods include cryptocurrency, PayPal, and Stripe'], verified: true },
       { id: 'pricing-connections-product-truth', type: 'product-source-of-truth', title: 'Simultaneous connections per plan', description: 'PRODUCT_TRUTHS establishes 2 simultaneous connections across all 4 prepaid plans.', recordedAt: '2026-10-09', source: 'src/lib/site-config.ts:9', relatedClaims: ['All prepaid plans include 2 simultaneous connections'], verified: true },
       { id: 'trial-cost-product-truth', type: 'product-source-of-truth', title: '24-hour trial price', description: 'PRODUCT_TRUTHS establishes the 24-hour trial price as $0. This verifies zero monetary price, but does not independently establish payment-method or credit card collection terms.', recordedAt: '2026-10-09', source: 'src/lib/site-config.ts:11', relatedClaims: ['Trial price is $0'], verified: true },

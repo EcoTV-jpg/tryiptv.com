@@ -27,7 +27,8 @@ const allowedDollars = new Set([
   ...T.plans.map((p) => p.monthlyEquivalent),
   ...T.plans.flatMap((p) => {
     const months = Math.round(p.price / p.monthlyEquivalent);
-    return [months * oneMonth, months * oneMonth - p.price];
+    // Rounded to cents: 3 × 15.82 − 38.30 is 9.1599… in floating point.
+    return [months * oneMonth, months * oneMonth - p.price].map((n) => Math.round(n * 100) / 100);
   }),
 ]);
 const num = (s) => Number(String(s).replace(/[^\d.]/g, ''));

@@ -12,7 +12,7 @@ const PLANS = [
   {
     index: "01 / Plan",
     name: "1 Month",
-    price: 16,
+    price: 15.82,
     suffix: "prepaid",
     description: "Standard 1-month prepaid access",
     monthlyEquivalent: null,
@@ -26,10 +26,10 @@ const PLANS = [
   {
     index: "02 / Plan",
     name: "3 Months",
-    price: 39,
+    price: 38.30,
     suffix: "prepaid",
     description: null,
-    monthlyEquivalent: "$13.00/mo",
+    monthlyEquivalent: "$12.77/mo",
     savings: "Save 19%",
     cta: "Choose 3 Months",
     checkoutUrl: "https://wa.me/15205648298?text=I%20would%20like%20to%20order%20the%203%20Months%20IPTV%20plan.",
@@ -40,10 +40,10 @@ const PLANS = [
   {
     index: "03 / Plan",
     name: "6 Months",
-    price: 60,
+    price: 59.15,
     suffix: "prepaid",
     description: null,
-    monthlyEquivalent: "$10.00/mo",
+    monthlyEquivalent: "$9.86/mo",
     savings: "Save 38%",
     cta: "Choose 6 Months",
     checkoutUrl: "https://wa.me/15205648298?text=I%20would%20like%20to%20order%20the%206%20Months%20IPTV%20plan.",
@@ -54,11 +54,11 @@ const PLANS = [
   {
     index: "04 / Plan",
     name: "12 Months",
-    price: 90,
+    price: 88.23,
     suffix: "prepaid",
     description: null,
-    monthlyEquivalent: "$7.50/mo",
-    savings: "Save 53%",
+    monthlyEquivalent: "$7.35/mo",
+    savings: "Save 54%",
     cta: "Choose 12 Months",
     checkoutUrl: "https://wa.me/15205648298?text=I%20would%20like%20to%20order%20the%2012%20Months%20IPTV%20plan.",
     featured: true,
@@ -116,7 +116,7 @@ export function HomePricing() {
 
               <div className="mt-4 flex items-baseline gap-1.5">
                 <span className="font-headline text-[44px] font-bold leading-none tracking-tight text-foreground tabular-nums">
-                  ${plan.price}
+                  ${plan.price.toFixed(2)}
                 </span>
                 <span className="text-sm font-medium text-muted-foreground">{plan.suffix}</span>
               </div>

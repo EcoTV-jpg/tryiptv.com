@@ -9,7 +9,7 @@ const HERO_FACTS = [
   { value: "25,000+", label: "Live Channels" },
   { value: "120,000+", label: "Movies & TV Shows" },
   { value: "2", label: "Simultaneous Connections" },
-  { value: "From $16", label: "Starting Price" },
+  { value: "From $15.82", label: "Starting Price" },
 ] as const;
 
 export function Hero() {
@@ -52,7 +52,7 @@ export function Hero() {
             </div>
 
             <p className="mt-4 text-[12.5px] font-medium text-muted-foreground">
-              Plans from $16 • Prepaid • No auto-renewal
+              Plans from $15.82 • Prepaid • No auto-renewal
             </p>
           </div>
 

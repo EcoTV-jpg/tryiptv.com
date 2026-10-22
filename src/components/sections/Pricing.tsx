@@ -61,7 +61,7 @@ export function Pricing({
                 <div className="pt-3">
                   <div className="flex items-baseline gap-1.5">
                     <span className="font-headline text-[40px] sm:text-[44px] font-bold tracking-tight text-foreground leading-none">
-                      ${plan.price}
+                      ${plan.price.toFixed(2)}
                     </span>
                     <span className="text-xs font-medium text-muted-foreground">prepaid</span>
                   </div>

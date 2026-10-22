@@ -94,7 +94,7 @@ export const getIptvFreeTrialPageData = cache(
     };
   },
   // Bump the version when the static data above changes: the data cache outlives rebuilds.
-  ['iptv-free-trial-page-data-v7'],
+  ['iptv-free-trial-page-data-v8'],
   {
     revalidate: 3600,
     tags: ['pages', 'iptv-free-trial-page'],

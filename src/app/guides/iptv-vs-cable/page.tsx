@@ -396,8 +396,8 @@ export default function IptvVsCablePage() {
                 <li>
                   <strong className="text-foreground font-semibold">IPTV Cost Factors:</strong> In the broader IPTV market, billing models vary by provider
                   (monthly recurring plans, multi-month packages, or credit-based systems). TryIPTV specifically operates on flat prepaid terms with no
-                  automatic renewal, no equipment rental fees, and no cancellation penalties, starting at $16 for 1 month and $90 prepaid for 12 months
-                  (equivalent to $7.50/month). See details on our{" "}
+                  automatic renewal, no equipment rental fees, and no cancellation penalties, starting at $15.82 for 1 month and $88.23 prepaid for 12 months
+                  (equivalent to $7.35/month). See details on our{" "}
                   <Link href="/pricing" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
                     prepaid plans page
                   </Link>

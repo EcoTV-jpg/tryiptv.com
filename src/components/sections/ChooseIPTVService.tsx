@@ -38,7 +38,7 @@ const criteria: Criterion[] = [
     why: "A cheap first month means little if the renewal price is higher or hard to cancel.",
     here: (
       <>
-        <Link href="/pricing" className={link}>Prepaid plans</Link> from {FACT_TEXT.fromPrice} to $90. Nothing renews, so
+        <Link href="/pricing" className={link}>Prepaid plans</Link> from {FACT_TEXT.fromPrice} to $88.23. Nothing renews, so
         there is nothing to cancel.
       </>
     ),

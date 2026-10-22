@@ -69,9 +69,9 @@ const link = "font-semibold text-primary underline decoration-primary/40 underli
 const T = PRODUCT_TRUTHS;
 
 export function generateMetadata(): Metadata {
-  const title = "IPTV Subscription Pricing: $16/Month, $90/Year, No Auto-Renew";
+  const title = "IPTV Subscription Pricing: $15.82/Month, $88.23/Year, No Auto-Renew";
   const description =
-    "IPTV subscription pricing: TryIPTV prepaid plans are $16 for 1 month, $39 for 3, $60 for 6 or $90 for 12. 25,000+ channels, 2 connections, no auto-renewal.";
+    "IPTV subscription pricing: TryIPTV prepaid plans are $15.82 for 1 month, $38.30 for 3, $59.15 for 6 or $88.23 for 12. 2 connections, no auto-renewal.";
 
   return {
     ...generatePageMetadata({ title, description, canonical: "/pricing" }),
@@ -80,7 +80,7 @@ export function generateMetadata(): Metadata {
 }
 
 const quickFacts = [
-  "Plans from $16",
+  "Plans from $15.82",
   "1 / 3 / 6 / 12 Months",
   "2 Simultaneous Connections",
   "Prepaid Billing",
@@ -97,12 +97,12 @@ const planDescriptions: Record<string, string> = {
 
 const planSavingsExact: Record<string, string | null> = {
   "1-month": null,
-  "3-months": "Save $9 vs three 1\u2011month purchases",
-  "6-months": "Save $36 vs six 1\u2011month purchases",
-  "12-months": "Save $102 vs twelve 1\u2011month purchases",
+  "3-months": "Save $9.16 vs three 1\u2011month purchases",
+  "6-months": "Save $35.77 vs six 1\u2011month purchases",
+  "12-months": "Save $101.61 vs twelve 1\u2011month purchases",
 };
 
-// Whole-dollar amounts without decimals ($16), others with cents ($7.50).
+// Whole-dollar amounts without decimals ($16), others with cents ($7.35).
 const formatUsd = (amount: number) => `$${amount % 1 === 0 ? amount.toFixed(0) : amount.toFixed(2)}`;
 
 const planBestFor: Record<string, string> = {
@@ -190,7 +190,7 @@ const streamFeatures = [
   {
     icon: Receipt,
     title: "Transparent pricing",
-    desc: `One flat prepaid price per plan, ${FACT_TEXT.fromPrice} to $90, shown here before you order.`,
+    desc: `One flat prepaid price per plan, ${FACT_TEXT.fromPrice} to $88.23, shown here before you order.`,
   },
   {
     icon: HeadphonesIcon,
@@ -202,8 +202,8 @@ const streamFeatures = [
 // Streaming figures are US list prices checked 2026-10-21 (sources in costSources); cable figures are TryIPTV estimates.
 // Update the rows, the annual-gap sentence and costSources together.
 const costComparisonRows = [
-  { option: "TryIPTV, 12 months", perMonth: "$7.50", perYear: "$90", autoRenews: "No", payingFor: "25,000+ channels, 120,000+ VOD, 2 connections", isTryIptv: true },
-  { option: "TryIPTV, 1 month", perMonth: "$16.00", perYear: "$192 if bought monthly", autoRenews: "No", payingFor: "Same service, shorter term", isTryIptv: true },
+  { option: "TryIPTV, 12 months", perMonth: "$7.35", perYear: "$88.23", autoRenews: "No", payingFor: "25,000+ channels, 120,000+ VOD, 2 connections", isTryIptv: true },
+  { option: "TryIPTV, 1 month", perMonth: "$15.82", perYear: "$189.84 if bought monthly", autoRenews: "No", payingFor: "Same service, shorter term", isTryIptv: true },
   { option: "Cable TV, advertised rate (estimate)", perMonth: "$100–$120", perYear: "$1,200–$1,440", autoRenews: "Usually, at promo pricing", payingFor: "~140 channels, locals, box, DVR" },
   { option: "Cable TV, bill with fees (estimate)", perMonth: "$130–$170", perYear: "$1,560–$2,040", autoRenews: "Yes", payingFor: "Above, plus broadcast fee, RSN surcharge, extra boxes" },
   { option: "Streaming stack, 3 ad-free apps", perMonth: "$73.47", perYear: "$881.64", autoRenews: "Yes, each service separately", payingFor: "Netflix Standard $19.99, Disney+ Premium $21.49, ESPN Unlimited $31.99" },
@@ -222,30 +222,30 @@ const costCaveats = [
   "Streaming prices move every year. Our plan prices don't renew, so they don't move until you choose to buy again.",
 ] as const;
 
-// Per week = monthly × 12 / 52; per day = upfront price / days in the term.
+// Per week = monthly × 12 / 52; per day = upfront price / days in the term (30, 90, 180, 365).
 const planMathRows = [
-  { plan: "1 Month", once: "$16", perMonth: "$16.00", perWeek: "$3.69", perDay: "$0.53", vsMonthly: "-" },
-  { plan: "3 Months", once: "$39", perMonth: "$13.00", perWeek: "$3.00", perDay: "$0.43", vsMonthly: "save $9" },
-  { plan: "6 Months", once: "$60", perMonth: "$10.00", perWeek: "$2.31", perDay: "$0.33", vsMonthly: "save $36" },
-  { plan: "12 Months", once: "$90", perMonth: "$7.50", perWeek: "$1.73", perDay: "$0.25", vsMonthly: "save $102" },
+  { plan: "1 Month", once: "$15.82", perMonth: "$15.82", perWeek: "$3.65", perDay: "$0.53", vsMonthly: "-" },
+  { plan: "3 Months", once: "$38.30", perMonth: "$12.77", perWeek: "$2.95", perDay: "$0.43", vsMonthly: "save $9.16" },
+  { plan: "6 Months", once: "$59.15", perMonth: "$9.86", perWeek: "$2.28", perDay: "$0.33", vsMonthly: "save $35.77" },
+  { plan: "12 Months", once: "$88.23", perMonth: "$7.35", perWeek: "$1.70", perDay: "$0.24", vsMonthly: "save $101.61" },
 ] as const;
 
 const planFits = [
   {
-    title: "1 Month - $16: after the trial, before a commitment",
+    title: "1 Month - $15.82: after the trial, before a commitment",
     body: "Buy this when you've used the trial and want a paid month before deciding anything longer. It's also the right plan for a single event, a short visit, or a household testing whether IPTV replaces cable at all. You're paying $0.53 a day for the privilege of walking away at day 30.",
   },
   {
-    title: "3 Months - $39: one season, one semester",
-    body: "The 3-month plan covers a full sports season, a college semester, a work contract, or a summer abroad. You cut the monthly cost to $13 and keep the exit close: $9 cheaper than three monthly purchases.",
+    title: "3 Months - $38.30: one season, one semester",
+    body: "The 3-month plan covers a full sports season, a college semester, a work contract, or a summer abroad. You cut the monthly cost to $12.77 and keep the exit close: $9.16 cheaper than three monthly purchases.",
   },
   {
-    title: "6 Months - $60: nightly viewers who dislike annual prepay",
-    body: "This is the plan for a household that watches most evenings. It gets the $10/month rate without locking a whole year of cash into something it just discovered. $60 is the point where the savings get real ($36 against monthly) while the risk stays small.",
+    title: "6 Months - $59.15: nightly viewers who dislike annual prepay",
+    body: "This is the plan for a household that watches most evenings. It gets the $9.86/month rate without locking a whole year of cash into something it just discovered. $59.15 is the point where the savings get real ($35.77 against monthly) while the risk stays small.",
   },
   {
-    title: "12 Months - $90: the long game, if the house is happy",
-    body: "An IPTV subscription for 12 months at $90 drops you to $7.50 a month and $0.25 a day, with two connections included. It fits a household that's already run the trial, checked peak-hour sports, and knows the channels it needs are there.",
+    title: "12 Months - $88.23: the long game, if the house is happy",
+    body: "An IPTV subscription for 12 months at $88.23 drops you to $7.35 a month and $0.24 a day, with two connections included. It fits a household that's already run the trial, checked peak-hour sports, and knows the channels it needs are there.",
   },
 ] as const;
 
@@ -258,7 +258,7 @@ const cheapestPitfalls = [
 ] as const;
 
 const lifetimePoints = [
-  { lead: "$0.25 a day.", rest: "A 12-month plan already reaches the per-day floor where lifetime pricing pretends to live." },
+  { lead: "$0.24 a day.", rest: "A 12-month plan already reaches the per-day floor where lifetime pricing pretends to live." },
   { lead: "You re-decide once a year, not never.", rest: "If the service degrades, you stop paying. A lifetime buyer has no such lever." },
   { lead: "No auto-renewal on either side.", rest: "Nothing renews, nothing is charged, nothing needs cancelling." },
   { lead: "The honest test:", rest: "divide a lifetime price by our 12-month rate. If it equals two or three years of prepaid terms, you're prepaying for years you probably won't use." },
@@ -275,7 +275,7 @@ export default async function IPTVSubscription() {
     <>
       <PageSchema
         path="/pricing"
-        name="IPTV Subscription Pricing: $16/Month, $90/Year, No Auto-Renew"
+        name="IPTV Subscription Pricing: $15.82/Month, $88.23/Year, No Auto-Renew"
         nodes={[pricingJsonLd, breadcrumbSchema]}
         keep={["Product", "FAQPage"]}
       />
@@ -586,7 +586,7 @@ export default async function IPTVSubscription() {
 
           <div className="mx-auto mt-8 max-w-3xl">
             <p className={prose}>
-              Run the annual line: the 12-month plan at $90 sits an estimated $1,470–$1,950 below a cable bill with fees and $791.64 below the three-app stack.
+              Run the annual line: the 12-month plan at $88.23 sits an estimated $1,472–$1,952 below a cable bill with fees and $793.41 below the three-app stack.
             </p>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">Sources (US list prices, checked October 21, 2026):</p>
             <ul className="mt-1.5 list-disc space-y-1 pl-5 text-sm leading-6 text-muted-foreground">
@@ -661,7 +661,7 @@ export default async function IPTVSubscription() {
               Two connections on the 12-month plan works out to roughly 12 cents a day per screen when both are streaming at once.
             </p>
             <p className={prose}>
-              Paying $90 upfront only makes sense after you&apos;ve confirmed the service works in your house. That&apos;s what the trial
+              Paying $88.23 upfront only makes sense after you&apos;ve confirmed the service works in your house. That&apos;s what the trial
               is for. If you haven&apos;t tested it, buy one month, not twelve.
             </p>
           </div>
@@ -700,7 +700,7 @@ export default async function IPTVSubscription() {
               answer in month two. A $45 monthly plan is mostly paying for a marketing budget.
             </p>
             <p className={prose}>
-              At $16 for a month and $90 for a year, TryIPTV sits mid-band on both. That&apos;s deliberate. We&apos;re not the cheapest
+              At $15.82 for a month and $88.23 for a year, TryIPTV sits mid-band on both. That&apos;s deliberate. We&apos;re not the cheapest
               IPTV subscription you&apos;ll find, and the reason is boring: live sports at peak hours, the panel that issues your
               credentials, payment processing and a human answering WhatsApp all cost money every month, whether you watch or not.
             </p>
@@ -735,7 +735,7 @@ export default async function IPTVSubscription() {
               seller if the average buyer leaves early, the service changes hands, or the servers disappear.
             </p>
             <p className={prose}>
-              We don&apos;t sell one. The longest term we sell is 12 months at $90, and the practical difference is smaller than it looks:
+              We don&apos;t sell one. The longest term we sell is 12 months at $88.23, and the practical difference is smaller than it looks:
             </p>
             <ul className={`space-y-2.5 ${prose}`}>
               {lifetimePoints.map((point) => (
@@ -749,7 +749,7 @@ export default async function IPTVSubscription() {
             </ul>
             <p className={`pt-2 ${prose}`}>
               If your real question is can I stop thinking about this for a while, the 12-month term is the answer. It&apos;s prepaid, it
-              expires, and it costs $90.
+              expires, and it costs $88.23.
             </p>
           </div>
         </Container>

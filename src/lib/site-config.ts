@@ -39,10 +39,10 @@ export const PRODUCT_TRUTHS = {
     "Stripe",
   ] as const,
   plans: [
-    { duration: "1 Month", price: 16.00, monthlyEquivalent: 16.00 },
-    { duration: "3 Months", price: 39.00, monthlyEquivalent: 13.00 },
-    { duration: "6 Months", price: 60.00, monthlyEquivalent: 10.00 },
-    { duration: "12 Months", price: 90.00, monthlyEquivalent: 7.50 },
+    { duration: "1 Month", price: 15.82, monthlyEquivalent: 15.82 },
+    { duration: "3 Months", price: 38.30, monthlyEquivalent: 12.77 },
+    { duration: "6 Months", price: 59.15, monthlyEquivalent: 9.86 },
+    { duration: "12 Months", price: 88.23, monthlyEquivalent: 7.35 },
   ],
 } as const;
 
@@ -50,7 +50,7 @@ const usd = (n: number) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
 
 /** Ready-made phrases built from PRODUCT_TRUTHS, for copy that states prices or limits. */
 export const FACT_TEXT = {
-  /** "$16 for 1 month, $39 for 3 months, $60 for 6 months, or $90 for 12 months" */
+  /** "$15.82 for 1 month, $38.30 for 3 months, $59.15 for 6 months, or $88.23 for 12 months" */
   priceList: PRODUCT_TRUTHS.plans
     .map((p, i, all) => `${i === all.length - 1 ? "or " : ""}${usd(p.price)} for ${p.duration.toLowerCase()}`)
     .join(", "),
@@ -64,7 +64,7 @@ export const siteConfig = {
   url: SITE_URL,
   ogImage: "/api/og",
   // Canonical two-sentence brand description (reused by BRAND in site-data/brand.ts, schema, manifest, llms.txt).
-  description: `TryIPTV is a prepaid IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, watched on your own devices through compatible IPTV player apps. Plans start at $${PRODUCT_TRUTHS.plans[0].price.toFixed(0)} with ${PRODUCT_TRUTHS.connections} connections, no automatic renewal and a 24-hour free trial.`,
+  description: `TryIPTV is a prepaid IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, watched on your own devices through compatible IPTV player apps. Plans start at ${FACT_TEXT.fromPrice} with ${PRODUCT_TRUTHS.connections} connections, no automatic renewal and a 24-hour free trial.`,
   links: {
     email: "support@tryiptv.com",
     whatsapp: "+15205648298",

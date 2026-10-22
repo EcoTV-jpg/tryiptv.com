@@ -241,7 +241,7 @@ export default function AboutPage() {
                     {plans.map((plan) => (
                       <tr key={plan.id}>
                         <th scope="row" className="px-5 py-3 font-semibold text-foreground">{plan.name}</th>
-                        <td className="px-5 py-3">${plan.price}</td>
+                        <td className="px-5 py-3">${plan.price.toFixed(2)}</td>
                       </tr>
                     ))}
                   </tbody>

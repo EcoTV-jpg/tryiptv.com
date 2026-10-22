@@ -32,10 +32,10 @@ The website currently lists these prepaid plans:
 
 | Duration | Price |
 | --- | ---: |
-| 1 month | $16 |
-| 3 months | $39 |
-| 6 months | $60 |
-| 12 months | $90 |
+| 1 month | $15.82 |
+| 3 months | $38.30 |
+| 6 months | $59.15 |
+| 12 months | $88.23 |
 
 [Pricing](https://www.tryiptv.com/pricing) is the authority for current prices and plan inclusions.
 
