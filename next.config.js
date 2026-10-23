@@ -102,10 +102,6 @@ const nextConfig = {
             value: 'max-age=63072000; includeSubDomains; preload'
           },
           {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
-          },
-          {
             key: 'X-Content-Type-Options',
             value: 'nosniff'
           },
@@ -278,8 +274,6 @@ const nextConfig = {
         destination: '/contact-us',
         permanent: true,
       },
-      // /about has no close approved equivalent → intentional 404
-      // (no redirect added intentionally)
     ]
   },
 };
