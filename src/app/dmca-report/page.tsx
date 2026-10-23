@@ -185,7 +185,7 @@ export default function DmcaReportPage() {
                 <li>Your name, address, phone number, and email address</li>
                 <li>Identification of the material that was removed or disabled</li>
                 <li>A statement under penalty of perjury that you have a good faith belief the material was removed in error</li>
-                <li>Your consent to the jurisdiction of Canadian courts</li>
+                <li>A statement that you consent to the jurisdiction of the federal district court for the judicial district in which your address is located or, if your address is outside the United States, any judicial district in which TryIPTV may be found, and that you will accept service of process from the person who submitted the original notice or their agent</li>
                 <li>Your physical or electronic signature</li>
               </ul>
             </section>

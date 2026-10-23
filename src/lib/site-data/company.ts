@@ -19,8 +19,12 @@ export const COMPANY = {
   /** Confirmed by the owner 2026-10-21. */
   /** Owner-changed 2026-10-23 from "Simo Alaoui LLC" (registration number, location and team left as they were, per owner). */
   legalName: "Karim Adeyemi" as string | null,
-  /** Confirmed 2026-10-21. Shown on /about and /press; the registry is not yet confirmed (`registry`). */
-  registrationNumber: "8683949" as string | null,
+  /**
+   * Not shown while the operator is "Karim Adeyemi" (2026-10-23 audit): the number given on 2026-10-21,
+   * 8683949 (New York Department of State), was for "Simo Alaoui LLC". Put it back only once it is
+   * confirmed for the current operator (or legalName is the LLC again). eeat-confirm Q1.
+   */
+  registrationNumber: null as string | null,
   /** Confirmed 2026-10-21. (Its Albany address is the registry's own office, not TryIPTV's: never use it as `address`.) */
   registry: "New York Department of State" as string | null,
   vatOrTaxId: null as string | null,

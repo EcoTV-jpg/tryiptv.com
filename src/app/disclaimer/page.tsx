@@ -77,8 +77,7 @@ export default function DisclaimerPage() {
             <section className="space-y-3">
               <h2 id="general-notice" className={h2}>General Disclaimer</h2>
               <p>
-                At TryIPTV, we are committed to providing access to legal IPTV services in compliance with applicable laws. IPTV (Internet
-                Protocol Television) is a lawful technology used to deliver television content over IP networks, similar to other mainstream
+                IPTV (Internet Protocol Television) is a lawful technology used to deliver television content over IP networks, similar to other mainstream
                 streaming services.
               </p>
               <p>
