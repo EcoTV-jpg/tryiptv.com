@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site-config';
 import { INDEXABLE_ROUTES } from '@/lib/site-routes';
+import { PAGE_IMAGES } from '@/lib/site-data/page-images';
 
 const baseUrl = SITE_URL;
 
@@ -31,5 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: route.path === '/' ? baseUrl : `${baseUrl}${route.path}`,
     // Date-only (YYYY-MM-DD) as stored: no invented time of day.
     lastModified: route.lastModified,
+    // Image sitemap entries (Google Images) for pages with real content images.
+    ...(PAGE_IMAGES[route.path] ? { images: PAGE_IMAGES[route.path].map((src) => `${baseUrl}${src}`) } : {}),
   }));
 }
