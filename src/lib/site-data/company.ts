@@ -16,13 +16,11 @@ export const SHOW_CONFIRM_MARKERS = process.env.VERCEL_ENV !== "production";
 export const COMPANY = {
   /** Brand name, as used everywhere (Bing §16: one consistent entity name). */
   brand: "TryIPTV",
-  /** Confirmed by the owner 2026-10-21. */
-  /** Owner-changed 2026-10-23 from "Simo Alaoui LLC" (registration number, location and team left as they were, per owner). */
-  legalName: "Karim Adeyemi" as string | null,
+  /** Confirmed by the owner 2026-10-21. Restored 2026-10-23: "Karim Adeyemi" (owner-supplied, not independently verified) is not used as the legal entity. */
+  legalName: "Simo Alaoui LLC" as string | null,
   /**
-   * Not shown while the operator is "Karim Adeyemi" (2026-10-23 audit): the number given on 2026-10-21,
-   * 8683949 (New York Department of State), was for "Simo Alaoui LLC". Put it back only once it is
-   * confirmed for the current operator (or legalName is the LLC again). eeat-confirm Q1.
+   * The number given on 2026-10-21, 8683949 (New York Department of State), was for "Simo Alaoui LLC".
+   * Still hidden: the owner has not asked for it to be shown again. eeat-confirm Q1.
    */
   registrationNumber: null as string | null,
   /** Confirmed 2026-10-21. (Its Albany address is the registry's own office, not TryIPTV's: never use it as `address`.) */
@@ -49,7 +47,7 @@ export const COMPANY = {
     "TryIPTV started with a simple goal: make IPTV easier to set up and easier to understand, for people tired of confusing instructions and service they couldn't rely on. We built it around simple prepaid plans, wide device compatibility, step-by-step setup guides and support you can actually reach. We keep refining the experience, so that getting started, and managing a subscription afterwards, takes as little effort as possible." as string | null,
   /** Owner-approved short "About TryIPTV" (homepage FAQ, footer). Keep in sync with PRODUCT_TRUTHS. */
   summary:
-    "TryIPTV is an IPTV subscription service operated by Karim Adeyemi, based in New York, United States. You watch on your own devices through a compatible IPTV player app." as string | null,
+    "TryIPTV is an IPTV subscription service operated by Simo Alaoui LLC, based in New York, United States. You watch on your own devices through a compatible IPTV player app." as string | null,
   /** People who may be named publicly. Only real people who agreed to be listed. */
   team: [
     {
@@ -62,7 +60,7 @@ export const COMPANY = {
     email: "support@tryiptv.com",
     /** Owner-supplied 2026-10-23; replaces +1 (520) 564-8298. */
     whatsappDisplay: "+212 694-833293",
-    /** Same number in E.164 form, for schema `telephone`. */
+    /** Same number in E.164 form (no plus sign in the wa.me link). */
     whatsappE164: "+212694833293",
     whatsappUrl: "https://wa.me/212694833293",
     /** Owner-supplied 2026-10-20 (DMCA page text); confirm the inbox exists (eeat-confirm Q13). */

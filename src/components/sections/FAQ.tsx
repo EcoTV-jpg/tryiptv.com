@@ -19,6 +19,7 @@ import { Section } from "../shared/Section";
 import { SectionHeader } from "../shared/SectionHeader";
 import { cn } from "@/lib/utils";
 import { COMPANY } from "@/lib/site-data/company";
+import { PRODUCT_TRUTHS } from "@/lib/site-config";
 
 export interface FaqItem {
   question: string;
@@ -84,6 +85,27 @@ const homepageFaqs: FaqItem[] = [
     question: "Do TryIPTV subscriptions renew automatically?",
     answer:
       'No. Plans are prepaid for the selected duration and do not automatically renew. <a href="/pricing" class="text-primary hover:underline">Compare plans</a>.',
+  },  {
+    question: "Is IPTV legal?",
+    answer:
+      'IPTV as a technology is legal. Whether a particular service is legal depends on whether it has the rights to what it streams and on the law where you live. This is general information, not legal advice. <a href="/disclaimer" class="text-primary hover:underline">Read the disclaimer</a>.',
+  },
+  {
+    question: "Can I get a refund?",
+    answer:
+      'Only if TryIPTV cannot provide a working subscription. Once your account is activated and the details are delivered, sales are final. <a href="/refund-policy" class="text-primary hover:underline">Read the refund policy</a>.',
+  },
+  {
+    question: "How do I pay?",
+    answer: `${
+      COMPANY.paymentMethods
+        ? `Each plan is a one-time payment by ${COMPANY.paymentMethods}. Support sends the payment instructions on WhatsApp or by email when you order.`
+        : "Each plan is a one-time payment. Support sends the payment instructions when you order."
+    } <a href="/pricing" class="text-primary hover:underline">See plans and prices</a>.`,
+  },
+  {
+    question: "How quickly do I get my login?",
+    answer: `Login details are usually provided within ${PRODUCT_TRUTHS.activationTime} after confirmation, ${PRODUCT_TRUTHS.activationHours.replace(";", ".").replace(" requests", " Requests")}. <a href="/setup" class="text-primary hover:underline">See what to do next</a>.`,
   },
 ];
 
@@ -148,11 +170,11 @@ export function FAQ() {
                 className="mb-4 sm:mb-4 lg:mb-4"
               />
               <p className="mb-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mb-8 sm:text-[16.5px]">
-                Quick answers about the service. See{" "}
+                Short answers to what people ask before buying: legality, refunds, payment, delivery, devices and setup. See{" "}
                 <Link href="/faq" className="font-semibold text-primary hover:underline">all IPTV FAQs</Link>{" "}
                 or{" "}
                 <Link href="/help" className="font-semibold text-primary hover:underline">troubleshooting guides</Link>{" "}
-                for more.
+                for the full answers.
               </p>
 
               <div className="rounded-2xl border border-white/[0.07] bg-card p-1.5">

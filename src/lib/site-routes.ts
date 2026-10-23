@@ -43,8 +43,8 @@ export interface SiteRoute {
 
 export const SITE_ROUTES: SiteRoute[] = [
   // ── Commercial ───────────────────────────────────────────────────────────────
-  { path: '/',                  section: 'commercial', indexable: true,  lastModified: '2026-10-21' },
-  { path: '/pricing',           section: 'commercial', indexable: true,  lastModified: '2026-10-21' },
+  { path: '/',                  section: 'commercial', indexable: true,  lastModified: '2026-10-23' },
+  { path: '/pricing',           section: 'commercial', indexable: true,  lastModified: '2026-10-23' },
   { path: '/iptv-free-trial',   section: 'commercial', indexable: true,  lastModified: '2026-10-21' },
   { path: '/setup',             section: 'commercial', indexable: true,  lastModified: '2026-10-06' },
 

@@ -95,14 +95,9 @@ export default async function AuthorPage({ params }: Props) {
       <Section className="py-12 sm:py-16">
         <Container className="max-w-3xl">
           <div className="space-y-6 text-base leading-7 text-muted-foreground">
-            {author.role.startsWith("Founder") && COMPANY.legalName && (
+            {author.role.startsWith("Founder") && (
               <p>
-                {author.name} founded TryIPTV, which is operated by {COMPANY.legalName}
-                {COMPANY.registry && COMPANY.registrationNumber
-                  ? ` (${COMPANY.registry}, registration number ${COMPANY.registrationNumber})`
-                  : ""}
-                {COMPANY.foundingYear ? ` and has run since ${COMPANY.foundingYear}` : ""}. See{" "}
-                <Link href="/about" className={link}>About TryIPTV</Link> for the company details.
+                See <Link href="/about" className={link}>About TryIPTV</Link> for the company details.
               </p>
             )}
             {reviewed.length > 0 && (

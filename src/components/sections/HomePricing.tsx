@@ -71,9 +71,8 @@ const PLANS = [
 const INCLUDED_FEATURES = [
   "HD and 4K Streams Where Available",
   "25,000+ Live Channels Worldwide",
-  "120,000+ Movies & TV Shows",
-  "PPV Events Included",
-  "VOD Access",
+  "120,000+ On-Demand (VOD) Movies & TV Shows",
+  "Pay-Per-View (PPV) Events Included",
   "Smart EPG (TV Guide) & Catch-Up TV",
   "Customer Support",
   "Multi-Device Compatibility",
@@ -168,6 +167,13 @@ export function HomePricing() {
           with the plan you want). Choose 1 month for short-term use, 3 months for a shorter commitment, 6 months for balanced value, or 12 months for the lowest monthly equivalent. See the{" "}
           <Link href="/refund-policy" className="font-medium text-foreground underline underline-offset-4 hover:text-primary">
             refund policy
+          </Link>
+          .
+        </p>
+        <p className="mx-auto mt-3 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
+          Catalog counts are approximate and can change as content availability changes. You can check the available selection during the{" "}
+          <Link href="/iptv-free-trial" className="font-medium text-foreground underline underline-offset-4 hover:text-primary">
+            free trial
           </Link>
           .
         </p>

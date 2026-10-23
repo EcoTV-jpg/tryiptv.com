@@ -13,63 +13,12 @@ import { getPricingPageData } from "@/lib/data/pricing-page";
 import { plans } from "@/lib/site-data/pricing";
 import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
 import { COMPANY } from "@/lib/site-data/company";
-import { pricingPageFaqs as faqSchemaSource } from "@/lib/site-data/pricing-page-faq";
-import type { Graph } from "schema-dts";
-
-const PRICING_URL = "https://www.tryiptv.com/pricing";
-
-// Opts in to Product and FAQPage, which the shared <Schema> component drops by default.
-// Questions and answers come from the same data as the visible FAQ so the two can't drift.
-const pricingJsonLd: Graph = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Product",
-      "@id": `${PRICING_URL}#product`,
-      name: "TryIPTV Prepaid IPTV Subscription",
-      description:
-        "Prepaid IPTV subscription with 25,000+ live channels, 120,000+ movies and series, 2 simultaneous connections and no automatic renewal. Credentials delivered by WhatsApp in 5 to 15 minutes.",
-      // The brand and the seller are the site-wide Organization node.
-      brand: { "@id": "https://www.tryiptv.com/#organization" },
-      // The site's OG image endpoint (1200x630 PNG), as Article markup uses when a page has no image of its own.
-      image: `https://www.tryiptv.com/api/og?title=${encodeURIComponent("TryIPTV Prepaid IPTV Subscription")}`,
-      url: PRICING_URL,
-      offers: plans.map((plan) => ({
-        "@type": "Offer" as const,
-        name: `${plan.name} IPTV Plan`,
-        price: plan.price.toFixed(2),
-        priceCurrency: "USD",
-        url: PRICING_URL,
-        sku: `tryiptv-${plan.id}`,
-        availability: "https://schema.org/InStock" as const,
-        seller: { "@id": "https://www.tryiptv.com/#organization" },
-        // The plan length is a billing period, not an order quantity: billingDuration in months (unitCode MON).
-        priceSpecification: {
-          "@type": "UnitPriceSpecification" as const,
-          price: plan.price.toFixed(2),
-          priceCurrency: "USD",
-          billingDuration: parseInt(plan.id, 10),
-          unitCode: "MON",
-        },
-      })),
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${PRICING_URL}#faq`,
-      mainEntity: faqSchemaSource.map((faq) => ({
-        "@type": "Question" as const,
-        name: faq.question,
-        acceptedAnswer: { "@type": "Answer" as const, text: faq.answer },
-      })),
-    },
-  ],
-};
 
 const link = "font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary";
 const T = PRODUCT_TRUTHS;
 
 export function generateMetadata(): Metadata {
-  const title = "IPTV Subscription Pricing: $15.82/Month, $88.23/Year, No Auto-Renew";
+  const title = "IPTV Subscription Plans & Pricing 2026 | TryIPTV";
   const description =
     "IPTV subscription pricing: TryIPTV prepaid plans are $15.82 for 1 month, $38.30 for 3, $59.15 for 6 or $88.23 for 12. 2 connections, no auto-renewal.";
 
@@ -116,9 +65,8 @@ const planBestFor: Record<string, string> = {
 const planCardFeatures = [
   "HD and 4K Streams Where Available",
   "25,000+ Live Channels Worldwide",
-  "120,000+ Movies & TV Shows",
-  "PPV Events Included",
-  "VOD Access",
+  "120,000+ On-Demand (VOD) Movies & TV Shows",
+  "Pay-Per-View (PPV) Events Included",
   "Smart EPG (TV Guide) & Catch-Up TV",
   "Customer Support",
   "Multi-Device Compatibility",
@@ -275,9 +223,8 @@ export default async function IPTVSubscription() {
     <>
       <PageSchema
         path="/pricing"
-        name="IPTV Subscription Pricing: $15.82/Month, $88.23/Year, No Auto-Renew"
-        nodes={[pricingJsonLd, breadcrumbSchema]}
-        keep={["Product", "FAQPage"]}
+        name="IPTV Subscription Plans & Pricing 2026 | TryIPTV"
+        nodes={[breadcrumbSchema]}
       />
 
       {/* Hero + plans */}
@@ -404,6 +351,10 @@ export default async function IPTVSubscription() {
               }}
             />{" "}
             with the plan you want and support replies with payment instructions.
+          </p>
+          <p className="mx-auto mt-2 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
+            Catalog counts are approximate and can change as content availability changes. You can check the available selection during the{" "}
+            <Link href="/iptv-free-trial" className={link}>free trial</Link>.
           </p>
           <p className="mx-auto mt-2 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
             TryIPTV is run by {COMPANY.legalName} ({COMPANY.location}, operating since {COMPANY.foundingYear}). TryIPTV sells its own

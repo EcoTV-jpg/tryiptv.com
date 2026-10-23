@@ -3,7 +3,7 @@ import { Container } from "../shared/Container";
 import { SectionHeader } from "../shared/SectionHeader";
 import { Section } from "../shared/Section";
 import { MessageSquareCheck } from "lucide-react";
-import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
+import { COMPANY } from "@/lib/site-data/company";
 
 import feedback1 from "../../../public/images/feedback/customer-feedback-1.jpg";
 import feedback2 from "../../../public/images/feedback/customer-feedback-2.jpg";
@@ -15,35 +15,35 @@ export const customerFeedbackItems = [
   {
     id: "feedback-1",
     src: feedback1,
-    alt: "TryIPTV customer WhatsApp chat showing Xtream Codes API setup assistance on IPTV Smarters Pro",
+    alt: "WhatsApp support chat recommending a player app for Xtream Codes login details",
     title: "IPTV Smarters Pro Setup",
     highlight: "Xtream Codes API • Setup Completed",
   },
   {
     id: "feedback-2",
     src: feedback2,
-    alt: "TryIPTV customer support conversation on WhatsApp assisting with Smart TV OTT player playlist activation",
+    alt: "WhatsApp support chat about adding an account in a TV player app",
     title: "Smart TV OTT Player",
     highlight: "Live TV Setup • Support Assisted",
   },
   {
     id: "feedback-3",
     src: feedback3,
-    alt: "TryIPTV subscriber WhatsApp conversation showing M3U playlist and Xtream Codes delivery",
+    alt: "WhatsApp support chat in which login details are sent, with the details hidden",
     title: "M3U & Xtream Delivery",
     highlight: "M3U & Xtream Delivery",
   },
   {
     id: "feedback-4",
     src: feedback4,
-    alt: "TryIPTV 12-month prepaid subscription feedback on WhatsApp confirming Smart IPTV app MAC address activation",
+    alt: "WhatsApp support chat about activating the Smart IPTV app with a device MAC address",
     title: "12-Month Smart IPTV Activation",
     highlight: "Annual Subscription • MAC Address Loaded",
   },
   {
     id: "feedback-5",
     src: feedback5,
-    alt: "TryIPTV customer WhatsApp conversation about streaming setup and playback",
+    alt: "WhatsApp support chat about whether a VPN is needed",
     title: "Streaming Setup Feedback",
     highlight: "Stream Setup Feedback",
   },
@@ -55,8 +55,8 @@ export function CustomerFeedback() {
       <Container>
         <SectionHeader
           align="left"
-          title="Customer Support Conversations"
-          subtitle={`These WhatsApp conversations show how TryIPTV support delivers login details, sets up accounts, and helps customers configure their IPTV player apps. Personal details are blurred. TryIPTV support is available on WhatsApp and by email at ${PRODUCT_TRUTHS.support.email} for setup, billing, and playback questions.`}
+          title="How Does TryIPTV Support Work?"
+          subtitle={`TryIPTV support works on WhatsApp and by email at ${COMPANY.support.email}${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}.${COMPANY.support.responseTime ? ` Response time: ${COMPANY.support.responseTime.charAt(0).toLowerCase()}${COMPANY.support.responseTime.slice(1)}.` : ""} It covers setup, billing and playback questions. The screenshots below are example support conversations.`}
           eyebrow="Customer Support"
         />
 

@@ -47,9 +47,9 @@ export function supportContactPoint() {
   return {
     '@type': 'ContactPoint' as const,
     contactType: 'customer support',
+    name: 'WhatsApp and email support',
     email: COMPANY.support.email,
     url: COMPANY.support.whatsappUrl,
-    telephone: COMPANY.support.whatsappE164,
     ...(COMPANY.support.languages ? { availableLanguage: COMPANY.support.languages } : {}),
     ...(h
       ? {
@@ -113,11 +113,7 @@ export function generateOrganizationSchema(): WithContext<Organization> {
     'name': BRAND.name,
     'alternateName': [...BRAND.alternateNames],
     'url': `${siteConfig.url}/`,
-    // The counts carry their basis here, where AI systems and knowledge panels read the brand facts.
-    'description': BRAND.description.replace(
-      `${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows`,
-      `$& (${PRODUCT_TRUTHS.catalogueBasis})`,
-    ),
+    'description': BRAND.description,
     'slogan': BRAND.tagline,
     'logo': {
       '@type': 'ImageObject',

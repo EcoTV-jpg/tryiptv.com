@@ -12,8 +12,6 @@ export const PRODUCT_TRUTHS = {
   domain: SITE_URL,
   channels: "25,000+",
   vod: "120,000+",
-  /** How the two catalogue counts above were produced (owner-confirmed 2026-10-21). Recount and update together. */
-  catalogueBasis: "counted from our channel and on-demand lists, October 2026",
   connections: 2,
   trialDuration: "24 Hours",
   trialCost: "$0 (Free, no credit card required)",

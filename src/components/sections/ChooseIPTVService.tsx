@@ -95,7 +95,7 @@ export function ChooseIPTVService() {
           align="left"
           eyebrow="Before You Buy"
           title="How Do You Choose a Good IPTV Service?"
-          subtitle="Check these six things before paying any IPTV provider. Next to each one is what TryIPTV offers, so you can compare like for like."
+          subtitle="A good IPTV service lets you test it free, charges once without automatic renewal, states how many devices can stream at once, says who operates it, answers support messages and puts its refund rule in writing. Each check below sits next to what TryIPTV offers."
         />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {criteria.map((c) => (

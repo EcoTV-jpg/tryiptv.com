@@ -4,7 +4,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import type { BreadcrumbList } from 'schema-dts';
 import { siteConfig } from '../site-config';
 
-// Breadcrumb and FAQ data for the pricing page. The Product markup is built in src/app/pricing/page.tsx.
+// Breadcrumb and FAQ data for the pricing page. The FAQ is visible text only (no FAQPage markup).
 export const getPricingPageData = cache(
   async () => {
     const baseUrl = siteConfig.url;

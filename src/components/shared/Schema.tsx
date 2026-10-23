@@ -8,13 +8,13 @@ interface SchemaProps {
 }
 
 /**
- * One rule for structured data that rarely earns a Google rich result:
- * - FAQPage: Google no longer shows FAQ rich results for most sites; the markup still helps other engines and AI answers.
- * - HowTo: retired by Google.
- * - Product: the multi-duration subscription isn't a single eligible product listing.
+ * Types dropped by default. Valid Schema.org vocabulary is not the same as Google rich-result eligibility:
+ * - FAQPage: valid Schema.org, but Google no longer offers FAQ rich results, so no Google Search feature is expected.
+ * - HowTo: valid Schema.org; Google retired the HowTo rich result.
+ * - Product: valid Schema.org, but Google's product snippets and merchant listings target single-product pages
+ *   and on-page purchase. A subscription ordered off-page is neither, so it is not marked up as Product.
  * These types are dropped site-wide, at the top level and inside `@graph`, unless the page passes them in `keep`.
- * Pages that opt in: /faq, /about, /pricing and /iptv-free-trial (FAQ blocks that are a main part of the page;
- * /pricing also keeps Product). Any FAQ marked up this way must match the visible questions and answers.
+ * Pages that still opt in to FAQPage: /faq and /about. Marked-up FAQs must match the visible questions and answers.
  */
 const DROPPED_BY_DEFAULT = ['FAQPage', 'HowTo', 'Product'];
 

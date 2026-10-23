@@ -15,21 +15,6 @@ import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-c
 import { GuideScreenshot } from "@/components/guide";
 import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
 import { COMPANY } from "@/lib/site-data/company";
-import { trialFaqs as faqSchemaSource } from "@/lib/data/iptv-free-trial-page";
-import type { FAQPage, WithContext } from "schema-dts";
-
-// Opts in to FAQPage, which the shared <Schema> component drops by default.
-// Built from the same data as the visible FAQ so the two can't drift.
-const freeTrialFaqJsonLd: WithContext<FAQPage> = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": `${SITE_URL}/iptv-free-trial#faq`,
-  mainEntity: faqSchemaSource.map((faq) => ({
-    "@type": "Question" as const,
-    name: faq.question,
-    acceptedAnswer: { "@type": "Answer" as const, text: faq.answer },
-  })),
-};
 
 const freeTrialWhatsAppUrl =
   "https://wa.me/212694833293?text=Hello%20TryIPTV%2C%20I%20would%20like%20to%20start%20my%20free%20IPTV%20trial.";
@@ -262,8 +247,7 @@ export default async function IptvFreeTrialPage() {
       <PageSchema
         path="/iptv-free-trial"
         name="IPTV Free Trial: 24 Hours Free, No Credit Card Needed"
-        nodes={[serviceSchema, freeTrialFaqJsonLd, breadcrumbSchema]}
-        keep={["FAQPage"]}
+        nodes={[serviceSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

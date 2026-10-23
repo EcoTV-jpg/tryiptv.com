@@ -46,12 +46,6 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'www.demotemplates.online',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'image.tmdb.org',
         port: '',
         pathname: '/**',
