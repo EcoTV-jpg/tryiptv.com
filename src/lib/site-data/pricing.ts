@@ -14,7 +14,7 @@ export const plans = [
       "Technical support via WhatsApp & email",
     ],
     isPopular: false,
-    checkoutUrl: "https://wa.me/tryiptvcom?text=I%20would%20like%20to%20order%20the%201%20Month%20IPTV%20plan.",
+    checkoutUrl: "https://wa.me/212694833293?text=I%20would%20like%20to%20order%20the%201%20Month%20IPTV%20plan.",
   },
   {
     id: "3-months",
@@ -30,7 +30,7 @@ export const plans = [
       "Technical support via WhatsApp & email",
     ],
     isPopular: false,
-    checkoutUrl: "https://wa.me/tryiptvcom?text=I%20would%20like%20to%20order%20the%203%20Months%20IPTV%20plan.",
+    checkoutUrl: "https://wa.me/212694833293?text=I%20would%20like%20to%20order%20the%203%20Months%20IPTV%20plan.",
   },
   {
     id: "6-months",
@@ -46,7 +46,7 @@ export const plans = [
       "Technical support via WhatsApp & email",
     ],
     isPopular: false,
-    checkoutUrl: "https://wa.me/tryiptvcom?text=I%20would%20like%20to%20order%20the%206%20Months%20IPTV%20plan.",
+    checkoutUrl: "https://wa.me/212694833293?text=I%20would%20like%20to%20order%20the%206%20Months%20IPTV%20plan.",
   },
   {
     id: "12-months",
@@ -62,6 +62,6 @@ export const plans = [
       "Technical support via WhatsApp & email",
     ],
     isPopular: true,
-    checkoutUrl: "https://wa.me/tryiptvcom?text=I%20would%20like%20to%20order%20the%2012%20Months%20IPTV%20plan.",
+    checkoutUrl: "https://wa.me/212694833293?text=I%20would%20like%20to%20order%20the%2012%20Months%20IPTV%20plan.",
   },
 ];

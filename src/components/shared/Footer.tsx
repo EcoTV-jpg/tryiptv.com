@@ -110,7 +110,7 @@ export function Footer() {
                 }}
               />
               <a
-                href="https://wa.me/tryiptvcom"
+                href="https://wa.me/212694833293"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group/wa inline-flex min-h-11 items-center gap-2 py-1 font-medium pointer-fine:min-h-0 text-muted-foreground/90 transition-colors hover:text-primary"

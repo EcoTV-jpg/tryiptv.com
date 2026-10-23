@@ -59,7 +59,7 @@ export const COMPANY = {
     whatsappDisplay: "+212 694-833293",
     /** Same number in E.164 form, for schema `telephone`. */
     whatsappE164: "+212694833293",
-    whatsappUrl: "https://wa.me/tryiptvcom",
+    whatsappUrl: "https://wa.me/212694833293",
     /** Owner-supplied 2026-10-20 (DMCA page text); confirm the inbox exists (eeat-confirm Q13). */
     dmcaEmail: "care@tryiptv.com",
     /** Confirmed 2026-10-21: same hours for WhatsApp and email. */
