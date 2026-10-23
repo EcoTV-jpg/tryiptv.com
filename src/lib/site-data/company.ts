@@ -55,7 +55,10 @@ export const COMPANY = {
   ] as { name: string; role: string; bio?: string }[],
   support: {
     email: "support@tryiptv.com",
-    whatsappDisplay: "+1 (520) 564-8298",
+    /** Owner-supplied 2026-10-23; replaces +1 (520) 564-8298. */
+    whatsappDisplay: "+212 694-833293",
+    /** Same number in E.164 form, for schema `telephone`. */
+    whatsappE164: "+212694833293",
     whatsappUrl: "https://wa.me/tryiptvcom",
     /** Owner-supplied 2026-10-20 (DMCA page text); confirm the inbox exists (eeat-confirm Q13). */
     dmcaEmail: "care@tryiptv.com",

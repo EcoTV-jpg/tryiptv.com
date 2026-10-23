@@ -49,6 +49,7 @@ export function supportContactPoint() {
     contactType: 'customer support',
     email: COMPANY.support.email,
     url: COMPANY.support.whatsappUrl,
+    telephone: COMPANY.support.whatsappE164,
     ...(COMPANY.support.languages ? { availableLanguage: COMPANY.support.languages } : {}),
     ...(h
       ? {

@@ -9,7 +9,7 @@ Researched 2026-10-20. Sources are in `seo/research/brand.md` §4–5.
 - **Short bio (≤160 characters):** `Prepaid IPTV service: live TV and on-demand video on your own devices and player apps. No auto-renewal, 24-hour free trial.`
 - **Long description:** `BRAND.description` (2 sentences)
 - **Avatar:** `/brand-logo-square.png` (symbol). Cover or banner: `/logo.png` on `#040506`.
-- **Contact:** support@tryiptv.com · WhatsApp +1 (520) 564-8298
+- **Contact:** support@tryiptv.com · WhatsApp +212 694-833293 (wa.me/tryiptvcom)
 
 **Rules**
 - Add a profile to `sameAs` in `src/lib/site-data/socials.ts` (`publicBrandSocialLinks`) only after it exists, is owned by TryIPTV and is active.
