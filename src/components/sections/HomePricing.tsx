@@ -7,7 +7,7 @@ import { Container } from "../shared/Container";
 import { Section } from "../shared/Section";
 import { SectionHeader } from "../shared/SectionHeader";
 import { cn } from "@/lib/utils";
-import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
+import { PRODUCT_TRUTHS } from "@/lib/site-config";
 
 const PLANS = [
   {
@@ -83,9 +83,9 @@ export function HomePricing() {
     <Section id="pricing">
       <Container>
         <SectionHeader
-          eyebrow="Prepaid Subscriptions"
-          title="How Much Does TryIPTV Cost?"
-          subtitle={`TryIPTV costs ${FACT_TEXT.priceList}, which works out to ${FACT_TEXT.lowestMonthly} a month on the 12-month plan. Each plan is a single prepaid payment with no automatic renewal, and every plan includes the same channels and ${PRODUCT_TRUTHS.connections} simultaneous connections; only the duration changes.`}
+          eyebrow="IPTV Pricing"
+          title="IPTV Subscription Plans"
+          subtitle={`Choose your IPTV plan with ${PRODUCT_TRUTHS.channels} live channels, HD and 4K streams where available, and login details usually within ${PRODUCT_TRUTHS.activationTime}. Every plan is prepaid in USD with no automatic renewal, and includes ${PRODUCT_TRUTHS.connections} simultaneous connections.`}
         />
 
         <div className="mx-auto grid max-w-md grid-cols-1 gap-4 sm:max-w-none sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
