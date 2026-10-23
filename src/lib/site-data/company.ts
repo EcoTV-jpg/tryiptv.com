@@ -17,7 +17,8 @@ export const COMPANY = {
   /** Brand name, as used everywhere (Bing §16: one consistent entity name). */
   brand: "TryIPTV",
   /** Confirmed by the owner 2026-10-21. */
-  legalName: "Simo Alaoui LLC" as string | null,
+  /** Owner-changed 2026-10-23 from "Simo Alaoui LLC" (registration number, location and team left as they were, per owner). */
+  legalName: "Karim Adeyemi" as string | null,
   /** Confirmed 2026-10-21. Shown on /about and /press; the registry is not yet confirmed (`registry`). */
   registrationNumber: "8683949" as string | null,
   /** Confirmed 2026-10-21. (Its Albany address is the registry's own office, not TryIPTV's: never use it as `address`.) */
@@ -44,7 +45,7 @@ export const COMPANY = {
     "TryIPTV started with a simple goal: make IPTV easier to set up and easier to understand, for people tired of confusing instructions and service they couldn't rely on. We built it around simple prepaid plans, wide device compatibility, step-by-step setup guides and support you can actually reach. We keep refining the experience, so that getting started, and managing a subscription afterwards, takes as little effort as possible." as string | null,
   /** Owner-approved short "About TryIPTV" (homepage FAQ, footer). Keep in sync with PRODUCT_TRUTHS. */
   summary:
-    "TryIPTV is an IPTV subscription service operated by Simo Alaoui LLC, based in New York, United States. You watch on your own devices through a compatible IPTV player app." as string | null,
+    "TryIPTV is an IPTV subscription service operated by Karim Adeyemi, based in New York, United States. You watch on your own devices through a compatible IPTV player app." as string | null,
   /** People who may be named publicly. Only real people who agreed to be listed. */
   team: [
     {

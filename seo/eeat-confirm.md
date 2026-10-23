@@ -13,7 +13,8 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 - An invented address, author or licence is rated "Lowest" by Google's rater guidelines (§4.5.3). It is worse than leaving the fact out.
 
 ## Company and About page (`COMPANY` in company.ts)
-1. ✅ **Answered 2026-10-21:** Simo Alaoui LLC. → `legalName`
+1. ✅ **Changed 2026-10-23:** Karim Adeyemi (was Simo Alaoui LLC). → `legalName`
+    - ⚠️ **Check:** registration number 8683949 (New York Department of State) was given for Simo Alaoui LLC and is still shown next to the new operator name. Confirm it belongs to Karim Adeyemi, or send the correct details.
 2. ✅ **Answered 2026-10-21:** 8683949, New York Department of State. (The registry's Albany address is not TryIPTV's address and is not published as one.) → `registrationNumber`, `registry`
 3. **VAT or tax ID**, if you want it published. Google lists vatID as a trust signal. → `vatOrTaxId`
 4. **Registered or postal address**, if it should be published. It must be real; never a virtual or invented address. → `address`
@@ -45,9 +46,9 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 21. **4K:** which channels or titles are actually 4K? The site now says "HD and 4K streams where available". Confirm that this is accurate.
 
 ## Policies
-22. ◐ **Entity answered 2026-10-21:** Simo Alaoui LLC (Terms §17 now names it). Still open: registered address, if it should be published. → `address`
+22. ◐ **Entity answered 2026-10-21:** Karim Adeyemi (Terms §17 names it; was Simo Alaoui LLC). Still open: registered address, if it should be published. → `address`
 23. ✅ **Answered 2026-10-21:** laws of the State of New York, without regard to conflict-of-law principles; exclusive jurisdiction of the state and federal courts located in New York. Shown verbatim in Terms §17. → `governingLaw`
-24. ◐ **Answered in part 2026-10-21:** the policy now names Simo Alaoui LLC (New York, United States) as responsible for the data. Still open: postal address for privacy requests, if required.
+24. ◐ **Answered in part 2026-10-21:** the policy now names Karim Adeyemi (New York, United States; was Simo Alaoui LLC) as responsible for the data. Still open: postal address for privacy requests, if required.
 25. **Privacy:** how long do you keep support messages, order records and trial requests before deleting them?
 26. **Privacy:** are the processors listed correct and complete? Listed: Vercel, Cloudflare (CDN and Turnstile), Resend, WhatsApp, Google Analytics and Sentry. Do you also use a CRM, a billing panel or an email provider for credentials?
 27. **DMCA:** name and postal address of your designated agent, and is that agent registered with the U.S. Copyright Office? Safe-harbour protection under 17 U.S.C. 512 requires registration. → `dmcaAgent`
