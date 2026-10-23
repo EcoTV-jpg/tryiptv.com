@@ -32,7 +32,7 @@ const freeTrialFaqJsonLd: WithContext<FAQPage> = {
 };
 
 const freeTrialWhatsAppUrl =
-  "https://wa.me/15205648298?text=Hello%20TryIPTV%2C%20I%20would%20like%20to%20start%20my%20free%20IPTV%20trial.";
+  "https://wa.me/tryiptvcom?text=Hello%20TryIPTV%2C%20I%20would%20like%20to%20start%20my%20free%20IPTV%20trial.";
 
 const trialLengthRows = [
   ["24 hours", "Player setup, channel list, one full prime-time evening, support response time", "A second weekend of sport", "TryIPTV: 24 hours, no credit card"],

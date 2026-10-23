@@ -31,7 +31,7 @@ export const PRODUCT_TRUTHS = {
   },
   support: {
     email: "support@tryiptv.com",
-    whatsapp: "+15205648298",
+    whatsapp: "https://wa.me/tryiptvcom",
   },
   paymentMethods: [
     "Cryptocurrency",
@@ -67,7 +67,7 @@ export const siteConfig = {
   description: `TryIPTV is a prepaid IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, watched on your own devices through compatible IPTV player apps. Plans start at $${PRODUCT_TRUTHS.plans[0].price.toFixed(0)} with ${PRODUCT_TRUTHS.connections} connections, no automatic renewal and a 24-hour free trial.`,
   links: {
     email: "support@tryiptv.com",
-    whatsapp: "+15205648298",
+    whatsapp: "https://wa.me/tryiptvcom",
   },
 } as const;
 

@@ -27,7 +27,7 @@ const title = "About Us: Best IPTV Service, Trial & Support | TryIPTV";
 const description =
   "Learn who runs TryIPTV, how the prepaid IPTV service works, what plans and the 24-hour free trial include, and how to reach support or request a refund.";
 const canonical = "/about";
-const whatsappUrl = `https://wa.me/${siteConfig.links.whatsapp.replace(/\D/g, "")}`;
+const whatsappUrl = siteConfig.links.whatsapp;
 
 export function generateMetadata(): Metadata {
   return { ...generatePageMetadata({ title, description, canonical }), title: { absolute: title } };
