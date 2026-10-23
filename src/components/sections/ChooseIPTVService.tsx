@@ -51,7 +51,7 @@ const criteria: Criterion[] = [
   },
   {
     icon: Building2,
-    title: "A named company behind it",
+    title: "Who runs TryIPTV",
     why: "You should know who you are paying and how to reach them.",
     here: (
       <>

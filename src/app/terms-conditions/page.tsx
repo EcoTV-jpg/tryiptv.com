@@ -242,7 +242,7 @@ export default function TermsPage() {
                 items={[
                   `Plans: ${FACT_TEXT.priceList}. All plans are prepaid, with no recurring charges or automatic renewals.`,
                   ...(COMPANY.paymentMethods ? [`Payment methods: ${COMPANY.paymentMethods}. For cryptocurrency payments, you are responsible for submitting the correct network and wallet details.`] : []),
-                  `Activation: login details are typically delivered within ${PRODUCT_TRUTHS.activationTime} after payment is confirmed.`,
+                  `Activation: login details are typically delivered within ${PRODUCT_TRUTHS.activationTime} after payment is confirmed, ${PRODUCT_TRUTHS.activationHours}.`,
                   `Free trial: ${FACT_TEXT.trialHours} hours, $0, no credit card required; one trial per household or user.`,
                 ]}
               />

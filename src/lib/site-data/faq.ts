@@ -101,7 +101,7 @@ export const faqTopics: FaqTopic[] = [
       },
       {
         question: "How long does IPTV activation take after payment?",
-        answer: `Your login details are typically delivered on WhatsApp within ${T.activationTime} after payment is confirmed.`,
+        answer: `Your login details are typically delivered on WhatsApp within ${T.activationTime} after payment is confirmed, ${T.activationHours}.`,
       },
       {
         question: "Can I get my money back if TryIPTV does not suit me?",

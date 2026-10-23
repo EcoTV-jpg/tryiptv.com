@@ -270,7 +270,7 @@ const setupFaqs: FaqItem[] = [
   {
     question: "How long does it take to activate and configure my subscription?",
     answer:
-      "Credentials are automatically prepared and typically delivered within 5–15 minutes following order or trial confirmation. Once you receive your credentials, entering your Server URL, Username, and Password into your player completes the initial connection.",
+      `Credentials are typically delivered on WhatsApp within ${PRODUCT_TRUTHS.activationTime} of order or trial confirmation, ${PRODUCT_TRUTHS.activationHours}. Once you receive your credentials, entering your Server URL, Username, and Password into your player completes the initial connection.`,
   },
 ];
 

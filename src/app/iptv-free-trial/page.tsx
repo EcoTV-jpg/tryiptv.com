@@ -123,7 +123,7 @@ const quickFacts = [
   ["Cost", "$0"],
   ["Trial duration", "24 consecutive hours from activation"],
   ["Payment details required", "None (no credit card or billing information requested)"],
-  ["Typical activation time", `${T.activationTime} after request confirmation`],
+  ["Typical activation time", `${T.activationTime} after request confirmation, ${T.activationHours}`],
   ["Access formats", "Xtream Codes (Server URL, Username, Password) and M3U playlist URL"],
   [
     "Supported devices",
@@ -462,8 +462,9 @@ export default async function IptvFreeTrialPage() {
                 "One evening answers what decides a purchase: your player takes the login, your channels are there, streams hold at peak time and support replies.",
                 "A 48-hour trial adds a second evening.",
                 "A 72-hour IPTV trial, sometimes sold as a 3-day IPTV free trial, adds a weekend of live sport.",
-              ].map((point) => (
-                <li key={point} className="flex items-start gap-2.5">
+              ].map((point, i) => (
+                // Points 2-3 describe other providers' 48h/72h trials, not TryIPTV's: check:facts skips them.
+                <li key={point} className="flex items-start gap-2.5" data-facts-ignore={i > 0 ? "" : undefined}>
                   <Check className="mt-1.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
                   <span>{point}</span>
                 </li>

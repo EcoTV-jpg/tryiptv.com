@@ -20,6 +20,8 @@ export const PRODUCT_TRUTHS = {
   /** The trial includes the same connections as a paid plan (owner-confirmed 2026-10-21). */
   trialConnections: "2 simultaneous connections, same as paid plans",
   activationTime: "5–15 minutes",
+  /** Owner-confirmed 2026-10-21: support runs 9:00 AM–10:00 PM ET daily; requests outside those hours are queued until support reopens. */
+  activationHours: "during support hours (9:00 AM–10:00 PM ET); requests sent outside those hours are answered when support reopens",
   billing: "Prepaid plans, no automatic renewal",
   /** Mirrors /refund-policy (owner-supplied 2026-10-20). Not an unconditional money-back guarantee. */
   refund: {

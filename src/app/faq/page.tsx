@@ -84,7 +84,7 @@ export default async function FaqPage() {
                 <li key={t.id}>
                   <a
                     href={`#${t.id}`}
-                    className="tap-target inline-flex items-center rounded-full border border-white/[0.09] bg-card px-3 py-1 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                    className="inline-flex items-center rounded-full border border-white/[0.09] bg-card px-3 py-1 pointer-coarse:min-h-11 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
                   >
                     {t.title}
                   </a>

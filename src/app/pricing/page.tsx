@@ -395,7 +395,7 @@ export default async function IPTVSubscription() {
           </div>
 
           <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
-            Choosing a plan opens WhatsApp, where support sends payment instructions. Credentials typically arrive within <span className="whitespace-nowrap">{T.activationTime}</span> after payment confirmation.
+            Choosing a plan opens WhatsApp, where support sends payment instructions. Credentials typically arrive within <span className="whitespace-nowrap">{T.activationTime}</span> {T.activationHours.split(";")[0]}, after payment confirmation.
             {COMPANY.support.hours ? ` Support answers ${COMPANY.support.hours}.` : ""}
             {COMPANY.support.outOfHours ? ` ${COMPANY.support.outOfHours}` : ""}
           </p>
@@ -566,7 +566,8 @@ export default async function IPTVSubscription() {
                 </thead>
                 <tbody className="divide-y divide-white/[0.06] text-muted-foreground">
                   {costComparisonRows.map((row) => (
-                    <tr key={row.option} className="transition-colors hover:bg-white/[0.02]">
+                    // Third-party rows are sourced competitor/cable figures, not TryIPTV prices: check:facts skips them.
+                    <tr key={row.option} className="transition-colors hover:bg-white/[0.02]" data-facts-ignore={"isTryIptv" in row ? undefined : ""}>
                       <th
                         scope="row"
                         className={`whitespace-nowrap ${td} font-semibold sm:px-6 ${"isTryIptv" in row ? "text-primary" : "text-foreground"}`}
@@ -585,11 +586,11 @@ export default async function IPTVSubscription() {
           </div>
 
           <div className="mx-auto mt-8 max-w-3xl">
-            <p className={prose}>
+            <p className={prose} data-facts-ignore="">
               Run the annual line: the 12-month plan at $88.23 sits an estimated $1,472–$1,952 below a cable bill with fees and $793.41 below the three-app stack.
             </p>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">Sources (US list prices, checked October 21, 2026):</p>
-            <ul className="mt-1.5 list-disc space-y-1 pl-5 text-sm leading-6 text-muted-foreground">
+            <ul className="mt-1.5 list-disc space-y-1 pl-5 text-sm leading-6 text-muted-foreground" data-facts-ignore="">
               {costSources.map((s) => (
                 <li key={s.href}>
                   {s.label}:{" "}
@@ -694,7 +695,7 @@ export default async function IPTVSubscription() {
               Search for IPTV subscription pricing and you get a wall of comparison pages quoting a plan, a channel count and a discount,
               usually in that order. Ignore the ads and look at where the market actually sits.
             </p>
-            <p className={prose}>
+            <p className={prose} data-facts-ignore="">
               Broadly, in the US in 2026: monthly terms run roughly $10–$25, annual prepay lands around $60–$120, and anything far outside
               those bands is telling you something. A $2.50 monthly plan either sells one connection, resells a trial, or won&apos;t
               answer in month two. A $45 monthly plan is mostly paying for a marketing budget.

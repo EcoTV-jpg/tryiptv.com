@@ -30,6 +30,11 @@ const allowedDollars = new Set([
     // Rounded to cents: 3 × 15.82 − 38.30 is 9.1599… in floating point.
     return [months * oneMonth, months * oneMonth - p.price].map((n) => Math.round(n * 100) / 100);
   }),
+  // Per-day and per-week equivalents of each plan (30-day or 365/12-day months; 52/12 weeks per month).
+  ...T.plans.flatMap((p) => {
+    const months = Math.round(p.price / p.monthlyEquivalent);
+    return [p.price / (months * 30), p.price / ((months * 365) / 12), p.price / ((months * 52) / 12)].map((n) => Math.round(n * 100) / 100);
+  }),
 ]);
 const num = (s) => Number(String(s).replace(/[^\d.]/g, ''));
 const words = { one: 1, two: 2, three: 3, four: 4, five: 5 };
@@ -76,13 +81,18 @@ const RULES = [
   },
   {
     name: 'dollar amount',
-    re: /\$(\d+(?:\.\d{2})?)(?!\d)/g,
-    ok: (m) => allowedDollars.has(Number(m[1])),
+    // Commas only as thousands separators: "$1,200" is 1200, while "$15.82, $12.77" stays two prices.
+    re: /\$((?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d{2})?)(?!\d)/g,
+    ok: (m) => allowedDollars.has(num(m[1])),
   },
 ];
 
 const toText = (html) =>
   html
+    // Elements marked data-facts-ignore hold sourced third-party figures (cable bills, other services'
+    // prices, other providers' trial lengths), not TryIPTV claims. Only leaf blocks are marked, so the
+    // lazy match to the first closing tag of the same name is exact.
+    .replace(/<(tr|p|li|ul)\b[^>]*\bdata-facts-ignore\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
     // keep JSON-LD (its claims count too) but drop other scripts and styles
     .replace(/<script(?![^>]*ld\+json)[^>]*>[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
