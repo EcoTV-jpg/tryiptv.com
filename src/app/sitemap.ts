@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site-config';
-import { INDEXABLE_ROUTES } from '@/lib/site-routes';
+import { getUrlInventory } from '@/lib/search-discovery';
 import { PAGE_IMAGES } from '@/lib/site-data/page-images';
 
 const baseUrl = SITE_URL;
@@ -24,15 +24,15 @@ const baseUrl = SITE_URL;
  * - Emits clean <loc> and truthful <lastmod>
  * - Omits deprecated/ignored priority and changefreq tags
  *
- * Source of truth: src/lib/site-routes.ts
+ * Source of truth: src/lib/site-routes.ts, read through src/lib/search-discovery.ts (shared with sitemap.txt).
  * Do NOT add URLs here manually — update site-routes.ts instead.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  return INDEXABLE_ROUTES.map((route) => ({
-    url: route.path === '/' ? baseUrl : `${baseUrl}${route.path}`,
+  return getUrlInventory().map((entry) => ({
+    url: entry.url,
     // Date-only (YYYY-MM-DD) as stored: no invented time of day.
-    lastModified: route.lastModified,
+    lastModified: entry.lastModified,
     // Image sitemap entries (Google Images) for pages with real content images.
-    ...(PAGE_IMAGES[route.path] ? { images: PAGE_IMAGES[route.path].map((src) => `${baseUrl}${src}`) } : {}),
+    ...(PAGE_IMAGES[entry.path] ? { images: PAGE_IMAGES[entry.path].map((src) => `${baseUrl}${src}`) } : {}),
   }));
 }

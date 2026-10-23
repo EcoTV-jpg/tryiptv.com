@@ -45,8 +45,8 @@ export const SITE_ROUTES: SiteRoute[] = [
   // ── Commercial ───────────────────────────────────────────────────────────────
   { path: '/',                  section: 'commercial', indexable: true,  lastModified: '2026-10-23' },
   { path: '/pricing',           section: 'commercial', indexable: true,  lastModified: '2026-10-23' },
-  { path: '/iptv-free-trial',   section: 'commercial', indexable: true,  lastModified: '2026-10-21' },
-  { path: '/setup',             section: 'commercial', indexable: true,  lastModified: '2026-10-06' },
+  { path: '/iptv-free-trial',   section: 'commercial', indexable: true,  lastModified: '2026-10-23' },
+  { path: '/setup',             section: 'commercial', indexable: true,  lastModified: '2026-10-23' },
 
   // ── Devices hub + device pages ────────────────────────────────────────────
   { path: '/devices',                section: 'devices', indexable: true,  lastModified: '2026-10-04' },
@@ -57,53 +57,53 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/devices/apple-tv-iptv',   section: 'devices', indexable: true,  lastModified: '2026-10-04' },
   { path: '/devices/chromecast-iptv', section: 'devices', indexable: true,  lastModified: '2026-10-04' },
   { path: '/devices/mag-box-iptv',    section: 'devices', indexable: true,  lastModified: '2026-10-04' },
-  { path: '/devices/roku-iptv',       section: 'devices', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/devices/roku-iptv',       section: 'devices', indexable: true,  lastModified: '2026-10-20' },
   { path: '/devices/windows-iptv',    section: 'devices', indexable: true,  lastModified: '2026-10-04' },
   { path: '/devices/iphone-iptv',     section: 'devices', indexable: true,  lastModified: '2026-10-20' },
   { path: '/devices/mac-iptv',        section: 'devices', indexable: true,  lastModified: '2026-10-04' },
 
   // ── Players hub + player pages ────────────────────────────────────────────
-  { path: '/players',                section: 'players', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/players',                section: 'players', indexable: true,  lastModified: '2026-10-21' },
   { path: '/players/iptv-smarters',  section: 'players', indexable: true,  lastModified: '2026-10-20' },
   { path: '/players/tivimate',       section: 'players', indexable: true,  lastModified: '2026-10-20' },
-  { path: '/players/xciptv',         section: 'players', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/players/xciptv',         section: 'players', indexable: true,  lastModified: '2026-10-22' },
   { path: '/players/televizo',       section: 'players', indexable: true,  lastModified: '2026-10-04' },
   { path: '/players/perfect-player', section: 'players', indexable: true,  lastModified: '2026-10-04' },
   { path: '/players/ott-navigator',  section: 'players', indexable: true,  lastModified: '2026-10-04' },
-  { path: '/players/iptv-extreme',   section: 'players', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/players/iptv-extreme',   section: 'players', indexable: true,  lastModified: '2026-10-22' },
 
   // ── Guides hub + guide pages ──────────────────────────────────────────────
   { path: '/guides',                     section: 'guides', indexable: true,  lastModified: '2026-10-21' },
   { path: '/guides/what-is-iptv',        section: 'guides', indexable: true,  lastModified: '2026-10-20' },
-  { path: '/guides/how-does-iptv-work',  section: 'guides', indexable: true,  lastModified: '2026-10-06' },
-  { path: '/guides/what-is-m3u',         section: 'guides', indexable: true,  lastModified: '2026-10-05' },
-  { path: '/guides/what-are-xtream-codes',section: 'guides', indexable: true,  lastModified: '2026-10-05' },
-  { path: '/guides/m3u-vs-xtream-codes', section: 'guides', indexable: true,  lastModified: '2026-10-05' },
-  { path: '/guides/what-is-epg',         section: 'guides', indexable: true,  lastModified: '2026-10-05' },
-  { path: '/guides/iptv-internet-speed', section: 'guides', indexable: true,  lastModified: '2026-10-06' },
-  { path: '/guides/iptv-vs-cable',       section: 'guides', indexable: true,  lastModified: '2026-10-06' },
+  { path: '/guides/how-does-iptv-work',  section: 'guides', indexable: true,  lastModified: '2026-10-20' },
+  { path: '/guides/what-is-m3u',         section: 'guides', indexable: true,  lastModified: '2026-10-20' },
+  { path: '/guides/what-are-xtream-codes',section: 'guides', indexable: true,  lastModified: '2026-10-20' },
+  { path: '/guides/m3u-vs-xtream-codes', section: 'guides', indexable: true,  lastModified: '2026-10-20' },
+  { path: '/guides/what-is-epg',         section: 'guides', indexable: true,  lastModified: '2026-10-20' },
+  { path: '/guides/iptv-internet-speed', section: 'guides', indexable: true,  lastModified: '2026-10-20' },
+  { path: '/guides/iptv-vs-cable',       section: 'guides', indexable: true,  lastModified: '2026-10-22' },
 
   // ── Help hub + help pages ─────────────────────────────────────────────────
-  { path: '/help',                        section: 'help', indexable: true,  lastModified: '2026-10-21' },
-  { path: '/help/iptv-buffering',         section: 'help', indexable: true,  lastModified: '2026-10-05' },
-  { path: '/help/iptv-not-working',       section: 'help', indexable: true,  lastModified: '2026-10-05' },
-  { path: '/help/iptv-login-not-working', section: 'help', indexable: true,  lastModified: '2026-10-05' },
+  { path: '/help',                        section: 'help', indexable: true,  lastModified: '2026-10-23' },
+  { path: '/help/iptv-buffering',         section: 'help', indexable: true,  lastModified: '2026-10-20' },
+  { path: '/help/iptv-not-working',       section: 'help', indexable: true,  lastModified: '2026-10-20' },
+  { path: '/help/iptv-login-not-working', section: 'help', indexable: true,  lastModified: '2026-10-20' },
   { path: '/help/m3u-not-loading',        section: 'help', indexable: true,  lastModified: '2026-10-05' },
   { path: '/help/epg-not-working',        section: 'help', indexable: true,  lastModified: '2026-10-05' },
 
   // ── Utility ───────────────────────────────────────────────────────────────
-  { path: '/about',      section: 'utility', indexable: true, lastModified: '2026-10-21' },
-  { path: '/faq',        section: 'utility', indexable: true, lastModified: '2026-10-20' },
-  { path: '/contact-us', section: 'utility', indexable: true, lastModified: '2026-10-20' },
+  { path: '/about',      section: 'utility', indexable: true, lastModified: '2026-10-23' },
+  { path: '/faq',        section: 'utility', indexable: true, lastModified: '2026-10-23' },
+  { path: '/contact-us', section: 'utility', indexable: true, lastModified: '2026-10-23' },
   { path: '/blog',       section: 'utility', indexable: false },
 
   // ── Legal ─────────────────────────────────────────────────────────────────
   { path: '/privacy-policy',  section: 'legal', indexable: true, lastModified: '2026-10-21' },
-  { path: '/terms-conditions',section: 'legal', indexable: true, lastModified: '2026-10-21' },
-  { path: '/refund-policy',   section: 'legal', indexable: true, lastModified: '2026-10-20' },
-  { path: '/disclaimer',      section: 'legal', indexable: true, lastModified: '2026-10-21' },
-  { path: '/dmca-report',     section: 'legal', indexable: true, lastModified: '2026-10-21' },
-  { path: '/press', section: 'utility', indexable: true, lastModified: '2026-10-20' },
+  { path: '/terms-conditions',section: 'legal', indexable: true, lastModified: '2026-10-23' },
+  { path: '/refund-policy',   section: 'legal', indexable: true, lastModified: '2026-10-23' },
+  { path: '/disclaimer',      section: 'legal', indexable: true, lastModified: '2026-10-23' },
+  { path: '/dmca-report',     section: 'legal', indexable: true, lastModified: '2026-10-23' },
+  { path: '/press', section: 'utility', indexable: true, lastModified: '2026-10-23' },
   // Owner-confirmed trust pages: indexable (and in the sitemap) only once a statement is confirmed.
   { path: '/content-licensing', section: 'legal', indexable: LICENSING_CONFIRMED, lastModified: '2026-10-20' },
   // Author profiles exist only for confirmed authors (src/lib/site-data/authors.ts).

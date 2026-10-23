@@ -877,7 +877,7 @@ export default function SetupPage() {
                 <Link href="/iptv-free-trial">Start 24-Hour Free Trial</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/pricing">View Prepaid Plans (${PRODUCT_TRUTHS.plans[0].price.toFixed(0)}/mo)</Link>
+                <Link href="/pricing">View Prepaid Plans (${PRODUCT_TRUTHS.plans[0].price.toFixed(2)}/mo)</Link>
               </Button>
             </div>
           </div>
