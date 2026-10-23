@@ -397,10 +397,16 @@ export default async function IPTVSubscription() {
           <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
             Choosing a plan opens WhatsApp, where support sends payment instructions. Credentials typically arrive within <span className="whitespace-nowrap">{T.activationTime}</span> {T.activationHours.split(";")[0]}, after payment confirmation.
             {COMPANY.support.hours ? ` Support answers ${COMPANY.support.hours}.` : ""}
-            {COMPANY.support.outOfHours ? ` ${COMPANY.support.outOfHours}` : ""}
+            {COMPANY.support.outOfHours ? ` ${COMPANY.support.outOfHours}` : ""} No WhatsApp? Email{" "}
+            <span
+              dangerouslySetInnerHTML={{
+                __html: `<!--email_off--><a href="mailto:${COMPANY.support.email}?subject=Plan%20order" class="${link}">${COMPANY.support.email}</a><!--/email_off-->`,
+              }}
+            />{" "}
+            with the plan you want and support replies with payment instructions.
           </p>
           <p className="mx-auto mt-2 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
-            TryIPTV is run by {COMPANY.legalName} ({COMPANY.location}, operating since {COMPANY.foundingYear}), which sells its own
+            TryIPTV is run by {COMPANY.legalName} ({COMPANY.location}, operating since {COMPANY.foundingYear}). TryIPTV sells its own
             subscriptions and issues the logins itself. <Link href="/about" className={link}>About TryIPTV</Link>.
           </p>
         </Container>

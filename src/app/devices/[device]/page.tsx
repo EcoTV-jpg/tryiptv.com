@@ -1,6 +1,7 @@
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
@@ -713,6 +714,12 @@ export default async function HowToPage({ params }: Props) {
               <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                 {description}
               </p>
+              {/* Phones: the header "Start free trial" button is hidden below sm, so offer it here above the fold. */}
+              <div className="mt-5 sm:hidden">
+                <Button asChild size="lg" className="w-full">
+                  <Link href="/iptv-free-trial">Start the free 24-hour trial</Link>
+                </Button>
+              </div>
 
               {/* Informational Specs Rail */}
               {(() => {

@@ -2,6 +2,7 @@ import { CheckIcon, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { COMPANY } from "@/lib/site-data/company";
 import { Container } from "../shared/Container";
 import { Section } from "../shared/Section";
 import { SectionHeader } from "../shared/SectionHeader";
@@ -158,7 +159,13 @@ export function HomePricing() {
         </div>
 
         <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
-          Choosing a plan opens WhatsApp, where support sends payment instructions. Choose 1 month for short-term use, 3 months for a shorter commitment, 6 months for balanced value, or 12 months for the lowest monthly equivalent. See the{" "}
+          Choosing a plan opens WhatsApp, where support sends payment instructions (no WhatsApp? email{" "}
+          <span
+            dangerouslySetInnerHTML={{
+              __html: `<!--email_off--><a href="mailto:${COMPANY.support.email}?subject=Plan%20order" class="font-medium text-foreground underline underline-offset-4 hover:text-primary">${COMPANY.support.email}</a><!--/email_off-->`,
+            }}
+          />{" "}
+          with the plan you want). Choose 1 month for short-term use, 3 months for a shorter commitment, 6 months for balanced value, or 12 months for the lowest monthly equivalent. See the{" "}
           <Link href="/refund-policy" className="font-medium text-foreground underline underline-offset-4 hover:text-primary">
             refund policy
           </Link>

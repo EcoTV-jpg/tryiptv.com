@@ -29,6 +29,7 @@ const baseUrl = SITE_URL;
 export default function sitemap(): MetadataRoute.Sitemap {
   return INDEXABLE_ROUTES.map((route) => ({
     url: route.path === '/' ? baseUrl : `${baseUrl}${route.path}`,
-    lastModified: route.lastModified ? new Date(route.lastModified) : undefined,
+    // Date-only (YYYY-MM-DD) as stored: no invented time of day.
+    lastModified: route.lastModified,
   }));
 }
