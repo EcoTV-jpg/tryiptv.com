@@ -30,7 +30,7 @@ const benefits: { icon: typeof Zap; title: string; description: React.ReactNode 
     icon: Zap,
     title: "Activation in 5–15 Minutes",
     description:
-      "Login details are typically delivered within 5–15 minutes after confirmation, for paid plans and the free trial.",
+      `Login details are typically delivered within ${PRODUCT_TRUTHS.activationTime} after confirmation, during support hours, for paid plans and the free trial.`,
   },
   {
     icon: CalendarCheck,
@@ -48,7 +48,7 @@ export function WhyChooseTryIPTV() {
           align="left"
           eyebrow="Why TryIPTV"
           title="What Do You Get With TryIPTV?"
-          subtitle={`TryIPTV is a prepaid IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows. You get login details for the IPTV player you already use: an Xtream Codes login (a server address, username and password) or an M3U link (a single playlist web address). Every plan includes ${PRODUCT_TRUTHS.connections} simultaneous connections, login details usually arrive within ${PRODUCT_TRUTHS.activationTime}, and no plan renews automatically.`}
+          subtitle={`TryIPTV is a prepaid IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows. You get login details for the IPTV player you already use: an Xtream Codes login (a server address, username and password) or an M3U link (a single playlist web address).`}
         />
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">

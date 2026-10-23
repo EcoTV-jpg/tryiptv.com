@@ -35,7 +35,7 @@ const CONTACTS = [
   {
     icon: MessagesSquare,
     label: "Customer Support",
-    detail: "WhatsApp & chat assistance",
+    detail: "WhatsApp & email assistance",
     href: "/contact-us",
     isExternal: false,
   },
@@ -79,7 +79,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "How many simultaneous connections are included?",
     answer:
-      "Every standard TryIPTV subscription includes 2 simultaneous connections, meaning up to two devices can stream at the same time.",
+      `Every TryIPTV plan, and the free trial, includes ${PRODUCT_TRUTHS.connections} simultaneous connections, meaning up to two devices can stream at the same time.`,
   },
   {
     question: "Do TryIPTV subscriptions renew automatically?",

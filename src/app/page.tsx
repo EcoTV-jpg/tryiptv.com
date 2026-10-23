@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/Hero";
 import { WhyChooseTryIPTV } from "@/components/sections/WhyChooseTryIPTV";
-import { ChooseIPTVService } from "@/components/sections/ChooseIPTVService";
 import { HomePricing } from "@/components/sections/HomePricing";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Devices } from "@/components/sections/Devices";
@@ -13,9 +12,9 @@ const FAQ = dynamic(() => import("@/components/sections/FAQ").then((mod) => mod.
 import { PageSchema } from "@/components/shared/Schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "Best IPTV Service 2026: 25,000+ Channels, No Auto-Renew | TryIPTV";
+const title = "Best IPTV Service 2026: 25,000+ Channels & Free Trial | TryIPTV";
 const description =
-  "Best IPTV with 25,000+ live channels and 120,000+ movies: pay once from $15.82, no auto-renewal, 2 connections, 24-hour free trial.";
+  "TryIPTV offers 25,000+ live channels and 120,000+ movies, with plans from $15.82, 2 simultaneous connections, no auto-renewal, and a 24-hour free trial.";
 
 export function generateMetadata(): Metadata {
   const baseMetadata = generatePageMetadata({
@@ -55,7 +54,6 @@ export default function Home() {
       <Hero />
       <HomePricing />
       <WhyChooseTryIPTV />
-      <ChooseIPTVService />
       <HowItWorks />
       <Devices />
       <CustomerFeedback />
