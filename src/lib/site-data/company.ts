@@ -56,7 +56,7 @@ export const COMPANY = {
   support: {
     email: "support@tryiptv.com",
     whatsappDisplay: "+1 (520) 564-8298",
-    whatsappUrl: "https://wa.me/15205648298",
+    whatsappUrl: "https://wa.me/tryiptvcom",
     /** Owner-supplied 2026-10-20 (DMCA page text); confirm the inbox exists (eeat-confirm Q13). */
     dmcaEmail: "care@tryiptv.com",
     /** Confirmed 2026-10-21: same hours for WhatsApp and email. */
