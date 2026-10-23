@@ -22,7 +22,7 @@ export function generateMetadata(): Metadata {
     title,
     description,
     canonical: "/",
-    image: "https://www.tryiptv.com/images/best-iptv-service.png",
+    image: "https://www.tryiptv.com/images/best-iptv-service-og.jpg",
   });
 
   return {
@@ -32,16 +32,18 @@ export function generateMetadata(): Metadata {
       ...baseMetadata.openGraph,
       images: [
         {
-          url: "https://www.tryiptv.com/images/best-iptv-service.png",
+          url: "https://www.tryiptv.com/images/best-iptv-service-og.jpg",
+          // 1.91:1 share crop of the hero, 61 KB: WhatsApp skips link previews for images over ~300 KB,
+          // and the 711 KB hero PNG was too large.
           width: 1024,
-          height: 682,
+          height: 536,
           alt: "Couple watching TV with TryIPTV streaming service",
         },
       ],
     },
     twitter: {
       ...baseMetadata.twitter,
-      images: ["https://www.tryiptv.com/images/best-iptv-service.png"],
+      images: ["https://www.tryiptv.com/images/best-iptv-service-og.jpg"],
     },
   };
 }
