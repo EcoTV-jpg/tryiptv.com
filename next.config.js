@@ -73,6 +73,11 @@ const nextConfig = {
     agentUpgrade: 'security',
   },
   async headers() {
+    // CSP violation reports go to Sentry's security endpoint, built from the same public DSN as
+    // sentry.server.config.ts (a DSN is a public client key). Review reports before enforcing the CSP.
+    const SENTRY_DSN = 'https://2c6b3d1af5286155f96e3cc65959938f@o4512229364072448.ingest.us.sentry.io/4512229368266752';
+    const dsn = new URL(SENTRY_DSN);
+    const cspReportUrl = `https://${dsn.host}/api${dsn.pathname}/security/?sentry_key=${dsn.username}`;
     const cspReportOnlyHeader = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://analytics.ahrefs.com https://*.google-analytics.com https://challenges.cloudflare.com",
@@ -86,6 +91,8 @@ const nextConfig = {
       "base-uri 'self'",
       "form-action 'self'",
       "frame-ancestors 'self'",
+      `report-uri ${cspReportUrl}`,
+      'report-to csp-endpoint',
       // upgrade-insecure-requests omitted: browsers ignore it in a Report-Only policy and log a console error.
     ].join('; ');
 
@@ -120,6 +127,11 @@ const nextConfig = {
           {
             key: 'Content-Security-Policy-Report-Only',
             value: cspReportOnlyHeader
+          },
+          {
+            // Reporting API endpoint named by `report-to` in the CSP above.
+            key: 'Reporting-Endpoints',
+            value: `csp-endpoint="${cspReportUrl}"`
           },
         ],
       },
