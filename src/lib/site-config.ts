@@ -21,6 +21,13 @@ export const PRODUCT_TRUTHS = {
   /** Owner-confirmed 2026-10-21: support runs 9:00 AM–10:00 PM ET daily; requests outside those hours are queued until support reopens. */
   activationHours: "during support hours (9:00 AM–10:00 PM ET); requests sent outside those hours are answered when support reopens",
   billing: "Prepaid plans, no automatic renewal",
+  /**
+   * Owner-confirmed 2026-10-24: PPV events, catch-up TV and the USA/UK market are true claims.
+   * Shown on the homepage hero and the plan cards (HomePricing.tsx, pricing/page.tsx); do not flag or remove them.
+   */
+  ppvEvents: "Pay-Per-View (PPV) events included",
+  catchUpTv: "Catch-up TV with the Smart EPG (TV guide)",
+  markets: "USA, UK and more",
   /** Mirrors /refund-policy (owner-supplied 2026-10-20). Not an unconditional money-back guarantee. */
   refund: {
     /** No fixed refund window: refunds only when a working subscription can't be provided. */

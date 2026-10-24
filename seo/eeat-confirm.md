@@ -82,7 +82,7 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 
 ## Off-site, highest impact (no code)
 39. Do you have a **Trustpilot** (or BBB) profile? If yes, which URL? It can be added to `sameAs` once it has genuine reviews. Never buy or incentivise reviews without disclosure.
-40. Are the social profiles in `sameAs` (x.com/tryiptv, instagram.com/tryiptvofficial, facebook.com/tryiptv) active and owned by you?
+40. ✅ **Answered 2026-10-24 (owner-confirmed):** x.com/tryiptv, instagram.com/tryiptvofficial and facebook.com/tryiptvofficial are the owner's accounts (the old facebook.com/tryiptv link was replaced). → `socials.ts`, `sameAs`
 
 ## Brand entity (added on the `brand` branch)
 41. ✅ **Answered 2026-10-21:** press@tryiptv.com; media contact Simo Alaoui, Founder / Operations. Shown on /press and as a `press` ContactPoint in the Organization schema. → `support.pressEmail`, `support.mediaContact`
@@ -114,8 +114,8 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 The supplied text came from iptvv.ca and described that company's product. Prices (CAD $19/$29/$49/$79, one device), payment (Interac e-Transfer), delivery (email in 1–2 hours) and trial checkout (add-to-cart, login by email) were replaced with TryIPTV's facts: USD $16/$39/$60/$90, 2 connections, crypto/PayPal/Stripe, trial and login on WhatsApp in 5–15 minutes. The Canada-only items (Canadian channels, ISED link) were dropped.
 57. **"Full access, nothing locked":** does the trial open the complete channel list and on-demand library, at the same quality as paid plans? And how many connections does a trial get? The page currently says "connection limit confirmed when your login is issued". If the trial is truly identical, the H1 can go back to "24 Hours of Full Access" and the FAQ can say so.
 58. **"24/7 support" and "99.9% server uptime":** both were left off. 24/7 needs the real support hours (question 9); a 99.9% figure needs monitoring data (question 35).
-59. **Catch-up TV:** the supplied text listed "Smart EPG and catch-up". Is catch-up (replay) available on TryIPTV? Until confirmed the page only mentions the TV guide.
-60. **Target market:** the supplied text was written for Canada. Is TryIPTV aimed at a particular country? The site currently prices in USD and speaks to an international audience.
+59. ✅ **Answered 2026-10-24 (owner-confirmed):** catch-up TV is available, and PPV events are included. → `PRODUCT_TRUTHS.catchUpTv`, `ppvEvents`
+60. ✅ **Answered 2026-10-24 (owner-confirmed):** the service is for the USA, UK and more ("USA, UK & More" in the homepage H1). Prices stay in USD. → `PRODUCT_TRUTHS.markets`
 
 ## Pricing page (owner-supplied text, added 2026-10-20)
 Same source as the trial page. Replaced with TryIPTV facts: CAD prices and the 1–4 device tabs (TryIPTV has one price list with 2 connections), Interac e-Transfer and the order-number memo (now a crypto payment note), email login in 1–2 hours (now WhatsApp, 5–15 minutes). Left out: "High Performance Server", 99.9% uptime, 24/7 Canadian support, "taxes calculated by province".

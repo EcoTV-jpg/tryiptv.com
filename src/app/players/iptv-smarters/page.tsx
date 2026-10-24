@@ -30,8 +30,8 @@ const articleSchema = generateArticleSchema({
   description,
   dateModified: "2026-10-20",
   url: `${SITE_URL}${canonical}`,
-  // Real app screenshot so image results and AI answers show the Smarters login form.
-  image: `${SITE_URL}/images/iptv-smarters/iptv-smarters-xtream-codes-login-form.webp`,
+  // Original M3U diagram; the install-iptv.com screenshots were removed 2026-10-24.
+  image: `${SITE_URL}/images/iptv-smarters/m3u-link-server-url-username-password.webp`,
 });
 
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -106,31 +106,9 @@ export default function IptvSmartersPage() {
                 <li><strong className="text-foreground">Enter your connection details.</strong> In the first field, type any name for your playlist. Then enter the username, password, and server URL from your IPTV provider, and press <strong className="text-foreground">Add User</strong>.</li>
                 <li><strong className="text-foreground">Start watching.</strong> Once you are logged in, open <strong className="text-foreground">Live TV</strong>, <strong className="text-foreground">Movies</strong> (VOD), or <strong className="text-foreground">Series</strong> to browse and play your content.</li>
               </ol>
-              <GuideScreenshot
-                src="/images/iptv-smarters/iptv-smarters-login-with-xtream-codes-api.webp"
-                alt="IPTV Smarters Pro start screen with playlist, device-data, Xtream Codes API login and single-stream options"
-                caption="Step 1: choose Login with Xtream Codes API (or Load Your Playlist Or File/URL for an M3U link)."
-                width={1280}
-                height={692}
-                sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
-              />
-              <GuideScreenshot
-                src="/images/iptv-smarters/iptv-smarters-xtream-codes-login-form.webp"
-                alt="IPTV Smarters Pro login form with playlist name, username, password and server URL fields"
-                caption="Step 2: enter any playlist name, then your username, password and server URL, and press Add User."
-                note="Example values are placeholders, not real account details."
-                width={1280}
-                height={691}
-                sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
-              />
-              <GuideScreenshot
-                src="/images/iptv-smarters/iptv-smarters-home-live-tv-movies-series.webp"
-                alt="IPTV Smarters Pro home screen with Live TV, Movies and Series tiles plus Install EPG, Multi-Screen and Catch Up buttons"
-                caption="Step 3: after login, open Live TV, Movies or Series. Install EPG loads the TV guide."
-                width={1280}
-                height={720}
-                sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
-              />
+              {/* TODO(owner): your own screenshot here (iptv-smarters-login-with-xtream-codes-api.webp was removed: install-iptv.com). */}
+              {/* TODO(owner): your own screenshot here (iptv-smarters-xtream-codes-login-form.webp was removed: install-iptv.com). */}
+              {/* TODO(owner): your own screenshot here (iptv-smarters-home-live-tv-movies-series.webp was removed: install-iptv.com). */}
               <p className={textClass}>The detailed Xtream Codes and M3U sections below cover each field and common login mistakes.</p>
             </section>
 

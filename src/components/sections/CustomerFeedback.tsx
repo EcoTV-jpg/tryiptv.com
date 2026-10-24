@@ -56,7 +56,7 @@ export function CustomerFeedback() {
         <SectionHeader
           align="left"
           title="How Does TryIPTV Support Work?"
-          subtitle={`TryIPTV support works on WhatsApp and by email at ${COMPANY.support.email}${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}.${COMPANY.support.responseTime ? ` Response time: ${COMPANY.support.responseTime.charAt(0).toLowerCase()}${COMPANY.support.responseTime.slice(1)}.` : ""} It covers setup, billing and playback questions. The screenshots below are example support conversations.`}
+          subtitle={`TryIPTV support works on WhatsApp and by email at ${COMPANY.support.email}${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}.${COMPANY.support.responseTime ? ` Response time: ${COMPANY.support.responseTime.charAt(0).toLowerCase()}${COMPANY.support.responseTime.slice(1)}.` : ""} It covers setup, billing and playback questions. The screenshots below are example support conversations. Personal details are hidden.`}
           eyebrow="Customer Support"
         />
 

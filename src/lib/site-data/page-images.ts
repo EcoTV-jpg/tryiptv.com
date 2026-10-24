@@ -13,19 +13,15 @@ export const PAGE_IMAGES: Record<string, string[]> = {
     '/images/firestick/about-device-name.jpeg',
     '/images/firestick/install-unknown-apps-downloader-on.jpeg',
   ],
+  // TODO(owner): add your own TiviMate screenshots here. The six supplied with the install-iptv.com text
+  // (tivimate-*.webp) were removed from the image sitemap on 2026-10-24 (copyright).
   '/players/tivimate': [
-    '/images/tivimate/tivimate-player-menu-recording-multiview.webp',
-    '/images/tivimate/tivimate-add-playlist-options.webp',
-    '/images/tivimate/tivimate-playlist-name.webp',
-    '/images/tivimate/tivimate-xtream-codes-login.webp',
-    '/images/tivimate/tivimate-epg-tv-guide-grid.webp',
     '/images/tivimate/playlist-epg-settings.jpg',
-    '/images/tivimate/tivimate-channel-list-programme-schedule.webp',
   ],
+  // TODO(owner): add your own IPTV Smarters screenshots here. The three supplied with the install-iptv.com
+  // text (iptv-smarters-*.webp) were removed from the image sitemap on 2026-10-24 (copyright); the M3U
+  // diagram stays because it was redrawn as an original.
   '/players/iptv-smarters': [
-    '/images/iptv-smarters/iptv-smarters-login-with-xtream-codes-api.webp',
-    '/images/iptv-smarters/iptv-smarters-xtream-codes-login-form.webp',
-    '/images/iptv-smarters/iptv-smarters-home-live-tv-movies-series.webp',
     '/images/iptv-smarters/m3u-link-server-url-username-password.webp',
   ],
   // Press kit downloads.
