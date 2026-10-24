@@ -33,12 +33,13 @@ import {
   generateBreadcrumbSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "What Is an EPG? How IPTV TV Guides and XMLTV Data Work";
 const description =
   "A clear guide to Electronic Programme Guides (EPG) in IPTV: how TV guide data works, XMLTV and provider ingestion, channel matching, and time offsets.";
 const canonical = "/guides/what-is-epg";
-const modifiedDate = "2026-10-06";
+const modifiedDate = getLastModified("/guides/what-is-epg");
 
 /**
  * What Is EPG Guide
@@ -53,7 +54,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${title} | TryIPTV`,
     },
   };
 }

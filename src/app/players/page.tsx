@@ -24,7 +24,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${title} | TryIPTV`,
     },
   };
 }
@@ -291,7 +291,7 @@ export default function PlayersHubPage() {
 
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {playersList.map((player) => (
-              <Card key={player.slug} className="flex flex-col justify-between border-white/[0.08] bg-white/[0.02] transition-all duration-200 motion-safe:hover:-translate-y-1 hover:border-primary/40 hover:bg-white/[0.04]">
+              <Card key={player.slug} className="flex min-w-0 flex-col justify-between border-white/[0.08] bg-white/[0.02] transition-all duration-200 motion-safe:hover:-translate-y-1 hover:border-primary/40 hover:bg-white/[0.04]">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${player.badgeColor}`}>
@@ -312,11 +312,11 @@ export default function PlayersHubPage() {
                   <p className="text-base sm:text-sm text-muted-foreground leading-relaxed mb-6">
                     {player.description}
                   </p>
-                  <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between">
+                  <div className="pt-3 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
                     <span className="text-[11px] text-muted-foreground font-mono">
                       {player.pricing}
                     </span>
-                    <Button asChild size="sm" variant="ghost" className="h-8 text-primary hover:text-primary group p-0">
+                    <Button asChild size="sm" variant="ghost" className="h-auto min-h-8 whitespace-normal text-left text-primary hover:text-primary group p-0">
                       <Link href={`/players/${player.slug}`} className="flex items-center gap-1 text-xs">
                         {player.name} setup guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                       </Link>

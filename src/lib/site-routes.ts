@@ -110,6 +110,16 @@ export const SITE_ROUTES: SiteRoute[] = [
   ...AUTHORS.map((a) => ({ path: `/authors/${a.slug}`, section: 'utility' as const, indexable: true, lastModified: a.updated })),
 ];
 
+/**
+ * The one update date for a route: sitemap <lastmod>, Article dateModified, the visible "Updated" date and the
+ * RSS/Atom feeds all read it, so they cannot disagree. Throws at build time if a route has no date.
+ */
+export function getLastModified(path: string): string {
+  const date = SITE_ROUTES.find((r) => r.path === path)?.lastModified;
+  if (!date) throw new Error(`site-routes.ts has no lastModified for ${path}`);
+  return date;
+}
+
 /** All indexable routes that should appear in sitemap.xml */
 export const INDEXABLE_ROUTES = SITE_ROUTES.filter((r) => r.indexable);
 

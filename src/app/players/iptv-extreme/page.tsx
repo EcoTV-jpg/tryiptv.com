@@ -8,17 +8,18 @@ import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "IPTV Extreme Setup Guide: M3U, Xtream Codes & MAG/Stalker";
 const description = "Learn how to set up IPTV Extreme with M3U, Xtream Codes, or MAG/Stalker, configure EPG guide data, and diagnose playlist, login, and playback problems.";
 const canonical = "/players/iptv-extreme";
 
 export function generateMetadata(): Metadata {
-  return { ...generatePageMetadata({ title, description, canonical }), title: { absolute: title } };
+  return { ...generatePageMetadata({ title, description, canonical }), title: { absolute: `${title} | TryIPTV` } };
 }
 
 const articleSchema = generateArticleSchema({
-  headline: title, description, dateModified: "2026-10-08", url: `${SITE_URL}${canonical}`,
+  headline: title, description, dateModified: getLastModified("/players/iptv-extreme"), url: `${SITE_URL}${canonical}`,
 });
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },

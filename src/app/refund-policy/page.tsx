@@ -17,7 +17,7 @@ export function generateMetadata(): Metadata {
       description: "Read the TryIPTV refund policy: test free for 24 hours first, see when a refund is possible (account not delivered or service won't start), and how to ask.",
       canonical: "/refund-policy",
     }),
-    title: { absolute: "Refund Policy: 24-Hour Free Trial & Refund Eligibility" },
+    title: { absolute: "Refund Policy: 24-Hour Free Trial & Refund Eligibility | TryIPTV" },
   };
 }
 

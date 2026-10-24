@@ -1,5 +1,5 @@
 
-import articles from '@/lib/site-data/how-to.json';
+import { howToArticles as articles } from '@/lib/how-to';
 import { generateEmbedding } from '../vector-seo';
 import { unstable_cache as cache } from 'next/cache';
 

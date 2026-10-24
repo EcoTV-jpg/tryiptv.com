@@ -14,6 +14,7 @@ export const footerLinks = {
         { name: "Fire TV Stick", href: "/devices/firestick-iptv" },
         { name: "Android TV", href: "/devices/android-tv-iptv" },
         { name: "Apple TV", href: "/devices/apple-tv-iptv" },
+        { name: "iPhone & iPad", href: "/devices/iphone-iptv" },
         { name: "Samsung TV", href: "/devices/samsung-tv-iptv" },
         { name: "LG TV", href: "/devices/lg-tv-iptv" },
         { name: "Chromecast", href: "/devices/chromecast-iptv" },

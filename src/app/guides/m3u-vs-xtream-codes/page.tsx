@@ -18,6 +18,7 @@ import {
   generateBreadcrumbSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "M3U vs Xtream Codes: What's the Difference for IPTV?";
 const description =
@@ -26,7 +27,7 @@ const canonical = "/guides/m3u-vs-xtream-codes";
 // Shorter search-result description; `description` stays in the article schema.
 const metaDescription =
   "A neutral comparison of M3U playlists and Xtream Codes API logins for IPTV: how data is delivered, content organization, player support, and trade-offs.";
-const modifiedDate = "2026-10-12";
+const modifiedDate = getLastModified("/guides/m3u-vs-xtream-codes");
 
 /**
  * M3U vs Xtream Codes Comparison Guide
@@ -41,7 +42,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${title} | TryIPTV`,
     },
   };
 }

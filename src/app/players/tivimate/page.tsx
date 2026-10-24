@@ -9,6 +9,7 @@ import { Section } from "@/components/shared/Section";
 import { GuideScreenshot } from "@/components/guide";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "How to Install IPTV on TiviMate";
 const description =
@@ -20,14 +21,14 @@ const seoTitle = "TiviMate Setup Guide: M3U, Xtream Codes & EPG on Fire TV";
 export function generateMetadata(): Metadata {
   return {
     ...generatePageMetadata({ title: seoTitle, description, canonical }),
-    title: { absolute: seoTitle },
+    title: { absolute: `${seoTitle} | TryIPTV` },
   };
 }
 
 const articleSchema = generateArticleSchema({
   headline: title,
   description,
-  dateModified: "2026-10-20",
+  dateModified: getLastModified("/players/tivimate"),
   url: `${SITE_URL}${canonical}`,
   // Owner's own capture (1280x720); the install-iptv.com screenshots were removed 2026-10-24.
   image: `${SITE_URL}/images/tivimate/playlist-epg-settings.jpg`,

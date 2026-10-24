@@ -34,6 +34,7 @@ import {
   generateBreadcrumbSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "How to Troubleshoot and Fix IPTV Buffering: Practical Diagnostic Guide";
 const description =
@@ -41,7 +42,7 @@ const description =
 const canonical = "/help/iptv-buffering";
 // Shorter search-result title; `title` stays the article headline.
 const seoTitle = "How to Fix IPTV Buffering: A Practical Diagnostic Guide";
-const modifiedDate = "2026-10-11";
+const modifiedDate = getLastModified("/help/iptv-buffering");
 
 /**
  * IPTV Buffering Troubleshooting Guide
@@ -56,7 +57,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: seoTitle,
+      absolute: `${seoTitle} | TryIPTV`,
     },
   };
 }
@@ -99,7 +100,7 @@ const articleSchema = generateArticleSchema({
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },
   { name: "Help", item: `${SITE_URL}/help` },
-  { name: "IPTV Buffering", item: `${SITE_URL}${canonical}` },
+  { name: "IPTV Buffering Troubleshooting", item: `${SITE_URL}${canonical}` },
 ]);
 
 

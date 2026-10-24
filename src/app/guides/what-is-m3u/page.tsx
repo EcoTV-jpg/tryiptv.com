@@ -20,12 +20,13 @@ import {
   generateBreadcrumbSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "What Is an M3U Playlist? Structure, Syntax, and IPTV Usage";
 const description =
   "A comprehensive technical guide to M3U and M3U8 playlists in IPTV: header syntax, #EXTINF tags, community metadata attributes, and file handling.";
 const canonical = "/guides/what-is-m3u";
-const modifiedDate = "2026-10-11";
+const modifiedDate = getLastModified("/guides/what-is-m3u");
 
 /**
  * What Is M3U Guide
@@ -40,7 +41,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${title} | TryIPTV`,
     },
   };
 }

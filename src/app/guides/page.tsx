@@ -25,7 +25,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
-const title = "IPTV Guides & Technical Explainers — TryIPTV Knowledge Base";
+const title = "IPTV Guides & Technical Explainers";
 const description =
   "Technical IPTV guides explaining how streaming works, M3U playlists, Xtream Codes logins, electronic programme guides (EPG), and format comparisons.";
 const canonical = "/guides";
@@ -38,7 +38,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${title} | TryIPTV`,
     },
   };
 }

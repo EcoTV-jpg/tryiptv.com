@@ -29,6 +29,7 @@ import { ArticleProse, ArticleSummary } from "@/components/guide";
 import { FaqList, type FaqItem } from "@/components/sections/FAQ";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "IPTV Internet Speed: How Much Bandwidth Do You Need? | TryIPTV";
 const description =
@@ -36,7 +37,7 @@ const description =
 const canonical = "/guides/iptv-internet-speed";
 // Shorter search-result title; `title` stays the article headline.
 const seoTitle = "IPTV Internet Speed: How Much Bandwidth Do You Need?";
-const modifiedDate = "2026-10-12";
+const modifiedDate = getLastModified("/guides/iptv-internet-speed");
 
 export function generateMetadata(): Metadata {
   return {
@@ -47,7 +48,7 @@ export function generateMetadata(): Metadata {
       noIndex: false,
     }),
     title: {
-      absolute: seoTitle,
+      absolute: `${seoTitle} | TryIPTV`,
     },
   };
 }

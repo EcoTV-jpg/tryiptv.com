@@ -8,6 +8,7 @@ import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "XCIPTV Player Guide: App Availability, Setup & Features";
 const description =
@@ -17,21 +18,21 @@ const canonical = "/players/xciptv";
 export function generateMetadata(): Metadata {
   return {
     ...generatePageMetadata({ title, description, canonical }),
-    title: { absolute: title },
+    title: { absolute: `${title} | TryIPTV` },
   };
 }
 
 const articleSchema = generateArticleSchema({
   headline: title,
   description,
-  dateModified: "2026-10-11",
+  dateModified: getLastModified("/players/xciptv"),
   url: `${SITE_URL}${canonical}`,
 });
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },
   { name: "Players", item: `${SITE_URL}/players` },
-  { name: "XCIPTV Player", item: `${SITE_URL}${canonical}` },
+  { name: "XCIPTV", item: `${SITE_URL}${canonical}` },
 ]);
 
 const headingClass = "font-headline text-2xl font-bold tracking-tight text-foreground sm:text-3xl";

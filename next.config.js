@@ -198,8 +198,12 @@ const nextConfig = {
         destination: '/devices/android-tv-iptv',
         permanent: true,
       },
-      // /devices/ios had a how-to page (iphone-ipad) that is no longer in
-      // the approved allowlist. No approved iOS device page exists. 404.
+      // Old iOS slugs → the iPhone & iPad guide (/devices/iphone-iptv), one 308 hop each.
+      ...['/devices/iphone-ipad', '/devices/ios', '/devices/iphone', '/devices/ipad'].map((source) => ({
+        source,
+        destination: '/devices/iphone-iptv',
+        permanent: true,
+      })),
       {
         source: '/devices/macos',
         destination: '/devices/mac-iptv',
@@ -211,8 +215,6 @@ const nextConfig = {
         destination: '/devices/mag-box-iptv',
         permanent: true,
       },
-      // /devices/iphone-ipad has no approved replacement device page → 404
-      // (no redirect added intentionally)
 
       // ── 10 Device slug migration redirects (old -> new SEO-friendly routes) ──
       {

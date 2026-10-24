@@ -16,7 +16,7 @@ export function generateMetadata(): Metadata {
       description: "Read the TryIPTV DMCA and copyright policy: what a valid infringement notice must include, how takedown requests are handled, and where to send yours.",
       canonical: "/dmca-report",
     }),
-    title: { absolute: "DMCA Notice & Copyright Policy: Report Infringement" },
+    title: { absolute: "DMCA Notice & Copyright Policy: Report Infringement | TryIPTV" },
   };
 }
 

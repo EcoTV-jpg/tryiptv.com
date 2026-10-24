@@ -30,12 +30,13 @@ import { ArticleProse, ArticleSummary } from "@/components/guide";
 import { FaqList, type FaqItem } from "@/components/sections/FAQ";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "How Does IPTV Work? From Server to Screen | TryIPTV";
 const description =
   "Learn how IPTV works, from servers and internet delivery to IPTV players, M3U playlists, Xtream Codes, EPG, live TV and on-demand streaming.";
 const canonical = "/guides/how-does-iptv-work";
-const modifiedDate = "2026-10-06";
+const modifiedDate = getLastModified("/guides/how-does-iptv-work");
 
 export function generateMetadata(): Metadata {
   return {

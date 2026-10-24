@@ -8,6 +8,7 @@ import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "Televizo IPTV Player Setup Guide: M3U & Xtream Codes";
 const description =
@@ -17,14 +18,14 @@ const canonical = "/players/televizo";
 export function generateMetadata(): Metadata {
   return {
     ...generatePageMetadata({ title, description, canonical }),
-    title: { absolute: title },
+    title: { absolute: `${title} | TryIPTV` },
   };
 }
 
 const articleSchema = generateArticleSchema({
   headline: title,
   description,
-  dateModified: "2026-10-08",
+  dateModified: getLastModified("/players/televizo"),
   url: `${SITE_URL}${canonical}`,
 });
 

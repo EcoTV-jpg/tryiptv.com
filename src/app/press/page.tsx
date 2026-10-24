@@ -21,7 +21,7 @@ const description =
 const canonical = "/press";
 
 export function generateMetadata(): Metadata {
-  return { ...generatePageMetadata({ title, description, canonical }), title: { absolute: title } };
+  return { ...generatePageMetadata({ title, description, canonical }), title: { absolute: `${title} | TryIPTV` } };
 }
 
 const link = "font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary";

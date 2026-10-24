@@ -8,6 +8,7 @@ import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "Perfect Player IPTV Guide: Legacy Setup, M3U, EPG & Migration";
 const description = "Learn how to configure legacy Perfect Player by Niklabs with M3U and EPG, troubleshoot playback issues, and migrate safely to a maintained IPTV player.";
@@ -16,11 +17,11 @@ const canonical = "/players/perfect-player";
 const seoTitle = "Perfect Player IPTV: Legacy Setup, EPG & Migration";
 
 export function generateMetadata(): Metadata {
-  return { ...generatePageMetadata({ title: seoTitle, description, canonical }), title: { absolute: seoTitle } };
+  return { ...generatePageMetadata({ title: seoTitle, description, canonical }), title: { absolute: `${seoTitle} | TryIPTV` } };
 }
 
 const articleSchema = generateArticleSchema({
-  headline: title, description, dateModified: "2026-10-08", url: `${SITE_URL}${canonical}`,
+  headline: title, description, dateModified: getLastModified("/players/perfect-player"), url: `${SITE_URL}${canonical}`,
 });
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },

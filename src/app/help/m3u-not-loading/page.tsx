@@ -36,12 +36,13 @@ import {
   generateBreadcrumbSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "M3U Playlist Not Loading? How to Diagnose and Fix It";
 const description =
   "A systematic troubleshooting guide to diagnose M3U playlist loading errors, verify URL syntax and encoding, identify parser crashes, and restore access.";
 const canonical = "/help/m3u-not-loading";
-const modifiedDate = "2026-10-05";
+const modifiedDate = getLastModified("/help/m3u-not-loading");
 
 /**
  * M3U Not Loading Troubleshooting Guide
@@ -56,7 +57,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${title} | TryIPTV`,
     },
   };
 }
@@ -99,7 +100,7 @@ const articleSchema = generateArticleSchema({
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },
   { name: "Help", item: `${SITE_URL}/help` },
-  { name: "M3U Not Loading", item: `${SITE_URL}${canonical}` },
+  { name: "M3U Loading Troubleshooting", item: `${SITE_URL}${canonical}` },
 ]);
 
 

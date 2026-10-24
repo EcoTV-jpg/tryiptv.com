@@ -38,6 +38,7 @@ import {
   generateBreadcrumbSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "IPTV Not Working? Start With This Troubleshooting Checklist";
 const description =
@@ -46,7 +47,7 @@ const canonical = "/help/iptv-not-working";
 // Shorter search-result description; `description` stays in the article schema.
 const metaDescription =
   "A troubleshooting checklist to isolate why IPTV is not working: login errors, playlist failures, buffering streams, blank guides, or app crashes.";
-const modifiedDate = "2026-10-05";
+const modifiedDate = getLastModified("/help/iptv-not-working");
 
 /**
  * IPTV Not Working Master Troubleshooting Router
@@ -61,7 +62,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${title} | TryIPTV`,
     },
   };
 }
@@ -109,7 +110,7 @@ const articleSchema = generateArticleSchema({
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },
   { name: "Help", item: `${SITE_URL}/help` },
-  { name: "IPTV Troubleshooting Checklist", item: `${SITE_URL}${canonical}` },
+  { name: "Master Troubleshooting Checklist", item: `${SITE_URL}${canonical}` },
 ]);
 
 

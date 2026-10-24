@@ -36,6 +36,7 @@ import {
   generateBreadcrumbSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "EPG Not Working? How to Fix Missing or Incorrect IPTV Guide Data";
 const description =
@@ -43,7 +44,7 @@ const description =
 const canonical = "/help/epg-not-working";
 // Shorter search-result title; `title` stays the article headline.
 const seoTitle = "EPG Not Working? Fix Missing or Wrong IPTV Guide Data";
-const modifiedDate = "2026-10-06";
+const modifiedDate = getLastModified("/help/epg-not-working");
 
 /**
  * EPG Not Working Troubleshooting Guide
@@ -58,7 +59,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: seoTitle,
+      absolute: `${seoTitle} | TryIPTV`,
     },
   };
 }

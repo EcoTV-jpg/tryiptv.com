@@ -33,12 +33,13 @@ import { ArticleProse, ArticleSummary } from "@/components/guide";
 import { FaqList, type FaqItem } from "@/components/sections/FAQ";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "IPTV vs Cable TV: Cost, Setup & Reliability | TryIPTV";
 const description =
   "Compare IPTV and cable TV on cost, setup, devices, internet dependence, reliability, and on-demand access. See which TV model fits your home better.";
 const canonical = "/guides/iptv-vs-cable";
-const modifiedDate = "2026-10-06";
+const modifiedDate = getLastModified("/guides/iptv-vs-cable");
 
 export function generateMetadata(): Metadata {
   return {

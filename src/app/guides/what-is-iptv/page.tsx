@@ -11,12 +11,13 @@ import { Button } from "@/components/ui/button";
 import { FaqList } from "@/components/sections/FAQ";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "What Is IPTV? A Beginner's Guide to Internet TV";
 const description =
   "Learn what IPTV is, how it works, the devices and apps it runs on, and what you need to get started: internet speed, an app, and a subscription.";
 const canonical = "/guides/what-is-iptv";
-const modifiedDate = "2026-10-20";
+const modifiedDate = getLastModified("/guides/what-is-iptv");
 
 export function generateMetadata(): Metadata {
   return {
@@ -26,7 +27,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${title} | TryIPTV`,
     },
   };
 }

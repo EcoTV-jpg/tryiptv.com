@@ -33,6 +33,7 @@ import {
   generateBreadcrumbSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "IPTV Login Not Working? How to Diagnose Authentication Errors";
 const description =
@@ -40,7 +41,7 @@ const description =
 const canonical = "/help/iptv-login-not-working";
 // Shorter search-result title; `title` stays the article headline.
 const seoTitle = "IPTV Login Not Working? Diagnose Authentication Errors";
-const modifiedDate = "2026-10-06";
+const modifiedDate = getLastModified("/help/iptv-login-not-working");
 
 /**
  * IPTV Login Troubleshooting Guide
@@ -55,7 +56,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: seoTitle,
+      absolute: `${seoTitle} | TryIPTV`,
     },
   };
 }
@@ -98,7 +99,7 @@ const articleSchema = generateArticleSchema({
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", item: `${SITE_URL}/` },
   { name: "Help", item: `${SITE_URL}/help` },
-  { name: "IPTV Login Not Working", item: `${SITE_URL}${canonical}` },
+  { name: "IPTV Login Troubleshooting", item: `${SITE_URL}${canonical}` },
 ]);
 
 

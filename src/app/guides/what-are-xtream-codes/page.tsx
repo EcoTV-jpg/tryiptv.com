@@ -24,12 +24,13 @@ import {
   generateBreadcrumbSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "What Are Xtream Codes? The IPTV API Login Format Explained";
 const description =
   "A clear guide explaining what Xtream Codes credentials are, how the API-based login format works in IPTV players, and essential security considerations.";
 const canonical = "/guides/what-are-xtream-codes";
-const modifiedDate = "2026-10-06";
+const modifiedDate = getLastModified("/guides/what-are-xtream-codes");
 
 /**
  * What Are Xtream Codes Guide
@@ -44,7 +45,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${title} | TryIPTV`,
     },
   };
 }

@@ -18,7 +18,7 @@ export function generateMetadata(): Metadata {
       description: "Read how TryIPTV collects, uses, and protects your contact details and support messages, why payments run through external providers, and how to reach us.",
       canonical: "/privacy-policy",
     }),
-    title: { absolute: "Privacy Policy: How TryIPTV Collects & Protects Data" },
+    title: { absolute: "Privacy Policy: How TryIPTV Collects & Protects Data | TryIPTV" },
   };
 }
 
@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
           <SectionHeader
             as="h1"
             eyebrow="TryIPTV"
-            title="Privacy Policy | Protecting Your Data & Security"
+            title="Privacy Policy: Protecting Your Data & Security"
             subtitle="Your Data, Handled with Care"
           />
         </Container>

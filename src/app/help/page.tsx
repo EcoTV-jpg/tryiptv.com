@@ -31,7 +31,7 @@ import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
 import { PRODUCT_TRUTHS, SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { COMPANY } from "@/lib/site-data/company";
 
-const title = "IPTV Help & Troubleshooting Directory — TryIPTV Support";
+const title = "IPTV Help & Troubleshooting Directory";
 const description =
   "Troubleshooting guides for IPTV problems: fix buffering, resolve login failures, diagnose playlists that will not load, and correct TV guide errors fast.";
 const canonical = "/help";
@@ -44,7 +44,7 @@ export function generateMetadata(): Metadata {
       canonical,
     }),
     title: {
-      absolute: title,
+      absolute: `${title} | TryIPTV`,
     },
   };
 }

@@ -67,7 +67,7 @@ export function generateMetadata(): Metadata {
       // Static 1200x630 share image built from the trial facts (no card, $0, 5–15 min login).
       image: `${SITE_URL}/images/free-trial/iptv-free-trial-24-hours-no-credit-card.jpg`,
     }),
-    title: { absolute: title },
+    title: { absolute: `${title} | TryIPTV` },
   };
 }
 

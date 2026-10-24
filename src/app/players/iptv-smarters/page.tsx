@@ -10,6 +10,7 @@ import { FaqList } from "@/components/sections/FAQ";
 import { GuideScreenshot } from "@/components/guide";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
+import { getLastModified } from "@/lib/site-routes";
 
 const title = "How to Install IPTV on IPTV Smarters Pro";
 // Search-result title; `title` stays the on-page headline.
@@ -21,14 +22,14 @@ const canonical = "/players/iptv-smarters";
 export function generateMetadata(): Metadata {
   return {
     ...generatePageMetadata({ title: seoTitle, description, canonical }),
-    title: { absolute: seoTitle },
+    title: { absolute: `${seoTitle} | TryIPTV` },
   };
 }
 
 const articleSchema = generateArticleSchema({
   headline: title,
   description,
-  dateModified: "2026-10-20",
+  dateModified: getLastModified("/players/iptv-smarters"),
   url: `${SITE_URL}${canonical}`,
   // Original M3U diagram; the install-iptv.com screenshots were removed 2026-10-24.
   image: `${SITE_URL}/images/iptv-smarters/m3u-link-server-url-username-password.webp`,
