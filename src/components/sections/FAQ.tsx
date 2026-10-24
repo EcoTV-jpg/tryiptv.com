@@ -69,7 +69,7 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "Which devices can I use?",
     answer:
-      'TryIPTV works with compatible Smart TVs, streaming devices, computers, phones, and IPTV player apps. <a href="/devices" class="text-primary hover:underline">Browse device setup guides</a>.',
+      'TryIPTV works with a compatible IPTV player on <a href="/devices/firestick-iptv" class="text-primary hover:underline">Fire TV Stick</a>, <a href="/devices/android-tv-iptv" class="text-primary hover:underline">Android TV</a>, <a href="/devices/samsung-tv-iptv" class="text-primary hover:underline">Samsung</a> and <a href="/devices/lg-tv-iptv" class="text-primary hover:underline">LG</a> smart TVs, <a href="/devices/apple-tv-iptv" class="text-primary hover:underline">Apple TV</a>, <a href="/devices/chromecast-iptv" class="text-primary hover:underline">Chromecast with Google TV</a>, <a href="/devices/mag-box-iptv" class="text-primary hover:underline">MAG boxes</a>, <a href="/devices/roku-iptv" class="text-primary hover:underline">Roku</a> (through AirPlay or screen mirroring), <a href="/devices/windows-iptv" class="text-primary hover:underline">Windows</a> and <a href="/devices/mac-iptv" class="text-primary hover:underline">Mac</a> computers, and <a href="/devices/iphone-iptv" class="text-primary hover:underline">iPhone and iPad</a>. Each link opens a step-by-step setup guide, or <a href="/devices" class="text-primary hover:underline">browse all device guides</a>.',
   },
   {
     question: "How do I set up TryIPTV?",
@@ -106,6 +106,23 @@ const homepageFaqs: FaqItem[] = [
   {
     question: "How quickly do I get my login?",
     answer: `Login details are usually provided within ${PRODUCT_TRUTHS.activationTime} after confirmation, ${PRODUCT_TRUTHS.activationHours.replace(";", ".").replace(" requests", " Requests")}. <a href="/setup" class="text-primary hover:underline">See what to do next</a>.`,
+  },
+  {
+    question: "Which plan should I choose?",
+    answer: `Start with the free 24-hour trial, then choose by how long you plan to watch. ${PRODUCT_TRUTHS.plans[0].duration} costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for short-term use, ${PRODUCT_TRUTHS.plans[1].duration} ($${PRODUCT_TRUTHS.plans[1].price.toFixed(2)}) and ${PRODUCT_TRUTHS.plans[2].duration} ($${PRODUCT_TRUTHS.plans[2].price.toFixed(2)}) lower the monthly cost, and ${PRODUCT_TRUTHS.plans[3].duration} ($${PRODUCT_TRUTHS.plans[3].price.toFixed(2)}, about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month) is the cheapest per month. Every plan is prepaid with ${PRODUCT_TRUTHS.connections} connections. <a href="/pricing" class="text-primary hover:underline">Compare all plans</a>.`,
+  },
+  {
+    question: "Is IPTV cheaper than cable?",
+    // Cable figures are the TryIPTV estimates shown on /pricing; check:facts skips them.
+    answer: `Usually, yes. TryIPTV costs $${PRODUCT_TRUTHS.plans[0].price.toFixed(2)} for one month, or about $${PRODUCT_TRUTHS.plans[3].monthlyEquivalent.toFixed(2)} a month on the 12-month plan, with no box to rent. <span data-facts-ignore>Our estimate for a typical US cable bill is $100–$120 a month advertised and $130–$170 with fees.</span> Channel line-ups differ, so test yours during the free trial. <a href="/pricing" class="text-primary hover:underline">See the full cost comparison</a>.`,
+  },
+  {
+    question: "What internet speed do I need for IPTV?",
+    answer: 'Around 25 Mbps of stable internet is comfortable for one HD stream, and about 50 Mbps for 4K. If two devices stream at the same time, you need more. A wired Ethernet connection is steadier than Wi-Fi, especially at busy peak times. <a href="/guides/iptv-internet-speed" class="text-primary hover:underline">See the IPTV internet speed guide</a> for every quality level.',
+  },
+  {
+    question: "Do I need a VPN for IPTV?",
+    answer: 'No, a VPN is not required to use TryIPTV. Some people use one for privacy or if their internet provider slows down streaming. Using a VPN is permitted under the <a href="/terms-conditions" class="text-primary hover:underline">Terms</a>, but it can lower your speed. <a href="/faq" class="text-primary hover:underline">Read the full answer in the IPTV FAQ</a>.',
   },
 ];
 
@@ -174,7 +191,11 @@ export function FAQ() {
                 <Link href="/faq" className="font-semibold text-primary hover:underline">all IPTV FAQs</Link>{" "}
                 or{" "}
                 <Link href="/help" className="font-semibold text-primary hover:underline">troubleshooting guides</Link>{" "}
-                for the full answers.
+                for the full answers. New to IPTV? Start with the{" "}
+                <Link href="/guides" className="font-semibold text-primary hover:underline">IPTV guides</Link>, including{" "}
+                <Link href="/guides/iptv-internet-speed" className="font-semibold text-primary hover:underline">how much internet speed you need</Link>,{" "}
+                <Link href="/guides/what-is-epg" className="font-semibold text-primary hover:underline">what an EPG is</Link> and{" "}
+                <Link href="/guides/what-is-m3u" className="font-semibold text-primary hover:underline">what an M3U playlist is</Link>.
               </p>
 
               <div className="rounded-2xl border border-white/[0.07] bg-card p-1.5">

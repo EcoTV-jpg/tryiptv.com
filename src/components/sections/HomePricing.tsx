@@ -78,13 +78,22 @@ const INCLUDED_FEATURES = [
   "Multi-Device Compatibility",
 ] as const;
 
+// Price table rows come from the facts source; savings compare each plan's monthly cost with the 1-month price.
+const firstMonthly = PRODUCT_TRUTHS.plans[0].monthlyEquivalent;
+const PRICE_ROWS = PRODUCT_TRUTHS.plans.map((plan, i) => ({
+  plan: plan.duration,
+  price: `$${plan.price.toFixed(2)}`,
+  perMonth: `$${plan.monthlyEquivalent.toFixed(2)}`,
+  savings: i === 0 ? "—" : `${Math.round((1 - plan.monthlyEquivalent / firstMonthly) * 100)}%`,
+}));
+
 export function HomePricing() {
   return (
     <Section id="pricing">
       <Container>
         <SectionHeader
           eyebrow="IPTV Pricing"
-          title="IPTV Subscription Plans"
+          title="How Much Does a TryIPTV Subscription Cost?"
           subtitle={`Choose your IPTV plan with ${PRODUCT_TRUTHS.channels} live channels, HD and 4K streams where available, and login details usually within ${PRODUCT_TRUTHS.activationTime}. Every plan is prepaid in USD with no automatic renewal, and includes ${PRODUCT_TRUTHS.connections} simultaneous connections.`}
         />
 
@@ -155,6 +164,30 @@ export function HomePricing() {
               </ul>
             </article>
           ))}
+        </div>
+
+        <div className="mx-auto mt-8 max-w-3xl overflow-x-auto rounded-2xl border border-white/[0.07] bg-card">
+          <table className="w-full text-left text-sm">
+            <caption className="sr-only">TryIPTV plan prices in USD, monthly cost and savings compared with the 1-month plan</caption>
+            <thead className="border-b border-white/[0.07] text-xs uppercase tracking-wide text-muted-foreground">
+              <tr>
+                <th scope="col" className="px-5 py-3 font-semibold">Plan</th>
+                <th scope="col" className="px-5 py-3 font-semibold">Price</th>
+                <th scope="col" className="px-5 py-3 font-semibold">Per month</th>
+                <th scope="col" className="px-5 py-3 font-semibold">Savings</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/[0.06] text-muted-foreground">
+              {PRICE_ROWS.map((row) => (
+                <tr key={row.plan}>
+                  <th scope="row" className="whitespace-nowrap px-5 py-3 font-semibold text-foreground">{row.plan}</th>
+                  <td className="whitespace-nowrap px-5 py-3 font-medium text-foreground">{row.price}</td>
+                  <td className="whitespace-nowrap px-5 py-3">{row.perMonth}</td>
+                  <td className="whitespace-nowrap px-5 py-3 font-medium text-primary">{row.savings}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
         <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">

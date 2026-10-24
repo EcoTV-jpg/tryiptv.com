@@ -8,6 +8,7 @@ import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { PageSchema } from "@/components/shared/Schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { formatLegalDate } from "@/lib/site-data/page-modifications";
+import { AUTHORS } from "@/lib/site-data/authors";
 import { plans } from "@/lib/site-data/pricing";
 import { COMPANY, LICENSING_CONFIRMED, SHOW_CONFIRM_MARKERS } from "@/lib/site-data/company";
 import { Confirm } from "@/components/shared/Confirm";
@@ -178,7 +179,13 @@ export default function AboutPage() {
                 <ul className="space-y-3">
                   {COMPANY.team.map((m) => (
                     <li key={m.name} className="rounded-xl border border-white/[0.07] bg-card px-5 py-4">
-                      <p className="font-headline text-lg font-bold text-foreground">{m.name}</p>
+                      <p className="font-headline text-lg font-bold text-foreground">
+                        {AUTHORS.some((a) => a.name === m.name) ? (
+                          <Link href={`/authors/${AUTHORS.find((a) => a.name === m.name)!.slug}`} className={link}>{m.name}</Link>
+                        ) : (
+                          m.name
+                        )}
+                      </p>
                       <p className="text-sm font-semibold text-primary">{m.role}</p>
                       {m.bio && <p className="mt-2">{m.bio}</p>}
                     </li>

@@ -92,7 +92,7 @@ const toText = (html) =>
     // Elements marked data-facts-ignore hold sourced third-party figures (cable bills, other services'
     // prices, other providers' trial lengths), not TryIPTV claims. Only leaf blocks are marked, so the
     // lazy match to the first closing tag of the same name is exact.
-    .replace(/<(tr|p|li|ul)\b[^>]*\bdata-facts-ignore\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<(tr|p|li|ul|span)\b[^>]*\bdata-facts-ignore\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
     // keep JSON-LD (its claims count too) but drop other scripts and styles
     .replace(/<script(?![^>]*ld\+json)[^>]*>[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
