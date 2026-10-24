@@ -51,14 +51,14 @@ export const SITE_ROUTES: SiteRoute[] = [
   // ── Devices hub + device pages ────────────────────────────────────────────
   { path: '/devices',                section: 'devices', indexable: true,  lastModified: '2026-10-04' },
   { path: '/devices/firestick-iptv',  section: 'devices', indexable: true,  lastModified: '2026-10-20' },
-  { path: '/devices/android-tv-iptv', section: 'devices', indexable: true,  lastModified: '2026-10-04' },
-  { path: '/devices/samsung-tv-iptv', section: 'devices', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/devices/android-tv-iptv', section: 'devices', indexable: true,  lastModified: '2026-10-11' },
+  { path: '/devices/samsung-tv-iptv', section: 'devices', indexable: true,  lastModified: '2026-10-07' },
   { path: '/devices/lg-tv-iptv',      section: 'devices', indexable: true,  lastModified: '2026-10-04' },
   { path: '/devices/apple-tv-iptv',   section: 'devices', indexable: true,  lastModified: '2026-10-04' },
   { path: '/devices/chromecast-iptv', section: 'devices', indexable: true,  lastModified: '2026-10-04' },
-  { path: '/devices/mag-box-iptv',    section: 'devices', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/devices/mag-box-iptv',    section: 'devices', indexable: true,  lastModified: '2026-10-07' },
   { path: '/devices/roku-iptv',       section: 'devices', indexable: true,  lastModified: '2026-10-20' },
-  { path: '/devices/windows-iptv',    section: 'devices', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/devices/windows-iptv',    section: 'devices', indexable: true,  lastModified: '2026-10-11' },
   { path: '/devices/iphone-iptv',     section: 'devices', indexable: true,  lastModified: '2026-10-20' },
   { path: '/devices/mac-iptv',        section: 'devices', indexable: true,  lastModified: '2026-10-04' },
 
@@ -67,9 +67,9 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/players/iptv-smarters',  section: 'players', indexable: true,  lastModified: '2026-10-20' },
   { path: '/players/tivimate',       section: 'players', indexable: true,  lastModified: '2026-10-20' },
   { path: '/players/xciptv',         section: 'players', indexable: true,  lastModified: '2026-10-22' },
-  { path: '/players/televizo',       section: 'players', indexable: true,  lastModified: '2026-10-04' },
-  { path: '/players/perfect-player', section: 'players', indexable: true,  lastModified: '2026-10-04' },
-  { path: '/players/ott-navigator',  section: 'players', indexable: true,  lastModified: '2026-10-04' },
+  { path: '/players/televizo',       section: 'players', indexable: true,  lastModified: '2026-10-08' },
+  { path: '/players/perfect-player', section: 'players', indexable: true,  lastModified: '2026-10-08' },
+  { path: '/players/ott-navigator',  section: 'players', indexable: true,  lastModified: '2026-10-08' },
   { path: '/players/iptv-extreme',   section: 'players', indexable: true,  lastModified: '2026-10-22' },
 
   // ── Guides hub + guide pages ──────────────────────────────────────────────
@@ -89,7 +89,7 @@ export const SITE_ROUTES: SiteRoute[] = [
   { path: '/help/iptv-not-working',       section: 'help', indexable: true,  lastModified: '2026-10-20' },
   { path: '/help/iptv-login-not-working', section: 'help', indexable: true,  lastModified: '2026-10-20' },
   { path: '/help/m3u-not-loading',        section: 'help', indexable: true,  lastModified: '2026-10-05' },
-  { path: '/help/epg-not-working',        section: 'help', indexable: true,  lastModified: '2026-10-05' },
+  { path: '/help/epg-not-working',        section: 'help', indexable: true,  lastModified: '2026-10-06' },
 
   // ── Utility ───────────────────────────────────────────────────────────────
   { path: '/about',      section: 'utility', indexable: true, lastModified: '2026-10-23' },
