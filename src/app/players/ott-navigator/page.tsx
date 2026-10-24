@@ -16,9 +16,11 @@ const description =
 const canonical = "/players/ott-navigator";
 
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "OTT Navigator Setup: M3U, Xtream Codes & Fixes";
   return {
-    ...generatePageMetadata({ title, description, canonical }),
-    title: { absolute: `${title} | TryIPTV` },
+    ...generatePageMetadata({ title: metaTitle, description, canonical }),
+    title: { absolute: `${metaTitle} | TryIPTV` },
   };
 }
 

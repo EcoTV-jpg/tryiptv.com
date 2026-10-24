@@ -17,14 +17,16 @@ const description =
 const canonical = "/players";
 
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "Best IPTV Players 2026: Comparison & Setup";
   return {
     ...generatePageMetadata({
-      title,
+      title: metaTitle,
       description,
       canonical,
     }),
     title: {
-      absolute: `${title} | TryIPTV`,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }

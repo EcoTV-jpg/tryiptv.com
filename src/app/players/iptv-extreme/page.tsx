@@ -15,7 +15,9 @@ const description = "Learn how to set up IPTV Extreme with M3U, Xtream Codes, or
 const canonical = "/players/iptv-extreme";
 
 export function generateMetadata(): Metadata {
-  return { ...generatePageMetadata({ title, description, canonical }), title: { absolute: `${title} | TryIPTV` } };
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "IPTV Extreme Setup: M3U, Xtream & MAG/Stalker";
+  return { ...generatePageMetadata({ title: metaTitle, description, canonical }), title: { absolute: `${metaTitle} | TryIPTV` } };
 }
 
 const articleSchema = generateArticleSchema({

@@ -25,11 +25,11 @@ import { Confirm } from '@/components/shared/Confirm';
 export function generateMetadata(): Metadata {
     return {
       ...generatePageMetadata({
-          title: "Contact TryIPTV Support: WhatsApp, Email & Setup Help",
+          title: "Contact Support: WhatsApp, Email & Setup Help",
           description: "Contact TryIPTV support on WhatsApp, by email, or with the form. Check the quick fixes first: app says expired, login missing, wrong details, setup help.",
           canonical: "/contact-us",
       }),
-      title: { absolute: "Contact TryIPTV Support: WhatsApp, Email & Setup Help | TryIPTV" },
+      title: { absolute: "Contact Support: WhatsApp, Email & Setup Help | TryIPTV" },
     };
 }
 

@@ -50,14 +50,16 @@ const modifiedDate = getLastModified("/help/iptv-buffering");
  * Source of truth: src/lib/site-routes.ts (indexable: true)
  */
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "How to Fix IPTV Buffering: Diagnostic Guide";
   return {
     ...generatePageMetadata({
-      title: seoTitle,
+      title: metaTitle,
       description,
       canonical,
     }),
     title: {
-      absolute: `${seoTitle} | TryIPTV`,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }

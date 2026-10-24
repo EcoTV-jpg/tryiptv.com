@@ -21,7 +21,9 @@ const description =
 const canonical = "/press";
 
 export function generateMetadata(): Metadata {
-  return { ...generatePageMetadata({ title, description, canonical }), title: { absolute: `${title} | TryIPTV` } };
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "Press Kit: Fact Sheet, Logos & Media Contact";
+  return { ...generatePageMetadata({ title: metaTitle, description, canonical }), title: { absolute: `${metaTitle} | TryIPTV` } };
 }
 
 const link = "font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary";

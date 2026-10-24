@@ -52,14 +52,16 @@ const modifiedDate = getLastModified("/help/epg-not-working");
  * Source of truth: src/lib/site-routes.ts (indexable: true)
  */
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "EPG Not Working? Fix Missing IPTV Guide Data";
   return {
     ...generatePageMetadata({
-      title: seoTitle,
+      title: metaTitle,
       description,
       canonical,
     }),
     title: {
-      absolute: `${seoTitle} | TryIPTV`,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }

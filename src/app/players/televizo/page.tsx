@@ -16,9 +16,11 @@ const description =
 const canonical = "/players/televizo";
 
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "Televizo IPTV Setup: M3U & Xtream Codes";
   return {
-    ...generatePageMetadata({ title, description, canonical }),
-    title: { absolute: `${title} | TryIPTV` },
+    ...generatePageMetadata({ title: metaTitle, description, canonical }),
+    title: { absolute: `${metaTitle} | TryIPTV` },
   };
 }
 

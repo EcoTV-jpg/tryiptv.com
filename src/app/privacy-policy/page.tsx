@@ -14,11 +14,11 @@ import { COMPANY } from "@/lib/site-data/company";
 export function generateMetadata(): Metadata {
   return {
     ...generatePageMetadata({
-      title: "Privacy Policy: How TryIPTV Collects & Protects Data",
+      title: "Privacy Policy: How We Collect & Protect Data",
       description: "Read how TryIPTV collects, uses, and protects your contact details and support messages, why payments run through external providers, and how to reach us.",
       canonical: "/privacy-policy",
     }),
-    title: { absolute: "Privacy Policy: How TryIPTV Collects & Protects Data | TryIPTV" },
+    title: { absolute: "Privacy Policy: How We Collect & Protect Data | TryIPTV" },
   };
 }
 

@@ -20,9 +20,11 @@ const description =
 const canonical = "/players/iptv-smarters";
 
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "IPTV Smarters Pro Setup: Xtream Codes & M3U";
   return {
-    ...generatePageMetadata({ title: seoTitle, description, canonical }),
-    title: { absolute: `${seoTitle} | TryIPTV` },
+    ...generatePageMetadata({ title: metaTitle, description, canonical }),
+    title: { absolute: `${metaTitle} | TryIPTV` },
   };
 }
 

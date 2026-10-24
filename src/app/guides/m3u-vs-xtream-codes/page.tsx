@@ -35,14 +35,16 @@ const modifiedDate = getLastModified("/guides/m3u-vs-xtream-codes");
  * Source of truth: src/lib/site-routes.ts (indexable: true)
  */
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "M3U vs Xtream Codes: What's the Difference?";
   return {
     ...generatePageMetadata({
-      title,
+      title: metaTitle,
       description: metaDescription,
       canonical,
     }),
     title: {
-      absolute: `${title} | TryIPTV`,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }

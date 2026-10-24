@@ -40,15 +40,17 @@ const seoTitle = "IPTV Internet Speed: How Much Bandwidth Do You Need?";
 const modifiedDate = getLastModified("/guides/iptv-internet-speed");
 
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "IPTV Internet Speed: How Much Do You Need?";
   return {
     ...generatePageMetadata({
-      title: seoTitle,
+      title: metaTitle,
       description,
       canonical,
       noIndex: false,
     }),
     title: {
-      absolute: `${seoTitle} | TryIPTV`,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }

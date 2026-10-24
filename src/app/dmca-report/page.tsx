@@ -12,11 +12,11 @@ import { COMPANY } from "@/lib/site-data/company";
 export function generateMetadata(): Metadata {
   return {
     ...generatePageMetadata({
-      title: "DMCA Notice & Copyright Policy: Report Infringement",
+      title: "DMCA Notice & Copyright Policy",
       description: "Read the TryIPTV DMCA and copyright policy: what a valid infringement notice must include, how takedown requests are handled, and where to send yours.",
       canonical: "/dmca-report",
     }),
-    title: { absolute: "DMCA Notice & Copyright Policy: Report Infringement | TryIPTV" },
+    title: { absolute: "DMCA Notice & Copyright Policy | TryIPTV" },
   };
 }
 

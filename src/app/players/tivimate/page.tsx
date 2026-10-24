@@ -19,9 +19,11 @@ const canonical = "/players/tivimate";
 const seoTitle = "TiviMate Setup Guide: M3U, Xtream Codes & EPG on Fire TV";
 
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "TiviMate Setup: M3U, Xtream Codes & EPG on Fire TV";
   return {
-    ...generatePageMetadata({ title: seoTitle, description, canonical }),
-    title: { absolute: `${seoTitle} | TryIPTV` },
+    ...generatePageMetadata({ title: metaTitle, description, canonical }),
+    title: { absolute: `${metaTitle} | TryIPTV` },
   };
 }
 

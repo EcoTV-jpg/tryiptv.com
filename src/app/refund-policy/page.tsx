@@ -13,11 +13,11 @@ import { COMPANY } from "@/lib/site-data/company";
 export function generateMetadata(): Metadata {
   return {
     ...generatePageMetadata({
-      title: "Refund Policy: 24-Hour Free Trial & Refund Eligibility",
+      title: "Refund Policy: Free Trial & Refund Eligibility",
       description: "Read the TryIPTV refund policy: test free for 24 hours first, see when a refund is possible (account not delivered or service won't start), and how to ask.",
       canonical: "/refund-policy",
     }),
-    title: { absolute: "Refund Policy: 24-Hour Free Trial & Refund Eligibility | TryIPTV" },
+    title: { absolute: "Refund Policy: Free Trial & Refund Eligibility | TryIPTV" },
   };
 }
 

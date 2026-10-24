@@ -47,14 +47,16 @@ const modifiedDate = getLastModified("/guides/what-is-epg");
  * Source of truth: src/lib/site-routes.ts (indexable: true)
  */
 export function generateMetadata(): Metadata {
+  // Title tag and og:title only; the H1 and Article headline keep the longer wording.
+  const metaTitle = "What Is an EPG? IPTV TV Guides & XMLTV";
   return {
     ...generatePageMetadata({
-      title,
+      title: metaTitle,
       description,
       canonical,
     }),
     title: {
-      absolute: `${title} | TryIPTV`,
+      absolute: `${metaTitle} | TryIPTV`,
     },
   };
 }
