@@ -1,8 +1,9 @@
 export const socialLinks = {
   x: "https://x.com/tryiptv",
   instagram: "https://www.instagram.com/tryiptvofficial",
-  facebook: "https://www.facebook.com/tryiptv/",
-  whatsapp: "https://wa.me/15205648298",
+  // Owner-confirmed 2026-10-24: X, Instagram and Facebook below are the owner's accounts.
+  facebook: "https://www.facebook.com/tryiptvofficial",
+  whatsapp: "https://wa.me/212694833293",
 } as const;
 
 export const publicBrandSocialLinks = [

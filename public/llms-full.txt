@@ -2,17 +2,16 @@
 
 ## About TryIPTV
 
-TryIPTV is a prepaid IPTV subscription service at https://www.tryiptv.com/. Brand name: TryIPTV (logo wordmark: "Try IPTV"). Tagline: "Prepaid IPTV with a 24-hour free trial". The service provides access details for live television and on-demand content. Viewers use those details in compatible third-party IPTV player applications. TryIPTV does not develop or own the player apps described on its website.
+TryIPTV is a prepaid IPTV subscription service at https://www.tryiptv.com/. Brand name: TryIPTV (logo wordmark: "Try IPTV"). Tagline: "Prepaid IPTV with a 24-hour free trial". TryIPTV sells its own subscriptions and issues the login details itself. Viewers use those details in compatible third-party IPTV player applications. TryIPTV does not develop or own the player apps described on its website.
 
 The website separates five intents: commercial pages describe the service and terms; device pages explain platform setup; player pages explain specific apps; guides explain IPTV concepts; help pages diagnose symptoms. Each question is answered most fully on the most specific page.
 
 ## Company
 
 - Operated by: Simo Alaoui LLC, New York, United States
-- Company registration number: 8683949 (New York Department of State)
 - Operating since: 2021
 - Founder / Operations: Simo Alaoui, who oversees TryIPTV's operations, customer experience and service development
-- Support: WhatsApp +1 (520) 564-8298 and support@tryiptv.com, 9:00 AM–10:00 PM ET, every day including weekends and public holidays; replies typically within 15 minutes during those hours, and messages sent outside them are answered when support reopens
+- Support: WhatsApp +212 694-833293 (https://wa.me/212694833293) and support@tryiptv.com, 9:00 AM–10:00 PM ET, every day including weekends and public holidays; replies typically within 15 minutes during those hours, and messages sent outside them are answered when support reopens
 - Press and media: press@tryiptv.com (media contact: Simo Alaoui, Founder / Operations)
 - About page: https://www.tryiptv.com/about
 
@@ -22,7 +21,7 @@ The website separates five intents: commercial pages describe the service and te
 - Access methods: M3U playlist URLs and Xtream Codes-style credentials.
 - Simultaneous connections: two active streams under a standard plan.
 - Typical credential delivery and activation: 5–15 minutes after confirmation; this is not an instant guarantee.
-- The site states a catalog of 25,000+ live channels worldwide and 120,000+ movies and TV shows. Availability and playback quality may vary.
+- The catalog is 25,000+ live channels worldwide and 120,000+ movies and TV shows. Catalog counts are approximate and can change as content availability changes. You can check the available selection during the free trial. Playback quality may vary.
 
 The [FAQ](https://www.tryiptv.com/faq) answers common service questions. The [homepage](https://www.tryiptv.com/) provides the service overview.
 
@@ -32,10 +31,10 @@ The website currently lists these prepaid plans:
 
 | Duration | Price |
 | --- | ---: |
-| 1 month | $16 |
-| 3 months | $39 |
-| 6 months | $60 |
-| 12 months | $90 |
+| 1 month | $15.82 |
+| 3 months | $38.30 |
+| 6 months | $59.15 |
+| 12 months | $88.23 |
 
 [Pricing](https://www.tryiptv.com/pricing) is the authority for current prices and plan inclusions.
 

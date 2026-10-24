@@ -31,7 +31,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${siteConfig.name} — Best IPTV Service for the USA, UK & More`,
+    default: `Best IPTV Service 2026: 25,000+ Channels, No Auto-Renew | ${siteConfig.name}`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: `${SITE_URL}/`,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Best IPTV Service for the USA, UK & More`,
+    title: `Best IPTV Service 2026: 25,000+ Channels, No Auto-Renew | ${siteConfig.name}`,
     description: siteConfig.description,
     images: [
       {
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteConfig.name} — Best IPTV Service for the USA, UK & More`,
+    title: `Best IPTV Service 2026: 25,000+ Channels, No Auto-Renew | ${siteConfig.name}`,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },

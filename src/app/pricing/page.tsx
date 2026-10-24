@@ -7,62 +7,20 @@ import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { getPricingPageData } from "@/lib/data/pricing-page";
 import { plans } from "@/lib/site-data/pricing";
 import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
 import { COMPANY } from "@/lib/site-data/company";
-import { pricingPageFaqs as faqSchemaSource } from "@/lib/site-data/pricing-page-faq";
-import type { Graph } from "schema-dts";
-
-const PRICING_URL = "https://www.tryiptv.com/pricing";
-
-// Rendered as a raw script: the shared <Schema> component drops Product and FAQPage nodes site-wide.
-// Questions and answers come from the same data as the visible FAQ so the two can't drift.
-const pricingJsonLd: Graph = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Product",
-      "@id": `${PRICING_URL}#product`,
-      name: "TryIPTV Prepaid IPTV Subscription",
-      description:
-        "Prepaid IPTV subscription with 25,000+ live channels, 120,000+ movies and series, 2 simultaneous connections and no automatic renewal. Credentials delivered by WhatsApp in 5 to 15 minutes.",
-      brand: { "@type": "Brand", name: "TryIPTV" },
-      // The site's OG image endpoint (1200x630 PNG), as Article markup uses when a page has no image of its own.
-      image: `https://www.tryiptv.com/api/og?title=${encodeURIComponent("TryIPTV Prepaid IPTV Subscription")}`,
-      url: PRICING_URL,
-      offers: plans.map((plan) => ({
-        "@type": "Offer" as const,
-        name: `${plan.name} IPTV Plan`,
-        price: plan.price.toFixed(2),
-        priceCurrency: "USD",
-        url: PRICING_URL,
-        availability: "https://schema.org/InStock" as const,
-        itemCondition: "https://schema.org/NewCondition" as const,
-        eligibleQuantity: { "@type": "QuantitativeValue" as const, value: parseInt(plan.id, 10), unitCode: "MON" },
-      })),
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${PRICING_URL}#faq`,
-      mainEntity: faqSchemaSource.map((faq) => ({
-        "@type": "Question" as const,
-        name: faq.question,
-        acceptedAnswer: { "@type": "Answer" as const, text: faq.answer },
-      })),
-    },
-  ],
-};
 
 const link = "font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary";
 const T = PRODUCT_TRUTHS;
 
 export function generateMetadata(): Metadata {
-  const title = "IPTV Subscription Pricing: $16/Month, $90/Year, No Auto-Renew";
+  const title = "IPTV Subscription Plans & Pricing 2026 | TryIPTV";
   const description =
-    "TryIPTV prepaid IPTV plans: 1 month $16, 3 months $39, 6 months $60, 12 months $90. 25,000+ channels, 120,000+ movies, 2 connections, no auto-renewal.";
+    "IPTV subscription pricing: TryIPTV prepaid plans are $15.82 for 1 month, $38.30 for 3, $59.15 for 6 or $88.23 for 12. 2 connections, no auto-renewal.";
 
   return {
     ...generatePageMetadata({ title, description, canonical: "/pricing" }),
@@ -71,7 +29,7 @@ export function generateMetadata(): Metadata {
 }
 
 const quickFacts = [
-  "Plans from $16",
+  "Plans from $15.82",
   "1 / 3 / 6 / 12 Months",
   "2 Simultaneous Connections",
   "Prepaid Billing",
@@ -88,12 +46,12 @@ const planDescriptions: Record<string, string> = {
 
 const planSavingsExact: Record<string, string | null> = {
   "1-month": null,
-  "3-months": "Save $9 vs three 1\u2011month purchases",
-  "6-months": "Save $36 vs six 1\u2011month purchases",
-  "12-months": "Save $102 vs twelve 1\u2011month purchases",
+  "3-months": "Save $9.16 vs three 1\u2011month purchases",
+  "6-months": "Save $35.77 vs six 1\u2011month purchases",
+  "12-months": "Save $101.61 vs twelve 1\u2011month purchases",
 };
 
-// Whole-dollar amounts without decimals ($16), others with cents ($7.50).
+// Whole-dollar amounts without decimals ($16), others with cents ($7.35).
 const formatUsd = (amount: number) => `$${amount % 1 === 0 ? amount.toFixed(0) : amount.toFixed(2)}`;
 
 const planBestFor: Record<string, string> = {
@@ -107,10 +65,9 @@ const planBestFor: Record<string, string> = {
 const planCardFeatures = [
   "HD and 4K Streams Where Available",
   "25,000+ Live Channels Worldwide",
-  "120,000+ Movies & TV Shows",
-  "PPV Events Included",
-  "VOD Access",
-  "Smart EPG & Catch-Up TV",
+  "120,000+ On-Demand (VOD) Movies & TV Shows",
+  "Pay-Per-View (PPV) Events Included",
+  "Smart EPG (TV Guide) & Catch-Up TV",
   "Customer Support",
   "Multi-Device Compatibility",
 ] as const;
@@ -181,7 +138,7 @@ const streamFeatures = [
   {
     icon: Receipt,
     title: "Transparent pricing",
-    desc: `One flat prepaid price per plan, ${FACT_TEXT.fromPrice} to $90, shown here before you order.`,
+    desc: `One flat prepaid price per plan, ${FACT_TEXT.fromPrice} to $88.23, shown here before you order.`,
   },
   {
     icon: HeadphonesIcon,
@@ -190,15 +147,21 @@ const streamFeatures = [
   },
 ] as const;
 
-// Third-party figures are published US list prices collected in October 2026; update them together.
+// Streaming figures are US list prices checked 2026-10-21 (sources in costSources); cable figures are TryIPTV estimates.
+// Update the rows, the annual-gap sentence and costSources together.
 const costComparisonRows = [
-  { option: "TryIPTV, 12 months", perMonth: "$7.50", perYear: "$90", autoRenews: "No", payingFor: "25,000+ channels, 120,000+ VOD, 2 connections", isTryIptv: true },
-  { option: "TryIPTV, 1 month", perMonth: "$16.00", perYear: "$192 if bought monthly", autoRenews: "No", payingFor: "Same service, shorter term", isTryIptv: true },
-  { option: "Cable TV, advertised rate", perMonth: "$100–$120", perYear: "$1,200–$1,440", autoRenews: "Usually, at promo pricing", payingFor: "~140 channels, locals, box, DVR" },
-  { option: "Cable TV, real bill with fees", perMonth: "$130–$170", perYear: "$1,560–$2,040", autoRenews: "Yes", payingFor: "Above, plus broadcast fee, RSN surcharge, extra boxes" },
-  { option: "Streaming stack, 3 ad-free apps", perMonth: "$70.97", perYear: "$851.64", autoRenews: "Yes, each service separately", payingFor: "Netflix Standard $19.99, Disney+ $18.99, ESPN Unlimited $31.99" },
-  { option: "Streaming stack, 8 ad-free services", perMonth: "$139.41", perYear: "$1,672.92", autoRenews: "Yes", payingFor: "Eight-service total, no live channels" },
-  { option: "Same 8 services on ad tiers", perMonth: "$89.92", perYear: "$1,079.04", autoRenews: "Yes", payingFor: "Same libraries, ads on every one" },
+  { option: "TryIPTV, 12 months", perMonth: "$7.35", perYear: "$88.23", autoRenews: "No", payingFor: "25,000+ channels, 120,000+ VOD, 2 connections", isTryIptv: true },
+  { option: "TryIPTV, 1 month", perMonth: "$15.82", perYear: "$189.84 if bought monthly", autoRenews: "No", payingFor: "Same service, shorter term", isTryIptv: true },
+  { option: "Cable TV, advertised rate (estimate)", perMonth: "$100–$120", perYear: "$1,200–$1,440", autoRenews: "Usually, at promo pricing", payingFor: "~140 channels, locals, box, DVR" },
+  { option: "Cable TV, bill with fees (estimate)", perMonth: "$130–$170", perYear: "$1,560–$2,040", autoRenews: "Yes", payingFor: "Above, plus broadcast fee, RSN surcharge, extra boxes" },
+  { option: "Streaming stack, 3 ad-free apps", perMonth: "$73.47", perYear: "$881.64", autoRenews: "Yes, each service separately", payingFor: "Netflix Standard $19.99, Disney+ Premium $21.49, ESPN Unlimited $31.99" },
+] as const;
+
+const costSources = [
+  { label: "Netflix Standard, $19.99/month", source: "Netflix plans and pricing", href: "https://help.netflix.com/en/node/24926" },
+  { label: "Disney+ Premium, $21.49/month", source: "Disney+ plans", href: "https://www.disneyplus.com/welcome/plans" },
+  { label: "ESPN Unlimited, $31.99/month from September 17, 2026", source: "NewscastStudio, ESPN price announcement", href: "https://www.newscaststudio.com/2026/08/24/espn-dtc-streaming-price-hike-826/" },
+  { label: "Cable fees: broadcast TV fee $4–$11, box rental $7–$13 a month, about $37 a month in TV fees on average", source: "Consumer Reports, 2019", href: "https://www.consumerreports.org/fees-billing/cable-company-fees-add-to-tv-bill" },
 ] as const;
 
 const costCaveats = [
@@ -207,30 +170,30 @@ const costCaveats = [
   "Streaming prices move every year. Our plan prices don't renew, so they don't move until you choose to buy again.",
 ] as const;
 
-// Per week = monthly × 12 / 52; per day = upfront price / days in the term.
+// Per week = monthly × 12 / 52; per day = upfront price / days in the term (30, 90, 180, 365).
 const planMathRows = [
-  { plan: "1 Month", once: "$16", perMonth: "$16.00", perWeek: "$3.69", perDay: "$0.53", vsMonthly: "-" },
-  { plan: "3 Months", once: "$39", perMonth: "$13.00", perWeek: "$3.00", perDay: "$0.43", vsMonthly: "save $9" },
-  { plan: "6 Months", once: "$60", perMonth: "$10.00", perWeek: "$2.31", perDay: "$0.33", vsMonthly: "save $36" },
-  { plan: "12 Months", once: "$90", perMonth: "$7.50", perWeek: "$1.73", perDay: "$0.25", vsMonthly: "save $102" },
+  { plan: "1 Month", once: "$15.82", perMonth: "$15.82", perWeek: "$3.65", perDay: "$0.53", vsMonthly: "-" },
+  { plan: "3 Months", once: "$38.30", perMonth: "$12.77", perWeek: "$2.95", perDay: "$0.43", vsMonthly: "save $9.16" },
+  { plan: "6 Months", once: "$59.15", perMonth: "$9.86", perWeek: "$2.28", perDay: "$0.33", vsMonthly: "save $35.77" },
+  { plan: "12 Months", once: "$88.23", perMonth: "$7.35", perWeek: "$1.70", perDay: "$0.24", vsMonthly: "save $101.61" },
 ] as const;
 
 const planFits = [
   {
-    title: "1 Month - $16: after the trial, before a commitment",
+    title: "1 Month - $15.82: after the trial, before a commitment",
     body: "Buy this when you've used the trial and want a paid month before deciding anything longer. It's also the right plan for a single event, a short visit, or a household testing whether IPTV replaces cable at all. You're paying $0.53 a day for the privilege of walking away at day 30.",
   },
   {
-    title: "3 Months - $39: one season, one semester",
-    body: "The 3-month plan covers a full sports season, a college semester, a work contract, or a summer abroad. You cut the monthly cost to $13 and keep the exit close: $9 cheaper than three monthly purchases.",
+    title: "3 Months - $38.30: one season, one semester",
+    body: "The 3-month plan covers a full sports season, a college semester, a work contract, or a summer abroad. You cut the monthly cost to $12.77 and keep the exit close: $9.16 cheaper than three monthly purchases.",
   },
   {
-    title: "6 Months - $60: nightly viewers who dislike annual prepay",
-    body: "This is the plan for a household that watches most evenings and wants the $10/month rate without locking a whole year of cash into something they just discovered. $60 is the point where the savings get real ($36 against monthly) while the risk stays small.",
+    title: "6 Months - $59.15: nightly viewers who dislike annual prepay",
+    body: "This is the plan for a household that watches most evenings. It gets the $9.86/month rate without locking a whole year of cash into something it just discovered. $59.15 is the point where the savings get real ($35.77 against monthly) while the risk stays small.",
   },
   {
-    title: "12 Months - $90: the long game, if the house is happy",
-    body: "An IPTV subscription for 12 months at $90 drops you to $7.50 a month and $0.25 a day, with two connections included. It fits a household that's already run the trial, checked peak-hour sports, and knows the channels it needs are there.",
+    title: "12 Months - $88.23: the long game, if the house is happy",
+    body: "An IPTV subscription for 12 months at $88.23 drops you to $7.35 a month and $0.24 a day, with two connections included. It fits a household that's already run the trial, checked peak-hour sports, and knows the channels it needs are there.",
   },
 ] as const;
 
@@ -243,7 +206,7 @@ const cheapestPitfalls = [
 ] as const;
 
 const lifetimePoints = [
-  { lead: "$0.25 a day.", rest: "A 12-month plan already reaches the per-day floor where lifetime pricing pretends to live." },
+  { lead: "$0.24 a day.", rest: "A 12-month plan already reaches the per-day floor where lifetime pricing pretends to live." },
   { lead: "You re-decide once a year, not never.", rest: "If the service degrades, you stop paying. A lifetime buyer has no such lever." },
   { lead: "No auto-renewal on either side.", rest: "Nothing renews, nothing is charged, nothing needs cancelling." },
   { lead: "The honest test:", rest: "divide a lifetime price by our 12-month rate. If it equals two or three years of prepaid terms, you're prepaying for years you probably won't use." },
@@ -254,16 +217,15 @@ const th = "px-5 py-3 font-semibold";
 const td = "px-5 py-3.5";
 
 export default async function IPTVSubscription() {
-  const { productSchema, breadcrumbSchema, pricingPageFaqs } = await getPricingPageData();
+  const { breadcrumbSchema, pricingPageFaqs } = await getPricingPageData();
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd).replace(/</g, "\\u003c") }}
+      <PageSchema
+        path="/pricing"
+        name="IPTV Subscription Plans & Pricing 2026 | TryIPTV"
+        nodes={[breadcrumbSchema]}
       />
-      <Schema id="product" schema={productSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
 
       {/* Hero + plans */}
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-8 pb-10 sm:pt-12 sm:pb-14">
@@ -274,7 +236,7 @@ export default async function IPTVSubscription() {
             as="h1"
             eyebrow="Most Popular IPTV Subscription Plans"
             title={`Choose Your IPTV Plan, From ${FACT_TEXT.fromPrice}/Month`}
-            subtitle={`TryIPTV prepaid plans cost ${FACT_TEXT.priceList}. Every plan includes ${T.connections} simultaneous connections and does not renew automatically. Longer terms lower the monthly equivalent, from ${FACT_TEXT.fromPrice} down to ${FACT_TEXT.lowestMonthly} a month on the 12-month plan.`}
+            subtitle={`IPTV subscription pricing at a glance: prepaid plans for 1, 3, 6 or 12 months, with ${T.connections} simultaneous connections and no automatic renewal.`}
           />
           <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-semibold sm:mt-6 sm:text-sm">
             {quickFacts.map((fact) => (
@@ -291,7 +253,16 @@ export default async function IPTVSubscription() {
 
       <Section id="pricing-plans" className="scroll-mt-2 bg-[#050706] py-10 sm:py-14">
         <Container>
-          <h2 className="sr-only">Compare TryIPTV Plans</h2>
+          {/* Answer-first block for "how much does an IPTV subscription cost" queries; keep it 40-60 words. */}
+          <div className="mx-auto mb-8 max-w-3xl text-center">
+            <h2 className="font-headline text-xl font-bold text-foreground sm:text-2xl">How much does an IPTV subscription cost?</h2>
+            <p className="mt-2 text-base leading-7 text-muted-foreground">
+              TryIPTV prepaid IPTV plans cost {FACT_TEXT.priceList}, which is{" "}
+              {T.plans.map((p) => formatUsd(p.monthlyEquivalent)).join(", ").replace(/, ([^,]*)$/, " and $1")} a month. Every plan
+              includes {T.channels} live channels, {T.vod} movies and shows and {T.connections} simultaneous connections, with no
+              automatic renewal.
+            </p>
+          </div>
           <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {plans.map((plan, index) => {
               const savingsText = planSavingsExact[plan.id];
@@ -371,7 +342,23 @@ export default async function IPTVSubscription() {
           </div>
 
           <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
-            Choosing a plan opens WhatsApp, where support sends payment instructions. Credentials typically arrive within <span className="whitespace-nowrap">{T.activationTime}</span> after payment confirmation.
+            Choosing a plan opens WhatsApp, where support sends payment instructions. Credentials typically arrive within <span className="whitespace-nowrap">{T.activationTime}</span> {T.activationHours.split(";")[0]}, after payment confirmation.
+            {COMPANY.support.hours ? ` Support answers ${COMPANY.support.hours}.` : ""}
+            {COMPANY.support.outOfHours ? ` ${COMPANY.support.outOfHours}` : ""} No WhatsApp? Email{" "}
+            <span
+              dangerouslySetInnerHTML={{
+                __html: `<!--email_off--><a href="mailto:${COMPANY.support.email}?subject=Plan%20order" class="${link}">${COMPANY.support.email}</a><!--/email_off-->`,
+              }}
+            />{" "}
+            with the plan you want and support replies with payment instructions.
+          </p>
+          <p className="mx-auto mt-2 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
+            Catalog counts are approximate and can change as content availability changes. You can check the available selection during the{" "}
+            <Link href="/iptv-free-trial" className={link}>free trial</Link>.
+          </p>
+          <p className="mx-auto mt-2 max-w-3xl text-center text-base sm:text-sm leading-6 text-muted-foreground">
+            TryIPTV is run by {COMPANY.legalName} ({COMPANY.location}, operating since {COMPANY.foundingYear}). TryIPTV sells its own
+            subscriptions and issues the logins itself. <Link href="/about" className={link}>About TryIPTV</Link>.
           </p>
         </Container>
       </Section>
@@ -410,7 +397,7 @@ export default async function IPTVSubscription() {
         <Container>
           <SectionHeader
             eyebrow="Plans Compared"
-            title="Stream Smarter With TryIPTV"
+            title="What do all TryIPTV plans include?"
             subtitle={`TryIPTV plans start at ${FACT_TEXT.fromPrice} for one month and drop to ${FACT_TEXT.lowestMonthly} a month on the annual term. Every plan includes ${T.channels} live channels, ${T.vod} movies and series, the TV guide, ${T.connections} simultaneous connections and support on WhatsApp and email.`}
           />
 
@@ -517,8 +504,8 @@ export default async function IPTVSubscription() {
       <Section variant="alt" className="border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
         <Container>
           <SectionHeader
-            title="TryIPTV vs cable TV vs a streaming stack: the real cost"
-            subtitle="Figures below are published US list prices collected in October 2026. Cable numbers reflect a real bill with fees, not the advertised rate; streaming numbers are list prices for ad-free tiers."
+            title="Is IPTV cheaper than cable TV or a streaming stack?"
+            subtitle="Streaming figures are published US list prices for ad-free tiers, checked October 21, 2026; sources are under the table. Cable figures are our estimates: an advertised rate, and a typical bill once the fees are added."
           />
 
           <div className="rounded-xl border border-white/[0.08] bg-card">
@@ -536,7 +523,8 @@ export default async function IPTVSubscription() {
                 </thead>
                 <tbody className="divide-y divide-white/[0.06] text-muted-foreground">
                   {costComparisonRows.map((row) => (
-                    <tr key={row.option} className="transition-colors hover:bg-white/[0.02]">
+                    // Third-party rows are sourced competitor/cable figures, not TryIPTV prices: check:facts skips them.
+                    <tr key={row.option} className="transition-colors hover:bg-white/[0.02]" data-facts-ignore={"isTryIptv" in row ? undefined : ""}>
                       <th
                         scope="row"
                         className={`whitespace-nowrap ${td} font-semibold sm:px-6 ${"isTryIptv" in row ? "text-primary" : "text-foreground"}`}
@@ -555,8 +543,23 @@ export default async function IPTVSubscription() {
           </div>
 
           <div className="mx-auto mt-8 max-w-3xl">
-            <p className={prose}>
-              Run the annual line: the 12-month plan at $90 sits $1,470–$1,950 below a real cable bill and $761.64 below the three-app stack.
+            <p className={prose} data-facts-ignore="">
+              Run the annual line: the 12-month plan at $88.23 sits an estimated $1,472–$1,952 below a cable bill with fees and $793.41 below the three-app stack.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">Sources (US list prices, checked October 21, 2026):</p>
+            <ul className="mt-1.5 list-disc space-y-1 pl-5 text-sm leading-6 text-muted-foreground" data-facts-ignore="">
+              {costSources.map((s) => (
+                <li key={s.href}>
+                  {s.label}:{" "}
+                  <a href={s.href} target="_blank" rel="noopener noreferrer" className={link}>
+                    {s.source}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className={`mt-3 ${prose}`}>
+              For setup, reliability and channel differences beyond price, see the{" "}
+              <Link href="/guides/iptv-vs-cable" className={link}>full IPTV vs cable TV comparison</Link>.
             </p>
             <h3 className="mt-6 font-headline text-lg font-extrabold text-foreground">Honest caveats</h3>
             <ul className={`mt-3 space-y-2.5 ${prose}`}>
@@ -575,7 +578,7 @@ export default async function IPTVSubscription() {
       <Section className="border-t border-white/[0.06] py-10 sm:py-14">
         <Container>
           <SectionHeader
-            title="Plan math: what each IPTV subscription costs per week and per day"
+            title="How much does an IPTV subscription cost per week and per day?"
             subtitle="The monthly equivalent is the useful number, but it hides how small the daily cost gets. Here's the arithmetic, nothing rounded up."
           />
 
@@ -616,7 +619,7 @@ export default async function IPTVSubscription() {
               Two connections on the 12-month plan works out to roughly 12 cents a day per screen when both are streaming at once.
             </p>
             <p className={prose}>
-              Paying $90 upfront only makes sense after you&apos;ve confirmed the service works in your house. That&apos;s what the trial
+              Paying $88.23 upfront only makes sense after you&apos;ve confirmed the service works in your house. That&apos;s what the trial
               is for. If you haven&apos;t tested it, buy one month, not twelve.
             </p>
           </div>
@@ -626,7 +629,7 @@ export default async function IPTVSubscription() {
       {/* Which plan fits whom */}
       <Section variant="alt" className="border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
         <Container>
-          <SectionHeader title="Which IPTV subscription fits whom" />
+          <SectionHeader title="Which IPTV subscription plan should I choose?" />
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {planFits.map((fit) => (
@@ -642,20 +645,20 @@ export default async function IPTVSubscription() {
       {/* Fair price in 2026 */}
       <Section className="border-t border-white/[0.06] py-10 sm:py-14">
         <Container>
-          <SectionHeader title="What a fair IPTV subscription price looks like in 2026" />
+          <SectionHeader title="What is a fair IPTV subscription price in 2026?" />
 
           <div className="mx-auto max-w-3xl space-y-4">
             <p className={prose}>
               Search for IPTV subscription pricing and you get a wall of comparison pages quoting a plan, a channel count and a discount,
               usually in that order. Ignore the ads and look at where the market actually sits.
             </p>
-            <p className={prose}>
+            <p className={prose} data-facts-ignore="">
               Broadly, in the US in 2026: monthly terms run roughly $10–$25, annual prepay lands around $60–$120, and anything far outside
               those bands is telling you something. A $2.50 monthly plan either sells one connection, resells a trial, or won&apos;t
               answer in month two. A $45 monthly plan is mostly paying for a marketing budget.
             </p>
             <p className={prose}>
-              At $16 for a month and $90 for a year, TryIPTV sits mid-band on both. That&apos;s deliberate. We&apos;re not the cheapest
+              At $15.82 for a month and $88.23 for a year, TryIPTV sits mid-band on both. That&apos;s deliberate. We&apos;re not the cheapest
               IPTV subscription you&apos;ll find, and the reason is boring: live sports at peak hours, the panel that issues your
               credentials, payment processing and a human answering WhatsApp all cost money every month, whether you watch or not.
             </p>
@@ -681,7 +684,7 @@ export default async function IPTVSubscription() {
       {/* Lifetime subscriptions */}
       <Section variant="alt" className="border-t border-white/[0.06] bg-[#070a08] py-10 sm:py-14">
         <Container>
-          <SectionHeader title="Lifetime IPTV subscriptions: why a prepaid 12-month term is the safer equivalent" />
+          <SectionHeader title="Is a lifetime IPTV subscription worth it?" />
 
           <div className="mx-auto max-w-3xl space-y-4">
             <p className={prose}>
@@ -690,7 +693,7 @@ export default async function IPTVSubscription() {
               seller if the average buyer leaves early, the service changes hands, or the servers disappear.
             </p>
             <p className={prose}>
-              We don&apos;t sell one. The longest term we sell is 12 months at $90, and the practical difference is smaller than it looks:
+              We don&apos;t sell one. The longest term we sell is 12 months at $88.23, and the practical difference is smaller than it looks:
             </p>
             <ul className={`space-y-2.5 ${prose}`}>
               {lifetimePoints.map((point) => (
@@ -704,7 +707,7 @@ export default async function IPTVSubscription() {
             </ul>
             <p className={`pt-2 ${prose}`}>
               If your real question is can I stop thinking about this for a while, the 12-month term is the answer. It&apos;s prepaid, it
-              expires, and it costs $90.
+              expires, and it costs $88.23.
             </p>
           </div>
         </Container>
@@ -726,7 +729,7 @@ export default async function IPTVSubscription() {
                 className="group border-b border-white/[0.07] px-6 last:border-b-0 sm:px-8"
               >
                 <summary className="flex min-h-[64px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left text-[16px] font-semibold leading-snug text-foreground/90 [&::-webkit-details-marker]:hidden">
-                  <span>{faq.question}</span>
+                  <h3 className="text-[16px] font-semibold leading-snug">{faq.question}</h3>
                   <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180" />
                 </summary>
                 <div className="pb-5 pr-4 text-base sm:text-[15px] leading-relaxed text-muted-foreground sm:pr-8">

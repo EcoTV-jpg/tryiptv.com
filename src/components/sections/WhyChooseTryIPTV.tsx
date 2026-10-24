@@ -1,76 +1,73 @@
 import Link from "next/link";
-import type React from "react";
-import { KeyRound, Zap, Smartphone, CalendarCheck } from "lucide-react";
+import { CheckIcon, X } from "lucide-react";
 import { Container } from "../shared/Container";
 import { Section } from "../shared/Section";
 import { SectionHeader } from "../shared/SectionHeader";
-import { PRODUCT_TRUTHS, FACT_TEXT } from "@/lib/site-config";
+import { PRODUCT_TRUTHS } from "@/lib/site-config";
+import { COMPANY } from "@/lib/site-data/company";
 
-const benefits: { icon: typeof Zap; title: string; description: React.ReactNode }[] = [
-  {
-    icon: Smartphone,
-    title: "2 Simultaneous Connections",
-    description:
-      "Use the service across supported devices with up to two concurrent streams.",
-  },
-  {
-    icon: KeyRound,
-    title: "Xtream Codes & M3U Access",
-    description: (
-      <>
-        Use your login with the{" "}
-        <Link href="/players" className="font-semibold text-primary hover:underline">
-          compatible IPTV players
-        </Link>{" "}
-        you prefer: Xtream Codes (server, username, password) or an M3U playlist URL.
-      </>
-    ),
-  },
-  {
-    icon: Zap,
-    title: "Activation in 5–15 Minutes",
-    description:
-      "Login details are typically delivered within 5–15 minutes after confirmation, for paid plans and the free trial.",
-  },
-  {
-    icon: CalendarCheck,
-    title: "Prepaid Without Auto-Renewal",
-    description:
-      "Choose a fixed-duration plan and renew manually only when you want to continue.",
-  },
+// Cable points rest on the sourced cable estimates on /pricing (about 140 channels, $100–$170 a month with fees).
+const cableDrawbacks = [
+  "Usually tied to a set-top box at home",
+  "Fewer channels in a typical package",
+  "Usually more expensive once fees are added",
+];
+
+const tryIptvIncluded = [
+  `Support on WhatsApp and email${COMPANY.support.hours ? `, ${COMPANY.support.hours}` : ""}`,
+  "HD and 4K streams where available",
+  `${PRODUCT_TRUTHS.connections} simultaneous connections on every plan`,
+  "Works on Fire TV, Android TV, Apple TV and more, through a compatible IPTV player",
+  "Prepaid, with no automatic renewal",
 ];
 
 export function WhyChooseTryIPTV() {
   return (
-    <Section id="why-tryiptv">
+    <Section id="why-tryiptv" variant="alt">
       <Container>
         <SectionHeader
           align="left"
-          eyebrow="Why TryIPTV"
-          title="What Do You Get With TryIPTV?"
-          subtitle={`TryIPTV is a prepaid IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, delivered as Xtream Codes or M3U login details for the IPTV player you already use. Every plan includes ${PRODUCT_TRUTHS.connections} simultaneous connections, login details usually arrive within ${PRODUCT_TRUTHS.activationTime}, and no plan renews automatically.`}
+          eyebrow="Stream More. Pay Less"
+          title="What Makes Our IPTV Subscription Stand Out"
+          subtitle="Comparing IPTV with cable? TryIPTV works on the devices you already use: you get an Xtream Codes login or an M3U link for a compatible IPTV player."
         />
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-          {benefits.map((benefit) => {
-            const Icon = benefit.icon;
-            return (
-              <div key={benefit.title} className="flex gap-4 rounded-2xl border border-white/[0.07] bg-card p-5 sm:block sm:p-6">
-                <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-white/[0.07] bg-white/[0.03] text-primary">
-                  <Icon className="size-5" aria-hidden />
-                </span>
-                <div>
-                  <h3 className="font-headline text-lg font-bold tracking-tight text-foreground sm:mt-5">
-                    {benefit.title}
-                  </h3>
-                  <p className="mt-2 text-base sm:text-sm leading-6 text-muted-foreground">
-                    {benefit.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-5">
+          <div className="rounded-2xl border border-white/[0.07] bg-card p-6">
+            <h3 className="font-headline text-lg font-bold tracking-tight text-foreground">Traditional Cable</h3>
+            <ul className="mt-4 space-y-2.5 text-base text-muted-foreground sm:text-sm">
+              {cableDrawbacks.map((item) => (
+                <li key={item} className="flex items-start gap-2.5">
+                  <X className="mt-0.5 size-4 shrink-0 text-muted-foreground" aria-hidden />
+                  <span><span className="sr-only">Drawback: </span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border border-primary/40 bg-card p-6">
+            <h3 className="font-headline text-lg font-bold tracking-tight text-foreground">TryIPTV</h3>
+            <ul className="mt-4 space-y-2.5 text-base text-muted-foreground sm:text-sm">
+              {tryIptvIncluded.map((item) => (
+                <li key={item} className="flex items-start gap-2.5">
+                  <CheckIcon className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
+                  <span><span className="sr-only">Included: </span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+
+        <p className="mt-6 text-base text-muted-foreground sm:text-sm">
+          <Link href="/guides/iptv-vs-cable" className="font-semibold text-primary hover:underline">
+            Compare IPTV and cable TV in detail
+          </Link>
+          , or see the{" "}
+          <Link href="/pricing" className="font-semibold text-primary hover:underline">
+            cost comparison on the pricing page
+          </Link>
+          .
+        </p>
       </Container>
     </Section>
   );

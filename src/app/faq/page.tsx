@@ -9,7 +9,7 @@ import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { getFaqPageData } from "@/lib/data/faq-page";
 import { faqTopics, faqs } from "@/lib/site-data/faq";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { FACT_TEXT, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
 const link = "font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary";
@@ -27,8 +27,12 @@ export default async function FaqPage() {
 
   return (
     <>
-      <Schema id="faq" schema={faqSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema
+        path="/faq"
+        name="IPTV FAQ: Every Question, Answered Honestly"
+        nodes={[faqSchema, breadcrumbSchema]}
+        keep={["FAQPage"]}
+      />
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />
@@ -80,7 +84,7 @@ export default async function FaqPage() {
                 <li key={t.id}>
                   <a
                     href={`#${t.id}`}
-                    className="tap-target inline-flex items-center rounded-full border border-white/[0.09] bg-card px-3 py-1 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                    className="inline-flex items-center rounded-full border border-white/[0.09] bg-card px-3 py-1 pointer-coarse:min-h-11 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
                   >
                     {t.title}
                   </a>

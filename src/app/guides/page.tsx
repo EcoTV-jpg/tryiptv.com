@@ -17,12 +17,12 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateItemListSchema } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
 const title = "IPTV Guides & Technical Explainers — TryIPTV Knowledge Base";
@@ -47,6 +47,7 @@ const coreGuides = [
   {
     title: "What Is IPTV? How Internet Protocol Television Works",
     href: "/guides/what-is-iptv",
+    linkLabel: "IPTV basics guide",
     description:
       "A foundational overview of Internet Protocol Television, explaining packetized IP stream delivery, linear broadcasts, and how internet streaming compares to cable and satellite infrastructure.",
     badge: "Foundational Architecture",
@@ -56,6 +57,7 @@ const coreGuides = [
   {
     title: "How Does IPTV Work? From Server to Screen",
     href: "/guides/how-does-iptv-work",
+    linkLabel: "How IPTV works guide",
     description:
       "A technical walkthrough of linear video streaming over IP networks: ingestion, transcoding, packaging, unicast delivery, client-side buffering, and playback decoders.",
     badge: "Delivery Architecture",
@@ -65,6 +67,7 @@ const coreGuides = [
   {
     title: "IPTV Internet Speed: How Much Bandwidth Do You Need?",
     href: "/guides/iptv-internet-speed",
+    linkLabel: "IPTV speed guide",
     description:
       "A practical bandwidth planning guide covering bitrate vs plan speed, HD and 4K requirements, two simultaneous streams, Wi-Fi stability, and hourly data consumption.",
     badge: "Network Planning",
@@ -74,6 +77,7 @@ const coreGuides = [
   {
     title: "What Is an M3U Playlist? Structure, Syntax, and IPTV Usage",
     href: "/guides/what-is-m3u",
+    linkLabel: "M3U playlist guide",
     description:
       "A technical guide to M3U and M3U8 files in IPTV: playlist header directives, #EXTINF syntax, community metadata attributes (tvg-id, group-title), and UTF-8 encoding standards.",
     badge: "Playlist Specifications",
@@ -83,6 +87,7 @@ const coreGuides = [
   {
     title: "What Are Xtream Codes? The IPTV API Login Format Explained",
     href: "/guides/what-are-xtream-codes",
+    linkLabel: "Xtream Codes guide",
     description:
       "Understand how the de facto API login format works in IPTV players: server URL, username, password authentication, dynamic category queries, and critical security practices.",
     badge: "API Protocols",
@@ -92,6 +97,7 @@ const coreGuides = [
   {
     title: "What Is an EPG? How IPTV TV Guides Work",
     href: "/guides/what-is-epg",
+    linkLabel: "EPG guide",
     description:
       "Explore how Electronic Programme Guides operate in IPTV, how XMLTV schedules are ingested by players, channel-matching conventions (tvg-id), and timezone synchronization.",
     badge: "Metadata & TV Guides",
@@ -104,6 +110,7 @@ const comparisonGuides = [
   {
     title: "M3U vs. Xtream Codes: What's the Difference?",
     href: "/guides/m3u-vs-xtream-codes",
+    linkLabel: "M3U vs Xtream Codes comparison",
     description:
       "A neutral side-by-side comparison between M3U playlists and Xtream-compatible API logins: data delivery architectures, VOD organization, player compatibility, and practical trade-offs.",
     badge: "Format Comparison",
@@ -113,6 +120,7 @@ const comparisonGuides = [
   {
     title: "IPTV vs. Cable: What's the Difference?",
     href: "/guides/iptv-vs-cable",
+    linkLabel: "IPTV vs cable comparison",
     description:
       "A balanced side-by-side comparison between IPTV and traditional cable TV: network delivery architectures, equipment costs, internet dependencies, and decision criteria.",
     badge: "Service Comparison",
@@ -166,7 +174,16 @@ export default function GuidesPage() {
 
   return (
     <>
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema
+        path="/guides"
+        name={title}
+        description={description}
+        type="CollectionPage"
+        nodes={[
+          breadcrumbSchema,
+          generateItemListSchema("IPTV guides", [...coreGuides, ...comparisonGuides].map((g) => ({ name: g.title, path: g.href }))),
+        ]}
+      />
 
       {/* Hero Header */}
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
@@ -227,7 +244,7 @@ export default function GuidesPage() {
                         href={guide.href}
                         className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-colors hover:underline"
                       >
-                        Read Full Guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                        {guide.linkLabel} <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                       </Link>
                     </div>
                   </CardContent>
@@ -279,7 +296,7 @@ export default function GuidesPage() {
                         href={guide.href}
                         className="tap-target inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-colors hover:underline"
                       >
-                        Read Full Guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                        {guide.linkLabel} <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                       </Link>
                     </div>
                   </CardContent>

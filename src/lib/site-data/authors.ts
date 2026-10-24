@@ -28,7 +28,7 @@ export const AUTHORS: Author[] = [
     role: "Founder / Operations",
     bio: "Simo Alaoui oversees TryIPTV's operations, customer experience and service development.",
     expertise: [],
-    updated: "2026-10-21",
+    updated: "2026-10-23",
   },
 ];
 

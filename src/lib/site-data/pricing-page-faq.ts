@@ -46,7 +46,7 @@ export const pricingPageFaqs: { question: string; answer: string; link?: { href:
   },
   {
     question: "Which plan has the lowest monthly equivalent?",
-    answer: `The 12-month plan, at ${FACT_TEXT.lowestMonthly} a month ($90 paid upfront), compared with ${FACT_TEXT.fromPrice} a month on the 1-month plan.`,
+    answer: `The 12-month plan, at ${FACT_TEXT.lowestMonthly} a month ($88.23 paid upfront), compared with ${FACT_TEXT.fromPrice} a month on the 1-month plan.`,
   },
   {
     question: "Can I test TryIPTV before buying?",

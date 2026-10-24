@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import { FaqList } from "@/components/sections/FAQ";
@@ -181,8 +181,7 @@ const stackedLabel =
 export default function WhatIsIptvPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       <Section className="border-b border-white/[0.07] pt-10 pb-14 sm:pt-14 sm:pb-20">
         <Container>

@@ -7,10 +7,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: '404: Page Not Found',
-  robots: {
-    index: false,
-    follow: false,
-  },
+  // No robots field: Next.js already adds <meta name="robots" content="noindex"> to 404 responses,
+  // and a second tag here produced two conflicting robots metas.
 };
 
 export default function NotFound() {

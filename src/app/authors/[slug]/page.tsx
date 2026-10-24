@@ -5,7 +5,7 @@ import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { AUTHORS, GUIDE_AUTHORS, GUIDE_REVIEWERS, GUIDE_TITLES, personId } from "@/lib/site-data/authors";
@@ -81,8 +81,11 @@ export default async function AuthorPage({ params }: Props) {
 
   return (
     <>
-      <Schema id="profile" schema={profileSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema
+        path={`/authors/${author.slug}`}
+        name={`${author.name}, ${author.role}`}
+        nodes={[profileSchema, breadcrumbSchema]}
+      />
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <Container className="relative text-center">
           <Breadcrumb items={[{ label: "About TryIPTV", href: "/about" }, { label: author.name }]} align="center" />
@@ -92,14 +95,9 @@ export default async function AuthorPage({ params }: Props) {
       <Section className="py-12 sm:py-16">
         <Container className="max-w-3xl">
           <div className="space-y-6 text-base leading-7 text-muted-foreground">
-            {author.role.startsWith("Founder") && COMPANY.legalName && (
+            {author.role.startsWith("Founder") && (
               <p>
-                {author.name} founded TryIPTV, which is operated by {COMPANY.legalName}
-                {COMPANY.registry && COMPANY.registrationNumber
-                  ? ` (${COMPANY.registry}, registration number ${COMPANY.registrationNumber})`
-                  : ""}
-                {COMPANY.foundingYear ? ` and has run since ${COMPANY.foundingYear}` : ""}. See{" "}
-                <Link href="/about" className={link}>About TryIPTV</Link> for the company details.
+                See <Link href="/about" className={link}>About TryIPTV</Link> for the company details.
               </p>
             )}
             {reviewed.length > 0 && (

@@ -1,6 +1,7 @@
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
@@ -20,8 +21,8 @@ import {
 } from "lucide-react";
 import InternalLinks from "@/components/shared/InternalLinks";
 import { GuideByline } from "@/components/shared/GuideByline";
-import { Schema } from "@/components/shared/Schema";
-import { generateArticleSchema, generateHowToSchema, generateFAQPageSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { PageSchema } from "@/components/shared/Schema";
+import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import {
   GuideQuickInfo,
@@ -64,7 +65,7 @@ async function getArticleData(deviceId: string): Promise<ArticleType | undefined
 
 function StructuredData({ article }: { article: ArticleType }) {
     if (!article) return null;
-    const { id, title, description, steps, faqs, image, dateModified, totalTime } = article;
+    const { id, title, description, image, dateModified } = article;
     const baseUrl = siteConfig.url;
 
     const articleSchema = generateArticleSchema({
@@ -75,24 +76,7 @@ function StructuredData({ article }: { article: ArticleType }) {
         url: `${baseUrl}/devices/${id}`,
     });
 
-    const howToSchema = generateHowToSchema({
-        name: title,
-        description: description,
-        totalTime: totalTime,
-        image: image ? {
-            url: image.imageUrl,
-            width: image.width,
-            height: image.height
-        } : undefined,
-        steps: steps.map((step, index) => ({
-            name: step.title,
-            text: step.description,
-            url: `${baseUrl}/devices/${id}#step-${index + 1}`,
-        })),
-    });
-
-    const faqSchema = faqs ? generateFAQPageSchema(faqs) : null;
-
+    // HowTo and FAQPage are not emitted here: the shared Schema rule drops both (see Schema.tsx).
     const breadcrumbSchema = generateBreadcrumbSchema([
         { name: "Home", item: `${baseUrl}/` },
         { name: "Devices", item: `${baseUrl}/devices` },
@@ -101,10 +85,7 @@ function StructuredData({ article }: { article: ArticleType }) {
 
     return (
         <>
-            <Schema id="article" schema={articleSchema} />
-            <Schema id="how-to" schema={howToSchema} />
-            {faqSchema && <Schema id="faq" schema={faqSchema} />}
-            <Schema id="breadcrumb" schema={breadcrumbSchema} />
+            <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
         </>
     );
 }
@@ -578,12 +559,15 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/players/iptv-smarters", label: "IPTV Smarters Pro for Fire TV" },
     { href: "/guides/m3u-vs-xtream-codes", label: "Choose M3U or Xtream Codes" },
     { href: "/help/iptv-buffering", label: "Troubleshoot Firestick buffering" },
+    { href: "/players/xciptv", label: "XCIPTV availability on Fire TV" },
     { href: "/iptv-free-trial", label: "Start 24-hour Fire TV trial" },
   ],
   "android-tv-iptv": [
     { href: "/players/tivimate", label: "TiviMate setup on Android TV" },
     { href: "/guides/what-are-xtream-codes", label: "Enter Xtream Codes credentials" },
     { href: "/help/iptv-login-not-working", label: "Troubleshoot login errors" },
+    { href: "/players/iptv-extreme", label: "IPTV Extreme for Android TV" },
+    { href: "/players/perfect-player", label: "Perfect Player (legacy) setup and migration" },
     { href: "/iptv-free-trial", label: "Test Android TV with a free trial" },
   ],
   "samsung-tv-iptv": [
@@ -602,6 +586,7 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/players/iptv-smarters", label: "Smarters Player Lite on tvOS" },
     { href: "/guides/m3u-vs-xtream-codes", label: "Choose M3U or Xtream Codes" },
     { href: "/help/iptv-login-not-working", label: "Troubleshoot Apple TV login errors" },
+    { href: "/devices/iphone-iptv", label: "Set up the same player on iPhone and iPad" },
     { href: "/iptv-free-trial", label: "Test Apple TV with 24-hour trial" },
   ],
   "chromecast-iptv": [
@@ -638,6 +623,7 @@ const DEVICE_NEXT_STEPS: Record<string, SetupLink[]> = {
     { href: "/players/iptv-smarters", label: "IPTV Smarters for macOS" },
     { href: "/guides/m3u-vs-xtream-codes", label: "Choose M3U or Xtream Codes" },
     { href: "/help/iptv-login-not-working", label: "Resolve macOS player login errors" },
+    { href: "/devices/iphone-iptv", label: "IPTV on iPhone and iPad" },
     { href: "/iptv-free-trial", label: "Test on Mac with a free trial" },
   ],
 };
@@ -728,6 +714,12 @@ export default async function HowToPage({ params }: Props) {
               <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                 {description}
               </p>
+              {/* Phones: the header "Start free trial" button is hidden below sm, so offer it here above the fold. */}
+              <div className="mt-5 sm:hidden">
+                <Button asChild size="lg" className="w-full">
+                  <Link href="/iptv-free-trial">Start the free 24-hour trial</Link>
+                </Button>
+              </div>
 
               {/* Informational Specs Rail */}
               {(() => {

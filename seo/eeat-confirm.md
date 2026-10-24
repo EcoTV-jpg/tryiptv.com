@@ -13,7 +13,8 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 - An invented address, author or licence is rated "Lowest" by Google's rater guidelines (§4.5.3). It is worse than leaving the fact out.
 
 ## Company and About page (`COMPANY` in company.ts)
-1. ✅ **Answered 2026-10-21:** Simo Alaoui LLC. → `legalName`
+1. ✅ **Answered 2026-10-21, restored 2026-10-23:** Simo Alaoui LLC. "Karim Adeyemi" (owner-supplied 2026-10-23, not independently verified) is not used as the legal entity. → `legalName`
+    - ⚠️ **Open:** registration number 8683949 (New York Department of State) is still hidden. Show it again only if the owner asks.
 2. ✅ **Answered 2026-10-21:** 8683949, New York Department of State. (The registry's Albany address is not TryIPTV's address and is not published as one.) → `registrationNumber`, `registry`
 3. **VAT or tax ID**, if you want it published. Google lists vatID as a trust signal. → `vatOrTaxId`
 4. **Registered or postal address**, if it should be published. It must be real; never a virtual or invented address. → `address`
@@ -28,8 +29,8 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 11. **Support languages.** → `support.languages`
 12. **Contact form email delivery.** The form sends through Resend from `onboarding@resend.dev`, Resend's test sender. Resend generally only delivers mail from that address to the Resend account owner's own inbox. Should it send from a verified `@tryiptv.com` address instead? That needs DNS records in Resend and Cloudflare. *Not changed.*
 13. **Does `care@tryiptv.com` exist and get read?** Since 2026-10-20 it is the DMCA address on `/dmca-report` and `/about` (it replaced `dmca@tryiptv.com`, using the owner-supplied DMCA text).
-    - **Counter-notice jurisdiction:** the DMCA page says "consent to the jurisdiction of Canadian courts", which was kept from the supplied text. Confirm this matches the governing law (question 23). Under 17 U.S.C. 512(g)(3)(D) the consent is normally to the US federal district court for the subscriber's address, or, outside the US, any district where the provider may be found.
-14. **Is the WhatsApp number +1 (520) 564-8298 the permanent support line?** It is now shown as text on the contact page and in the Organization schema `contactPoint` URL.
+    - ✅ **Counter-notice jurisdiction (fixed 2026-10-23):** the DMCA page now uses the 17 U.S.C. 512(g)(3)(D) wording instead of "Canadian courts".
+14. ✅ **Answered 2026-10-23:** WhatsApp links open wa.me/212694833293 (the number; a short-lived wa.me/tryiptvcom username link was reverted the same day) and the displayed number is +212 694-833293 (replacing +1 (520) 564-8298). *Earlier question:* **Is the WhatsApp number the permanent support line?** It is now shown as text on the contact page and in the Organization schema `contactPoint` URL.
 
 ## Content licensing (`LICENSING`; the page stays hidden until a line is confirmed)
 15. **Do you hold distribution agreements or licences** for the channels and films you stream? If yes, with whom (rights holders, aggregators or distributors), and for which territories?
@@ -45,9 +46,9 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 21. **4K:** which channels or titles are actually 4K? The site now says "HD and 4K streams where available". Confirm that this is accurate.
 
 ## Policies
-22. ◐ **Entity answered 2026-10-21:** Simo Alaoui LLC (Terms §17 now names it). Still open: registered address, if it should be published. → `address`
+22. ◐ **Entity answered 2026-10-21:** Simo Alaoui LLC (Terms §17 names it). Still open: registered address, if it should be published. → `address`
 23. ✅ **Answered 2026-10-21:** laws of the State of New York, without regard to conflict-of-law principles; exclusive jurisdiction of the state and federal courts located in New York. Shown verbatim in Terms §17. → `governingLaw`
-24. ◐ **Answered in part 2026-10-21:** the policy now names Simo Alaoui LLC (New York, United States) as responsible for the data. Still open: postal address for privacy requests, if required.
+24. ◐ **Answered in part 2026-10-21:** the policy names Simo Alaoui LLC (New York, United States) as responsible for the data. Still open: postal address for privacy requests, if required.
 25. **Privacy:** how long do you keep support messages, order records and trial requests before deleting them?
 26. **Privacy:** are the processors listed correct and complete? Listed: Vercel, Cloudflare (CDN and Turnstile), Resend, WhatsApp, Google Analytics and Sentry. Do you also use a CRM, a billing panel or an email provider for credentials?
 27. **DMCA:** name and postal address of your designated agent, and is that agent registered with the U.S. Copyright Office? Safe-harbour protection under 17 U.S.C. 512 requires registration. → `dmcaAgent`
@@ -81,7 +82,7 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 
 ## Off-site, highest impact (no code)
 39. Do you have a **Trustpilot** (or BBB) profile? If yes, which URL? It can be added to `sameAs` once it has genuine reviews. Never buy or incentivise reviews without disclosure.
-40. Are the social profiles in `sameAs` (x.com/tryiptv, instagram.com/tryiptvofficial, facebook.com/tryiptv) active and owned by you?
+40. ✅ **Answered 2026-10-24 (owner-confirmed):** x.com/tryiptv, instagram.com/tryiptvofficial and facebook.com/tryiptvofficial are the owner's accounts (the old facebook.com/tryiptv link was replaced). → `socials.ts`, `sameAs`
 
 ## Brand entity (added on the `brand` branch)
 41. ✅ **Answered 2026-10-21:** press@tryiptv.com; media contact Simo Alaoui, Founder / Operations. Shown on /press and as a `press` ContactPoint in the Organization schema. → `support.pressEmail`, `support.mediaContact`
@@ -113,8 +114,8 @@ Answer each question in `src/lib/site-data/company.ts` or `src/lib/site-data/aut
 The supplied text came from iptvv.ca and described that company's product. Prices (CAD $19/$29/$49/$79, one device), payment (Interac e-Transfer), delivery (email in 1–2 hours) and trial checkout (add-to-cart, login by email) were replaced with TryIPTV's facts: USD $16/$39/$60/$90, 2 connections, crypto/PayPal/Stripe, trial and login on WhatsApp in 5–15 minutes. The Canada-only items (Canadian channels, ISED link) were dropped.
 57. **"Full access, nothing locked":** does the trial open the complete channel list and on-demand library, at the same quality as paid plans? And how many connections does a trial get? The page currently says "connection limit confirmed when your login is issued". If the trial is truly identical, the H1 can go back to "24 Hours of Full Access" and the FAQ can say so.
 58. **"24/7 support" and "99.9% server uptime":** both were left off. 24/7 needs the real support hours (question 9); a 99.9% figure needs monitoring data (question 35).
-59. **Catch-up TV:** the supplied text listed "Smart EPG and catch-up". Is catch-up (replay) available on TryIPTV? Until confirmed the page only mentions the TV guide.
-60. **Target market:** the supplied text was written for Canada. Is TryIPTV aimed at a particular country? The site currently prices in USD and speaks to an international audience.
+59. ✅ **Answered 2026-10-24 (owner-confirmed):** catch-up TV is available, and PPV events are included. → `PRODUCT_TRUTHS.catchUpTv`, `ppvEvents`
+60. ✅ **Answered 2026-10-24 (owner-confirmed):** the service is for the USA, UK and more ("USA, UK & More" in the homepage H1). Prices stay in USD. → `PRODUCT_TRUTHS.markets`
 
 ## Pricing page (owner-supplied text, added 2026-10-20)
 Same source as the trial page. Replaced with TryIPTV facts: CAD prices and the 1–4 device tabs (TryIPTV has one price list with 2 connections), Interac e-Transfer and the order-number memo (now a crypto payment note), email login in 1–2 hours (now WhatsApp, 5–15 minutes). Left out: "High Performance Server", 99.9% uptime, 24/7 Canadian support, "taxes calculated by province".

@@ -3,7 +3,7 @@ import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { PAGE_LAST_MODIFIED, formatLegalDate } from "@/lib/site-data/page-modifications";
@@ -81,7 +81,7 @@ export default function DmcaReportPage() {
 
   return (
     <>
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema path="/dmca-report" name="DMCA Notice & Copyright Policy: Report Infringement" type="WebPage" nodes={[breadcrumbSchema]} />
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />
@@ -185,7 +185,7 @@ export default function DmcaReportPage() {
                 <li>Your name, address, phone number, and email address</li>
                 <li>Identification of the material that was removed or disabled</li>
                 <li>A statement under penalty of perjury that you have a good faith belief the material was removed in error</li>
-                <li>Your consent to the jurisdiction of Canadian courts</li>
+                <li>A statement that you consent to the jurisdiction of the federal district court for the judicial district in which your address is located or, if your address is outside the United States, any judicial district in which TryIPTV may be found, and that you will accept service of process from the person who submitted the original notice or their agent</li>
                 <li>Your physical or electronic signature</li>
               </ul>
             </section>

@@ -5,7 +5,7 @@ import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { formatLegalDate } from "@/lib/site-data/page-modifications";
 import { plans } from "@/lib/site-data/pricing";
@@ -27,7 +27,7 @@ const title = "About Us: Best IPTV Service, Trial & Support | TryIPTV";
 const description =
   "Learn who runs TryIPTV, how the prepaid IPTV service works, what plans and the 24-hour free trial include, and how to reach support or request a refund.";
 const canonical = "/about";
-const whatsappUrl = `https://wa.me/${siteConfig.links.whatsapp.replace(/\D/g, "")}`;
+const whatsappUrl = COMPANY.support.whatsappUrl;
 
 export function generateMetadata(): Metadata {
   return { ...generatePageMetadata({ title, description, canonical }), title: { absolute: title } };
@@ -121,7 +121,7 @@ const schema = {
 export default function AboutPage() {
   return (
     <>
-      <Schema id="about" schema={schema} />
+      <PageSchema path="/about" nodes={[schema]} keep={["FAQPage"]} />
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <Container className="relative text-center">
@@ -241,7 +241,7 @@ export default function AboutPage() {
                     {plans.map((plan) => (
                       <tr key={plan.id}>
                         <th scope="row" className="px-5 py-3 font-semibold text-foreground">{plan.name}</th>
-                        <td className="px-5 py-3">${plan.price}</td>
+                        <td className="px-5 py-3">${plan.price.toFixed(2)}</td>
                       </tr>
                     ))}
                   </tbody>

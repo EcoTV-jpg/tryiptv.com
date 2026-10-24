@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { blurProps } from "@/lib/image-blur";
 import Link from "next/link";
 import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Confirm } from "@/components/shared/Confirm";
 import { AUTHORS } from "@/lib/site-data/authors";
 import { generateBreadcrumbSchema } from "@/lib/schema";
@@ -55,7 +56,7 @@ export default function PressPage() {
     ["Tagline", BRAND.tagline],
     ["Website", <a key="w" href={base} className={link}>www.tryiptv.com</a>],
     ["What it is", "A prepaid IPTV service: live TV and on-demand video, watched on the customer's own devices through compatible IPTV player apps. TryIPTV does not make the player apps."],
-    ["Catalogue", `${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, as listed by the service`],
+    ["Catalogue", `${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows`],
     ["Plans", `${FACT_TEXT.priceList}; prepaid, no automatic renewal`],
     ["Connections", `${PRODUCT_TRUTHS.connections} simultaneous streams on every plan`],
     ["Free trial", `${FACT_TEXT.trialHours} hours, $0, no credit card`],
@@ -69,7 +70,7 @@ export default function PressPage() {
 
   return (
     <>
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema path="/press" name={title} description={description} nodes={[breadcrumbSchema]} />
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />
         <Container className="relative text-center">
@@ -143,7 +144,7 @@ export default function PressPage() {
                 {screenshots.map((s) => (
                   <li key={s.src}>
                     <a href={s.src} download className="block overflow-hidden rounded-lg border border-white/[0.07]">
-                      <Image src={s.src} alt={s.alt} width={640} height={360} className="h-auto w-full" sizes="(min-width: 640px) 352px, 100vw" />
+                      <Image src={s.src} alt={s.alt} width={640} height={360} className="h-auto w-full" sizes="(min-width: 640px) 352px, 100vw" {...blurProps(s.src)} />
                     </a>
                     <p className="mt-2 text-sm">{s.caption}</p>
                   </li>

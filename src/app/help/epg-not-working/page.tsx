@@ -24,7 +24,7 @@ import {
 import { FaqList } from "@/components/sections/FAQ";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { Container } from "@/components/shared/Container";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Section } from "@/components/shared/Section";
 import { Button } from "@/components/ui/button";
 import {
@@ -34,7 +34,6 @@ import {
 import {
   generateArticleSchema,
   generateBreadcrumbSchema,
-  generateFAQPageSchema,
 } from "@/lib/schema";
 import { SITE_URL, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 
@@ -110,14 +109,11 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "EPG Troubleshooting", item: `${SITE_URL}${canonical}` },
 ]);
 
-const faqSchema = generateFAQPageSchema(faqs);
 
 export default function EpgNotWorkingPage() {
   return (
     <>
-      <Schema id="article" schema={articleSchema} />
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <PageSchema nodes={[articleSchema, breadcrumbSchema]} />
 
       {/* Hero Header */}
       <Section className="border-b border-white/[0.07] pt-10 pb-14 sm:pt-14 sm:pb-20">

@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CirclePlay } from "lucide-react";
 
+import heroImage from "../../../public/images/best-iptv-service.png";
+
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
 
@@ -9,7 +11,7 @@ const HERO_FACTS = [
   { value: "25,000+", label: "Live Channels" },
   { value: "120,000+", label: "Movies & TV Shows" },
   { value: "2", label: "Simultaneous Connections" },
-  { value: "From $16", label: "Starting Price" },
+  { value: "From $15.82", label: "Starting Price" },
 ] as const;
 
 export function Hero() {
@@ -52,7 +54,7 @@ export function Hero() {
             </div>
 
             <p className="mt-4 text-[12.5px] font-medium text-muted-foreground">
-              Plans from $16 • Prepaid • No auto-renewal
+              Plans from $15.82 • Prepaid • No auto-renewal
             </p>
           </div>
 
@@ -61,10 +63,10 @@ export function Hero() {
             <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
               <div className="relative overflow-hidden rounded-2xl border border-white/[0.07] bg-card">
                 <Image
-                  src="/images/best-iptv-service.png"
+                  src={heroImage}
                   alt="Couple watching TV with TryIPTV streaming service"
-                  width={1024}
-                  height={682}
+                  // Static import: width, height and blurDataURL come from the file at build time.
+                  placeholder="blur"
                   // LCP image: Next 16 docs recommend eager + high fetch priority over `preload`
                   // (preload alone was fetched at Low priority).
                   loading="eager"

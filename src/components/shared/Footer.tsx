@@ -110,7 +110,7 @@ export function Footer() {
                 }}
               />
               <a
-                href="https://wa.me/15205648298"
+                href="https://wa.me/212694833293"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group/wa inline-flex min-h-11 items-center gap-2 py-1 font-medium pointer-fine:min-h-0 text-muted-foreground/90 transition-colors hover:text-primary"
@@ -125,9 +125,9 @@ export function Footer() {
 
           {/* Explore */}
           <div className="lg:col-span-2">
-            <h3 className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
               Explore
-            </h3>
+            </p>
             <ul className="space-y-0.5">
               {footerLinks.quickLinks.map((link) => (
                 <li key={link.name}>
@@ -144,9 +144,9 @@ export function Footer() {
 
           {/* Device Guides */}
           <div className="lg:col-span-2">
-            <h3 className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
               Device Guides
-            </h3>
+            </p>
             <ul className="space-y-0.5">
               {footerLinks.supportedLinks.map((link) => (
                 <li key={link.name}>
@@ -163,9 +163,9 @@ export function Footer() {
 
           {/* Legal & Trust */}
           <div className="lg:col-span-2">
-            <h3 className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
               Legal &amp; Trust
-            </h3>
+            </p>
             <ul className="space-y-0.5">
               {footerLinks.legalLinks.map((link) => (
                 <li key={link.name}>
@@ -182,9 +182,9 @@ export function Footer() {
 
           {/* Support & Social */}
           <div className="lg:col-span-2">
-            <h3 className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <p className="mb-2.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
               Social
-            </h3>
+            </p>
             <ul className="flex flex-wrap gap-1.5" aria-label="TryIPTV social links">
               {socialFooterLinks.map((link) => (
                 <li key={link.name}>

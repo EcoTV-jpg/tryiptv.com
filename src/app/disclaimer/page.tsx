@@ -4,11 +4,12 @@ import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { Button } from "@/components/ui/button";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { PAGE_LAST_MODIFIED, formatLegalDate } from "@/lib/site-data/page-modifications";
+import { COMPANY } from "@/lib/site-data/company";
 
 export function generateMetadata(): Metadata {
   return generatePageMetadata({
@@ -42,7 +43,7 @@ export default function DisclaimerPage() {
 
   return (
     <>
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema path="/disclaimer" name="Legal Disclaimer: IPTV Use, Trademarks & Copyright" type="WebPage" nodes={[breadcrumbSchema]} />
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />
@@ -76,13 +77,11 @@ export default function DisclaimerPage() {
             <section className="space-y-3">
               <h2 id="general-notice" className={h2}>General Disclaimer</h2>
               <p>
-                At TryIPTV, we are committed to providing access to legal IPTV services in compliance with applicable laws. IPTV (Internet
-                Protocol Television) is a lawful technology used to deliver television content over IP networks, similar to other mainstream
+                IPTV (Internet Protocol Television) is a lawful technology used to deliver television content over IP networks, similar to other mainstream
                 streaming services.
               </p>
               <p>
-                We do not host, stream, or rebroadcast television channels, movies, or shows on our own servers. We provide access credentials to
-                third-party IPTV service providers, allowing users to access services made available through those providers.
+                We do not host, stream, or rebroadcast television channels, movies, or shows on our own servers. {COMPANY.businessModel}
               </p>
               <p className={callout}>
                 <strong className="text-foreground">Important:</strong> Use of any IPTV service must always comply with the laws and regulations

@@ -9,47 +9,57 @@ import { CustomerFeedback } from "@/components/sections/CustomerFeedback";
 import { CTA } from "@/components/sections/CTA";
 
 const FAQ = dynamic(() => import("@/components/sections/FAQ").then((mod) => mod.FAQ));
-import { getHomePageData } from "@/lib/data/home-page";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
+
+const title = "Best IPTV Service 2026 | 24-Hour Free Trial | TryIPTV";
+const description =
+  "TryIPTV offers 25,000+ live channels and 120,000+ movies & TV shows, 2 connections, IPTV plans with no auto-renewal, and a 24-hour free trial.";
+const ogDescription =
+  "Stream 25,000+ live channels and 120,000+ movies & TV shows with TryIPTV. Get 2 connections, prepaid plans, and a 24-hour free trial.";
+const twitterDescription =
+  "25,000+ live channels, 120,000+ movies & TV shows, 2 connections, prepaid plans, and a 24-hour free trial.";
 
 export function generateMetadata(): Metadata {
   const baseMetadata = generatePageMetadata({
-    title: "TryIPTV — Best IPTV Service for the USA, UK & More",
-    description: "Best IPTV service with 25,000+ live channels, sports, and 120,000+ movies and TV shows. 2 connections included. Plans from $16 and a free 24h trial.",
+    title,
+    description,
     canonical: "/",
-    image: "https://www.tryiptv.com/images/best-iptv-service.png",
+    image: "https://www.tryiptv.com/images/best-iptv-service-og.jpg",
   });
 
   return {
     ...baseMetadata,
+    title: { absolute: title },
     openGraph: {
       ...baseMetadata.openGraph,
+      description: ogDescription,
       images: [
         {
-          url: "https://www.tryiptv.com/images/best-iptv-service.png",
+          url: "https://www.tryiptv.com/images/best-iptv-service-og.jpg",
+          // 1.91:1 share crop of the hero, 61 KB: WhatsApp skips link previews for images over ~300 KB,
+          // and the 711 KB hero PNG was too large.
           width: 1024,
-          height: 682,
+          height: 536,
           alt: "Couple watching TV with TryIPTV streaming service",
         },
       ],
     },
     twitter: {
       ...baseMetadata.twitter,
-      images: ["https://www.tryiptv.com/images/best-iptv-service.png"],
+      description: twitterDescription,
+      images: ["https://www.tryiptv.com/images/best-iptv-service-og.jpg"],
     },
   };
 }
 
 export default function Home() {
-  const { productSchema } = getHomePageData();
-
   return (
     <>
-      <Schema id="product" schema={productSchema} />
+      <PageSchema path="/" name={title} description={description} nodes={[]} />
       <Hero />
-      <WhyChooseTryIPTV />
       <HomePricing />
+      <WhyChooseTryIPTV />
       <HowItWorks />
       <Devices />
       <CustomerFeedback />

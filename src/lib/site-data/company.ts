@@ -16,10 +16,13 @@ export const SHOW_CONFIRM_MARKERS = process.env.VERCEL_ENV !== "production";
 export const COMPANY = {
   /** Brand name, as used everywhere (Bing §16: one consistent entity name). */
   brand: "TryIPTV",
-  /** Confirmed by the owner 2026-10-21. */
+  /** Confirmed by the owner 2026-10-21. Restored 2026-10-23: "Karim Adeyemi" (owner-supplied, not independently verified) is not used as the legal entity. */
   legalName: "Simo Alaoui LLC" as string | null,
-  /** Confirmed 2026-10-21. Shown on /about and /press; the registry is not yet confirmed (`registry`). */
-  registrationNumber: "8683949" as string | null,
+  /**
+   * The number given on 2026-10-21, 8683949 (New York Department of State), was for "Simo Alaoui LLC".
+   * Still hidden: the owner has not asked for it to be shown again. eeat-confirm Q1.
+   */
+  registrationNumber: null as string | null,
   /** Confirmed 2026-10-21. (Its Albany address is the registry's own office, not TryIPTV's: never use it as `address`.) */
   registry: "New York Department of State" as string | null,
   vatOrTaxId: null as string | null,
@@ -29,6 +32,12 @@ export const COMPANY = {
   location: "New York, United States" as string | null,
   /** Region-level location for schema PostalAddress (no street address is published). */
   area: { region: "New York", country: "US" } as { region: string; country: string } | null,
+  /**
+   * What TryIPTV is, in one sentence used everywhere the business model is described
+   * (/disclaimer, llms.txt, llms-full.txt). Owner-confirmed 2026-10-21: TryIPTV sells its own
+   * subscriptions and issues the logins itself; it is not a player app.
+   */
+  businessModel: "We sell TryIPTV subscriptions and issue the login details ourselves; you watch through a compatible IPTV player app.",
   /** ISO year the service started, e.g. "2021". */
   /** Confirmed 2026-10-21. */
   foundingYear: "2021" as string | null,
@@ -49,8 +58,11 @@ export const COMPANY = {
   ] as { name: string; role: string; bio?: string }[],
   support: {
     email: "support@tryiptv.com",
-    whatsappDisplay: "+1 (520) 564-8298",
-    whatsappUrl: "https://wa.me/15205648298",
+    /** Owner-supplied 2026-10-23; replaces +1 (520) 564-8298. */
+    whatsappDisplay: "+212 694-833293",
+    /** Same number in E.164 form (no plus sign in the wa.me link). */
+    whatsappE164: "+212694833293",
+    whatsappUrl: "https://wa.me/212694833293",
     /** Owner-supplied 2026-10-20 (DMCA page text); confirm the inbox exists (eeat-confirm Q13). */
     dmcaEmail: "care@tryiptv.com",
     /** Confirmed 2026-10-21: same hours for WhatsApp and email. */

@@ -18,7 +18,16 @@ export const PRODUCT_TRUTHS = {
   /** The trial includes the same connections as a paid plan (owner-confirmed 2026-10-21). */
   trialConnections: "2 simultaneous connections, same as paid plans",
   activationTime: "5–15 minutes",
+  /** Owner-confirmed 2026-10-21: support runs 9:00 AM–10:00 PM ET daily; requests outside those hours are queued until support reopens. */
+  activationHours: "during support hours (9:00 AM–10:00 PM ET); requests sent outside those hours are answered when support reopens",
   billing: "Prepaid plans, no automatic renewal",
+  /**
+   * Owner-confirmed 2026-10-24: PPV events, catch-up TV and the USA/UK market are true claims.
+   * Shown on the homepage hero and the plan cards (HomePricing.tsx, pricing/page.tsx); do not flag or remove them.
+   */
+  ppvEvents: "Pay-Per-View (PPV) events included",
+  catchUpTv: "Catch-up TV with the Smart EPG (TV guide)",
+  markets: "USA, UK and more",
   /** Mirrors /refund-policy (owner-supplied 2026-10-20). Not an unconditional money-back guarantee. */
   refund: {
     /** No fixed refund window: refunds only when a working subscription can't be provided. */
@@ -29,7 +38,7 @@ export const PRODUCT_TRUTHS = {
   },
   support: {
     email: "support@tryiptv.com",
-    whatsapp: "+15205648298",
+    whatsapp: "+212694833293",
   },
   paymentMethods: [
     "Cryptocurrency",
@@ -37,10 +46,10 @@ export const PRODUCT_TRUTHS = {
     "Stripe",
   ] as const,
   plans: [
-    { duration: "1 Month", price: 16.00, monthlyEquivalent: 16.00 },
-    { duration: "3 Months", price: 39.00, monthlyEquivalent: 13.00 },
-    { duration: "6 Months", price: 60.00, monthlyEquivalent: 10.00 },
-    { duration: "12 Months", price: 90.00, monthlyEquivalent: 7.50 },
+    { duration: "1 Month", price: 15.82, monthlyEquivalent: 15.82 },
+    { duration: "3 Months", price: 38.30, monthlyEquivalent: 12.77 },
+    { duration: "6 Months", price: 59.15, monthlyEquivalent: 9.86 },
+    { duration: "12 Months", price: 88.23, monthlyEquivalent: 7.35 },
   ],
 } as const;
 
@@ -48,7 +57,7 @@ const usd = (n: number) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
 
 /** Ready-made phrases built from PRODUCT_TRUTHS, for copy that states prices or limits. */
 export const FACT_TEXT = {
-  /** "$16 for 1 month, $39 for 3 months, $60 for 6 months, or $90 for 12 months" */
+  /** "$15.82 for 1 month, $38.30 for 3 months, $59.15 for 6 months, or $88.23 for 12 months" */
   priceList: PRODUCT_TRUTHS.plans
     .map((p, i, all) => `${i === all.length - 1 ? "or " : ""}${usd(p.price)} for ${p.duration.toLowerCase()}`)
     .join(", "),
@@ -62,10 +71,10 @@ export const siteConfig = {
   url: SITE_URL,
   ogImage: "/api/og",
   // Canonical two-sentence brand description (reused by BRAND in site-data/brand.ts, schema, manifest, llms.txt).
-  description: `TryIPTV is a prepaid IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, watched on your own devices through compatible IPTV player apps. Plans start at $${PRODUCT_TRUTHS.plans[0].price.toFixed(0)} with ${PRODUCT_TRUTHS.connections} connections, no automatic renewal and a 24-hour free trial.`,
+  description: `TryIPTV is a prepaid IPTV service with ${PRODUCT_TRUTHS.channels} live channels and ${PRODUCT_TRUTHS.vod} movies and TV shows, watched on your own devices through compatible IPTV player apps. Plans start at ${FACT_TEXT.fromPrice} with ${PRODUCT_TRUTHS.connections} connections, no automatic renewal and a 24-hour free trial.`,
   links: {
     email: "support@tryiptv.com",
-    whatsapp: "+15205648298",
+    whatsapp: "+212694833293",
   },
 } as const;
 

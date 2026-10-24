@@ -5,7 +5,7 @@ import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
-import { Schema } from "@/components/shared/Schema";
+import { PageSchema } from "@/components/shared/Schema";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { siteConfig, generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { PAGE_LAST_MODIFIED, formatLegalDate } from "@/lib/site-data/page-modifications";
@@ -66,7 +66,7 @@ export default function PrivacyPolicyPage() {
 
   return (
     <>
-      <Schema id="breadcrumb" schema={breadcrumbSchema} />
+      <PageSchema path="/privacy-policy" name="Privacy Policy: How TryIPTV Collects & Protects Data" type="WebPage" nodes={[breadcrumbSchema]} />
 
       <Section className="relative overflow-hidden border-b border-white/[0.07] pt-12 pb-14 sm:pt-16 sm:pb-20">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />
